@@ -11,8 +11,80 @@
   </head>
 
   <body>
+    <header class="header-container">
+      <div class="header__inner">
+        <div class="mobile-menu-container">
+          <button class="search-button">
+            <svg class="icon" width="25" height="25">
+               <use href="./images/sprite.svg#icon-search_icon"></use>
+             </svg>
+          </button>
 
-  <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
+          <a href="" class="logo">LOGO</a>
+
+      
+          <button type="button" class="menu-button" aria-label="Переключатель мобильного меню" aria-expanded="false" data-menu-button>
+            <svg class="icon" width="24" height="24">
+              <use class="icon-cross" href="./images/sprite.svg#icon-close_icon"></use>
+              <use class="icon-menu" href="./images/sprite.svg#icon-menu-burger"></use>
+            </svg>
+          </button>
+
+          <div class="user__button-container">
+            <button type="button" class="user__button">Реєстрація / Увійти</button>
+            <button type="button" class="user__button">Створити оголошення!</button>
+          </div>
+       </div>
+    
+         <div class="filter__container">
+             <ul class="filter__inner">
+
+                 <li class="filter__item"> 
+                   <button class="filter__button">Нерухомість</button>
+                  </li>
+
+                 <li class="filter__item"> 
+                   <button class="filter__button">Транспорт</button> 
+                  </li>
+
+                 <li class="filter__item"> 
+                   <button class="filter__button">Робота</button> 
+                  </li>
+
+                 <li class="filter__item"> 
+                   <button class="filter__button">Електроніка</button> 
+                </li>
+
+                 <li class="filter__item"> 
+                   <button class="filter__button">Бізнес та послуги</button> 
+                </li>
+
+                 <li class="filter__item"> 
+                   <button class="filter__button">Відпочинок і спорт</button> 
+                </li>
+
+                 <li class="filter__item"> 
+                   <button class="filter__button">Віддам безкоштовно</button> 
+                </li>
+
+                 <li class="filter__item"> 
+                   <button class="filter__button">Обмін</button> 
+                </li>
+             </ul>
+
+             <button class="filter__button-clear" type="reset">
+              Очистити фільтри
+             </button>
+
+         </div>
+
+      </div>
+      
+
+
+    </header>
+ 
+    <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
   <!--<include src="./partials/header.html"></include>-->
   
   <main>
@@ -21,10 +93,7 @@
       <include src="./partials/section-3.html"></include>
       <include src="./partials/footer.html"></include>-->
   </main>
-  
-  
 
-    
     <article class="intro">
       <!-- <img src="./images/OLX.jpg" alt="" width="640" /> -->
     </article>
