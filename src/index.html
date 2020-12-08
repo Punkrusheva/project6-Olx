@@ -83,30 +83,54 @@
 
 
     </header>
- 
-    <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
-  <!--<include src="./partials/header.html"></include>-->
-  
-  <main>
-  <!--<include src="./partials/section-1.html"></include>
-      <include src="./partials/section-2.html"></include>
-      <include src="./partials/section-3.html"></include>
-      <include src="./partials/footer.html"></include>-->
-  </main>
-
-    <article class="intro">
-      <!-- <img src="./images/OLX.jpg" alt="" width="640" /> -->
-    </article>
 
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
     <main>
     <include src=""></include>
 
-    <include src="./partials/_section"></include> 
+    <!-- <include src="./partials/_section"></include>  -->
+    <section class="section">
+      <div class="main-container">
+        <div class="categories">
+          <div class="categories-title">
+            <h2 class="section-title">РОЗПРОДАЖ РІЗНЕ</h2>
+            <p class="section-text">Дивитися всі</p>
+          </div>
+          <ul class="product-card-group">
+            <li class="product-card">
+              <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+              <div class="product-content">
+                <h3 class="product-name">Наименование карточки</h3>
+                <p class="product-price">Цена грн</p>
+              </div>
+            </li>
+            <li class="product-card">
+              <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+              <div class="product-content">
+                <h3 class="product-name">Наименование карточки</h3>
+                <p class="product-price">Цена грн</p>
+              </div>
+            </li>
+            <li class="product-card">
+              <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+              <div class="product-content">
+                <h3 class="product-name">Наименование карточки</h3>
+                <p class="product-price">Цена грн</p>
+              </div>
+            <li class="product-card">
+              <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+              <div class="product-content">
+                <h3 class="product-name">Наименование карточки</h3>
+                <p class="product-price">Цена грн</p>
+              </div>
+          </ul>
     
+        </div>
+    </section>
+
     </main>
 
-    <section class="footer container">
+    <footer class="footer container">
       <div class="copyright">
         <svg class="copyright-svg" width="18" height="18">
           <use href="./images/sprite.svg#icon-copyright"></use>
@@ -119,7 +143,7 @@
         <use href="./images/sprite.svg#icon-love-icon"></use>
       </svg>
       <p>by GoIT Students</p>
-    </section>
+    </footer>
 
   </body>
 </html>
