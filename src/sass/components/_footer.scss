@@ -1,36 +1,46 @@
 p {
   margin: 0px;
   padding: 0px;
+  padding-top: 2px;
 }
-
-.container {
-  width: 1000px;
-  margin: 0px;
-  display: flex;
-  @media screen and (max-width: $before-tablet) {
-    flex-wrap: wrap;
-    padding: 38px 65px 39px 15px;
-    height: 121px;
-  }
-}
-
 .footer {
-  width: 100%;
   margin: 0px;
-  outline: 1px solid tomato;
 
+  display: flex;
+  flex-wrap: wrap;
   position: absolute;
+  height: 121px;
+  padding: 38px 65px 39px 15px;
 
-  font-family: Montserrat;
+  font-family: $font-family;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 15px;
   /* identical to box height */
-
   letter-spacing: 0.03em;
+  color: $primary-color;
+  background: $white-text;
 
-  color: #000000;
+  @media screen and (min-width: $mobile) {
+    max-width: $mobile;
+    width: 100%;
+  }
+
+  @media screen and (min-width: $tablet) {
+    max-width: $desktop;
+    width: 100%;
+    justify-content: center;
+    height: 81px;
+    padding: 0;
+    padding-top: 34px;
+    padding-bottom: 34px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    max-width: $desktop;
+    width: 100%;
+  }
 }
 
 .copyright {
@@ -48,9 +58,9 @@ p {
     width: 0px;
     height: 20px;
     content: '';
-    border: 1px solid #e2e3e5;
-    background: #e2e3e5;
-    left: 40px;
+    border-right: 1px solid $background-color;
+    top: -1px;
+    left: 43px;
   }
 }
 
@@ -60,42 +70,19 @@ p {
 }
 
 @media screen and (min-width: $tablet) {
-  .container {
-    outline: 1px solid rgb(71, 255, 86);
-    flex-wrap: nowrap;
-    height: 83px;
-    justify-content: center;
-    padding-top: 34px;
-    padding-bottom: 34px;
-  }
   .copyright-text {
     position: relative;
-    margin-right: 19px;
-  }
-  .copyright-text::after {
-    position: absolute;
-    width: 0px;
-    height: 20px;
-    content: '';
-    border: 1px solid #e2e3e5;
-    background: #e2e3e5;
-    left: 132px;
-  }
-}
-/*
-@media screen and (min-width: $desktop) {
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  &-list {
-    margin-right: 0;
-    width: calc((100% - 30px * 2) / 3);
-    margin-right: 30px;
+    padding-left: 5px;
+    padding-right: 18px;
 
-    &:last-child {
-      margin-right: 0px;
+    &::after {
+      position: absolute;
+      width: 0px;
+      height: 20px;
+      content: '';
+      border-right: 1px solid $background-color;
+      top: -1px;
+      left: 123px;
     }
   }
 }
-*/
