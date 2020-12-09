@@ -1,8 +1,17 @@
-const BASE_URL = 'https://callboard-backend.herokuapp.com';
+export const BASE_URL = 'https://callboard-backend.herokuapp.com';
 
 //бяка какя-то
-// export const registerUser = userData => {
-//     const {email, password } = userData;
+
+function addregisterUser() {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(dataRegistry),
+    };
   
-//     return fetch(`${BASE_URL}/auth/register`, { name, email, password }).then(res => res.json());
-//   }
+    const response = await fetch(`${url}auth/register`,options);
+  const responseJson = await response.json();
+  return responseJson
+  }
