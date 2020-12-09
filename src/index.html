@@ -13,7 +13,7 @@
   <body>
     <header class="header-container">
       <div class="header__inner">
-        <div class="mobile-menu-container">
+        <div class="header__mobile-container">
           <button class="search-button">
             <svg class="icon" width="25" height="25">
                <use href="./images/sprite.svg#icon-search_icon"></use>
@@ -22,56 +22,73 @@
 
           <a href="" class="logo">LOGO</a>
 
-      
-          <button type="button" class="menu-button" aria-label="Переключатель мобильного меню" aria-expanded="false" data-menu-button>
+          <button type="button" class="menu-button open" aria-label="Переключатель мобильного меню" aria-expanded="false" data-menu-open>
             <svg class="icon" width="24" height="24">
-              <use class="icon-cross" href="./images/sprite.svg#icon-close_icon"></use>
               <use class="icon-menu" href="./images/sprite.svg#icon-menu-burger"></use>
             </svg>
           </button>
 
           <div class="user__button-container">
-            <button type="button" class="user__button">Реєстрація / Увійти</button>
-            <button type="button" class="user__button">Створити оголошення!</button>
+            <button type="button" class="user__button authorization">Реєстрація / Увійти</button>
+            <button type="button" class="user__button advertisement">Створити оголошення!</button>
           </div>
        </div>
     
          <div class="filter__container">
-             <ul class="filter__inner">
+           <div class="backdrop" data-backdrop>
+            <div class="mobile__menu-container is-open">
 
-                 <li class="filter__item"> 
-                   <button class="filter__button">Нерухомість</button>
-                  </li>
+              <button type="button" class="menu-button close" aria-label="Переключатель мобильного меню" aria-expanded="false" data-menu-close>
+                <svg class="icon" width="24" height="24">
+                  <use class="icon-cross" href="./images/sprite.svg#icon-close_icon"></use>
+                </svg>
+              </button>
 
-                 <li class="filter__item"> 
-                   <button class="filter__button">Транспорт</button> 
-                  </li>
 
-                 <li class="filter__item"> 
-                   <button class="filter__button">Робота</button> 
-                  </li>
+              <ul class="filter__inner">
 
-                 <li class="filter__item"> 
-                   <button class="filter__button">Електроніка</button> 
+                <li class="user__button-mobile">
+                  <button type="button" class="user__button mobile">Реєстрація / Увійти</button>
                 </li>
 
-                 <li class="filter__item"> 
-                   <button class="filter__button">Бізнес та послуги</button> 
-                </li>
+                <li class="filter__item"> 
+                  <button class="filter__button">Нерухомість</button>
+                 </li>
 
-                 <li class="filter__item"> 
-                   <button class="filter__button">Відпочинок і спорт</button> 
-                </li>
+                <li class="filter__item"> 
+                  <button class="filter__button">Транспорт</button> 
+                 </li>
 
-                 <li class="filter__item"> 
-                   <button class="filter__button">Віддам безкоштовно</button> 
-                </li>
+                <li class="filter__item"> 
+                  <button class="filter__button">Робота</button> 
+                 </li>
 
-                 <li class="filter__item"> 
-                   <button class="filter__button">Обмін</button> 
-                </li>
-             </ul>
+                <li class="filter__item"> 
+                  <button class="filter__button">Електроніка</button> 
+               </li>
 
+                <li class="filter__item"> 
+                  <button class="filter__button">Бізнес та послуги</button> 
+               </li>
+
+                <li class="filter__item"> 
+                  <button class="filter__button">Відпочинок і спорт</button> 
+               </li>
+
+                <li class="filter__item"> 
+                  <button class="filter__button">Віддам безкоштовно</button> 
+               </li>
+
+                <li class="filter__item"> 
+                  <button class="filter__button">Обмін</button> 
+               </li>
+            </ul>
+
+             </div>
+           </div>
+             
+           
+             
              <button class="filter__button-clear" type="reset">
               Очистити фільтри
              </button>
@@ -83,14 +100,7 @@
 
 
     </header>
-
-    
-    <article class="intro">
-      <h1>project6-Olx</h1>
-      <!-- <img src="./images/OLX.jpg" alt="" width="640" /> -->
-    </article>
-
-    
+ 
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
   <!--<include src="./partials/header.html"></include>-->
   
@@ -102,8 +112,7 @@
   </main>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
     <main>
-    <include src=""></include>
-    
+
       <include src="./partials/section"></include> 
 
     <!-- <include src="./partials/section.html"></include> -->
@@ -241,8 +250,9 @@
 
     </section>
     <include src="./partials/header.html"></include>
+
     </main>
-    <section class="footer container">
+    <section class="footer">
       <div class="copyright">
         <svg class="copyright-svg" width="18" height="18">
           <use href="./images/sprite.svg#icon-copyright"></use>
