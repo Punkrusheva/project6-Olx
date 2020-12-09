@@ -1,10 +1,24 @@
-<ul>
+<ul class="product">
     {{#each this}}
     <li class="product-card">
-        <img class="product-img" src="./images/Rectangle 7.jpg" alt="" />
+        <a href="" class="product-image">
+            <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+            <div class="product-overlay">
+                <button class="product-card-icon product-card-icon-favorite">
+                    <svg class="icon" width="16" height="16">
+                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
+                    </svg>
+                </button>
+                <button class="product-card-icon product-card-icon-fullscreen">
+                    <svg class="icon" width="16" height="16">
+                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                    </svg>
+                </button>
+            </div>
+        </a>
         <div class="product-content">
-            <h3 class="product-name">Наименование</h3>
-            <p class="product-price">Цена</p>
+            <h3 class="product-name">Наименование карточки</h3>
+            <p class="product-price">Цена грн</p>
         </div>
     </li>
     {{/each}}
