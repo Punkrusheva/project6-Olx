@@ -14,7 +14,7 @@
     <header class="header-container">
       <div class="header__inner">
         <div class="header__mobile-container">
-          <button class="search-button">
+          <button class="search-button" data-search-open>
             <svg class="icon" width="25" height="25">
                <use href="./images/sprite.svg#icon-search_icon"></use>
              </svg>
@@ -29,7 +29,16 @@
           </button>
 
           <div class="user__button-container">
-            <button type="button" class="user__button authorization">Реєстрація / Увійти</button>
+            <!-- <div>
+              <button type="button"></button>
+              <button type="button"></button>
+            </div> -->
+            <button type="button" class="user__button authorization">
+              <span class="button__text">Реєстрація / Увійти</span>
+              <svg class="icon__account" width="24" height="24">
+                <use class="" href="./images/sprite.svg#icon-user-profile"></use>
+              </svg> 
+            </button>
             <button type="button" class="user__button advertisement">Створити оголошення!</button>
           </div>
        </div>
@@ -337,6 +346,25 @@
       <p>by <u>GoIT Students</u></p>
     
     </footer>
+
+<!-- Модалка поиска -->
+    <div data-search-modal class="search__backdrop is-hidden">
+      <div class="search__modal">
+        <button data-search-close class="search__close-button" aria-label="Закрыть">
+          <svg class="close-icon" width="24" height="24">
+             <use class="icon-cross" href="./images/sprite.svg#icon-close_icon"></use>
+          </svg>
+        </button>
+        <form class="search-form" id="search-form">
+          <input  class="search__input" type="text" name="query" autocomplete="off" placeholder="ПОШУК" />
+          <button class="search__submit" type="submit">
+              <svg class="icon" width="25" height="25">
+                  <use href="./images/sprite.svg#icon-search_icon"></use>
+                </svg>
+          </button>
+        </form>
+      </div>
+    </div>
 
   </body>
 </html>
