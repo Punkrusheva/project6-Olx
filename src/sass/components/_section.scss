@@ -30,6 +30,21 @@
   }
 }
 
+.categories {
+  @media screen and (max-width: $before-tablet) {
+    overflow: hidden;
+    height: 783px;
+  }
+  @media screen and (min-width: $tablet) {
+    overflow: hidden;
+    height: 500px;
+  }
+  @media screen and (min-width: $desktop) {
+    overflow: hidden;
+    height: 500px;
+  }
+}
+
 .categories-title {
   display: flex;
 
@@ -116,7 +131,7 @@
     margin-left: 370px;
   }
   @media screen and (min-width: $desktop) {
-    margin-left: 905px;
+    margin-left: 885px;
   }
 }
 
@@ -192,4 +207,27 @@
 .button-next-pages:focus {
   background-color: #000;
   color: #fff;
+}
+
+.icon-add-position {
+  position: relative;
+}
+
+.icon-add {
+  left: 240px;
+  top: -2835px;
+
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+
+  @media screen and (min-width: $desktop) {
+    display: none;
+  }
+
+  position: absolute;
+  --color1: #fff;
+  padding: 20px;
+  border-radius: 50%;
+  background-color: $accent-orange;
 }
