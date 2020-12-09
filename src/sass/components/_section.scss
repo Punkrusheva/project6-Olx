@@ -30,6 +30,13 @@
   }
 }
 
+.categories-group {
+  @media screen and (max-width: $before-tablet) {
+    overflow: hidden;
+    height: 1575px;
+  }
+}
+
 .categories {
   @media screen and (max-width: $before-tablet) {
     overflow: hidden;
@@ -99,22 +106,6 @@
     flex-wrap: wrap;
   }
 }
-
-// .product-card-others-group {
-//   @media screen and (max-width: $before-tablet) {
-//     display: none;
-//   }
-//   @media screen and (max-width: $before-desktop) {
-//     display: none;
-//   }
-
-// }
-
-// .icon-elem-left {
-// }
-
-// .icon-elem-right {
-// }
 
 .button-left,
 .button-right {
@@ -215,7 +206,7 @@
 
 .icon-add {
   left: 240px;
-  top: -2835px;
+  top: -1280px;
 
   @media screen and (min-width: $tablet) {
     display: none;
