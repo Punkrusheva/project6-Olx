@@ -36,6 +36,17 @@
   margin-bottom: 25px;
   padding-top: 3px;
   padding-bottom: 2px;
+  @media screen and (max-width: $before-tablet) {
+    min-width: 300px;
+  }
+  @media screen and (min-width: $tablet) {
+    max-width: 725px;
+  }
+  @media screen and (min-width: $desktop) {
+    max-width: 1000px;
+  }
+
+  border: rebeccapurple 1px solid;
 }
 
 .section-title {
@@ -43,6 +54,8 @@
   font-style: bold;
   line-height: 1.21;
   margin: 0px;
+  min-width: 160px;
+  border: solid 1px rebeccapurple;
 }
 
 .section-text {
@@ -54,6 +67,9 @@
   // margin-top: 10px;
   margin-left: 15px;
   color: $accent-orange;
+
+  min-width: 100px;
+  border: solid 1px rebeccapurple;
 }
 
 .product-card-group {
@@ -65,5 +81,64 @@
   @media screen and (min-width: $tablet) {
     display: flex;
     flex-wrap: wrap;
+  }
+}
+
+.icon-elem-left {
+  // border: solid 1px aqua;
+
+  // @media screen and (max-width: $before-mobile) {
+  //   display: none;
+  // }
+  // @media screen and (min-width: $tablet) {
+  //   margin-right: 20px;
+  // }
+  // @media screen and (min-width: $desktop) {
+  //   margin-right: 20px;
+  // }
+}
+
+.icon-elem-right {
+  // border: solid 1px aqua;
+  // margin-left: 300px;
+  // @media screen and (max-width: $before-mobile) {
+  //   display: none;
+  // }
+  // @media screen and (min-width: $tablet) {
+  //   margin-left: 385px;
+  // }
+  // @media screen and (min-width: $desktop) {
+  //   margin-left: 905px;
+  // }
+}
+
+.button-left,
+.button-right {
+  @media screen and (max-width: $before-tablet) {
+    display: none;
+  }
+}
+
+.button-right {
+  @media screen and (max-width: $before-mobile) {
+    display: none;
+  }
+  @media screen and (min-width: $tablet) {
+    margin-left: 370px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-left: 905px;
+  }
+}
+
+.button-left {
+  @media screen and (max-width: $before-mobile) {
+    display: none;
+  }
+  @media screen and (min-width: $tablet) {
+    margin-right: 20px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-right: 20px;
   }
 }
