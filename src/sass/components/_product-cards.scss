@@ -38,7 +38,8 @@ ul {
 
   color: #ff6b09;
 }
-.product {
+.product-card-group {
+  //.product {
   display: flex;
   flex-wrap: wrap;
   @media screen and (min-width: 769px) {
@@ -51,7 +52,6 @@ ul {
 }
 
 .product-card {
-  border: solid 2px red;
   margin-bottom: 20px;
   background: #ffffff;
   filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
