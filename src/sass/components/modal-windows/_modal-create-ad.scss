@@ -1,0 +1,191 @@
+// .backdrop {
+//   z-index: 99;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background-color: rgba(47, 48, 58, 0.8);
+//   opacity: 1;
+//   -webkit-transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+//   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+//   padding: 93px 15px;
+//   overflow-y: scroll;
+// }
+// .backdrop.is-hidden {
+//   opacity: 0;
+//   visibility: hidden;
+//   pointer-events: none;
+// }
+// .visually-hidden {
+//   position: absolute;
+//   clip: rect(0 0 0 0);
+//   width: 1px;
+//   height: 1px;
+//   margin: -1px;
+//   border: 0;
+//   padding: 0;
+//   overflow: hidden;
+// }
+
+.create-ad {
+  position: relative;
+}
+@media screen and(max-width: $before-tablet) {
+  .create-ad {
+    width: 290px;
+  }
+  .create-ad-slogan {
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+  .create-ad-form {
+    padding: 0 20px;
+  }
+}
+@media screen and(max-width: $before-desktop) {
+  .create-ad {
+    width: 724px;
+    padding-top: 54px;
+  }
+  .create-ad-slogan {
+    margin: 54px 0 30px 53px;
+  }
+  .create-ad-form {
+    padding: 0 60px 60px 60px;
+  }
+}
+@media screen and(min-width: $desktop) {
+  .create-ad {
+    width: 861px;
+    padding-top: 54px;
+  }
+  .create-ad-slogan {
+    margin: 0 0 30px 105px;
+  }
+  .create-ad-form {
+    padding: 0 105px 41px;
+  }
+}
+.create-ad-slogan {
+  font-family: $font-Roboto;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.create-ad-form-list {
+  margin: 0;
+  padding: 0;
+}
+
+.create-ad-form-item {
+  margin-bottom: 20px;
+}
+
+.create-ad-form-input {
+  border-color: $modal-text;
+  border-width: 1px;
+  padding: 20px 0 20px 23px;
+}
+.create-ad-photo-list {
+  padding: 0;
+  list-style: none;
+}
+@media screen and (max-width: $before-tablet) {
+  .create-ad-form-item {
+    display: flex;
+    flex-direction: column;
+    // justify-content: flex-start;
+  }
+  .create-ad-form-label {
+    text-align: start;
+  }
+  .create-ad-photo-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .create-ad-form-input {
+    width: 100%;
+  }
+}
+@media screen and (max-width: $before-desktop) {
+  .create-ad-photo-list {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .create-ad-form-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .create-ad-form-input {
+    width: 458px;
+  }
+}
+@media screen and (min-width: $desktop) {
+  .create-ad-photo-list {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .create-ad-form-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .create-ad-form-input {
+    width: 440px;
+  }
+}
+
+.create-ad-photo {
+  background-color: $accent-grey;
+  margin: 5px;
+  padding: 18px 30px;
+}
+.plus-photo {
+  color: $modal-text;
+}
+
+.create-ad-form-label {
+  margin-bottom: 10px;
+  font-family: $font-Roboto;
+  font-weight: 500;
+  font-size: 14px;
+}
+.create-ad-submit {
+  // display: flex;
+  // justify-content: center;
+  background-color: $accent-orange;
+  color: $white-text;
+
+  border: none;
+}
+@media screen and(max-width: $before-tablet) {
+  .create-ad-submit {
+    height: 50px;
+    width: 250px;
+    margin: 0 0 60px;
+  }
+}
+@media screen and(max-width: $before-desktop) {
+  .create-ad-submit {
+    height: 60px;
+    width: 266px;
+    margin: 21px 0 60px 148px;
+  }
+}
+@media screen and(min-width: $desktop) {
+  .create-ad-submit {
+    height: 60px;
+    width: 210px;
+    margin: 21px 0 60px 210px;
+  }
+}
+
+.close-form {
+  position: absolute;
+  top: -25px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+}

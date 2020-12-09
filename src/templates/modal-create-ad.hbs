@@ -1,0 +1,55 @@
+<!-- Модалка создание объявления -->
+<div class="backdrop is-hidden">
+    <div class="create-ad">
+        <p class="create-ad-slogan">
+            Додати оголошення
+        </p>
+        <form class="create-ad-form">
+            <ul class="create-ad-form-list">
+                <li class="create-ad-form-item">
+                    <label class="create-ad-form-label" for="name">Назва товару</label>
+                    <input class="create-ad-form-input" type="text" name="name" id="name" placeholder=" " />
+                </li>
+                <li class="create-ad-form-item">
+                    <label class="create-ad-form-label" for="photo">Фото</label>
+                    <ul class="create-ad-photo-list">
+                        <li class="create-ad-photo">
+                            <a></a>>
+                        </li>
+                        <li class="create-ad-photo"></li>
+                        <li class="create-ad-photo"></li>
+                        <li class="create-ad-photo"></li>
+                        <li class="create-ad-photo"></li>
+                        <li class="create-ad-photo"></li>
+                    </ul>
+                </li>
+                <li class="create-ad-form-item">
+                    <label class="create-ad-form-label" for="description">Опис товару</label>
+                    <input class="create-ad-form-input" type="text" name="description" id="description"
+                        placeholder=" " />
+                </li>
+                <li class="create-ad-form-item">
+                    <label class="create-ad-form-label" for="category">Категория товару</label>
+                    <input class="create-ad-form-input" type="text" name="category" id="category" placeholder=" " />
+                    <!-- <!выпадающий список -->
+                </li>
+                <li class="create-ad-form-item">
+                    <label class="create-ad-form-label" for="price">Ціна</label>
+                    <input class="create-ad-form-input" type="text" name="price" id="price" placeholder="0.00 грн" />
+                </li>
+                <li class="create-ad-form-item">
+                    <label class="create-ad-form-label" for="phone">Телефон</label>
+                    <input class="create-ad-form-input" type="text" name="phone" id="phone"
+                        placeholder="+38 (0--) --- -- --" />
+                </li>
+            </ul>
+
+            <button type="submit" class="create-ad-submit">
+                Додати
+            </button>
+        </form>
+        <span class="close-form" data-modal-close><svg class="close-form-icon" width="" height="">
+                <use href=""></use>
+            </svg></span>
+    </div>
+</div>
