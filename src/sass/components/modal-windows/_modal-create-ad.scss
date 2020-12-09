@@ -68,7 +68,7 @@
   }
 }
 .create-ad-slogan {
-  font-family: $font-Roboto;
+  font-family: Roboto;
   font-weight: 500;
   font-size: 20px;
 }
@@ -92,12 +92,12 @@
   list-style: none;
 }
 @media screen and (max-width: $before-tablet) {
-  // .create-ad-form-item {
-  //   // display: flex;
-  //   // flex-direction: column;
-  //   // text-align: start;
-  //   // justify-content: flex-start;
-  // }
+  .create-ad-form-item {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    justify-content: flex-start;
+  }
   .create-ad-form-label {
     text-align: start;
   }
@@ -149,7 +149,7 @@
 
 .create-ad-form-label {
   margin-bottom: 10px;
-  font-family: $font-Roboto;
+  font-family: Roboto;
   font-weight: 500;
   font-size: 14px;
 }
@@ -167,6 +167,13 @@
     width: 250px;
     margin: 0 0 60px;
   }
+  .close-form {
+    position: absolute;
+    top: -25px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+  }
 }
 @media screen and(max-width: $before-desktop) {
   .create-ad-submit {
@@ -181,12 +188,4 @@
     width: 210px;
     margin: 21px 0 60px 210px;
   }
-}
-
-.close-form {
-  position: absolute;
-  top: -25px;
-  right: 8px;
-  width: 24px;
-  height: 24px;
 }
