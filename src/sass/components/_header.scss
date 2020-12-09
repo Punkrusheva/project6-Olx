@@ -1,0 +1,237 @@
+.logo {
+    display: flex;
+    align-items: center;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-decoration: none;
+    
+    color: #000000;
+
+    @media screen and (min-width: 768px) {
+
+        margin-left: 200px;
+    }
+
+}
+
+.header-container {
+    position: relative;
+}
+
+
+.mobile-menu-container {
+  @media screen and (max-width: 767px) {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      width: 100%;
+      border-bottom: 1px solid #E2E3E5;
+  }
+  @media screen and (min-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+
+    padding-right: 22px;
+  }
+}
+
+.menu-button {
+  display: flex;
+  align-items: center;
+
+  margin: 0;
+  padding: 27px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  border-right: 1px solid #E2E3E5;
+
+  
+
+  @media screen and (min-width: 1279px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 767px){
+      position: absolute;
+      bottom: 0;
+  }
+
+  &:hover .icon,
+  &:focus .icon {
+      fill: #FF6B09;
+  }
+
+  .icon-cross {
+    display: none;
+  }
+
+  &.is-open .icon-cross {
+    display: block;
+  }
+
+  &.is-open .icon-menu {
+    display: none;
+  }
+}
+
+.search-button {
+  margin: 0;
+  padding: 25px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover .icon,
+  &:hover .icon {
+    fill: #FF6B09;
+}
+}
+
+.user__button-container {
+    display: flex;
+    @media screen and (max-width: 767px) {
+        display: none;
+      }
+
+}
+
+
+
+.user__button {
+  display: flex;
+  align-items: center;
+
+  margin: 0;
+  padding: 27px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: #000000;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+      background-color: #FF6B09;
+      color: #ffffff;
+  }
+}
+
+.filter__container {
+  
+    border-bottom: 1px solid #E2E3E5;
+    border-top: 1px solid #E2E3E5;
+    @media screen and (max-width: 767px) {
+        display: none;
+      }
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 22px;
+      }
+
+      @media screen and (min-width: 1280px) {
+          display:  flex;
+          justify-content: space-between;
+        padding-left: 20px;
+        padding-right: 20px;
+     }
+}
+
+.filter__inner {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+
+    @media screen and (max-width: 1279px) {
+        display: none;
+    }
+
+    @media screen and (min-width: 1280px) {
+       display: flex;
+    }
+
+        & .filter__button {
+            height: 100%;
+            margin: 0;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+
+            color: #000000;
+
+            transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+ 
+
+               &:hover,
+               &:focus {
+                   color: #FF6B09;
+               }
+        }
+
+
+
+    & .filter__item:not(:last-child) {
+       margin-right: 42px;
+    }
+
+}
+
+.filter__button-clear {
+    display: flex;
+  align-items: center;
+
+  margin: 0;
+  padding: 28px;
+  border: none;
+  border-right: 1px solid #E2E3E5;
+  background-color: transparent;
+  outline: none;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  
+  letter-spacing: 0.03em;
+  
+  color: #000000;
+  cursor: pointer;
+}
+
+.filter__button-clear::before {
+    content: '';
+    width: 22px;
+    height: 20px;
+    background-image: url('../images/icons/clear-filter-icon.svg');
+    background-repeat: no-repeat;
+    margin-right: 14px;
+}

@@ -1,3 +1,30 @@
-.title-h2-test {
-  color: red;
+.categories-title {
+  display: flex;
+}
+
+.section-title {
+  font-size: 12px;
+  font-style: bold;
+  line-height: 1.21;
+}
+
+.section-text {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.21;
+
+  margin-left: 20px;
+  color: $accent-orange;
+}
+
+.product-card-group {
+  .product-card {
+    list-style: none;
+  }
+
+  padding: 0px;
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
