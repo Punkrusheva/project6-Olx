@@ -92,11 +92,12 @@
   list-style: none;
 }
 @media screen and (max-width: $before-tablet) {
-  .create-ad-form-item {
-    display: flex;
-    flex-direction: column;
-    // justify-content: flex-start;
-  }
+  // .create-ad-form-item {
+  //   // display: flex;
+  //   // flex-direction: column;
+  //   // text-align: start;
+  //   // justify-content: flex-start;
+  // }
   .create-ad-form-label {
     text-align: start;
   }
