@@ -30,67 +30,86 @@
 
 .create-ad {
   position: relative;
-}
-@media screen and(max-width: $before-tablet) {
-  .create-ad {
-    width: 290px;
+
+  &-slogan {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 20px;
   }
-  .create-ad-slogan {
-    padding-left: 20px;
+  &-submit {
+    // display: flex;
+    // justify-content: center;
+    background-color: $accent-orange;
+    color: $white-text;
+
+    border: none;
+  }
+}
+.create-ad-photo {
+  background-color: $accent-grey;
+  margin: 5px;
+  padding: 18px 30px;
+
+  &-list {
+    padding: 0;
+    list-style: none;
+  }
+}
+.plus-photo {
+  color: $modal-text;
+}
+
+.create-ad-form {
+  padding: 0;
+
+  &-list {
+    margin: 0;
+    padding: 0;
+  }
+  &-item {
     margin-bottom: 20px;
   }
-  .create-ad-form {
-    padding: 0 20px;
+  &-label {
+    margin-bottom: 10px;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  &-input {
+    border-color: $modal-text;
+    border-width: 1px;
+    padding: 20px 0 20px 23px;
   }
 }
-@media screen and(max-width: $before-desktop) {
+
+@media screen and (max-width: $before-tablet) {
   .create-ad {
-    width: 724px;
-    padding-top: 54px;
+    width: 290px;
+    padding: 60px 20px;
   }
   .create-ad-slogan {
-    margin: 54px 0 30px 53px;
+    margin-bottom: 20px;
   }
-  .create-ad-form {
-    padding: 0 60px 60px 60px;
+}
+@media screen and(min-width:$tablet) and (max-width: $before-desktop) {
+  .create-ad {
+    width: 724px;
+    padding: 60px 50px 55px 60px;
+  }
+  .create-ad-slogan {
+    margin-bottom: 30px;
   }
 }
 @media screen and(min-width: $desktop) {
   .create-ad {
     width: 861px;
-    padding-top: 54px;
+    padding: 60px 105px 55px 105px;
   }
   .create-ad-slogan {
-    margin: 0 0 30px 105px;
-  }
-  .create-ad-form {
-    padding: 0 105px 41px;
+    margin-bottom: 30px;
   }
 }
-.create-ad-slogan {
-  font-family: Roboto;
-  font-weight: 500;
-  font-size: 20px;
-}
 
-.create-ad-form-list {
-  margin: 0;
-  padding: 0;
-}
-
-.create-ad-form-item {
-  margin-bottom: 20px;
-}
-
-.create-ad-form-input {
-  border-color: $modal-text;
-  border-width: 1px;
-  padding: 20px 0 20px 23px;
-}
-.create-ad-photo-list {
-  padding: 0;
-  list-style: none;
-}
 @media screen and (max-width: $before-tablet) {
   .create-ad-form-item {
     display: flex;
@@ -98,18 +117,15 @@
     text-align: start;
     justify-content: flex-start;
   }
-  .create-ad-form-label {
-    text-align: start;
-  }
   .create-ad-photo-list {
     display: flex;
     flex-wrap: wrap;
   }
   .create-ad-form-input {
-    width: 100%;
+    width: 251px;
   }
 }
-@media screen and (max-width: $before-desktop) {
+@media screen and (min-width: $tablet) and (max-width: $before-desktop) {
   .create-ad-photo-list {
     display: flex;
     justify-content: flex-end;
@@ -138,29 +154,6 @@
   }
 }
 
-.create-ad-photo {
-  background-color: $accent-grey;
-  margin: 5px;
-  padding: 18px 30px;
-}
-.plus-photo {
-  color: $modal-text;
-}
-
-.create-ad-form-label {
-  margin-bottom: 10px;
-  font-family: Roboto;
-  font-weight: 500;
-  font-size: 14px;
-}
-.create-ad-submit {
-  // display: flex;
-  // justify-content: center;
-  background-color: $accent-orange;
-  color: $white-text;
-
-  border: none;
-}
 @media screen and(max-width: $before-tablet) {
   .create-ad-submit {
     height: 50px;
@@ -169,17 +162,24 @@
   }
   .close-form {
     position: absolute;
-    top: -25px;
+    top: 5px;
     right: 8px;
     width: 24px;
     height: 24px;
   }
 }
-@media screen and(max-width: $before-desktop) {
+@media screen and(min-width:$tablet) and (max-width: $before-desktop) {
   .create-ad-submit {
     height: 60px;
     width: 266px;
     margin: 21px 0 60px 148px;
+  }
+  .close-form {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
   }
 }
 @media screen and(min-width: $desktop) {
@@ -187,5 +187,12 @@
     height: 60px;
     width: 210px;
     margin: 21px 0 60px 210px;
+  }
+  .close-form {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 24px;
+    height: 24px;
   }
 }
