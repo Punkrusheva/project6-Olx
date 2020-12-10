@@ -4,3 +4,4 @@ import './sass/main.scss';
 import './js/main-section';
 
 // console.log(mainSection);
+import './js/create-ad';
