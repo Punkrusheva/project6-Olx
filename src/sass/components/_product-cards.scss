@@ -27,7 +27,7 @@ ul {
   letter-spacing: 0.07em;
   color: #000000;
 }
-.product-price {
+.product-price-sale {
   margin-bottom: 20px;
   font-family: Roboto;
   font-style: normal;
@@ -35,9 +35,51 @@ ul {
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.04em;
-
   color: #ff6b09;
 }
+.product-price-initial {
+  padding-left: 4px;
+  padding-right: 4px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+
+  color: #bbbbbb;
+}
+.product-content-price {
+  display: flex;
+}
+.decorative-line {
+  margin-right: 6px;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    //background-color: currentColor;
+    border: 1px solid #000000;
+    bottom: 27px;
+    left: 0px;
+  }
+}
+
+.product-price {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+
+  color: #000000;
+}
+
 .product-card-group {
   //.product {
   display: flex;
@@ -109,11 +151,40 @@ ul {
 .product-card-icon-favorite {
   top: 20px;
   right: 20px;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
 }
 .product-card-icon-fullscreen {
   bottom: 20px;
   right: 20px;
+  margin: 0;
+  border: none;
+  //background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+.product-card-icon-favorite-user {
+  top: 20px;
+  right: 20px;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  fill: #ff6b09;
 }
 .product-card-icon {
   position: absolute;
+}
+.product-card-icon-edit {
+  top: 44px;
+  right: 20px;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
 }
