@@ -8,6 +8,10 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+
+  @media screen and(min-width:$tablet) {
+    padding: 60px;
+  }
 }
 .modal-backdrop.is-hidden {
   visibility: hidden;
@@ -26,6 +30,12 @@
   width: 650px;
   height: 583px;
   background: $accent-grey;
+
+  @media screen and(max-width:767px) {
+    max-width: 290px;
+    height: 542px;
+    padding: 57px 18px 60px 18px;
+  }
 }
 
 /*гугл аутентификация*/
@@ -46,19 +56,27 @@
     margin-right: 10px;
   }
   &-title {
-    @extend %font-title-button;
+    @extend %font-modal-title;
   }
 }
 
 /*заголовки модалки*/
 .auth-modal-text {
   margin-bottom: 37px;
-  @extend %font-title-button;
+  @extend %font-modal-title;
+
+  @media screen and(max-width:767px) {
+    margin-bottom: 20px;
+  }
 }
 .auth-modal-title {
   margin-bottom: 34px;
-  @extend %font-title-button;
+  @extend %font-modal-title;
   text-align: center;
+
+  @media screen and(max-width:767px) {
+    margin-bottom: 20px;
+  }
 }
 
 /*иконка закрытия модалки*/
@@ -80,7 +98,7 @@
 
 /*форма ввода данных*/
 .auth-input {
-  width: 442px;
+  width: 100%;
   height: 56px;
   padding: 20px 25px;
 
@@ -98,23 +116,37 @@
 }
 .email {
   margin-bottom: 24px;
+
+  @media screen and(max-width:768px) {
+    margin-bottom: 20px;
+  }
 }
 .password {
   margin-bottom: 47px;
+
+  @media screen and(max-width:768px) {
+    margin-bottom: 31px;
+  }
 }
 
 /*Кнопки*/
 .auth-buttons {
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
 }
 .button-orange {
   @extend %font-button;
   @extend %button;
 
+  margin-right: 20px;
   background: $accent-orange;
   color: $white-text;
   border: none;
+
+  @media screen and(max-width:768px) {
+    margin-right: 14px;
+    text-transform: none;
+  }
 }
 
 .button-gray {
@@ -123,4 +155,8 @@
 
   border: 1px solid #bbbbbb;
   color: $primary-color;
+
+  @media screen and(max-width:768px) {
+    text-transform: none;
+  }
 }
