@@ -22,11 +22,11 @@
 <symbol id="icon-edit-icon" viewBox="0 0 32 32">
 <path fill="#fff" style="fill: var(--color2, #fff)" d="M32 29.714h-32v2.971h32v-2.971zM21.927 1.038l-16.526 16.526v7.577h7.582l16.526-16.523-7.584-7.579zM11.87 22.464h-3.79v-3.79l13.847-13.847 3.79 3.79-13.847 13.847z"></path>
 </symbol>
-<symbol id="icon-elem-left-icon" viewBox="0 0 32 32">
+<symbol id="icon-elem-left" viewBox="0 0 32 32">
 <path fill="#fff" style="fill: var(--color2, #fff)" d="M0 16c0 8.837 7.163 16 16 16s16-7.163 16-16c0-8.837-7.163-16-16-16s-16 7.163-16 16z"></path>
 <path fill="#000" style="fill: var(--color3, #000)" d="M18.729 12.327l-1.129-1.127-4.8 4.8 4.8 4.8 1.129-1.129-3.664-3.671 3.664-3.673z"></path>
 </symbol>
-<symbol id="icon-elem-right-icon" viewBox="0 0 32 32">
+<symbol id="icon-elem-right" viewBox="0 0 32 32">
 <path fill="#fff" style="fill: var(--color2, #fff)" d="M32 16c0 8.837-7.163 16-16 16s-16-7.163-16-16c0-8.837 7.163-16 16-16s16 7.163 16 16z"></path>
 <path fill="#000" style="fill: var(--color3, #000)" d="M13.272 12.328l1.128-1.128 4.8 4.8-4.8 4.8-1.128-1.128 3.664-3.672-3.664-3.672z"></path>
 </symbol>
