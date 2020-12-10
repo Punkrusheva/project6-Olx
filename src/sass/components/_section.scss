@@ -107,37 +107,6 @@
   }
 }
 
-.button-left,
-.button-right {
-  @media screen and (max-width: $before-tablet) {
-    display: none;
-  }
-}
-
-.button-right {
-  @media screen and (max-width: $before-mobile) {
-    display: none;
-  }
-  @media screen and (min-width: $tablet) {
-    margin-left: 370px;
-  }
-  @media screen and (min-width: $desktop) {
-    margin-left: 885px;
-  }
-}
-
-.button-left {
-  @media screen and (max-width: $before-mobile) {
-    display: none;
-  }
-  @media screen and (min-width: $tablet) {
-    margin-right: 20px;
-  }
-  @media screen and (min-width: $desktop) {
-    margin-right: 20px;
-  }
-}
-
 .product-card-one-group {
   display: flex;
   flex-wrap: wrap;
@@ -217,8 +186,54 @@
   }
 
   position: absolute;
-  --color1: #fff;
+  --color1: $white-text;
   padding: 20px;
   border-radius: 50%;
   background-color: $accent-orange;
+}
+
+.icon-left,
+.icon-right {
+  --color2: #fff;
+  --color3: #000;
+  border-radius: 50%;
+}
+
+.icon-left:hover,
+.icon-left:focus,
+.icon-left:focus,
+.icon-right:hover {
+  --color2: #ff6b09;
+  --color3: #fff;
+}
+
+.icon-left,
+.icon-right {
+  @media screen and (max-width: $before-tablet) {
+    display: none;
+  }
+}
+
+.icon-right {
+  @media screen and (max-width: $before-mobile) {
+    display: none;
+  }
+  @media screen and (min-width: $tablet) {
+    margin-left: 350px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-left: 850px;
+  }
+}
+
+.icon-left {
+  @media screen and (max-width: $before-mobile) {
+    display: none;
+  }
+  @media screen and (min-width: $tablet) {
+    margin-right: 20px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-right: 20px;
+  }
 }
