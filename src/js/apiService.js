@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://callboard-backend.herokuapp.com';
+export const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
 //регистрация
 
