@@ -46,18 +46,18 @@
     margin-right: 10px;
   }
   &-title {
-    @extend %font-title-button;
+    @extend %font-modal-title;
   }
 }
 
 /*заголовки модалки*/
 .auth-modal-text {
   margin-bottom: 37px;
-  @extend %font-title-button;
+  @extend %font-modal-title;
 }
 .auth-modal-title {
   margin-bottom: 34px;
-  @extend %font-title-button;
+  @extend %font-modal-title;
   text-align: center;
 }
 
