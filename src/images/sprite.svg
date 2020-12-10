@@ -1,16 +1,12 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
-<symbol id="icon-remove-ad-icon" viewBox="0 0 32 32">
-<path fill="#bbb" style="fill: var(--color1, #bbb)" d="M20.8 0h-19.2v32h28.8v-22.4l-9.6-9.6zM20.8 4.528l5.072 5.072h-5.074v-5.072zM27.2 28.8h-22.4v-25.6h12.8v9.6h9.6v16z"></path>
-<path fill="#bbb" style="fill: var(--color1, #bbb)" d="M22.016 15.474l-2.256-2.274-3.726 3.728-3.906-3.904-2.256 2.272 3.888 3.888-3.696 3.712 2.256 2.256 3.712-3.696 3.728 3.728 2.256-2.272-3.726-3.726 3.726-3.714z"></path>
-</symbol>
 <symbol id="icon-add-img" viewBox="0 0 32 32">
 <path fill="#000" style="fill: var(--color1, #bbb)" d="M18.549 12.293h11.629v5.013h-11.627v13.179h-5.333v-13.179h-11.627v-5.013h11.629v-12.173h5.328v12.173z"></path>
 </symbol>
 <symbol id="icon-arrow_drop_down" viewBox="0 0 32 32">
 <path d="M9.333 13.333l6.667 6.667 6.667-6.667h-13.333z"></path>
 </symbol>
-<symbol id="icon-clear-filter-icon" viewBox="0 0 32 32">
+<symbol id="icon-clear-filter" viewBox="0 0 32 32">
 <path d="M6.667 16h-5.333l6.667 6.667 6.667-6.667h-5.333c0-4.413 3.587-8 8-8s8 3.587 8 8-3.587 8-8 8v2.667c5.893 0 10.667-4.773 10.667-10.667s-4.773-10.667-10.667-10.667-10.667 4.773-10.667 10.667z"></path>
 </symbol>
 <symbol id="icon-close_icon" viewBox="0 0 32 32">

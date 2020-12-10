@@ -9,7 +9,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
 
-  @media screen and(min-width:$tablet) {
+  @media screen and(min-width:767px) {
     padding: 60px;
   }
 }

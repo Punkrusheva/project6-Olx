@@ -12,7 +12,7 @@ p {
   height: 121px;
   padding: 38px 65px 39px 15px;
 
-  font-family: $font-family-second;
+  font-family: $font-family;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -82,7 +82,7 @@ p {
       content: '';
       border-right: 1px solid $background-color;
       top: -1px;
-      left: 138px;
+      left: 123px;
     }
   }
 }
