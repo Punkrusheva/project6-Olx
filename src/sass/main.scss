@@ -6,10 +6,10 @@
 @import './utils/breakpoints';
 @import './base/html';
 //@import './utils/mixins';
-
+@import './utils/placeholder';
 //modal-window
 @import './components/modal-windows/search-modal';
-
+@import './components/modal-windows/authorization-modal';
 
 // Components
 @import './components/header';
