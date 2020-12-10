@@ -5,3 +5,4 @@ import './js/search_modal'
 import './js/main-section';
 
 // console.log(mainSection);
+import './js/create-ad';
