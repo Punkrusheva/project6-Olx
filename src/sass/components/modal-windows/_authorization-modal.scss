@@ -1,0 +1,126 @@
+/*бэкдроп*/
+.modal-backdrop {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.modal-backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/*модальное окно*/
+.auth-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 65px 105px;
+
+  width: 650px;
+  height: 583px;
+  background: $accent-grey;
+}
+
+/*гугл аутентификация*/
+.google-auth {
+  width: 140px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+
+  background: #ffffff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  &-icon {
+    margin-right: 10px;
+  }
+  &-title {
+    @extend %font-title-button;
+  }
+}
+
+/*заголовки модалки*/
+.auth-modal-text {
+  margin-bottom: 37px;
+  @extend %font-title-button;
+}
+.auth-modal-title {
+  margin-bottom: 34px;
+  @extend %font-title-button;
+  text-align: center;
+}
+
+/*иконка закрытия модалки*/
+.auth-close-icon {
+  display: block;
+}
+.auth-close-button {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  background: $accent-grey;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+/*форма ввода данных*/
+.auth-input {
+  width: 442px;
+  height: 56px;
+  padding: 20px 25px;
+
+  outline: none;
+  background: #ffffff;
+  border: 1px solid $modal-text;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  color: #bbbbbb;
+}
+.email {
+  margin-bottom: 24px;
+}
+.password {
+  margin-bottom: 47px;
+}
+
+/*Кнопки*/
+.auth-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.button-orange {
+  @extend %font-button;
+  @extend %button;
+
+  background: $accent-orange;
+  color: $white-text;
+  border: none;
+}
+
+.button-gray {
+  @extend %font-button;
+  @extend %button;
+
+  border: 1px solid #bbbbbb;
+  color: $primary-color;
+}

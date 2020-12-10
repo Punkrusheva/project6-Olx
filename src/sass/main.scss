@@ -7,6 +7,9 @@
 @import './base/html';
 //@import './utils/mixins';
 
+// Placeholder
+@import './utils/placeholder';
+
 // Components
 @import './components/header';
 @import './components/footer';
@@ -14,3 +17,4 @@
 @import './components/product-category';
 @import './components/one-card';
 @import './components/section';
+@import './components/modal-windows/authorization-modal';
