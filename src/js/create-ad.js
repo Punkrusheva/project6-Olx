@@ -2,7 +2,7 @@ import createAdMarkupTpl from '../templates/modal-create-ad.hbs'
 const openModalCreateAdBtn = document.querySelector('[data-create-ad-modal-open]');
 const closeModalCreateADBtn = document.querySelector('[data-create-ad-modal-close]');
 const createAdModalRef = document.querySelector('[data-create-ad-modal]');
-console.log(createAdModalRef)
+console.log(openModalCreateAdBtn)
 
 
 
@@ -18,19 +18,19 @@ function openModalCreateAd() {
 
 function closeModalCreateAd() {
     window.removeEventListener("keydown", onKeyDown);
-    refs.modal.removeEventListener("click", onOverlayClick);
-    refs.modal.classList.add("is-hidden");
+    createAdModalRef.removeEventListener("click", onOverlayClick);
+    createAdModalRef.classList.add("is-hidden");
 }
 
 function onOverlayClick(event) {
     if (event.currentTarget === event.target) {
-      onClickCloseModal()
+      closeModalCreateAd()
     }
 }
   
 function onKeyDown(event) {
     if (event.code === "Escape") {
-      onClickCloseModal()
+      closeModalCreateAd()
     }
 }
 
