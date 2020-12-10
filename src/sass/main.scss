@@ -7,6 +7,10 @@
 @import './base/html';
 //@import './utils/mixins';
 
+//modal-window
+@import './components/modal-windows/search-modal';
+
+
 // Components
 @import './components/header';
 @import './components/footer';
