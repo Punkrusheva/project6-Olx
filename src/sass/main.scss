@@ -7,9 +7,11 @@
 @import './base/html';
 //@import './utils/mixins';
 
+// Placeholder
+@import './utils/placeholder';
+
 //modal-window
 @import './components/modal-windows/search-modal';
-
 
 // Components
 @import './components/header';
@@ -18,3 +20,4 @@
 @import './components/product-category';
 @import './components/one-card';
 @import './components/section';
+@import './components/modal-windows/authorization-modal';
