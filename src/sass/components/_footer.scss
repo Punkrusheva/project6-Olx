@@ -38,7 +38,7 @@ p {
   }
 
   @media screen and (min-width: $desktop) {
-    max-width: $desktop;
+    max-width: 100%;
     width: 100%;
   }
 }
