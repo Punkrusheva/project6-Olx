@@ -1,8 +1,8 @@
 {
   "categories": "РОЗПРОДАЖ",
   "sectionTitle": "РОЗПРОДАЖ",
-  "productImgUrl": "./images/rectangle-7.jpg",
-  "productName": "Наименование карточки",
+  "productImgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfMrZwXNHTlMVE-SymlzpcIL7mEBNV0ML9lw&usqp=CAU",
+  "productName": "Наименование карточки XX",
   "productPriceSale": 100,
   "productPriceGrn": "грн",
   "cars": ["Chevy", "Цена грн"],

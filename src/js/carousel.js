@@ -1,6 +1,7 @@
 /* карусель!! */
+
 /* этот код помечает картинки, для удобства разработки */
-const carouselRefLi = document.querySelectorAll('.product-card');
+const carouselRefLi = document.querySelectorAll('.product-card__my');
 
 // let i = 1;
 // for(let li of carouselRefLi) {
@@ -10,12 +11,12 @@ const carouselRefLi = document.querySelectorAll('.product-card');
 // }
 
 /* конфигурация */
-let width = 50; // ширина картинки
-let count = 2; // видимое количество изображений
+let width = 150; // ширина картинки
+let count = 1; // видимое количество изображений
 
 // let list = carousel.querySelector('ul');
 
-const list = document.querySelector('.product-card');
+const list = document.querySelector('.product-card__my');
 // let listElems = carousel.querySelectorAll('li');
 
 let position = 0; // положение ленты прокрутки
@@ -23,7 +24,7 @@ let position = 0; // положение ленты прокрутки
 const prevRef = document.querySelector('[data-action="prev-card"]');
 
 
-console.log(prevRef);
+// console.log(prevRef);
 prevRef.onclick = function () {
     // console.log(`кнопка влево`);
     // сдвиг влево
