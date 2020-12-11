@@ -124,16 +124,16 @@
 
         <!-- все что ниже, динамически тянется с бека -->
         <div class="categories-group">
-          <!-- моя категория -->
+          <!-- моя категория + карусель -->
           <div class="categories">
             <div class="categories-title">
-              <a class="icon-left arrow prev">
+              <a data-action="prev-card" class="icon-left arrow prev">
                 <svg class="icon-left-svg" width="30" height="30">
                   <use href="./images/sprite.svg#icon-elem-left"></use>
                 </svg></a>
               <h2 class="section-title">РОЗПРОДАЖ РІЗНЕ</h2>
               <a class="section-text" href="">Дивитися всі</a>
-              <a class="icon-right arrow next">
+              <a data-action="next-card" class="icon-right arrow next">
                 <svg class="icon-right-svg" width="30" height="30">
                   <use href="./images/sprite.svg#icon-elem-right"></use>
                 </svg></a>
@@ -242,334 +242,360 @@
             </div>
           </div>
 
-          <!-- НАСТЯ-->
+          <!-- моя категория + карусель -->
           <div class="categories">
             <div class="categories-title">
-              <a class="icon-left">
+              <a data-action="prev-card" class="icon-left arrow prev">
                 <svg class="icon-left-svg" width="30" height="30">
                   <use href="./images/sprite.svg#icon-elem-left"></use>
                 </svg></a>
               <h2 class="section-title">РОЗПРОДАЖ РІЗНЕ</h2>
-              <a class="section-text" href=""><u>Дивитися всі</u></a>
-              <button class="button-right"><svg class="icon-elem-right" width="30" height="30">
-
+              <a class="section-text" href="">Дивитися всі</a>
+              <a data-action="next-card" class="icon-right arrow next">
+                <svg class="icon-right-svg" width="30" height="30">
                   <use href="./images/sprite.svg#icon-elem-right"></use>
                 </svg></a>
             </div>
-            <ul class="product-card-group">
-
-              <li class="product-card">
-                <a href="" class="product-image">
-
-                  <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
-                  <div class="product-overlay">
-                    <button class="product-card-icon product-card-icon-favorite">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
-                      </svg>
-                    </button>
-                    <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
-                      </svg>
-                    </button>
+            <div class="gallery">
+              <ul class="product-card-group images">
+          
+                <li class="product-card">
+                  <div class="product-image">
+                    <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+                    <div class="product-overlay">
+                      <button class="product-card-icon product-card-icon-favorite">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-favorite-icon"></use>
+                        </svg>
+                      </button>
+                      <button class="product-card-icon product-card-icon-fullscreen">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                        </svg>
+                      </button>
+                    </div>
                   </div>
-
-                </a>
-
-                <div class="product-content">
-                  <h3 class="product-name">Наименование карточки</h3>
-                  <p class="product-price">Цена грн</p>
-                </div>
-              </li>
-              <li class="product-card">
-                <a href="" class="product-image">
-
-                  <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
-                  <div class="product-overlay">
-                    <button class="product-card-icon product-card-icon-favorite">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
-                      </svg>
-                    </button>
-                    <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
-                      </svg>
-                    </button>
+                  <div class="product-content">
+                    <h3 class="product-name">Наименование карточки</h3>
+                    <div class="product-content-price">
+                      <p class="product-price-initial decorative-line">Цена</p>
+                      <p class="product-price-sale">Цена грн</p>
+                    </div>
                   </div>
-
-
-                </a>
-
-                <div class="product-content">
-                  <h3 class="product-name">Наименование карточки</h3>
-                  <p class="product-price">Цена грн</p>
-                </div>
-              </li>
-
-              <li class="product-card">
-                <a href="" class="product-image">
-
-                  <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
-                  <div class="product-overlay">
-                    <button class="product-card-icon product-card-icon-favorite">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
-                      </svg>
-                    </button>
-                    <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
-                      </svg>
-                    </button>
+                </li>
+                <li class="product-card">
+                  <div class="product-image">
+                    <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+                    <div class="product-overlay">
+                      <button class="product-card-icon product-card-icon-favorite">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-favorite-icon"></use>
+                        </svg>
+                      </button>
+                      <button class="product-card-icon product-card-icon-fullscreen">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                        </svg>
+                      </button>
+                    </div>
                   </div>
-                </a>
-
-                <div class="product-content">
-                  <h3 class="product-name">Наименование карточки</h3>
-                  <p class="product-price">Цена грн</p>
-                </div>
-              </li>
-              <li class="product-card">
-
-                <a href="" class="product-image">
-
-                  <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
-                  <div class="product-overlay">
-                    <button class="product-card-icon product-card-icon-favorite">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
-                      </svg>
-                    </button>
-                    <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
-                      </svg>
-                    </button>
+                  <div class="product-content">
+                    <h3 class="product-name">Наименование карточки</h3>
+                    <div class="product-content-price">
+                      <p class="product-price-initial decorative-line">Цена</p>
+                      <p class="product-price-sale">Цена грн</p>
+                    </div>
                   </div>
-                </a>
-
-                <div class="product-content">
-                  <h3 class="product-name">Наименование карточки</h3>
-                  <p class="product-price">Цена грн</p>
-                </div>
-              </li>
-            </ul>          
+                </li>
+          
+                <li class="product-card">
+                  <div class="product-image">
+                    <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+                    <div class="product-overlay">
+                      <button class="product-card-icon product-card-icon-favorite">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-favorite-icon"></use>
+                        </svg>
+                      </button>
+                      <button class="product-card-icon product-card-icon-fullscreen">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="product-content">
+                    <h3 class="product-name">Наименование карточки</h3>
+                    <div class="product-content-price">
+                      <p class="product-price-initial decorative-line">Цена</p>
+                      <p class="product-price-sale">Цена грн</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="product-card">
+                  <div class="product-image">
+                    <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+                    <div class="product-overlay">
+                      <button class="product-card-icon product-card-icon-favorite">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-favorite-icon"></use>
+                        </svg>
+                      </button>
+                      <button class="product-card-icon product-card-icon-fullscreen">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="product-content">
+                    <h3 class="product-name">Наименование карточки</h3>
+                    <div class="product-content-price">
+                      <p class="product-price-initial decorative-line">Цена</p>
+                      <p class="product-price-sale">Цена грн</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
             </div>
-
-
-          <!-- моя категория -->
-          <div class="categories">
-            <div class="categories-title">
-              <a class="icon-left">
-                <svg class="icon-left-svg" width="30" height="30">
-                  <use href="./images/sprite.svg#icon-elem-left"></use>
-                </svg></a>
-              <h2 class="section-title">РОЗПРОДАЖ РІЗНЕ</h2>
-              <a class="section-text" href=""><u>Дивитися всі</u></a>
-              <button class="button-right"><svg class="icon-elem-right" width="30" height="30">
-
-                  <use href="./images/sprite.svg#icon-elem-right"></use>
-                </svg></a>
-            </div>
-            <ul class="product-card-group">
-              <!-- <div class="product-card-one-group" > -->
-              <li class="product-card">
-                <div class="product-image">
-                  <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
-                  <div class="product-overlay">
-                    <button class="product-card-icon product-card-icon-favorite">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
-                      </svg>
-                    </button>
-                    <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div class="product-content">
-                  <h3 class="product-name">Наименование карточки</h3>
-                  <p class="product-price">Цена грн</p>
-                </div>
-              </li>
-              <li class="product-card">
-                <div class="product-image">
-                  <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
-                  <div class="product-overlay">
-                    <button class="product-card-icon product-card-icon-favorite">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
-                      </svg>
-                    </button>
-                    <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div class="product-content">
-                  <h3 class="product-name">Наименование карточки</h3>
-                  <p class="product-price">Цена грн</p>
-                </div>
-              </li>
-              <!-- </div> -->
-              <!-- <div class="product-card-others-group" > -->
-              <li class="product-card">
-                <div class="product-image">
-                  <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
-                  <div class="product-overlay">
-                    <button class="product-card-icon product-card-icon-favorite">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
-                      </svg>
-                    </button>
-                    <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div class="product-content">
-                  <h3 class="product-name">Наименование карточки</h3>
-                  <p class="product-price">Цена грн</p>
-                </div>
-              </li>
-              <li class="product-card">
-                <div class="product-image">
-                  <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
-                  <div class="product-overlay">
-                    <button class="product-card-icon product-card-icon-favorite">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
-                      </svg>
-                    </button>
-                    <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div class="product-content">
-                  <h3 class="product-name">Наименование карточки</h3>
-                  <p class="product-price">Цена грн</p>
-                </div>
-              </li>
-              <!-- </div> -->
-            </ul>
           </div>
 
 
-          <!-- моя категория -->
+          <!-- моя категория + карусель -->
           <div class="categories">
             <div class="categories-title">
-              <a class="icon-left">
+              <a class="icon-left arrow prev">
                 <svg class="icon-left-svg" width="30" height="30">
                   <use href="./images/sprite.svg#icon-elem-left"></use>
                 </svg></a>
               <h2 class="section-title">РОЗПРОДАЖ РІЗНЕ</h2>
-              <a class="section-text" href=""><u>Дивитися всі</u></a>
-              <button class="button-right"><svg class="icon-elem-right" width="30" height="30">
-
+              <a class="section-text" href="">Дивитися всі</a>
+              <a class="icon-right arrow next">
+                <svg class="icon-right-svg" width="30" height="30">
                   <use href="./images/sprite.svg#icon-elem-right"></use>
                 </svg></a>
             </div>
-            <ul class="product-card-group">
-              <!-- <div class="product-card-one-group" > -->
-              <li class="product-card">
-                <div class="product-image">
-                  <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
-                  <div class="product-overlay">
-                    <button class="product-card-icon product-card-icon-favorite">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
-                      </svg>
-                    </button>
-                    <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
-                      </svg>
-                    </button>
+            <div class="gallery">
+              <ul class="product-card-group images">
+          
+                <li class="product-card">
+                  <div class="product-image">
+                    <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+                    <div class="product-overlay">
+                      <button class="product-card-icon product-card-icon-favorite">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-favorite-icon"></use>
+                        </svg>
+                      </button>
+                      <button class="product-card-icon product-card-icon-fullscreen">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                        </svg>
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <div class="product-content">
-                  <h3 class="product-name">Наименование карточки</h3>
-                  <p class="product-price">Цена грн</p>
-                </div>
-              </li>
-              <li class="product-card">
-                <div class="product-image">
-                  <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
-                  <div class="product-overlay">
-                    <button class="product-card-icon product-card-icon-favorite">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
-                      </svg>
-                    </button>
-                    <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
-                      </svg>
-                    </button>
+                  <div class="product-content">
+                    <h3 class="product-name">Наименование карточки</h3>
+                    <div class="product-content-price">
+                      <p class="product-price-initial decorative-line">Цена</p>
+                      <p class="product-price-sale">Цена грн</p>
+                    </div>
                   </div>
-                </div>
-                <div class="product-content">
-                  <h3 class="product-name">Наименование карточки</h3>
-                  <p class="product-price">Цена грн</p>
-                </div>
-              </li>
-              <!-- </div> -->
-              <!-- <div class="product-card-others-group" > -->
-              <li class="product-card">
-                <div class="product-image">
-                  <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
-                  <div class="product-overlay">
-                    <button class="product-card-icon product-card-icon-favorite">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
-                      </svg>
-                    </button>
-                    <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
-                      </svg>
-                    </button>
+                </li>
+                <li class="product-card">
+                  <div class="product-image">
+                    <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+                    <div class="product-overlay">
+                      <button class="product-card-icon product-card-icon-favorite">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-favorite-icon"></use>
+                        </svg>
+                      </button>
+                      <button class="product-card-icon product-card-icon-fullscreen">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                        </svg>
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <div class="product-content">
-                  <h3 class="product-name">Наименование карточки</h3>
-                  <p class="product-price">Цена грн</p>
-                </div>
-              </li>
-              <li class="product-card">
-                <div class="product-image">
-                  <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
-                  <div class="product-overlay">
-                    <button class="product-card-icon product-card-icon-favorite">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
-                      </svg>
-                    </button>
-                    <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
-                      </svg>
-                    </button>
+                  <div class="product-content">
+                    <h3 class="product-name">Наименование карточки</h3>
+                    <div class="product-content-price">
+                      <p class="product-price-initial decorative-line">Цена</p>
+                      <p class="product-price-sale">Цена грн</p>
+                    </div>
                   </div>
-                </div>
-                <div class="product-content">
-                  <h3 class="product-name">Наименование карточки</h3>
-                  <p class="product-price">Цена грн</p>
-                </div>
-              </li>
-              <!-- </div> -->
-            </ul>
+                </li>
+          
+                <li class="product-card">
+                  <div class="product-image">
+                    <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+                    <div class="product-overlay">
+                      <button class="product-card-icon product-card-icon-favorite">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-favorite-icon"></use>
+                        </svg>
+                      </button>
+                      <button class="product-card-icon product-card-icon-fullscreen">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="product-content">
+                    <h3 class="product-name">Наименование карточки</h3>
+                    <div class="product-content-price">
+                      <p class="product-price-initial decorative-line">Цена</p>
+                      <p class="product-price-sale">Цена грн</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="product-card">
+                  <div class="product-image">
+                    <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+                    <div class="product-overlay">
+                      <button class="product-card-icon product-card-icon-favorite">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-favorite-icon"></use>
+                        </svg>
+                      </button>
+                      <button class="product-card-icon product-card-icon-fullscreen">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="product-content">
+                    <h3 class="product-name">Наименование карточки</h3>
+                    <div class="product-content-price">
+                      <p class="product-price-initial decorative-line">Цена</p>
+                      <p class="product-price-sale">Цена грн</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+
+          <!-- моя категория + карусель -->
+          <div class="categories">
+            <div class="categories-title">
+              <a class="icon-left arrow prev">
+                <svg class="icon-left-svg" width="30" height="30">
+                  <use href="./images/sprite.svg#icon-elem-left"></use>
+                </svg></a>
+              <h2 class="section-title">РОЗПРОДАЖ РІЗНЕ</h2>
+              <a class="section-text" href="">Дивитися всі</a>
+              <a class="icon-right arrow next">
+                <svg class="icon-right-svg" width="30" height="30">
+                  <use href="./images/sprite.svg#icon-elem-right"></use>
+                </svg></a>
+            </div>
+            <div class="gallery">
+              <ul class="product-card-group images">
+          
+                <li class="product-card">
+                  <div class="product-image">
+                    <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+                    <div class="product-overlay">
+                      <button class="product-card-icon product-card-icon-favorite">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-favorite-icon"></use>
+                        </svg>
+                      </button>
+                      <button class="product-card-icon product-card-icon-fullscreen">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="product-content">
+                    <h3 class="product-name">Наименование карточки</h3>
+                    <div class="product-content-price">
+                      <p class="product-price-initial decorative-line">Цена</p>
+                      <p class="product-price-sale">Цена грн</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="product-card">
+                  <div class="product-image">
+                    <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+                    <div class="product-overlay">
+                      <button class="product-card-icon product-card-icon-favorite">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-favorite-icon"></use>
+                        </svg>
+                      </button>
+                      <button class="product-card-icon product-card-icon-fullscreen">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="product-content">
+                    <h3 class="product-name">Наименование карточки</h3>
+                    <div class="product-content-price">
+                      <p class="product-price-initial decorative-line">Цена</p>
+                      <p class="product-price-sale">Цена грн</p>
+                    </div>
+                  </div>
+                </li>
+          
+                <li class="product-card">
+                  <div class="product-image">
+                    <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+                    <div class="product-overlay">
+                      <button class="product-card-icon product-card-icon-favorite">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-favorite-icon"></use>
+                        </svg>
+                      </button>
+                      <button class="product-card-icon product-card-icon-fullscreen">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="product-content">
+                    <h3 class="product-name">Наименование карточки</h3>
+                    <div class="product-content-price">
+                      <p class="product-price-initial decorative-line">Цена</p>
+                      <p class="product-price-sale">Цена грн</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="product-card">
+                  <div class="product-image">
+                    <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+                    <div class="product-overlay">
+                      <button class="product-card-icon product-card-icon-favorite">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-favorite-icon"></use>
+                        </svg>
+                      </button>
+                      <button class="product-card-icon product-card-icon-fullscreen">
+                        <svg class="icon" width="16" height="16">
+                          <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="product-content">
+                    <h3 class="product-name">Наименование карточки</h3>
+                    <div class="product-content-price">
+                      <p class="product-price-initial decorative-line">Цена</p>
+                      <p class="product-price-sale">Цена грн</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
 
         </div>
