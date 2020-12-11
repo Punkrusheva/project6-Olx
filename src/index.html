@@ -36,7 +36,7 @@
               <button type="button"></button>
               <button type="button"></button>
             </div> -->
-          <button type="button" class="user__button authorization">
+          <button type="button" class="user__button authorization" data-modal-open>
             <span class="button__text">Реєстрація / Увійти</span>
             <svg class="icon__account" width="24" height="24">
               <use class="" href="./images/sprite.svg#icon-user-profile"></use>
@@ -60,7 +60,7 @@
             <ul class="filter__inner">
 
               <li class="user__button-mobile">
-                <button type="button" class="user__button mobile">Реєстрація / Увійти</button>
+                <button type="button" class="user__button mobile" data-modal-open>Реєстрація / Увійти</button>
               </li>
 
               <li class="filter__item">
@@ -126,19 +126,20 @@
           <!-- моя категория -->
           <div class="categories">
             <div class="categories-title">
-              <a class="icon-left">
+              <a class="icon-left arrow prev">
                 <svg class="icon-left-svg" width="30" height="30">
                   <use href="./images/sprite.svg#icon-elem-left"></use>
                 </svg></a>
               <h2 class="section-title">РОЗПРОДАЖ РІЗНЕ</h2>
-              <a class="section-text" href=""><u>Дивитися всі</u></a>
-              <button class="button-right"><svg class="icon-elem-right" width="30" height="30">
-
+              <a class="section-text" href="">Дивитися всі</a>
+              <a class="icon-right arrow next">
+                <svg class="icon-right-svg" width="30" height="30">
                   <use href="./images/sprite.svg#icon-elem-right"></use>
                 </svg></a>
             </div>
-            <ul class="product-card-group">
-              <!-- <div class="product-card-one-group" > -->
+            <div class="gallery">
+            <ul class="product-card-group images">
+
               <li class="product-card">
                 <div class="product-image">
                   <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
@@ -187,8 +188,7 @@
                   </div>
                 </div>
               </li>
-              <!-- </div> -->
-              <!-- <div class="product-card-others-group" > -->
+
               <li class="product-card">
                 <div class="product-image">
                   <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
@@ -238,6 +238,7 @@
                 </div>
               </li>
             </ul>
+            </div>
           </div>
 
           <!-- НАСТЯ-->
@@ -256,54 +257,6 @@
             </div>
             <ul class="product-card-group">
 
-
-              <li class="product-card">
-                <a href="" class="product-image">
-
-                  <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
-                  <div class="product-overlay">
-                    <button class="product-card-icon product-card-icon-favorite">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
-                      </svg>
-                    </button>
-                    <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
-                      </svg>
-                    </button>
-                  </div>
-                </a>
-                <div class="product-content">
-                  <h3 class="product-name">Наименование карточки</h3>
-                  <p class="product-price">Цена грн</p>
-                </div>
-              </li>
-              <li class="product-card">
-                <a href="" class="product-image">
-
-                  <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
-                  <div class="product-overlay">
-                    <button class="product-card-icon product-card-icon-favorite">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
-                      </svg>
-                    </button>
-                    <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
-                      </svg>
-                    </button>
-                  </div>
-
-                </a>
-
-                <div class="product-content">
-                  <h3 class="product-name">Наименование карточки</h3>
-                  <p class="product-price">Цена грн</p>
-                </div>
-              </li>
-
               <li class="product-card">
                 <a href="" class="product-image">
 
@@ -329,7 +282,6 @@
                 </div>
               </li>
               <li class="product-card">
-
                 <a href="" class="product-image">
 
                   <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
@@ -346,6 +298,55 @@
                     </button>
                   </div>
 
+
+                </a>
+
+                <div class="product-content">
+                  <h3 class="product-name">Наименование карточки</h3>
+                  <p class="product-price">Цена грн</p>
+                </div>
+              </li>
+
+              <li class="product-card">
+                <a href="" class="product-image">
+
+                  <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+                  <div class="product-overlay">
+                    <button class="product-card-icon product-card-icon-favorite">
+                      <svg class="icon" width="16" height="16">
+                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
+                      </svg>
+                    </button>
+                    <button class="product-card-icon product-card-icon-fullscreen">
+                      <svg class="icon" width="16" height="16">
+                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </a>
+
+                <div class="product-content">
+                  <h3 class="product-name">Наименование карточки</h3>
+                  <p class="product-price">Цена грн</p>
+                </div>
+              </li>
+              <li class="product-card">
+
+                <a href="" class="product-image">
+
+                  <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+                  <div class="product-overlay">
+                    <button class="product-card-icon product-card-icon-favorite">
+                      <svg class="icon" width="16" height="16">
+                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
+                      </svg>
+                    </button>
+                    <button class="product-card-icon product-card-icon-fullscreen">
+                      <svg class="icon" width="16" height="16">
+                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                      </svg>
+                    </button>
+                  </div>
                 </a>
 
                 <div class="product-content">
@@ -623,6 +624,30 @@
     </div>
   </div>
 
+  <!-- Модалка авторизации -->
+  <div class="modal-backdrop is-hidden" data-modal>
+    <div class="auth-modal">
+      <button class="auth-close-button" data-modal-close>
+        <svg class="auth-close-icon" width="24px" height="24px">
+          <use href="./images/sprite.svg#icon-close_icon"></use>
+        </svg>
+      </button>
+      <p class="auth-modal-title">Ви можете авторизуватися за допомогою Googlt Account:</p>
+      <button class="google-auth">
+        <svg class="google-auth-icon" width="18px" height="18px">
+          <use href="./images/sprite.svg#icon-google-icon"></use>
+        </svg>
+        <p class="google-auth-title">Google</p>
+      </button>
+      <h2 class="auth-modal-title">Або зайти за допомогою імейлу і пароля, попередньо зареєструвавшись:</h2>
+      <form method="post" class="auth-form">
+        <input type="email" name="email" class="auth-input email" id="userEmail" placeholder="E-mail">
+        <input type="password" name="password" class="auth-input password" id="userPassword" placeholder="Password">
+        <div class="auth-buttons">
+          <button type="submit" class="button-orange">Увійти</button>
+          <button type="submit" class="button-gray">Зареєструватись</button>
+        </div>
+
   <!-- Модалка cоздания объявления -->
   <div data-create-ad-modal class="backdrop-modal-create-ad is-hidden">
     <div class="create-ad">
@@ -693,11 +718,10 @@
         <button type="submit" class="create-ad-submit">
           Додати
         </button>
+
       </form>
     </div>
   </div>
+  </body>
+ </html>
 
-
-</body>
-
-</html>
