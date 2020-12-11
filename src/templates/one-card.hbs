@@ -1,20 +1,45 @@
-<div>
-    <h3 class="one-card-title">Наименование</h3>
-    <p class="cart-text">Код товара</p>
-    <div>
-        <img src="./images/Rectangle 7.jpg" alt="">
-    </div>
-    <div>
-        <h3 class="one-card-title">Цена</h3>
-        <button>Информация о продавце</button>
-        <P class="cart-text">В избранное
-            <i class="material-icons">favorite_border</i>
-        </P>
-        <P class="cart-text">Поделиться
-            <i class="material-icons">device_hub</i>
-        </P>
-        <P class="cart-text">Описание:</P>
-        <p class="card-description">Описание товара</p>
-    </div>
+<div class="container">
+    <div data-modal class="backdrop-modal-product ">
 
+      <div class="open-card__cont">
+        <span data-modal-close class="close-form"><svg class="close-form-icon" width="14" height="14">
+          <use href="../images/sprite.svg#icon-close_icon"></use>
+      </svg></span>
+        <h3 class="open-card__title">Найменування</h3>
+        <div class="open-card__text--cont">
+          <span class="open-card__text">Код товару |</span>
+          <span class="open-card__text data-code">105-С</span>
+        </div>
+        <div class="carousel">
+
+          <img class="carousel-cell-image" src="../images/Rectangle 7.jpg" alt="">
+          <img class="carousel-cell-image" src="../images/rectangle-7.jpg" alt="">
+          <img class="carousel-cell-image" src="../images/Rectangle 7.jpg" alt="">
+          <img class="carousel-cell-image" src="./images/Rectangle12-1.png" alt="">
+          <img class="carousel-cell-image" src="../images/rectangle-7.jpg" alt="">
+
+        </div>
+        <div>
+          <h3 class="open-card__price">200.00 грн</h3>
+          <button class="open-card__seller--cont">
+            <span class="open-card__seller ">інформація про продавця</span>
+
+          </button>
+          <div class="flex-container">
+            <P class="cart-text flex-container">
+              <span>В обране</span>
+              <span class="material-icons cardset-icon"><span class="">favorite_border</span cl></span>
+            </P>
+            <P class="cart-text flex-container">
+              <span>Поділитися</span>
+              <span class="material-icons cardset-icon">share</span>
+            </P>
+          </div>
+          <P class="cart-text --up-margin">Опис:</P>
+          <p class="open-card__description">Describtion</p>
+        </div>
+
+      </div>
+
+    </div>
 </div>
