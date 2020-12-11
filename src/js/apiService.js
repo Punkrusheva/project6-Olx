@@ -1,6 +1,6 @@
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
-//регистрация
+//регистрация пользователя
 
 export default async function addregisterUser() {
     const options = {
@@ -16,7 +16,7 @@ export default async function addregisterUser() {
   return responseJson
   }
 
-  //авторизация
+  //авторизация и получение токина и id
   export default async function fetchAuthorisLogin(BASE_URL, dataRegistry) {
     const options = {
   method: 'POST',
