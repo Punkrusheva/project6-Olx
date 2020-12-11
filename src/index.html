@@ -36,7 +36,7 @@
               <button type="button"></button>
               <button type="button"></button>
             </div> -->
-          <button type="button" class="user__button authorization">
+          <button type="button" class="user__button authorization" data-modal-open>
             <span class="button__text">Реєстрація / Увійти</span>
             <svg class="icon__account" width="24" height="24">
               <use class="" href="./images/sprite.svg#icon-user-profile"></use>
@@ -61,7 +61,7 @@
             <ul class="filter__inner">
 
               <li class="user__button-mobile">
-                <button type="button" class="user__button mobile">Реєстрація / Увійти</button>
+                <button type="button" class="user__button mobile" data-modal-open>Реєстрація / Увійти</button>
               </li>
 
               <li class="filter__item">
@@ -100,8 +100,6 @@
           </div>
         </div>
 
-
-
         <button class="filter__button-clear" type="reset">
           Очистити фільтри
         </button>
@@ -110,12 +108,7 @@
 
     </div>
 
-
-
   </header>
-
-
-
 
   <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
   <!--<include src="./partials/header.html"></include>-->
@@ -125,9 +118,6 @@
       <include src="./partials/section-2.html"></include>
       <include src="./partials/section-3.html"></include>
       <include src="./partials/footer.html"></include>-->
-
-
-
 
     <section class="section">
       <div class="main-container">
@@ -594,10 +584,7 @@
 
     <p>by <u>GoIT Students</u></p>
         
-
   </footer>
-
-
 
   <!-- Модалка поиска -->
   <div data-search-modal class="search__backdrop is-hidden">
@@ -617,6 +604,30 @@
       </form>
     </div>
   </div>
+
+  <!-- Модалка авторизации -->
+  <div class="modal-backdrop is-hidden" data-modal>
+    <div class="auth-modal">
+      <button class="auth-close-button" data-modal-close>
+        <svg class="auth-close-icon" width="24px" height="24px">
+          <use href="./images/sprite.svg#icon-close_icon"></use>
+        </svg>
+      </button>
+      <p class="auth-modal-title">Ви можете авторизуватися за допомогою Googlt Account:</p>
+      <button class="google-auth">
+        <svg class="google-auth-icon" width="18px" height="18px">
+          <use href="./images/sprite.svg#icon-google-icon"></use>
+        </svg>
+        <p class="google-auth-title">Google</p>
+      </button>
+      <h2 class="auth-modal-title">Або зайти за допомогою імейлу і пароля, попередньо зареєструвавшись:</h2>
+      <form method="post" class="auth-form">
+        <input type="email" name="email" class="auth-input email" id="userEmail" placeholder="E-mail">
+        <input type="password" name="password" class="auth-input password" id="userPassword" placeholder="Password">
+        <div class="auth-buttons">
+          <button type="submit" class="button-orange">Увійти</button>
+          <button type="submit" class="button-gray">Зареєструватись</button>
+        </div>
 
   <!-- Модалка cоздания объявления -->
   <div data-create-ad-modal class="backdrop-modal-create-ad is-hidden">
@@ -688,10 +699,10 @@
         <button type="submit" class="create-ad-submit">
           Додати
         </button>
+
       </form>
     </div>
   </div>
-
 
 </body>
 
