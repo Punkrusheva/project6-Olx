@@ -1,6 +1,11 @@
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
-//регистрация пользователя
+const user = {
+    email: 'dfdfff@examle.com',
+  password: 'wergnm111',
+};
+
+//регистрация
 
 export default async function addregisterUser() {
     const options = {
@@ -8,16 +13,16 @@ export default async function addregisterUser() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(dataRegistry),
+      body: JSON.stringify(user),
     };
-  
+    
     const response = await fetch(`${BASE_URL}auth/register`,options);
   const responseJson = await response.json();
   return responseJson
   }
-
-  //авторизация и получение токина и id
-  export default async function fetchAuthorisLogin(BASE_URL, dataRegistry) {
+ 
+  //авторизация
+  export  async function fetchAuthorisLogin(BASE_URL, dataRegistry) {
     const options = {
   method: 'POST',
   body: JSON.stringify(dataRegistry),
@@ -30,4 +35,4 @@ export default async function addregisterUser() {
     const responseJson = await response.json();
     return  localStorage.setItem('key', `${responseJson.accessToken}`);
 
-};
+}; 
