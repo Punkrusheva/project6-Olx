@@ -35,14 +35,6 @@
     overflow: hidden;
     height: 1575px;
   }
-  // @media screen and (min-width: $tablet) {
-  //   overflow: hidden;
-  //   height: 535px;
-  // }
-  // @media screen and (min-width: $desktop) {
-  //   overflow: hidden;
-  //   height: 500px;
-  // }
 }
 
 .categories {
@@ -52,11 +44,11 @@
   }
   @media screen and (min-width: $tablet) {
     overflow: hidden;
-    height: 525px;
+    height: 500px;
   }
   @media screen and (min-width: $desktop) {
     overflow: hidden;
-    height: 475px;
+    height: 500px;
   }
 }
 
