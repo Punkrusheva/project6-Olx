@@ -1,0 +1,8 @@
+export default class FetchToStart(){
+    constructor(){
+        this.BASE_URL = 'https://callboard-backend.herokuapp.com/',
+        this.token = 
+            
+    }
+
+}

@@ -1,6 +1,8 @@
+
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
-const user = {
+
+const newUser = {
     email: 'kate@gmail.com',
     password: '12345'
 }
@@ -10,7 +12,7 @@ const options = {
     headers: {
         "Content-Type": "application/json"
     },
-    body: JSON.stringify(user),
+    body: JSON.stringify(newUser),
 
 };
 

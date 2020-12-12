@@ -9,7 +9,7 @@ import './js/modal';
 
 import './js/create-ad';
 
-import './js/register-demo';
-import './js/login-demo';
+import './js/fetch.js/register-demo';
+import './js/fetch.js/login-demo';
 import './js/auth-check';
 
