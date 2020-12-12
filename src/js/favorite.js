@@ -4,7 +4,6 @@ const refs = {
    
 }
 
-console.log(addFavoriteBtn);
 refs.addFavoriteBtn.addEventListener('click', addFavoriteCard);
 refs.removeFavoriteBtn.addEventListener('click', removeFavoriteCard);
 
