@@ -9,21 +9,10 @@ closeModalCreateADBtn.addEventListener('click', closeModalCreateAd)
 
 function openModalCreateAd() {
 
-  // addregisterUser(body)
-
-  // fetchAuthorisLogin(body)
-  
-  // if (localStorage.getItem('key')) {
-    window.addEventListener("keydown", onKeyDown);
-    createAdModalRef.addEventListener("click", onOverlayClick);
-    createAdModalRef.classList.remove("is-hidden");
-  // }
-  // else {
-  //   //открытие модалки регистрации
-  // }
+  window.addEventListener("keydown", onKeyDown);
+  createAdModalRef.addEventListener("click", onOverlayClick);
+  createAdModalRef.classList.remove("is-hidden");
 }
-
-console.log(openModalCreateAd())
 
 function closeModalCreateAd() {
     window.removeEventListener("keydown", onKeyDown);
