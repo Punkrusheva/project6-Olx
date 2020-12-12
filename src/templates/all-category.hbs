@@ -1,3 +1,4 @@
+{{#each this}}
 <div class="categories-group">
     <!-- моя категория -->
     <div class="categories">
@@ -6,7 +7,7 @@
                 <svg class="icon-left-svg" width="30" height="30">
                     <use href="./images/sprite.svg#icon-elem-left"></use>
                 </svg></a>
-            <h2 class="section-title">РОЗПРОДАЖ РІЗНЕ</h2>
+            <h2 class="section-title">{{this.id}} РІЗНЕ</h2>
             <a class="section-text" href="">Дивитися всі</a>
             <a data-action="next-card" class="icon-right arrow next">
                 <svg class="icon-right-svg" width="30" height="30">
@@ -17,6 +18,7 @@
             {{>../templates/product-cards.hbs}}
         </div>
     </div>
+    {{/each}}
 
 
 </div>

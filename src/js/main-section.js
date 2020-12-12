@@ -7,82 +7,39 @@ import test from '../test.json';
 
 const mainContainerRef = document.querySelector('.main-container');
 
-// productCardGroupRef.insertAdjacentHTML('beforebegin', markup );
-
+// productCardGroupRef.insertAdjacentHTML('beforebegin', allCategory(fetchAllCards));
+// console.log(fetchAllCards.forEach(item => {console.log(item);}));
 /* 4 катергории, по 4 (2) объявления  */ 
-mainContainerRef.innerHTML = allCategory(test);
-
+// mainContainerRef.innerHTML = oneCard(fetchAllCards);
+// mainContainerRef.innerHTML = fetchAllCards;
 /* все объявления одной категории  */ 
-// mainContainerRef.innerHTML = oneCategory(test);
-
+mainContainerRef.innerHTML = oneCategory(fetchAllCards);
 
 
 /* API test  */
-// const BASE_URL = 'https://callboard-backend.herokuapp.com';
+const BASE_URL = 'https://callboard-backend.herokuapp.com/';
+const currentPage = 1;
 
-// const newUser = {
-//   "email": "user@example.com",
-//   "password": "qwerty123"
-// }
+const requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+    };
 
-    
-// const options = {
-//     method: 'POST',
-//     headers: {
-//         "Content-Type": "application/json"
+const fetchAllCards = fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+                
+console.log(fetchAllCards);
 
-//     },
-//     body: JSON.stringify(newUser),
-// };
+// const users = [
+//   { name: 'Mango', isActive: true },
+//   { name: 'Poly', isActive: false },
+//   { name: 'Ajax', isActive: true },
+// ];
 
-// fetch(`${BASE_URL}/auth/register`).then(resp => resp.json()).then();
+// Для каждого элемента коллекции (user) вернем значение поля name
+// const names = users.map(user => user.name);
+// const names = fetchAllCards.map(user => { console.log(user);});
+// console.log(names);
 
-// const user = {
-//   "email": "user@example.com",
-//   "password": "qwerty123"
-// }
-// const options2 = {
-//     method: 'POST',
-//     body: JSON.stringify(user),
-//     headers: {
-//         'Content-Type': 'application/json',
-//     },
-// };
-
-// fetch(`${BASE_URL}/auth/login`, options2).then(resp => resp.json()).then(data => console.log(data.accessToken));;
-    
-
-// const BASE_URL = 'https://callboard-backend.herokuapp.com/';
-
-// // регистрация
-
-// async function addregisterUser() {
-//     const options = {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(newUser),
-//     };
-
-//     const response = await fetch(`${BASE_URL}auth/register`, options);
-//     const responseJson = await response.json();
-//     return responseJson;
-// }
-  
-// addregisterUser('spekava@gmail.com')
-//   //авторизация
-//   async function fetchAuthorisLogin(BASE_URL, dataRegistry) {
-//     const options = {
-//   method: 'POST',
-//   body: JSON.stringify(dataRegistry),
-//   headers: {
-//     'Content-Type': 'application/json',
-//     'accept': 'application/json',
-//   },
-// }
-//     const response = await fetch(`${BASE_URL}auth/login`,options);
-//     const responseJson = await response.json();
-//     return  localStorage.setItem('key', `${responseJson.accessToken}`);
-
-// };

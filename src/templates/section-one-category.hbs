@@ -1,6 +1,37 @@
-{{>../templates/product-cards.hbs}}
+{{!-- {{>../templates/product-cards.hbs}} --}}
+{{!-- {{#each free}} --}}
+{{!-- {{#with free}}
+{{free.title}} {{price}}
+{{/with}} --}}
+{{#each free}}
+<li>{{this}}</li>
+{{free.description}}
+{{/each}}
+<!-- This comment will show up as HTML-comment -->
 
+{{!-- <li class="product-card__my">
+    <div class="product-image">
+        <img class="product-img" src="{{imageUrls}}" alt="" />
+        <div class="product-overlay">
+            <button class="product-card-icon product-card-icon-favorite">
+                <svg class="icon" width="16" height="16">
+                    <use href="{./images/sprite.svg#icon-favorite-icon}"></use>
+                </svg>
+            </button>
+            <button class="product-card-icon product-card-icon-fullscreen">
+                <svg class="icon" width="16" height="16">
+                    <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="product-content">
+        <h3 class="product-name">{{free.title}}</h3>
+        <p class="product-price">{{price}} грн</p>
+    </div>
+</li> --}}
 
+{{!-- {{/each}} --}}
 <div>
     <button class="button-next-pages">1</button>
     <button class="button-next-pages">2</button>
