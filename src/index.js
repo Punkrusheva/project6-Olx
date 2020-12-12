@@ -9,4 +9,4 @@ import './js/modal';
 
 import './js/create-ad'
 import './js/apiService';
-// import './js/registration'; ---нужно проверить
+import './js/registration'; 

@@ -2,14 +2,13 @@
 import addregisterUser from './apiService';
 
 
-const registerFormRef = document.querySelector('.auth-modal'); // к чему прикрутить чтобы проверить?
+const registerFormRef = document.querySelector('.auth-form'); 
 const handleRegisterSubmit = event => {
   event.preventDefault();
-
   const { currentTarget: form } = event;
   const formData = new FormData(form);
   const body = {};
-
+console.log(formData)
   formData.forEach((value, key) => {
     body[key] = value;
   });
@@ -22,4 +21,11 @@ const handleRegisterSubmit = event => {
       });
     });
 };
-registerFormRef.addEventListener('button-gray', handleRegisterSubmit); // к чему прикрутить чтобы проверить
+registerFormRef.addEventListener('submit', handleRegisterSubmit); 
+
+// -----------------------------------------------------------------
+//  function closeModal() {
+//       window.addEventListener('click', );
+//       модалкарегистраци--El.classList.remove('is-open')
+//        модалкарегистрации.innerHTML = ''
+//   }
