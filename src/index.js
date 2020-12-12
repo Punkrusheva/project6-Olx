@@ -14,4 +14,4 @@ import './js/create-ad';
 
 import './js/apiService';
 import './js/registration'; 
-import './js/auth.check'
+import './js/auth-check';
