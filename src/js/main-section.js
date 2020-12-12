@@ -3,6 +3,18 @@ import oneCard from '../templates/product-cards.hbs';
 import allCategory from '../templates/all-category.hbs';
 import test from '../test.json';
 
+var elem = document.querySelector('.carousel');
+
+// element argument can be a selector string
+//   for an individual element
+var flkty = new Flickity( elem, {
+  // options
+  prevNextButtons: false,
+    contain: true,
+    wrapAround: true,
+    imagesLoaded: true
+});
+
 // {{>./cardset}}
 // console.log(`111`);
 // console.log(allCategory);
@@ -55,4 +67,3 @@ nextRef.onclick = function() {
     position = Math.max(position, -width * (carouselRefLi.length - count));
     list.style.marginLeft = position + 'px';
 };
-    
