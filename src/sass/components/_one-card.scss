@@ -1,31 +1,171 @@
-.one-card-title {
-  margin-bottom: 6px;
-  font-family: Roboto;
-  font-style: Medium;
-  font-size: 18px;
-  line-height: 21px;
-  line-height: 100%;
-  vertical-align: Top;
-  letter-spacing: 2%;
-  fill: Solid #000000;
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
-.cart-text {
-  font-family: Roboto;
-  font-style: Light;
-  font-size: 12px;
-  line-height: 14px;
-  line-height: 100%;
-  vertical-align: Top;
-  letter-spacing: 2%;
-  fill: Solid #878686;
+
+.backdrop-modal-product {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  overflow: auto;
 }
-.card-description {
+
+.backdrop-modal-product.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: none;
+}
+
+.open-card{
+
+  &__cont {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  overflow: scroll;
+  transform: translate(-50%, -50%) scale(1);
+  background-color: $white-text;
+  color: $secondary-color;;
   font-family: Roboto;
-  font-style: Light;
+  font-weight: 300;
   font-size: 12px;
-  line-height: 14px;
-  line-height: 100%;
-  vertical-align: Top;
-  letter-spacing: 2%;
-  fill: Solid #000000;
+
+  max-width: $mobile-modal-container-width;
+  max-height: $mobile-modal-container-height;
+  padding-top: 55px;
+  padding-bottom: 20px;
+  padding-left: 19px;
+  padding-right: 19px;
+}
+
+  &__title {
+    font-weight: 500;
+    font-size: 18px;
+    color: $primary-color;
+    margin-bottom: 5px;
+    margin-top: 0;
+  }
+
+  &__text {
+    color: $secondary-color;
+
+    &--cont {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__price {
+    margin-bottom: 30px;
+    font-weight: 500;
+    font-size: 18px;
+    color: $primary-color;
+
+    @media screen and (max-width: $before-tablet) {
+      margin-top: 50px;
+    }
+  }
+
+  &__seller {
+    color: $white-text;
+    text-transform: uppercase;
+
+    &--cont {
+      background-color: $accent-orange;
+      border: 1px solid $accent-orange;
+
+      font-weight: 500;
+      text-align: center;
+
+      width: 252px;
+      min-height: 60px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      padding-right: 55px;
+      padding-left: 55px;
+
+      cursor: pointer;
+
+    }
+  }
+
+  &__description {
+    color: $primary-color;
+  }
+
+}
+
+.close-form {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  // @media screen and (min-width: $tablet) {
+
+  // }
+}
+
+// информация о продавце
+
+.data-seller {
+  color: $primary-color;
+  text-transform: capitalize;
+}
+
+// сонтейнер с информацией о продавце
+.open-card__seller--cont.--cont-seller {
+  background-color: $accent-grey;
+
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 20px;
+  padding-left: 25px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.material-icons.cardset-icon{
+  font-size: 16px;
+  margin-left: 10px;
+
+  &:hover, &:focus {
+    color: $accent-orange;
+  }
+
+}
+
+.--up-margin {
+  margin-top: 30px;
+}
+
+
+.carousel {
+  background: transparent;
+
+  @media screen and (min-width: $before-tablet) {
+    display: none;
+  }
+}
+
+.carousel-cell-image {
+  max-width: 100%; /* full width */
+  height: 253px; /* height of carousel */
 }
