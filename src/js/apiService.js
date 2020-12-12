@@ -37,3 +37,4 @@ export default async function addregisterUser() {
     return  localStorage.setItem('key', `${responseJson.accessToken}`);
 
 }; 
+

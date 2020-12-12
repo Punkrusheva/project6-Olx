@@ -9,10 +9,9 @@ import './js/modal';
 
 import './js/create-ad';
 
-import './js/fetch.js/register-demo';
-import './js/fetch.js/login-demo';
-import './js/auth-check';
 
-import './js/create-ad'
+
+
 import './js/apiService';
 import './js/registration'; 
+import './js/auth.check'
