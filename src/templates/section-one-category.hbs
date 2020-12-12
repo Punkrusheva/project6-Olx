@@ -3,12 +3,13 @@
 {{!-- {{#with free}}
 {{free.title}} {{price}}
 {{/with}} --}}
-{{#each free}}
-<li>{{this}}</li>
-{{free.description}}
+{{!-- <img class="cardset__image" srcset="{{#each imageUrls}}{{#if @first}}{{this}}{{/if}}{{/each}} 352w" {{#each this}}
+    <h1>{{free.category}}</h1>
+{{/each}} --}}
+{{#each this}}
+{{>./product-cards}}
 {{/each}}
-<!-- This comment will show up as HTML-comment -->
-
+</ul>
 {{!-- <li class="product-card__my">
     <div class="product-image">
         <img class="product-img" src="{{imageUrls}}" alt="" />

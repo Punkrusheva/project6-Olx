@@ -27,7 +27,17 @@ const requestOptions = {
 
 const fetchAllCards = fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
     .then(response => response.json())
-    .then(result => console.log(result))
+    .then(result => {
+        // console.dir(result.free);
+        console.log(result);
+        // const names = result.map(response => console.log(response.free));
+        // console.log(names);
+        const markup = allCategory(result);
+        // console.log(markup);
+        // mainContainerRef.insertAdjacentHTML('afterbegin', markup);
+        mainContainerRef.innerHTML = markup;
+
+    })
     .catch(error => console.log('error', error));
                 
 console.log(fetchAllCards);
@@ -42,4 +52,3 @@ console.log(fetchAllCards);
 // const names = users.map(user => user.name);
 // const names = fetchAllCards.map(user => { console.log(user);});
 // console.log(names);
-

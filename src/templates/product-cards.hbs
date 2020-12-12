@@ -1,8 +1,9 @@
 <ul class="product-card-group images">
     {{#each this}}
+    <li>{{this}}</li>
     <li class="product-card__my">
         <div class="product-image">
-            <img class="product-img" src="{{imageUrls}}" alt="" />
+            <img class="product-img" src="{{#each imageUrls}}{{#if @first}}{{this}}{{/if}}{{/each}}" alt="{{title}}" />
             <div class="product-overlay">
                 <button class="product-card-icon product-card-icon-favorite">
                     <svg class="icon" width="16" height="16">
@@ -17,7 +18,8 @@
             </div>
         </div>
         <div class="product-content">
-            <h3 class="product-name">{{free.title}}</h3>
+            <h3 class="product-name">{{title}}</h3>
+            <h3 class="product-name">{{category}}</h3>
             <p class="product-price">{{price}} грн</p>
         </div>
     </li>
