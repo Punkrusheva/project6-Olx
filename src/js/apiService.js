@@ -1,8 +1,8 @@
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
 const user = {
-  email: 'email',
-  password: 'password', 
+  email: '{}',
+  password: '{}', 
 };
 console.log(user);
 
