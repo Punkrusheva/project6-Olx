@@ -1,58 +1,88 @@
 // import { template } from 'handlebars';
 import oneCard from '../templates/product-cards.hbs';
 import allCategory from '../templates/all-category.hbs';
+import oneCategory from '../templates/section-one-category.hbs';
 import test from '../test.json';
 
-// {{>./cardset}}
-// console.log(`111`);
-// console.log(allCategory);
-// console.log(test);
 
-// const mainContainerRef = document.querySelector('.main-container');
-// const productCardGroupRef = document.querySelector('.product-card-group');
+const mainContainerRef = document.querySelector('.main-container');
 
-// console.log(mainContainerRef);
+// productCardGroupRef.insertAdjacentHTML('beforebegin', markup );
 
-// productCardGroupRef.insertAdjacentHTML('beforeend', oneCard(test));
-// mainContainerRef.innerHTML = oneCard(test);
+/* 4 катергории, по 4 (2) объявления  */ 
+mainContainerRef.innerHTML = allCategory(test);
+
+/* все объявления одной категории  */ 
+// mainContainerRef.innerHTML = oneCategory(test);
 
 
-/* карусель!! */
-/* этот код помечает картинки, для удобства разработки */
-const carouselRefLi = document.querySelectorAll('.product-card');
 
-let i = 1;
-for(let li of carouselRefLi) {
-    li.style.position = 'relative';
-    li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
-    i++;
-}
+/* API test  */
+// const BASE_URL = 'https://callboard-backend.herokuapp.com';
 
-/* конфигурация */
-let width = 150; // ширина картинки
-let count = 2; // видимое количество изображений
+// const newUser = {
+//   "email": "user@example.com",
+//   "password": "qwerty123"
+// }
 
-// let list = carousel.querySelector('ul');
-const list = document.querySelector('.product-card');
-// let listElems = carousel.querySelectorAll('li');
-
-let position = 0; // положение ленты прокрутки
-const prevRef = document.querySelector('.prev');
-
-prevRef.onclick = function() {
-    // сдвиг влево
-    position += width * count;
-    // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
-    position = Math.min(position, 0)
-    list.style.marginLeft = position + 'px';
-};
-
-const nextRef = document.querySelector('.next');
-nextRef.onclick = function() {
-    // сдвиг вправо
-    position -= width * count;
-    // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
-    position = Math.max(position, -width * (carouselRefLi.length - count));
-    list.style.marginLeft = position + 'px';
-};
     
+// const options = {
+//     method: 'POST',
+//     headers: {
+//         "Content-Type": "application/json"
+
+//     },
+//     body: JSON.stringify(newUser),
+// };
+
+// fetch(`${BASE_URL}/auth/register`).then(resp => resp.json()).then();
+
+// const user = {
+//   "email": "user@example.com",
+//   "password": "qwerty123"
+// }
+// const options2 = {
+//     method: 'POST',
+//     body: JSON.stringify(user),
+//     headers: {
+//         'Content-Type': 'application/json',
+//     },
+// };
+
+// fetch(`${BASE_URL}/auth/login`, options2).then(resp => resp.json()).then(data => console.log(data.accessToken));;
+    
+
+// const BASE_URL = 'https://callboard-backend.herokuapp.com/';
+
+// // регистрация
+
+// async function addregisterUser() {
+//     const options = {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(newUser),
+//     };
+
+//     const response = await fetch(`${BASE_URL}auth/register`, options);
+//     const responseJson = await response.json();
+//     return responseJson;
+// }
+  
+// addregisterUser('spekava@gmail.com')
+//   //авторизация
+//   async function fetchAuthorisLogin(BASE_URL, dataRegistry) {
+//     const options = {
+//   method: 'POST',
+//   body: JSON.stringify(dataRegistry),
+//   headers: {
+//     'Content-Type': 'application/json',
+//     'accept': 'application/json',
+//   },
+// }
+//     const response = await fetch(`${BASE_URL}auth/login`,options);
+//     const responseJson = await response.json();
+//     return  localStorage.setItem('key', `${responseJson.accessToken}`);
+
+// };
