@@ -27,7 +27,7 @@
 
   &__cont {
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   overflow: scroll;
   transform: translate(-50%, -50%) scale(1);
@@ -37,12 +37,29 @@
   font-weight: 300;
   font-size: 12px;
 
-  max-width: $mobile-modal-container-width;
-  max-height: $mobile-modal-container-height;
+  width: $mobile-modal-container-width;
+  min-height: $mobile-modal-container-height;
   padding-top: 55px;
   padding-bottom: 20px;
   padding-left: 19px;
   padding-right: 19px;
+
+  @media screen and (min-width: $tablet) {
+    width: $tablet-modal-container-width;
+    min-height: $tablet-modal-container-height;
+
+    padding-top: 57px;
+    padding-right: 52px;
+    padding-left: 57px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: $desktop-modal-container-width;
+    min-height: $desktop-modal-container-height;
+
+    padding-top: 54px;
+    padding-right: 43px;
+  }
 }
 
   &__title {
@@ -67,9 +84,8 @@
     font-size: 18px;
     color: $primary-color;
 
-    @media screen and (max-width: $before-tablet) {
-      margin-top: 50px;
-    }
+    margin-top: 50px;
+
   }
 
   &__seller {
@@ -81,6 +97,7 @@
       border: 1px solid $accent-orange;
 
       font-weight: 500;
+      font-size: 12px;
       text-align: center;
 
       width: 252px;
@@ -92,11 +109,19 @@
 
       cursor: pointer;
 
+      @media screen and (min-width: $tablet) {
+        width: 300px;
+      }
+
     }
   }
 
   &__description {
     color: $primary-color;
+
+    @media screen and (min-width: $desktop) {
+      font-size: 14px;;
+    }
   }
 
 }
@@ -114,9 +139,6 @@
 
   cursor: pointer;
 
-  // @media screen and (min-width: $tablet) {
-
-  // }
 }
 
 // информация о продавце
@@ -140,6 +162,60 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  &--desktop {
+    @media screen and (min-width: $tablet) {
+      display: flex;
+      justify-content: space-between;
+
+      margin-right: -5px;
+
+      .destop-gallery--item {
+        margin-right: 5px;
+
+          & > img {
+            width: 52px;
+            height: auto;
+          }
+      }
+    }
+
+    @media screen and (min-width: $desktop) {
+
+      .destop-gallery--item > img {
+        width: 68px;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $before-tablet) {
+  .desktop-gallery-cont {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .destop-gallery {
+
+    &--portrait {
+      text-align: center;
+      margin-bottom: 10px;
+
+        & > img {
+          width: 280px;
+          height: auto;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .destop-gallery--portrait > img {
+    width: 380px;
+    height: auto;
+  }
 }
 
 .material-icons.cardset-icon{
@@ -162,6 +238,9 @@
 
   @media screen and (min-width: $before-tablet) {
     display: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
 }
 

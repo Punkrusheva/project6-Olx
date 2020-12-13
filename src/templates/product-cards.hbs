@@ -1,8 +1,12 @@
 <ul class="product-card-group">
     {{#each this}}
     <li class="product-card">
+
         <div class="product-image">
-            <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
+            {{#each imageUrls }}
+            <img class="product-img" src="{{this}}" alt="" />
+            {{/each }}
+
             <div class="product-overlay">
                 <button class="product-card-icon product-card-icon-favorite">
                     <svg class="icon" width="16" height="16">
@@ -10,15 +14,15 @@
                     </svg>
                 </button>
                 <button class="product-card-icon product-card-icon-fullscreen">
-                    <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                    <svg class="icon" width="12" height="12">
+                        <use href="./images/sprite.svg#icon-full-screen"></use>
                     </svg>
                 </button>
             </div>
         </div>
         <div class="product-content">
-            <h3 class="product-name">Наименование карточки</h3>
-            <p class="product-price">Цена грн</p>
+            <h3 class="product-name">{{title}}</h3>
+            <p class="product-price">{{price}}</p>
         </div>
     </li>
     {{/each}}

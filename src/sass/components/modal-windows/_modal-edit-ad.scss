@@ -1,54 +1,70 @@
-.delete-ad {
-display: flex;
-margin-bottom: 30px;
-
-&-icon {
-margin-right: 10px;
+.backdrop-modal-edit-ad {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  overflow: auto;
 }
+
+.backdrop-modal-edit-ad.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.delete-ad {
+  display: flex;
+  margin-bottom: 30px;
+
+  &-icon {
+    margin-right: 10px;
+  }
 }
 
 .button-save-cancel {
-display: flex;
-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .edit-ad-save {
-background-color: $accent-orange;
-color: $white-text;
-border: none;
+  background-color: $accent-orange;
+  color: $white-text;
+  border: none;
 }
 .edit-ad-cancel {
-background-color: $white-text;
-border-color: $modal-text;
+  background-color: $white-text;
+  border-color: $modal-text;
 }
 
 @media screen and (max-width: $before-tablet) {
-.edit-ad-save {
-padding: 20px 27px;
-}
-.edit-ad-cancel {
-padding: 20px 27px;
-}
+  .edit-ad-save {
+    padding: 20px 27px;
+  }
+  .edit-ad-cancel {
+    padding: 20px 27px;
+  }
 }
 @media screen and(min-width: $tablet) {
-.edit-ad-save {
-padding: 25px 50px;
-}
-.edit-ad-cancel {
-padding: 25px 50px;
-}
-.delete-ad {
-margin-left: 160px;
-}
-.button-save-cancel {
-margin-left: 160px;
-}
+  .edit-ad-save {
+    padding: 25px 50px;
+  }
+  .edit-ad-cancel {
+    padding: 25px 50px;
+  }
+  .delete-ad {
+    margin-left: 160px;
+  }
+  .button-save-cancel {
+    margin-left: 160px;
+  }
 }
 @media screen and(min-width: $desktop) {
-.delete-ad {
-margin-left: 210px;
-}
-.button-save-cancel {
-margin-left: 210px;
-}
+  .delete-ad {
+    margin-left: 210px;
+  }
+  .button-save-cancel {
+    margin-left: 210px;
+  }
 }

@@ -1,36 +1,55 @@
-import createAdMarkupTpl from '../templates/modal-create-ad.hbs'
-const openModalCreateAdBtn = document.querySelector('[data-create-ad-modal-open]');
-const closeModalCreateADBtn = document.querySelector('[data-create-ad-modal-close]');
-const createAdModalRef = document.querySelector('[data-create-ad-modal]');
-console.log(openModalCreateAdBtn)
+const BASE_URL = 'https://callboard-backend.herokuapp.com/';
+
+const key = localStorage.getItem('key');
+console.log(key)
 
 
+const createAdBtn = document.querySelector('.create-ad-submit');
 
-openModalCreateAdBtn.addEventListener('click', openModalCreateAd);
-closeModalCreateADBtn.addEventListener('click', closeModalCreateAd)
+createAdBtn.addEventListener('submit', cteateAdSubmit)
 
-function openModalCreateAd() {
+const formData = new FormData(form);
+
+for (let value of formData.values()) {
+   console.log(value); 
+}
+
+function cteateAdSubmit(event) {
+  event.preventDefault();
+  const { currentTarget: form } = event;
+    const formData = new FormData(form);
     
-    window.addEventListener("keydown", onKeyDown);
-    createAdModalRef.addEventListener("click", onOverlayClick);
-    createAdModalRef.classList.remove("is-hidden");
+    for( name in data ) {
+    formData.append( name, data[ name ] );
+  }
+ 
+  cteateAd(body).then(({ data }) => console.log(data))
+    .catch(error => {
+      alert({
+        text: error.response.data.message,
+      });
+    });
+};
+function cteateAd(formData) {
+    
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        },
+      authorization: `${key}`,
+      body: JSON.stringify(formData),
 }
 
-function closeModalCreateAd() {
-    window.removeEventListener("keydown", onKeyDown);
-    createAdModalRef.removeEventListener("click", onOverlayClick);
-    createAdModalRef.classList.add("is-hidden");
+fetch(`${BASE_URL}call`, options).then(response => response.json())
 }
 
-function onOverlayClick(event) {
-    if (event.currentTarget === event.target) {
-      closeModalCreateAd()
-    }
-}
-  
-function onKeyDown(event) {
-    if (event.code === "Escape") {
-      closeModalCreateAd()
-    }
-}
+// cteateAd({
+//     'title': 'baby doll',
+//     'description': 'very cute',
+//     'category': 'rest and sport',
+//     'price': 5,
+//     'phone': 380970001122,
+//     'file': []
+// }).then(ad => console.log(ad))
 
