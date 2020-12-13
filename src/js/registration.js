@@ -1,4 +1,6 @@
 
+
+
 import {registerUser} from './apiService';
 
 
@@ -23,9 +25,4 @@ console.log(formData)
 };
 registerFormRef.addEventListener('submit', handleRegisterSubmit); 
 
-// -----------------------------------------------------------------
-//  function closeModal() {
-//       window.addEventListener('click', );
-//       модалкарегистраци--El.classList.remove('is-open')
-//        модалкарегистрации.innerHTML = ''
-//   }
+
