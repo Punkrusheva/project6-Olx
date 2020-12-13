@@ -1,7 +1,7 @@
 import './sass/main.scss';
 import './js/menu'
 import './js/search_modal'
-// import mainSection from './js/main-section';
+import mainSection from './js/main-section';
 import './js/main-section';
 
 import './js/modal';
@@ -13,5 +13,12 @@ import './js/apiService';
 import './js/registration'; 
 import './js/test'; 
 
-//import './js/favorite';
+import './js/favorite';
+import SearchProducts from './js/serch'
+
+
+
+
+
+
 
