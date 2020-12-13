@@ -14,7 +14,8 @@ import './js/registration';
 import './js/test'; 
 
 import './js/favorite';
-import SearchProducts from './js/serch'
+import './js/serch'
+
 
 
 
