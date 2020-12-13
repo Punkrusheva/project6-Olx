@@ -1,3 +1,4 @@
+import productCardTpl from '../templates/product-cards.hbs'
 
 export default SearchProducts()
 
@@ -17,7 +18,6 @@ const BASE_URL = 'https://callboard-backend.herokuapp.com'
        if (json.length === 0) {
          throw 'Ничего не найдено'
        }
-    console.log(json)
        return json;
        
         // return fetch(url)
@@ -41,7 +41,8 @@ const BASE_URL = 'https://callboard-backend.herokuapp.com'
     }
 }
 
-const searchForm = document.querySelector('[data-search-form]')
+    const searchForm = document.querySelector('[data-search-form]')
+    const searchContainer = document.querySelector('.main-container')
 const modalSearch = document.querySelector('[data-search-modal]')
 const products = new FindProduct()
 
@@ -63,12 +64,16 @@ function onSearch(e) {
     fetchProductCard()
     modalSearch.classList.add("is-hidden")
     
+    }
+    
+     function appendCardMarkup(card) {
+    searchContainer.insertAdjacentHTML('beforeend', productCardTpl(card))
 }
 
     async function fetchProductCard() {
         try {
-             const product = await products.fetchProducts()
-             console.log(product)
+            const product = await products.fetchProducts()
+            appendCardMarkup(product)
         } catch {
          errors(er)
         }
