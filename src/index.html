@@ -116,10 +116,6 @@
   <!--<include src="./partials/header.html"></include>-->
 
   <main>
-    <!--<include src="./partials/section-1.html"></include>
-      <include src="./partials/section-2.html"></include>
-      <include src="./partials/section-3.html"></include>
-      <include src="./partials/footer.html"></include>-->
 
     <section class="section">
       <div class="main-container">
@@ -153,8 +149,8 @@
                       </svg>
                     </button>
                     <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                      <svg class="icon" width="12" height="12">
+                        <use href="./images/sprite.svg#icon-full-screen"></use>
                       </svg>
                     </button>
                   </div>
@@ -177,8 +173,8 @@
                       </svg>
                     </button>
                     <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                      <svg class="icon" width="12" height="12">
+                        <use href="./images/sprite.svg#icon-full-screen"></use>
                       </svg>
                     </button>
                   </div>
@@ -202,8 +198,8 @@
                       </svg>
                     </button>
                     <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                      <svg class="icon" width="12" height="12">
+                        <use href="./images/sprite.svg#icon-full-screen"></use>
                       </svg>
                     </button>
                   </div>
@@ -226,8 +222,8 @@
                       </svg>
                     </button>
                     <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                      <svg class="icon" width="12" height="12">
+                        <use href="./images/sprite.svg#icon-full-screen"></use>
                       </svg>
                     </button>
                   </div>
@@ -271,8 +267,8 @@
                       </svg>
                     </button>
                     <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                      <svg class="icon" width="12" height="12">
+                        <use href="./images/sprite.svg#icon-full-screen"></use>
                       </svg>
                     </button>
                   </div>
@@ -295,12 +291,11 @@
                       </svg>
                     </button>
                     <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                      <svg class="icon" width="12" height="12">
+                        <use href="./images/sprite.svg#icon-full-screen"></use>
                       </svg>
                     </button>
                   </div>
-
 
                 </a>
 
@@ -321,8 +316,8 @@
                       </svg>
                     </button>
                     <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                      <svg class="icon" width="12" height="12">
+                        <use href="./images/sprite.svg#icon-full-screen"></use>
                       </svg>
                     </button>
                   </div>
@@ -345,8 +340,8 @@
                       </svg>
                     </button>
                     <button class="product-card-icon product-card-icon-fullscreen">
-                      <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                      <svg class="icon" width="12" height="12">
+                        <use href="./images/sprite.svg#icon-full-screen"></use>
                       </svg>
                     </button>
                   </div>
@@ -606,7 +601,79 @@
     <p>by <u>GoIT Students</u></p>
 
   </footer>
+<!-- Модалка cоздания объявления -->
+<div data-create-ad-modal class="backdrop-modal-create-ad is-hidden">
+  <div class="create-ad">
+    <span data-create-ad-modal-close class="close-form"><svg class="close-form-icon" width="14" height="14">
+        <use href="./images/sprite.svg#icon-close_icon"></use>
+      </svg></span>
+    <p class="create-ad-slogan">
+      Додати оголошення
+    </p>
+    <form class="create-ad-form">
+      <ul class="create-ad-form-list">
+        <li class="create-ad-form-item">
+          <label class="create-ad-form-label" for="name">Назва товару</label>
+          <input class="create-ad-form-input" type="text" name="name" id="name" placeholder=" " />
+        </li>
+        <li class="create-ad-form-item">
+          <label class="create-ad-form-label" for="photo">Фото</label>
+          <ul class="create-ad-photo-list">
+            <li class="create-ad-photo">
+              <a class="plus-photo">+</a>
+            </li>
+            <li class="create-ad-photo">
+              <a class="plus-photo">+</a>
+            </li>
+            <li class="create-ad-photo">
+              <a class="plus-photo">+</a>
+            </li>
+            <li class="create-ad-photo">
+              <a class="plus-photo">+</a>
+            </li>
+            <li class="create-ad-photo">
+              <a class="plus-photo">+</a>
+            </li>
+            <li class="create-ad-photo">
+              <a class="plus-photo">+</a>
+            </li>
+          </ul>
+        </li>
+        <li class="create-ad-form-item">
+          <label class="create-ad-form-label" for="description">Опис товару</label>
+          <textarea class="create-ad-form-input" name="description" id="description" cols="10" rows="3"
+            placeholder=" "></textarea>
+        </li>
+        <li class="create-ad-form-item">
+          <label class="create-ad-form-label" for="category">Категория товару</label>
+          <select class="create-ad-form-input">
+            <option></option>
+            <option>Нерухомість</option>
+            <option>Транспорт</option>
+            <option>Робота</option>
+            <option>Електроніка</option>
+            <option>Бізнес та послуги</option>
+            <option>Відпочинок та спорт</option>
+            <option>Віддам безкоштовно</option>
+            <option>Обмін</option>
+          </select>
+        </li>
+        <li class="create-ad-form-item">
+          <label class="create-ad-form-label" for="price">Ціна</label>
+          <input class="create-ad-form-input" type="text" name="price" id="price" placeholder="0.00 грн" />
+        </li>
+        <li class="create-ad-form-item">
+          <label class="create-ad-form-label" for="phone">Телефон</label>
+          <input class="create-ad-form-input" type="text" name="phone" id="phone" placeholder="+38 (0--) --- -- --" />
+        </li>
+      </ul>
 
+      <button type="submit" class="create-ad-submit">
+        Додати
+      </button>
+    </form>
+  </div>
+</div>
   <!-- Модалка поиска -->
   <div data-search-modal class="search__backdrop is-hidden">
     <div class="search__modal">
@@ -641,7 +708,7 @@
         </svg>
         <p class="google-auth-title">Google</p>
       </button>
-      <h2 class="auth-modal-title">Або зайти за допомогою імейлу і пароля, попередньо зареєструвавшись:</h2>
+      <p class="auth-modal-title">Або зайти за допомогою імейлу і пароля, попередньо зареєструвавшись:</p>
       <form method="post" class="auth-form">
         <input type="email" name="email" class="auth-input email" id="userEmail" placeholder="E-mail">
         <input type="password" name="password" class="auth-input password" id="userPassword" placeholder="Password">
@@ -650,83 +717,7 @@
           <button type="submit" class="button-gray">Зареєструватись</button>
         </div>
 
-  <!-- Модалка cоздания объявления -->
-  <div data-create-ad-modal class="backdrop-modal-create-ad is-hidden">
-    <div class="create-ad">
-      <span data-create-ad-modal-close class="close-form"><svg class="close-form-icon" width="14" height="14">
-          <use href="./images/sprite.svg#icon-close_icon"></use>
-        </svg></span>
-      <p class="create-ad-slogan">
-        Додати оголошення
-      </p>
-      <form class="create-ad-form">
-        <ul class="create-ad-form-list">
-          <li class="create-ad-form-item">
-            <label class="create-ad-form-label" for="name">Назва товару</label>
-            <input class="create-ad-form-input" type="text" name="name" id="name" placeholder=" " />
-          </li>
-          <li class="create-ad-form-item">
-            <label class="create-ad-form-label" for="photo">Фото</label>
-            <ul class="create-ad-photo-list">
-              <li class="create-ad-photo">
-                <a class="plus-photo">+</a>
-              </li>
-              <li class="create-ad-photo">
-                <a class="plus-photo">+</a>
-              </li>
-              <li class="create-ad-photo">
-                <a class="plus-photo">+</a>
-              </li>
-              <li class="create-ad-photo">
-                <a class="plus-photo">+</a>
-              </li>
-              <li class="create-ad-photo">
-                <a class="plus-photo">+</a>
-              </li>
-              <li class="create-ad-photo">
-                <a class="plus-photo">+</a>
-              </li>
-            </ul>
-          </li>
-          <li class="create-ad-form-item">
-            <label class="create-ad-form-label" for="description">Опис товару</label>
-            <textarea class="create-ad-form-input" name="description" id="description" cols="10" rows="3"
-              placeholder=" "></textarea>
-          </li>
-          <li class="create-ad-form-item">
-            <label class="create-ad-form-label" for="category">Категория товару</label>
-            <select class="create-ad-form-input">
-              <option></option>
-              <option>Нерухомість</option>
-              <option>Транспорт</option>
-              <option>Робота</option>
-              <option>Електроніка</option>
-              <option>Бізнес та послуги</option>
-              <option>Відпочинок та спорт</option>
-              <option>Віддам безкоштовно</option>
-              <option>Обмін</option>
-            </select>
-          </li>
-          <li class="create-ad-form-item">
-            <label class="create-ad-form-label" for="price">Ціна</label>
-            <input class="create-ad-form-input" type="text" name="price" id="price" placeholder="0.00 грн" />
-          </li>
-          <li class="create-ad-form-item">
-            <label class="create-ad-form-label" for="phone">Телефон</label>
-            <input class="create-ad-form-input" type="text" name="phone" id="phone" placeholder="+38 (0--) --- -- --" />
-          </li>
-        </ul>
-
-        <button type="submit" class="create-ad-submit">
-          Додати
-        </button>
-
-      </form>
-    </div>
-  </div>
-
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
   </body>
  </html>
-
