@@ -1,22 +1,23 @@
+ export function onClickOpenModal() {
+    window.addEventListener("keydown", onKeyDown);
+    refs.modal.addEventListener("click", onOverlayClick);
+    refs.modal.classList.remove("is-hidden");
+  };
 
-     //function onCloseModal() {
-    //     window.removeEventListener('keydown', onEscCloseModal);
-    //     modal.classList.remove('is-open');
-    //   }
-    
-// Закрытие модалки клавишей Escape
+  export function onClickCloseModal() {
+    window.removeEventListener("keydown", onKeyDown);
+    refs.modal.removeEventListener("click", onOverlayClick);
+    refs.modal.classList.add("is-hidden");
+  };
 
-    // function onEscCloseModal(e) {
-    //     if (e.code === 'Escape') {
-    //       onCloseModal();
-    //     }
-    //   }
-    // Закрытие модалки кликом на оверлей
-    // modal.addEventListener('click', onOverlayAndBtnClick);
-
-    // function onOverlayAndBtnClick(e) {
-    //     if (e.target === overlayEl || e.target === closeBtn) {
-    //       onCloseModal();
-    //     }
-    //   }
-    
+  export function onOverlayClick(event) {
+    if (event.currentTarget === event.target) {
+      onClickCloseModal()
+    }
+  };
+  export function onKeyDown(event) {
+    if (event.code === "Escape") {
+      onClickCloseModal()
+    }
+};
+export{onKeyDown, onOverlayClick,onClickCloseModal,onClickOpenModal};
