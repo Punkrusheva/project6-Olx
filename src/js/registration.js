@@ -1,5 +1,5 @@
 
-import addregisterUser from './apiService';
+import {registerUser} from './apiService';
 
 
 const registerFormRef = document.querySelector('.auth-form'); 
@@ -13,11 +13,11 @@ console.log(formData)
     body[key] = value;
   });
 
-  addregisterUser(body)
+  registerUser(body)
     .then(({ data }) => console.log(data))
     .catch(error => {
       alert({
-        text: error.response.data.message,
+        error
       });
     });
 };
