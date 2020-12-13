@@ -10,14 +10,14 @@ closeModalCreateADBtn.addEventListener('click', closeModalCreateAd)
 
 function openModalCreateAd() {
 
-  const key = localStorage.getItem('key');
+  // const key = localStorage.getItem('key');
   
-  if (key) {
+  // if (key) {
 
     window.addEventListener("keydown", onKeyDown);
     createAdModalRef.addEventListener("click", onOverlayClick);
     createAdModalRef.classList.remove("is-hidden");
-  }
+  // }
 }
 
 function closeModalCreateAd() {
