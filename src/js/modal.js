@@ -33,7 +33,3 @@ const refs = {
       onClickCloseModal()
     }
 }
-
-const myModal = new Modal();
-
-export default myModal;
