@@ -1,12 +1,5 @@
+import axios from 'axios';
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
-
-const user = {
-  email: '{}',
-  password: '{}', 
-};
-console.log(user);
-
-//регистрация
 
 export default async function addregisterUser() {
   const options = {
@@ -36,5 +29,6 @@ export default async function addregisterUser() {
     const responseJson = await response.json();
     return  localStorage.setItem('key', `${responseJson.accessToken}`);
 
-}; 
+  return axios.post(`${BASE_URL}auth/register`, { email, password});
+};
 
