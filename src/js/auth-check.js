@@ -1,3 +1,4 @@
+// import 
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
 
@@ -20,7 +21,7 @@ fetch(`${BASE_URL}user`, options).then(response => response.json()).then()
         
     
 
-console.log(fetchAuthorisLogin());
+
 
 // .then(localStorage.setItem('token', response.json().accessToken))
 

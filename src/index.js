@@ -8,6 +8,7 @@ import './js/modal';
 // console.log(mainSection);
 
 import './js/create-ad-open-close';
+import './js/create-ad';
 
 
 
