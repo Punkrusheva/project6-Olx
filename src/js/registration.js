@@ -1,6 +1,5 @@
 
-import {registerUser} from './apiService';
-
+import registerUser from './apiService';
 
 const registerFormRef = document.querySelector('.auth-form'); 
 const handleRegisterSubmit = event => {
@@ -17,7 +16,7 @@ console.log(formData)
     .then(({ data }) => console.log(data))
     .catch(error => {
       alert({
-        error
+        text: error.response.data.message,
       });
     });
 };
@@ -29,3 +28,26 @@ registerFormRef.addEventListener('submit', handleRegisterSubmit);
 //       модалкарегистраци--El.classList.remove('is-open')
 //        модалкарегистрации.innerHTML = ''
 //   }
+
+
+
+     //function onCloseModal() {
+    //     window.removeEventListener('keydown', onEscCloseModal);
+    //     modal.classList.remove('is-open');
+    //   }
+    
+// Закрытие модалки клавишей Escape
+
+    // function onEscCloseModal(e) {
+    //     if (e.code === 'Escape') {
+    //       onCloseModal();
+    //     }
+    //   }
+    // Закрытие модалки кликом на оверлей
+    // modal.addEventListener('click', onOverlayAndBtnClick);
+
+    // function onOverlayAndBtnClick(e) {
+    //     if (e.target === overlayEl || e.target === closeBtn) {
+    //       onCloseModal();
+    //     }
+    //   }
