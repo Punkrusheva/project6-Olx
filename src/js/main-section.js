@@ -1,5 +1,5 @@
 // import { template } from 'handlebars';
-import oneCard from '../templates/product-cards.hbs';
+import productCardTpl from '../templates/product-cards.hbs'
 import allCategory from '../templates/all-category.hbs';
 import oneCategory from '../templates/section-one-category.hbs';
 import test from '../test.json';
@@ -17,60 +17,115 @@ const mainContainerRef = document.querySelector('.main-container');
 
 
 /* API test  */
-const BASE_URL = 'https://callboard-backend.herokuapp.com/';
-const currentPage = 1;
+// const BASE_URL = 'https://callboard-backend.herokuapp.com/';
+// const currentPage = 1;
 
-const requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-    };
+// const requestOptions = {
+//     method: 'GET',
+//     redirect: 'follow'
+//     };
 
-const fetchAllCards = fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
-    .then(response => response.json())
-    // .then(result => {
-    //     // console.dir(result.free);
-    //     console.log(result);
-    //     // const names = result.map(response => console.log(response.free));
-    //     // console.log(names);
-    //     const markup = allCategory(result);
-    //     // console.log(markup);
-    //     // mainContainerRef.insertAdjacentHTML('afterbegin', markup);
-    //     mainContainerRef.innerHTML = markup;
+// const fetchAllCards = fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
+//     .then(response => response.json())
+//     // .then(result => {
+//     //     // console.dir(result.free);
+//     //     console.log(result);
+//     //     // const names = result.map(response => console.log(response.free));
+//     //     // console.log(names);
+//     //     const markup = allCategory(result);
+//     //     // console.log(markup);
+//     //     // mainContainerRef.insertAdjacentHTML('afterbegin', markup);
+//     //     mainContainerRef.innerHTML = markup;
 
-    // })
-    .catch(error => console.log('error', error));
+//     // })
+//     .catch(error => console.log('error', error));
                 
-console.log(fetchAllCards);
+// console.log(fetchAllCards);
 
-function renderAllCardAndAllCategory() {
-    fetchAllCards.then(result => {
-        console.log(result); 
-        // console.dir(result.free);
-        
-    });
-    //     .then(result => {
-    //     result.map(res => { console.log(res); }
-        
-    //     // const answer = )
-    //     // console.dir(answer);
-    //     // // const names = result.map(response => console.log(response.free));
-    //     // // console.log(names);
-    //     // const markup = oneCategory(result);
-    //     // // console.log(markup);
-    //     // // mainContainerRef.insertAdjacentHTML('afterbegin', markup);
-    //     // mainContainerRef.innerHTML = markup[6];
-    // );
+
+// function renderAllCardAndAllCategory() {
+//     fetchAllCards.then(result => {
+//         console.log(result); 
+//         // console.dir(result.free);
+    
+//     });
+
+// }
+
+// renderAllCardAndAllCategory();
+
+
+export default SearchProducts()
+
+function SearchProducts() {
+const BASE_URL = 'https://callboard-backend.herokuapp.com'
+
+ class FindProduct {
+    constructor() {
+        this.searchQuery = '';
+    }
+
+   async fetchProducts() {
+        const url = `${BASE_URL}/call/find?&search=${this.searchQuery}`
+
+       const fetches = await fetch(url)
+       const json = await fetches.json()  
+       if (json.length === 0) {
+         throw 'Ничего не найдено'
+       }
+       return json;
+       
+    }
+
+
+ 
 }
 
-renderAllCardAndAllCategory();
+const products = new FindProduct()
 
-// const users = [
-//   { name: 'Mango', isActive: true },
-//   { name: 'Poly', isActive: false },
-//   { name: 'Ajax', isActive: true },
-// ];
 
-// Для каждого элемента коллекции (user) вернем значение поля name
-// const names = users.map(user => user.name);
-// const names = fetchAllCards.map(user => { console.log(user);});
-// console.log(names);
+    function onSearch(e) {
+        e.preventDefault();
+        products.query = e.currentTarget.elements.query.value.trim()
+
+        if (products.query === '') {
+            return alert({
+                text: "Введите что-нибуть!",
+                type: 'info'
+            })
+        
+        }
+
+        fetchProductCard()
+        modalSearch.classList.add("is-hidden")
+    }
+    
+    function appendCardMarkup(card) {
+    mainContainerRef.insertAdjacentHTML('beforeend', productCardTpl(card))
+    }
+
+    async function fetchProductCard() {
+        try {
+        const product = await products.fetchProducts()
+        appendCardMarkup(product)
+        } catch {
+            errors(er)
+        }
+    
+    }
+    
+    function errors(er) {
+    if (er === 'Ничего не найдено') {
+        return  alert({
+            text: 'К сожалению по этому запросу ничего не найдено',
+            type: 'info'
+        })
+    }
+
+    return error({
+            text: "Ошибка! Не удалось загрузить изображения.",
+            type: 'info' 
+        })
+    }
+
+}
