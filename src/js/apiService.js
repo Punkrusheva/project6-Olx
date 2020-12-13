@@ -9,6 +9,7 @@ console.log(user);
 //регистрация
 
 export default async function registerUser() {
+
     const options = {
       method: 'POST',
       headers: {
