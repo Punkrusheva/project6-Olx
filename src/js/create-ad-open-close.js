@@ -1,5 +1,4 @@
 
-
 const openModalCreateAdBtn = document.querySelector('[data-create-ad-modal-open]');
 const closeModalCreateADBtn = document.querySelector('[data-create-ad-modal-close]');
 const createAdModalRef = document.querySelector('[data-create-ad-modal]');
@@ -7,11 +6,18 @@ const createAdModalRef = document.querySelector('[data-create-ad-modal]');
 openModalCreateAdBtn.addEventListener('click', openModalCreateAd);
 closeModalCreateADBtn.addEventListener('click', closeModalCreateAd)
 
+
+
 function openModalCreateAd() {
 
-  window.addEventListener("keydown", onKeyDown);
-  createAdModalRef.addEventListener("click", onOverlayClick);
-  createAdModalRef.classList.remove("is-hidden");
+  const key = localStorage.getItem('key');
+  
+  if (key) {
+
+    window.addEventListener("keydown", onKeyDown);
+    createAdModalRef.addEventListener("click", onOverlayClick);
+    createAdModalRef.classList.remove("is-hidden");
+  }
 }
 
 function closeModalCreateAd() {
