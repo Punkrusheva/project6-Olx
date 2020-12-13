@@ -6,10 +6,11 @@
 {{!-- <img class="cardset__image" srcset="{{#each imageUrls}}{{#if @first}}{{this}}{{/if}}{{/each}} 352w" {{#each this}}
     <h1>{{free.category}}</h1>
 {{/each}} --}}
-{{#each this}}
-{{>./product-cards}}
+{{#each free}}
+<li>{{free.id}}</li>
+{{!-- {{>./product-cards}} --}}
 {{/each}}
-</ul>
+{{!-- </ul> --}}
 {{!-- <li class="product-card__my">
     <div class="product-image">
         <img class="product-img" src="{{imageUrls}}" alt="" />
