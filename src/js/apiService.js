@@ -1,7 +1,7 @@
 import axios from 'axios';
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
-export default async function addregisterUser() {
+export default async function registerUser() {
   const options = {
     method: 'POST',
     headers: {
