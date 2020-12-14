@@ -8,24 +8,25 @@ const categoryListRef = document.querySelector('.category-list');
 
 categoryListBtn.addEventListener('click', renderCategoryList);
 
-const renderCategoryList = () => {
+function renderCategoryList() {
 
-    fetchCategory()
+    fetchCategories()
         .then(categories => {
+
              for (const key in categories) {
              
-            categoryListBtn.insertAdjacentHTML('beforeend', productCategoryForModal(categories[key]))
+                 categoryListBtn.innerHTML = productCategoryForModal(categories[key]);
         }     
         })
     
 }
 
-async function fetchCategory() {
+async function fetchCategories() {
     const response = await fetch(`${BASE_URL}call/categories`);
     const responseJson = await response.json();
     return responseJson
 };
-
+console.log(categoryListBtn);
 // console.log(fetchCategory().then(response => {
 //             console.log(productCategoryForModal(response))
 //         }))
