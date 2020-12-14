@@ -1,0 +1,42 @@
+.dropdox {
+    width: 100%;
+    position: absolute;
+    top: 73px;              
+    left: 910px;
+  }
+//   <!----костыли конечно----проснусь исправлю
+  
+  .dropdox-cabinet {
+    position: absolute;
+    display: flex;
+    justify-content: start;
+    align-items: baseline;
+    flex-direction: column;
+    width: 206px;
+    height: 94px;
+    padding:20px;
+    color:rgba(245, 246, 251, 1);
+    background-color:$accent-grey;
+    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.15);
+  
+    
+    .link_call:last-child{
+        padding-top: 20px;
+    }
+  }
+  
+  .link_call {
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    color: $primary-color;
+  }
+  
+  
+//   .logout {
+//     position: absolute;
+//     top: 97px;
+//     right: 20px;
+//   }
