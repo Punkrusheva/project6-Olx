@@ -1,3 +1,7 @@
+import {
+  badUrlPage,
+  homePage
+} from './pages.js';
 /*import {
   accountPage,
   badUrlPage,
@@ -7,7 +11,7 @@
   page3,
   searchPage,
 } from './pages.js';
-
+*/
 const routers = [
   {
     path: '/',
@@ -75,8 +79,8 @@ export const updatePage = (query, searchQuery) => {
     return;
   }
   location.hash = searchQuery;
-};*/
-const routers = [
+};
+/*const routers = [
     {
         path:'/',
         component: fun1,
@@ -102,10 +106,11 @@ const routers = [
 let auth = true;
 let startState = true;
 
-let navbarNav = document.querySelector('.navbar-nav');
-let title = document.querySelector('.title');//.section
+let navbarNav = document.querySelector('.filter__inner');
+let title = document.querySelector('.section');
+console.log(title, navbarNav)
 
-function updatePage (e) {
+export function updatePage (e) {
     if (e.target.tagName !== "A") return
     e.preventDefault();
     updateHistory(e);
@@ -159,5 +164,6 @@ function fun4 () {
 }
 
 function fun5 () {
-    title.innerHTML = 'Not found';
-}
+  title.innerHTML = 'Not found';
+  badUrlPage();
+}*/

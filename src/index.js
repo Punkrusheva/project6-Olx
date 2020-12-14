@@ -14,8 +14,10 @@ import './js/apiService';
 
 import './js/registration'; 
 import './js/auth-check';
-import './js/test'; 
 import './js/router';
 
 import './js/favorite';
 import './js/search';
+
+import './js/test'; 
+import './js/bad-url'; 
