@@ -1,43 +1,48 @@
 import axios from 'axios';
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
-// const key = localStorage.getItem('key');
-
 const createAdRef = document.querySelector('.create-ad-form');
-createAdRef.addEventListener('submit', cteateAdSubmit);
 
 const cteateAdSubmit = event => {
   event.preventDefault();
-   const { currentTarget: form } = event;
-    const formData = new FormData(form);
-    const body = {}
+
+  const { currentTarget: form } = event;
+  const formData = new FormData(form);
+    
+    
+  const body = {};
+
+  formData.forEach((value, key) => {
+    body[key] = value;
+  });
    
-    formData.forEach((key, value) => {
-        body[key] = value;
+  cteateAd(body)
+    .then(({ data }) => console.log(data))
+        // .catch(error => {
+        // alert({
+        //     text: error.response.data.message,
         
-    })
+        // });
+}
 
-    console.log(event);
+const cteateAd = (newAd) => {
+    const token = localStorage.getItem('key');
+
+    const { title, description, category, price, phone, file } = newAd;
+    
+    return axios.post(`${BASE_URL}/call`, {
+        headers: {
+            authorization: `Bearer ${token}`,
+        },
+        body: { title, description, category, price, phone, file },
+    });
+
   
-};
+}
 
-
+createAdRef.addEventListener('submit', cteateAdSubmit);
  
 
-
-// const cteateAd = (newAd, key) => {
-
-//     const { title, description, category, price, phone, file } = newAd;
-    
-//     return axios.post(`${BASE_URL}/call`, {
-//         headers: {
-//             Authorization: `Bearer ${key}`,
-//         },
-//         body: { title, description, category, price, phone, file }
-//     });
-
-  
-// }
 
 
 
