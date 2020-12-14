@@ -10,7 +10,7 @@
   refs.closeModalBtn.addEventListener('click', onClickCloseModal);
 
 
-export default function onClickOpenModal() {
+  function onClickOpenModal() {
     window.addEventListener("keydown", onKeyDown);
     refs.modal.addEventListener("click", onOverlayClick);
     refs.modal.classList.remove("is-hidden");
