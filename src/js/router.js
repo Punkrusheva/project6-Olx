@@ -103,7 +103,7 @@ let auth = true;
 let startState = true;
 
 let navbarNav = document.querySelector('.navbar-nav');
-let title = document.querySelector('.title');
+let title = document.querySelector('.title');//.section
 
 function updatePage (e) {
     if (e.target.tagName !== "A") return
