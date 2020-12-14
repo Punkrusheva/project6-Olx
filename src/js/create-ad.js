@@ -1,48 +1,58 @@
+import axios from 'axios';
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
-const key = localStorage.getItem('key');
-console.log(key)
+// const key = localStorage.getItem('key');
 
+const createAdRef = document.querySelector('.create-ad-form');
+createAdRef.addEventListener('submit', cteateAdSubmit);
 
-const createAdBtn = document.querySelector('.create-ad-submit');
-
-createAdBtn.addEventListener('submit', cteateAdSubmit)
-
-const formData = new FormData(form);
-
-for (let value of formData.values()) {
-   console.log(value); 
-}
-
-function cteateAdSubmit(event) {
+const cteateAdSubmit = event => {
   event.preventDefault();
-  const { currentTarget: form } = event;
+   const { currentTarget: form } = event;
     const formData = new FormData(form);
-    
-    for( name in data ) {
-    formData.append( name, data[ name ] );
-  }
- 
-  cteateAd(body).then(({ data }) => console.log(data))
-    .catch(error => {
-      alert({
-        text: error.response.data.message,
-      });
-    });
-};
-function cteateAd(formData) {
-    
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        },
-      authorization: `${key}`,
-      body: JSON.stringify(formData),
-}
+    const body = {}
+   
+    formData.forEach((key, value) => {
+        body[key] = value;
+        
+    })
 
-fetch(`${BASE_URL}call`, options).then(response => response.json())
-}
+    console.log(event);
+  
+};
+
+
+ 
+
+
+// const cteateAd = (newAd, key) => {
+
+//     const { title, description, category, price, phone, file } = newAd;
+    
+//     return axios.post(`${BASE_URL}/call`, {
+//         headers: {
+//             Authorization: `Bearer ${key}`,
+//         },
+//         body: { title, description, category, price, phone, file }
+//     });
+
+  
+// }
+
+
+
+//   const options = {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//         },
+//       authorization: `${key}`,
+//       body: JSON.stringify(formData),
+// }
+
+//     fetch(`${BASE_URL}call`, options).then(response => response.text())
+//         .then(result => console.log(result))
+//   .catch(error => console.log('error', error));
 
 // cteateAd({
 //     'title': 'baby doll',
@@ -53,3 +63,4 @@ fetch(`${BASE_URL}call`, options).then(response => response.json())
 //     'file': []
 // }).then(ad => console.log(ad))
 
+// let raw = "{'title': ${title}, 'description': ${description}, 'category': ${category}, 'price': ${price}, 'phone': ${phone},'file':[]";
