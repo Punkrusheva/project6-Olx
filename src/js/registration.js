@@ -1,4 +1,5 @@
 
+
 import registerUser from './apiService';
 
 const registerFormRef = document.querySelector('.auth-form'); 
@@ -21,6 +22,9 @@ console.log(formData)
     });
 };
 registerFormRef.addEventListener('submit', handleRegisterSubmit); 
+
+
+
 
 // -----------------------------------------------------------------
 //  function closeModal() {
@@ -51,3 +55,4 @@ registerFormRef.addEventListener('submit', handleRegisterSubmit);
     //       onCloseModal();
     //     }
     //   }
+

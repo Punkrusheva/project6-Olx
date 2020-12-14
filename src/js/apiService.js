@@ -1,3 +1,4 @@
+
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
 const user = {
@@ -24,17 +25,16 @@ export default async function registerUser() {
   }
  
   //авторизация
-  export  async function fetchAuthorisLogin(BASE_URL, dataRegistry) {
-    const options = {
-  method: 'POST',
-  body: JSON.stringify(dataRegistry),
-  headers: {
-    'Content-Type': 'application/json',
-    'accept': 'application/json',
-  },
+export async function fetchAuthorisLogin(BASE_URL, dataRegistry) {
+  const options = {
+    method: 'POST',
+    body: JSON.stringify(dataRegistry),
+    headers: {
+      'Content-Type': 'application/json',
+      'accept': 'application/json',
+    },
+  }
+  const response = await fetch(`${BASE_URL}auth/login`, options);
+  const responseJson = await response.json();
+  return localStorage.setItem('key', `${responseJson.accessToken}`);
 }
-    const response = await fetch(`${BASE_URL}auth/login`,options);
-    const responseJson = await response.json();
-    return  localStorage.setItem('key', `${responseJson.accessToken}`);
-
-}; 

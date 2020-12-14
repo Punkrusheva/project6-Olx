@@ -161,7 +161,14 @@
     }
     
   }
-
+  &.cabinet:hover,
+  &.cabinet:focus {
+      color: $accent-orange;
+      &:hover .icon,
+      &:hover .icon {
+        fill: $accent-orange;
+    }
+  }
   &.advertisement{
     background-color: $accent-orange;
     color: $white-text;
