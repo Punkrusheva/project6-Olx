@@ -1,0 +1,250 @@
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.backdrop-modal-product {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  overflow: auto;
+}
+
+.backdrop-modal-product.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: none;
+}
+
+.open-card{
+
+  &__cont {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: scroll;
+  transform: translate(-50%, -50%) scale(1);
+  background-color: $white-text;
+  color: $secondary-color;;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 12px;
+
+  width: $mobile-modal-container-width;
+  min-height: $mobile-modal-container-height;
+  padding-top: 55px;
+  padding-bottom: 20px;
+  padding-left: 19px;
+  padding-right: 19px;
+
+  @media screen and (min-width: $tablet) {
+    width: $tablet-modal-container-width;
+    min-height: $tablet-modal-container-height;
+
+    padding-top: 57px;
+    padding-right: 52px;
+    padding-left: 57px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: $desktop-modal-container-width;
+    min-height: $desktop-modal-container-height;
+
+    padding-top: 54px;
+    padding-right: 43px;
+  }
+}
+
+  &__title {
+    font-weight: 500;
+    font-size: 18px;
+    color: $primary-color;
+    margin-bottom: 5px;
+    margin-top: 0;
+  }
+
+  &__text {
+    color: $secondary-color;
+
+    &--cont {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__price {
+    margin-bottom: 30px;
+    font-weight: 500;
+    font-size: 18px;
+    color: $primary-color;
+
+    margin-top: 50px;
+
+  }
+
+  &__seller {
+    color: $white-text;
+    text-transform: uppercase;
+
+    &--cont {
+      background-color: $accent-orange;
+      border: 1px solid $accent-orange;
+
+      font-weight: 500;
+      font-size: 12px;
+      text-align: center;
+
+      width: 252px;
+      min-height: 60px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      padding-right: 55px;
+      padding-left: 55px;
+
+      cursor: pointer;
+
+      @media screen and (min-width: $tablet) {
+        width: 300px;
+      }
+
+    }
+  }
+
+  &__description {
+    color: $primary-color;
+
+    @media screen and (min-width: $desktop) {
+      font-size: 14px;;
+    }
+  }
+
+}
+
+.close-form {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+}
+
+// информация о продавце
+
+.data-seller {
+  color: $primary-color;
+  text-transform: capitalize;
+}
+
+// kонтейнер с информацией о продавце
+.open-card__seller--cont.--cont-seller {
+  background-color: $accent-grey;
+
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 20px;
+  padding-left: 25px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &--desktop {
+    @media screen and (min-width: $tablet) {
+      display: flex;
+      justify-content: space-between;
+
+      margin-right: -5px;
+
+      .destop-gallery--item {
+        margin-right: 5px;
+
+          & > img {
+            width: 52px;
+            height: auto;
+          }
+      }
+    }
+
+    @media screen and (min-width: $desktop) {
+
+      .destop-gallery--item > img {
+        width: 68px;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $before-tablet) {
+  .desktop-gallery-cont {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .destop-gallery {
+
+    &--portrait {
+      text-align: center;
+      margin-bottom: 10px;
+
+        & > img {
+          width: 280px;
+          height: auto;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .destop-gallery--portrait > img {
+    width: 380px;
+    height: auto;
+  }
+}
+
+.material-icons.cardset-icon{
+  font-size: 16px;
+  margin-left: 10px;
+
+  &:hover, &:focus {
+    color: $accent-orange;
+  }
+
+}
+
+.--up-margin {
+  margin-top: 30px;
+}
+
+
+.carousel {
+  background: transparent;
+
+  @media screen and (min-width: $before-tablet) {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.carousel-cell-image {
+  max-width: 100%; /* full width */
+  height: 253px; /* height of carousel */
+}
