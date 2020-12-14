@@ -3,45 +3,55 @@ import openCard from '../templates/modal-one-card.hbs';
 
 const refs = {
     openModalBtn: document.querySelectorAll('.product-card-icon-fullscreen'),
-    closeModalBtn: document.querySelector('[data-modal-close]'),
+    // parentCloseModalBtn: document.querySelector('.open-card'),
+    сloseModalBtn: document.querySelector('.close-form'),
     modal: document.querySelector('[data-modal]'),
+    cont: document.getElementsByTagName('.open-card'),
 
   };
 
-  refs.openModalBtn.forEach(icon =>
-    icon.addEventListener("click", onClickOpenModal)
-  );
-
-  refs.closeModalBtn.addEventListener('click', onClickCloseModal);
+refs.openModalBtn.forEach(icon =>
+  icon.addEventListener("click", onClickOpenModal)
+);
 
 
-function onClickOpenModal() {
-    console.log('panda');
+function onClickOpenModal(ev) {
+
+  ev.preventDefault();
+
     try {
-
-        document.body.insertAdjacentHTML("afterbegin", openCard());
+        refs.cont.insertAdjacentHTML("afterbegin", openCard());
     window.addEventListener("keydown", onKeyDown);
     refs.modal.addEventListener("click", onOverlayClick);
-    refs.modal.classList.remove("is-hidden");
+      refs.modal.classList.remove("is-hidden");
+
     }
 
     catch (error) {
         console.log(error);
     }
 
-  }
+}
 
-function onClickCloseModal() {
-    console.log('todo1');
-    refs.openModalBtn.forEach(icon =>
-        icon.removeEventListener("click", onClickOpenModal)
-    );
-    console.log('todo1');
-    window.removeEventListener("keydown", onKeyDown);
-      refs.modal.removeEventListener("click", onOverlayClick);
-      modal.remove();
+console.log('refs.cont=', refs.cont);
 
-    refs.modal.classList.add("is-hidden");
+refs.cont.addEventListener('click', onClickCloseModal);
+
+function onClickCloseModal(e) {
+  e.preventDefault();
+
+  if (e.target.classList.contains("close-form")) {
+    console.log('what');
+    }
+    // refs.openModalBtn.forEach(icon =>
+    //     icon.removeEventListener("click", onClickOpenModal)
+    // );
+    // console.log('todo1');
+    // window.removeEventListener("keydown", onKeyDown);
+    //   refs.modal.removeEventListener("click", onOverlayClick);
+    //   modal.remove();
+
+    // refs.modal.classList.add("is-hidden");
   }
 
   function onOverlayClick(event) {
