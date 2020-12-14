@@ -35,6 +35,26 @@
         </button>
 
         <div class="user__button-container">
+
+
+
+
+          <button class="user__button cabinet" open-modal-cabinet>
+            <svg class="icon" width="20" height="20">
+            <use class="" href="./images/sprite.svg#icon-user-profile"></use>
+          </svg>
+          <span class="button__text">Мій кабінет</span>
+            </button>
+
+               <!-- кабинет -->
+               
+            <div class="dropdox">
+              <div class="dropdox-cabinet " >
+                <a href="" class="link_call">Мої оголошення</a>
+                <a href="" class="link_call">Обране</a>
+            </div>
+            </div>
+
           <!-- <div>
               <button type="button"></button>
               <button type="button"></button>
@@ -609,13 +629,15 @@
 <!-- Модалка cоздания объявления -->
 <div data-create-ad-modal class="backdrop-modal-create-ad is-hidden">
   <div class="create-ad">
+    <form class="create-ad-form">
     <span data-create-ad-modal-close class="close-form"><svg class="close-form-icon" width="14" height="14">
         <use href="./images/sprite.svg#icon-close_icon"></use>
       </svg></span>
+      
     <p class="create-ad-slogan">
       Додати оголошення
     </p>
-    <form class="create-ad-form">
+    
       <ul class="create-ad-form-list">
         <li class="create-ad-form-item">
           <label class="create-ad-form-label" for="name">Назва товару</label>
@@ -646,7 +668,7 @@
         </li>
         <li class="create-ad-form-item">
           <label class="create-ad-form-label" for="description">Опис товару</label>
-          <textarea class="create-ad-form-input" name="description" id="description" cols="10" rows="3"
+          <textarea class="create-ad-form-input" type='text' name="description" id="description" cols="10" rows="3"
             placeholder=" "></textarea>
         </li>
         <li class="create-ad-form-item">
@@ -673,7 +695,7 @@
         </li>
       </ul>
 
-      <button type="submit" class="create-ad-submit">
+      <button class="create-ad-submit">
         Додати
       </button>
     </form>
@@ -714,7 +736,7 @@
         <p class="google-auth-title">Google</p>
       </button>
       <p class="auth-modal-title">Або зайти за допомогою імейлу і пароля, попередньо зареєструвавшись:</p>
-      <form method="post" class="auth-form">
+      <form class="auth-form" id="auth-form">
         <input type="email" name="email" class="auth-input email" id="userEmail" placeholder="E-mail">
         <input type="password" name="password" class="auth-input password" id="userPassword" placeholder="Password">
         <div class="auth-buttons">
