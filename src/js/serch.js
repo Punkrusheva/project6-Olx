@@ -29,9 +29,9 @@ const BASE_URL = 'https://callboard-backend.herokuapp.com'
     }
 
 
-    resetPage() {
-        this.page = 1;
-    }
+    // resetPage() {
+    //     this.page = 1;
+    // }
 
     get query() {
         return this.searchQuery;
@@ -74,8 +74,9 @@ function onSearch(e) {
         try {
             const product = await products.fetchProducts()
             appendCardMarkup(product)
+            console.log(product)
         } catch {
-         errors(er)
+         errors(error)
         }
    
     }
