@@ -1,4 +1,37 @@
-import {
+var link,
+    updateState,
+    contentEl,
+    navEl;
+
+contentEl = document.querySelector('.section');
+navEl = document.querySelector('body');//('.filter__inner');
+// console.log(navEl);
+
+links = {
+  transport: "Развернутый раздел <p> HI!</p> транспорта",
+  work: "Развернутый раздел работа",
+  //filter__button-clear: "Стартовая страница",
+};
+updateState = function (state) {
+  if (!state) return;
+  contentEl.innerHTML = links[state.page];
+};
+
+window.addEventListener('popstate', function (e) {
+  updateState(e.state);
+});
+
+navEl.addEventListener('click', function (e) {
+  var state;
+  if (e.target.tagName != 'BUTTON') return;
+  state = { page: e.target.getAttribute('class') };
+  console.log(e.target.getAttribute('class'));
+  history.pushState(state, '', state.page);
+  updateState(state);
+  e.preventDefault();
+});
+  
+/*import {
   badUrlPage,
   homePage
 } from './pages.js';
@@ -12,7 +45,7 @@ import {
   searchPage,
 } from './pages.js';
 */
-const routers = [
+/*const routers = [
   {
     path: '/',
     component: homePage,
