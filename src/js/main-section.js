@@ -7,8 +7,23 @@ import oneSliderTpl from '../templates/one-slider.hbs';
 
 const categoriesRef = document.querySelector('.categories');
 
-const markOneCard = document.querySelector('.product-card-group');
-// const markOneCard2 = document.querySelector('.categories-title');
+// const markOneCard = document.querySelector('.product-card-group');
+// const markOneCardTwo = document.querySelector('.gallery');
+// console.log(markOneCardTwo);
+const translationOfWords = {
+    property:'Нерухомість',
+    transport:'Транспорт',
+    work:'Работа',
+    electronics:'Електроніка',
+    businessAndServices:'Бізнес та послуги',
+    recreationAndSport:'Відпочинок і спорт',
+    free:'Віддам безкоштовно',
+    trade: 'торговля',
+    sales: 'Розпродаж   різне'
+};
+
+
+
 
 /* API test  */
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
@@ -19,64 +34,88 @@ const requestOptions = {
     redirect: 'follow'
     };
 
-const fetchAllCards = fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
+fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
     .then(response => response.json())
     .then(result => {
-        console.log(result);
-        console.log(`Object.keys(result)`, Object.keys(result));
-        console.log(`Object.values(result)`, Object.values(result)); 
-
+        // console.log(`result 45`, result);
+        // console.log(`Object.keys(result)`, Object.keys(result));
         const resultKey = (Object.keys(result));
-        markupSlider(resultKey);
+        const resultKeyTransletion = translationWordsCategories(resultKey);
+        // console.log(`resultKeyTransletion`, resultKeyTransletion);
+        markupSlider(resultKeyTransletion);
         // console.log(resultKey[]); 
-        const resultValue = (Object.values(result));
-        const free = [];
-        for (const values of resultValue) {
-            console.log(values[1]);
-            if (values[0].category === 'free') {
-                free.push(values[0]);
-            }
-            
-            
-            // return values;
-                // names.push(friend.name);
-        }
-        console.log(`free`, free);
-        const valuesKey = (Object.values(values));
-        console.log(`valuesKey`, valuesKey);
-        // const copy = [];
-        for (const key in result) {
-            console.log(`result[key]`, result[key]);
-            const mark = result[key];
-            markupCard(mark);
-        }
 
-        // markupCard(resultValue);
-    
+        // const free = [];
+        // for (const values of resultValue) {
+        //     console.log(values[1]);
+        //     if (values[0].category === 'free') {
+        //         free.push(values[0]);
+        //         markupCard(values);
+        //     }
+        // }
+        return result;
+    })
+    .then(response => {
+        // console.log(`response 78:`, response);
+        // console.log(`Object.entries(result) 60`, Object.entries(response));
+
+        const valuesEntries = (Object.entries(response));
+        // console.log(`valuesEntries !!!63`, valuesEntries);
+        for (const values of valuesEntries) {
+            // console.log(`values[key]`, valuesEntries[values]);
+            // console.log(`values[0] !!!72`, values[0]);
+            // console.log(`valuesEntries`, valuesEntries[key]);
+            // console.log(`values[1] 74:`, values[1]);
+
+            if (values[0] === 'property') {
+                document.querySelector('[data-category="property"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+            }
+            if (values[0] === 'transport') {
+                document.querySelector('[data-category="transport"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+            }
+            if (values[0] === 'work') {
+                document.querySelector('[data-category="work"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+            }
+            if (values[0] === 'electronics') {
+                document.querySelector('[data-category="electronics"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+            }
+            if (values[0] === 'businessAndServices') {
+                document.querySelector('[data-category="businessAndServices"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+            }
+            if (values[0] === 'recreationAndSport') {
+                document.querySelector('[data-category="recreationAndSport"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+            }
+            if (values[0] === 'free') {
+                document.querySelector('[data-category="free"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+            }
+            if (values[0] === 'trade') {
+                document.querySelector('[data-category="trade"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+            }
+            if (values[0] === 'sales') {
+                document.querySelector('[data-category="sales"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+            }
+        }
     })
     .catch(error => console.log('error!!!', error));
                 
     function markupSlider(title) {
         categoriesRef.insertAdjacentHTML('afterbegin', oneSliderTpl(title));
-        // mainContainerRef.innerHTML = oneSliderTpl(title);
     }
 
     function markupCard(card) {
-            markOneCard.insertAdjacentHTML('afterbegin', productCardTpl(card));
+            categoriesRef.insertAdjacentHTML('afterend', productCardTpl(card));
     }
 
-fetchAllCards;
+function translationWordsCategories (arr) {
+  let newArr = arr.map( category => {
+    return {
+      category: category,
+      tran: translationOfWords[category], 
+    }
+  })
+    return newArr;
+}
 
-// function renderAllCardAndAllCategory() {
-//     fetchAllCards.then(result => {
-//         console.log(result); 
-//         // console.dir(result.free);
-    
-//     });
-
-// }
-
-// renderAllCardAndAllCategory();
 
 
 // export default SearchProducts()
@@ -143,10 +182,7 @@ fetchAllCards;
 //     }
     
     
-// // Для каждого элемента коллекции (user) вернем значение поля name
-//     // const names = users.map(user => user.name);
-
-//     // console.log(names); // ["Mango", "Poly", "Ajax"]
+//     console.log(names); // ["Mango", "Poly", "Ajax"]
 //     fetchProductCard();
 //     // function errors(er) {
 //     //     if (er === 'Ничего не найдено') {

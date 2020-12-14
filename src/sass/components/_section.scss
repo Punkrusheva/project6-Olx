@@ -35,28 +35,28 @@
     overflow: hidden;
     height: 1575px;
   }
-  // @media screen and (min-width: $tablet) {
-  //   overflow: hidden;
-  //   height: 535px;
-  // }
-  // @media screen and (min-width: $desktop) {
-  //   overflow: hidden;
-  //   height: 500px;
-  // }
+  @media screen and (min-width: $tablet) {
+    overflow: hidden;
+    height: 535px;
+  }
+  @media screen and (min-width: $desktop) {
+    overflow: hidden;
+    height: 500px;
+  }
 }
 
 .categories {
   @media screen and (max-width: $before-tablet) {
     overflow: hidden;
-    // height: 783px;
+    height: 783px;
   }
   @media screen and (min-width: $tablet) {
     overflow: hidden;
-    // height: 525px;
+    height: 525px;
   }
   @media screen and (min-width: $desktop) {
     overflow: hidden;
-    // height: 475px;
+    height: 475px;
   }
 }
 
