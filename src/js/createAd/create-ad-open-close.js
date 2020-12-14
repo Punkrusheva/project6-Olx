@@ -1,4 +1,4 @@
-import onClickOpenModal from './modal.js';
+import onClickOpenModal from '../modal.js';
 const openModalCreateAdBtn = document.querySelector('[data-create-ad-modal-open]');
 const closeModalCreateADBtn = document.querySelector('[data-create-ad-modal-close]');
 const createAdModalRef = document.querySelector('[data-create-ad-modal]');
