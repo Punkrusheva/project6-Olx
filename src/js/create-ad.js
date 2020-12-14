@@ -17,7 +17,7 @@ const cteateAdSubmit = event => {
   });
    
   cteateAd(body)
-    .then(({ data }) => console.log(data))
+    // .then(({ data }) => console.log(data))
         // .catch(error => {
         // alert({
         //     text: error.response.data.message,
@@ -27,17 +27,14 @@ const cteateAdSubmit = event => {
 
 const cteateAd = (newAd) => {
     const token = localStorage.getItem('key');
-
-    const { title, description, category, price, phone, file } = newAd;
     
-    return axios.post(`${BASE_URL}/call`, {
-        headers: {
-            authorization: `Bearer ${token}`,
-        },
-        body: { title, description, category, price, phone, file },
-    });
+    const { title, description, category, price, phone, file } = newAd;
+    const body = { title, description, category, price, phone, file };
+    const headers = {
+        authorization: `Bearer ${token}`
+    };
+    return axios.post(`${BASE_URL}call`, body, { headers });
 
-  
 }
 
 createAdRef.addEventListener('submit', cteateAdSubmit);
