@@ -1,3 +1,4 @@
+
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
 const user = {
@@ -37,4 +38,4 @@ export default async function registerUser() {
     const responseJson = await response.json();
     return  localStorage.setItem('key', `${responseJson.accessToken}`);
 
-}; 
+
