@@ -1,0 +1,63 @@
+<div class="container">
+    <div data-modal class="backdrop-modal-product is-hidden">
+
+      <div class="open-card__cont">
+        <span data-modal-close class="close-form"><svg class="close-form-icon" width="14" height="14">
+          <use href="../images/sprite.svg#icon-close_icon"></use>
+      </svg></span>
+        <div class="flex-container--desktop">
+        <ul class="desktop-gallery-cont">
+          {{#each imageUrls}}
+          <li class="destop-gallery--portrait"><img class="gallery--item-portret" src="{{this}}" alt=""></li>
+          <div class="flex-container--desktop">
+            <li class="destop-gallery--item"><img class="gallery--item-img" src="{{this}}" alt=""></li>
+            <li class="destop-gallery--item"><img class="gallery--item-img" src="{{this}}" alt=""></li>
+            <li class="destop-gallery--item"><img class="gallery--item-img" src="{{this}}" alt=""></li>
+            <li class="destop-gallery--item"><img class="gallery--item-img" src="{{this}}" alt=""></li>
+            <li class="destop-gallery--item"><img class="gallery--item-img" src="{{this}}" alt=""></li>
+            {{/each}}
+          </div>
+        </ul>
+
+          <div>
+            <h3 class="open-card__title">Найменування</h3>
+            <div class="open-card__text--cont">
+              <span class="open-card__text">Код товару |</span>
+              <span class="open-card__text data-code">105-С</span>
+            </div>
+            <div class="carousel">
+              {{#each imageUrls}}
+                <img class="carousel-cell-image" src="{{this}}" alt="">
+                <img class="carousel-cell-image" src="{{this}}" alt="">
+                <img class="carousel-cell-image" src="{{this}}" alt="">
+                <img class="carousel-cell-image" src="{{this}}" alt="">
+                <img class="carousel-cell-image" src="{{this}}" alt="">
+              {{/each}}
+
+            </div>
+            <div>
+              <h3 class="open-card__price">200.00 грн</h3>
+              <button class="open-card__seller--cont">
+                <span class="open-card__seller ">інформація про продавця</span>
+
+              </button>
+              <div class="flex-container">
+                <P class="cart-text flex-container">
+                  <span>В обране</span>
+                  <span class="material-icons cardset-icon"><span class="">favorite_border</span cl></span>
+                </P>
+                <P class="cart-text flex-container">
+                  <span>Поділитися</span>
+                  <span class="material-icons cardset-icon">share</span>
+                </P>
+              </div>
+              <P class="cart-text --up-margin">Опис:</P>
+              <p class="open-card__description">Describtion</p>
+            </div>
+          </div>
+     </div>
+
+      </div>
+
+    </div>
+</div>
