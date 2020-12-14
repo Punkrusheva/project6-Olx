@@ -2,46 +2,70 @@
 import productCardTpl from '../templates/product-cards.hbs'
 import allCategory from '../templates/all-category.hbs';
 import oneCategory from '../templates/section-one-category.hbs';
-import test from '../test.json';
+import oneSliderTpl from '../templates/one-slider.hbs';
 
 
-const mainContainerRef = document.querySelector('.main-container');
+const categoriesRef = document.querySelector('.categories');
 
-// productCardGroupRef.insertAdjacentHTML('beforebegin', allCategory(fetchAllCards));
-// console.log(fetchAllCards.forEach(item => {console.log(item);}));
-/* 4 катергории, по 4 (2) объявления  */ 
-// mainContainerRef.innerHTML = oneCard(fetchAllCards);
-// mainContainerRef.innerHTML = fetchAllCards;
-/* все объявления одной категории  */ 
-// mainContainerRef.innerHTML = oneCategory(fetchAllCards);
-
+const markOneCard = document.querySelector('.product-card-group');
+// const markOneCard2 = document.querySelector('.categories-title');
 
 /* API test  */
-// const BASE_URL = 'https://callboard-backend.herokuapp.com/';
-// const currentPage = 1;
+const BASE_URL = 'https://callboard-backend.herokuapp.com/';
+const currentPage = 1;
 
-// const requestOptions = {
-//     method: 'GET',
-//     redirect: 'follow'
-//     };
+const requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+    };
 
-// const fetchAllCards = fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
-//     .then(response => response.json())
-//     // .then(result => {
-//     //     // console.dir(result.free);
-//     //     console.log(result);
-//     //     // const names = result.map(response => console.log(response.free));
-//     //     // console.log(names);
-//     //     const markup = allCategory(result);
-//     //     // console.log(markup);
-//     //     // mainContainerRef.insertAdjacentHTML('afterbegin', markup);
-//     //     mainContainerRef.innerHTML = markup;
+const fetchAllCards = fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
+    .then(response => response.json())
+    .then(result => {
+        console.log(result);
+        console.log(`Object.keys(result)`, Object.keys(result));
+        console.log(`Object.values(result)`, Object.values(result)); 
 
-//     // })
-//     .catch(error => console.log('error', error));
+        const resultKey = (Object.keys(result));
+        markupSlider(resultKey);
+        // console.log(resultKey[]); 
+        const resultValue = (Object.values(result));
+        const free = [];
+        for (const values of resultValue) {
+            console.log(values[1]);
+            if (values[0].category === 'free') {
+                free.push(values[0]);
+            }
+            
+            
+            // return values;
+                // names.push(friend.name);
+        }
+        console.log(`free`, free);
+        const valuesKey = (Object.values(values));
+        console.log(`valuesKey`, valuesKey);
+        // const copy = [];
+        for (const key in result) {
+            console.log(`result[key]`, result[key]);
+            const mark = result[key];
+            markupCard(mark);
+        }
+
+        // markupCard(resultValue);
+    
+    })
+    .catch(error => console.log('error!!!', error));
                 
-// console.log(fetchAllCards);
+    function markupSlider(title) {
+        categoriesRef.insertAdjacentHTML('afterbegin', oneSliderTpl(title));
+        // mainContainerRef.innerHTML = oneSliderTpl(title);
+    }
 
+    function markupCard(card) {
+            markOneCard.insertAdjacentHTML('afterbegin', productCardTpl(card));
+    }
+
+fetchAllCards;
 
 // function renderAllCardAndAllCategory() {
 //     fetchAllCards.then(result => {
@@ -55,77 +79,86 @@ const mainContainerRef = document.querySelector('.main-container');
 // renderAllCardAndAllCategory();
 
 
-export default SearchProducts()
+// export default SearchProducts()
 
-function SearchProducts() {
-const BASE_URL = 'https://callboard-backend.herokuapp.com'
+// function SearchProducts() {
+//     const BASE_URL = 'https://callboard-backend.herokuapp.com';
 
- class FindProduct {
-    constructor() {
-        this.searchQuery = '';
-    }
+//     class FindProduct {
+//      constructor() {
+//         // this.currentPage = 1;
+//         // this.searchQuery = '';
+//     }
 
-   async fetchProducts() {
-        const url = `${BASE_URL}/call/find?&search=${this.searchQuery}`
+//    async fetchProducts() {
+//        const url = `${BASE_URL}/call?page=1`;
 
-       const fetches = await fetch(url)
-       const json = await fetches.json()  
-       if (json.length === 0) {
-         throw 'Ничего не найдено'
-       }
-       return json;
-       
-    }
+//        const fetches = await fetch(url);
+//        const json = await fetches.json();
+//        зен  fetches.json();
+//        через обжект кейс 
+//        второй чистые данные(разметка слайдера)
+//        в третем (по ключу )
 
+//        дата атрибут и дата категории
 
- 
-}
+//         //    if (json.length === 0) {
+//         //      throw 'Ничего не найдено'
+//         //    }
+//         return json;
+//     }
+//     }
 
-const products = new FindProduct()
+//     const products = new FindProduct()
 
+//     // function onSearch(e) {
+//     //     e.preventDefault();
+//     //     products.query = e.currentTarget.elements.query.value.trim()
 
-    function onSearch(e) {
-        e.preventDefault();
-        products.query = e.currentTarget.elements.query.value.trim()
-
-        if (products.query === '') {
-            return alert({
-                text: "Введите что-нибуть!",
-                type: 'info'
-            })
+//     //     if (products.query === '') {
+//     //         return alert({
+//     //             text: "Введите что-нибуть!",
+//     //             type: 'info'
+//     //         })
         
-        }
+//     //     }
 
-        fetchProductCard()
-        modalSearch.classList.add("is-hidden")
-    }
+//     //     fetchProductCard()
+//     //     modalSearch.classList.add("is-hidden")
+//     // }
     
-    function appendCardMarkup(card) {
-    mainContainerRef.insertAdjacentHTML('beforeend', productCardTpl(card))
-    }
+//     function appendCardMarkup(card) {
+//         mainContainerRef.innerHTML = allCategory(card);
+//         // mainContainerRef.insertAdjacentHTML('beforeend', productCardTpl(card))
+//     }
 
-    async function fetchProductCard() {
-        try {
-        const product = await products.fetchProducts()
-        appendCardMarkup(product)
-        } catch {
-            errors(er)
-        }
+//     async function fetchProductCard() {
+//         try {
+//             const product = await products.fetchProducts();
+//             console.dir(product);
+//             appendCardMarkup(product.recreationAndSport);
+//         } catch {
+//             errors(er)
+//         }
+//     }
     
-    }
     
-    function errors(er) {
-    if (er === 'Ничего не найдено') {
-        return  alert({
-            text: 'К сожалению по этому запросу ничего не найдено',
-            type: 'info'
-        })
-    }
+// // Для каждого элемента коллекции (user) вернем значение поля name
+//     // const names = users.map(user => user.name);
 
-    return error({
-            text: "Ошибка! Не удалось загрузить изображения.",
-            type: 'info' 
-        })
-    }
+//     // console.log(names); // ["Mango", "Poly", "Ajax"]
+//     fetchProductCard();
+//     // function errors(er) {
+//     //     if (er === 'Ничего не найдено') {
+//     //         return  alert({
+//     //             text: 'К сожалению по этому запросу ничего не найдено',
+//     //             type: 'info'
+//     //         })
+//     //     }
 
-}
+//     //     return error({
+//     //             text: "Ошибка! Не удалось загрузить изображения.",
+//     //             type: 'info' 
+//     //         })
+//     //     }
+// }
