@@ -3,38 +3,41 @@ const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
 // const key = localStorage.getItem('key');
 
-const createAdBtn = document.querySelector('.create-ad-submit');
-createAdBtn.addEventListener('submit', cteateAdSubmit)
+const createAdRef = document.querySelector('.create-ad-form');
+createAdRef.addEventListener('submit', cteateAdSubmit);
 
 const cteateAdSubmit = event => {
   event.preventDefault();
    const { currentTarget: form } = event;
     const formData = new FormData(form);
-    const body = {};
-
-    console.log(formData)
-    
-    // formData.forEach((key, value) => {
-    //     body[key] = value;
+    const body = {}
+   
+    formData.forEach((key, value) => {
+        body[key] = value;
         
-    // })
- 
+    })
+
+    console.log(event);
   
 };
 
-const cteateAd = (newAd, key) => {
 
-    const { title, description, category, price, phone, file } = newAd;
+ 
+
+
+// const cteateAd = (newAd, key) => {
+
+//     const { title, description, category, price, phone, file } = newAd;
     
-    return axios.post(`${BASE_URL}/call`, {
-        headers: {
-            Authorization: `Bearer ${key}`,
-        },
-        body: { title, description, category, price, phone, file }
-    });
+//     return axios.post(`${BASE_URL}/call`, {
+//         headers: {
+//             Authorization: `Bearer ${key}`,
+//         },
+//         body: { title, description, category, price, phone, file }
+//     });
 
   
-}
+// }
 
 
 
