@@ -18,3 +18,5 @@ import './js/test';
 
 import './js/favorite';
 import './js/search';
+
+import './js/modal-one-card';
