@@ -1,10 +1,12 @@
 // import 
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
-const user = {
-  email: 'cat@gmail.com',
-  password: '12345', 
-};
+// const user = {
+//   email: 'cat@gmail.com',
+//   password: '12345', 
+// };
+
+localStorage.removeItem('key');
 
 
 //регистрация
