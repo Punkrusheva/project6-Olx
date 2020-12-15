@@ -130,54 +130,54 @@
   margin: 0px;
 }
 
-.product-card__my {
-  list-style: none;
+// .product-card__my {
+//   list-style: none;
 
-  margin: 15px;
-  background: #ffffff;
-  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
+//   margin: 15px;
+//   background: #ffffff;
+//   filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
 
-  // width: 290px;
-  // height: 350px;
+//   // width: 290px;
+//   // height: 350px;
 
-  @media screen and (min-width: $tablet) {
-    // width: 346px;
-    // height: 350px;
-    width: calc((100% - 4 * 15px) / 2);
-    margin: 15px;
-  }
+//   @media screen and (min-width: $tablet) {
+//     // width: 346px;
+//     // height: 350px;
+//     width: calc((100% - 4 * 15px) / 2);
+//     margin: 15px;
+//   }
 
-  @media screen and (min-width: $desktop) {
-    // width: 346px;
-    // height: 350px;
-    width: calc((100% - 8 * 15px) / 4);
-  }
-}
-.product-card__my:hover,
-.product-card__my:focus {
-  background-color: rgba(0, 0, 0, 0.5);
-}
+//   @media screen and (min-width: $desktop) {
+//     // width: 346px;
+//     // height: 350px;
+//     width: calc((100% - 8 * 15px) / 4);
+//   }
+// }
+// .product-card__my:hover,
+// .product-card__my:focus {
+//   background-color: rgba(0, 0, 0, 0.5);
+// }
 
-.product-image__my {
-  position: relative;
-  display: block;
-  pointer-events: auto;
-  width: 290px;
-  height: 275px;
-  // width: 100%;
-  object-position: center center;
-  // object-fit: none;
+// .product-image__my {
+//   position: relative;
+//   display: block;
+//   pointer-events: auto;
+//   width: 290px;
+//   height: 275px;
+//   // width: 100%;
+//   object-position: center center;
+//   // object-fit: none;
 
-  @media screen and (min-width: $tablet) {
-    width: 346px;
-    height: 275px;
-  }
+//   @media screen and (min-width: $tablet) {
+//     width: 346px;
+//     height: 275px;
+//   }
 
-  @media screen and (min-width: $desktop) {
-    width: 295px;
-    height: 275px;
-  }
-}
+//   @media screen and (min-width: $desktop) {
+//     width: 295px;
+//     height: 275px;
+//   }
+// }
 
 .button-next-pages {
   font-family: Roboto;
@@ -282,18 +282,18 @@
 //   overflow: hidden;
 // }
 
-.gallery ul {
-  // height: 130px;
-  // width: 9999px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  // transition: margin-left 500ms;
-  /* удаляем пустое пространство между элементами li, у которых установлен inline-block */
-  /* http://davidwalsh.name/remove-whitespace-inline-block */
-  font-size: 0;
-}
+// .gallery ul {
+//   // height: 130px;
+//   // width: 9999px;
+//   margin: 0;
+//   padding: 0;
+//   list-style: none;
+//   // transition: margin-left 500ms;
+//   /* удаляем пустое пространство между элементами li, у которых установлен inline-block */
+//   /* http://davidwalsh.name/remove-whitespace-inline-block */
+//   font-size: 0;
+// }
 
-.gallery li {
-  display: inline-block;
-}
+// .gallery li {
+//   display: inline-block;
+// }

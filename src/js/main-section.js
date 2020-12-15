@@ -1,7 +1,7 @@
 // import { template } from 'handlebars';
 import productCardTpl from '../templates/product-cards.hbs';
-import allCategory from '../templates/all-category.hbs';
-import oneCategory from '../templates/section-one-category.hbs';
+// import allCategory from '../templates/all-category.hbs';
+// import oneCategory from '../templates/section-one-category.hbs';
 import oneSliderTpl from '../templates/one-slider.hbs';
 
 
@@ -136,14 +136,13 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
             e.preventDefault();
             console.log(`e `, e);
             console.log(`e.target.attributes[0] `, e.target.attributes[0]);
-
-            // const sectionTextRef = document.querySelectorAll('.section-text');
-            // console.log(document.querySelectorAll('.section-text'));
-                // console.log(`attributes 138`, e.attributes.name);
-            // console.log(`attributes 138`, newArrFree);
-            console.log(markupSectionRef);
+            const eTargetatribute = e.target.attributes[0];
+            const currntQuery = `data-atribute="sales"`;
+            console.log(`newArrFree 138`, newArrFree);
+            console.log(`document.querySelector('.main-container')`, document.querySelector('.main-container'));
             console.log(productCardTpl(newArrFree));
-            if (e.target.attributes[0] === 'data-atribute="sales"') {
+            if (eTargetatribute === currntQuery) {
+                console.log(`newArrFree !!!!!!!!!`, newArrFree);    
                 document.querySelector('.main-container').innerHTML = productCardTpl(newArrFree);
             } 
 

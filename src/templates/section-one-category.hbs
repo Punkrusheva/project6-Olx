@@ -1,55 +1,31 @@
-{{!-- {{>../templates/product-cards.hbs}} --}}
-{{!-- {{#each free}} --}}
-{{!-- {{#with free}}
-{{free.title}} {{price}}
-{{/with}} --}}
-{{!-- <img class="cardset__image" srcset="{{#each imageUrls}}{{#if @first}}{{this}}{{/if}}{{/each}} 352w" {{#each this}}
-    <h1>{{free.category}}</h1>
-{{/each}} --}}
-{{!-- <p>{{ free.id }} </p>
-<li>{{free.id}}</li> --}}
-{{#with this}}
-{{title}} {{description}}
-{{/with}}
-{{!-- {{#with imageUrls}}
-<li>{{category}}</li>
-<li>{{price}}</li>
-<li>{{price}}</li>
-<li>{{title}}</li>
-{{/with}} --}}
-{{!-- {{>./product-cards}} --}}
-{{!-- {{/each}} --}}
-{{!-- </ul> --}}
-{{!-- <li class="product-card__my">
-    <div class="product-image">
-        <img class="product-img" src="{{imageUrls}}" alt="" />
-        <div class="product-overlay">
-            <button class="product-card-icon product-card-icon-favorite">
-                <svg class="icon" width="16" height="16">
-                    <use href="{./images/sprite.svg#icon-favorite-icon}"></use>
-                </svg>
-            </button>
-            <button class="product-card-icon product-card-icon-fullscreen">
-                <svg class="icon" width="16" height="16">
-                    <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
-                </svg>
-            </button>
-        </div>
-    </div>
-    <div class="product-content">
-        <h3 class="product-name">{{free.title}}</h3>
-        <p class="product-price">{{price}} грн</p>
-    </div>
-</li> --}}
+{{!-- <ul class="product-card-group images"> --}}
+    {{#each this}}
+    <li class="product-card">
+        <div class="product-image">
+            {{#each imageUrls }}
+            <img class="product-img" src="{{ this }}" alt="{{title}}" />
+            {{/each }}
 
-{{!-- {{/each}} --}}
-<div>
-    <button class="button-next-pages">1</button>
-    <button class="button-next-pages">2</button>
-    <button class="button-next-pages">3</button>
-</div>
-<div data-create-ad-modal-open class="icon-add-position">
-    <a class="icon-add"><svg class="icon-add-svg" width="14" height="14">
-            <use href="./images/sprite.svg#icon-add-img"></use>
-        </svg></a>
-</div>
+            <div class="product-overlay">
+                <button class="product-card-icon product-card-icon-favorite">
+                    <svg class="icon" width="16" height="16">
+                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
+                    </svg>
+                </button>
+                <button class="product-card-icon product-card-icon-fullscreen">
+                    <svg class="icon" width="12" height="12">
+                        <use href="./images/sprite.svg#icon-full-screen"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="product-content">
+            <h3 class="product-name">{{title}}</h3>
+            <p class="product-price">{{price}} грн</p>
+
+        </div>
+    </li>
+    {{/each}}
+
+    {{!--
+</ul> --}}
