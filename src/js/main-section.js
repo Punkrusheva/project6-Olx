@@ -5,6 +5,7 @@ import oneCategory from '../templates/section-one-category.hbs';
 import oneSliderTpl from '../templates/one-slider.hbs';
 
 
+const mainСontainerRef = document.querySelector('.main-container');
 const categoriesRef = document.querySelector('.categories');
 const galleryRef = document.querySelector('.gallery');
 // const markOneCard = document.querySelector('.product-card-group');
@@ -94,26 +95,32 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
                 document.querySelector('[data-category="sales"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
             }
         }
+        return response;
+    }).then(response => {
+        console.log(`response 100:`, response);
+        const valuesEntries = (Object.entries(response));
+        console.log(`valuesEntries !!!101`, valuesEntries);
+        const sectionTextRef = document.querySelector('.section-text');
     })
     .catch(error => console.log('error!!!', error));
                 
     function markupSlider(title) {
-        galleryRef.insertAdjacentHTML('afterbegin', oneSliderTpl(title));
+        mainСontainerRef.insertAdjacentHTML('beforeend', oneSliderTpl(title));
     }
 
     function markupCard(card) {
             galleryRef.insertAdjacentHTML('afterend', productCardTpl(card));
     }
 
-function translationWordsCategories (arr) {
-  let newArr = arr.map( category => {
-    return {
-      category: category,
-      tran: translationOfWords[category], 
+    function translationWordsCategories (arr) {
+    let newArr = arr.map( category => {
+        return {
+        category: category,
+        tran: translationOfWords[category], 
+        }
+    })
+        return newArr;
     }
-  })
-    return newArr;
-}
 
 
 
