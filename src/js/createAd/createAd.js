@@ -8,7 +8,12 @@ const cteateAdSubmit = event => {
 
   const { currentTarget: form } = event;
   const formData = new FormData(form);
+
+  const photoElem = document.querySelector('#photoElem');
     
+  photoElem.addEventListener('input', function () {
+    formData.append('file', photoElem.files[0]);
+  });
     
   const body = {};
 
@@ -16,26 +21,26 @@ const cteateAdSubmit = event => {
     body[key] = value;
   });
    
-  cteateAd(body)
-    // .then(({ data }) => console.log(data))
-        // .catch(error => {
-        // alert({
-        //     text: error.response.data.message,
-        
-        // });
-}
+  cteateAd(body).then(data => console.log(data))
+  // .then(data => console.log(data)).catch(error => {
+  //   alert({
+  //     text: error.response.data.message,
+  //   })
+  // });
+};
+
 
 const cteateAd = (newAd) => {
-    const token = localStorage.getItem('key');
+  const token = localStorage.getItem('key');
     
-    const { title, description, category, price, phone, file } = newAd;
-    const body = { title, description, category, price, phone, file };
-    const headers = {
-        authorization: `Bearer ${token}`
-    };
-    return axios.post(`${BASE_URL}call`, body, { headers });
+  const { title, description, category, price, phone, file } = newAd;
+  const body = { title, description, category, price, phone, file };
+  const headers = {
+    authorization: `Bearer ${token}`
+  };
+  return axios.post(`${BASE_URL}call`, body, { headers });
 
-}
+};
 
 createAdRef.addEventListener('submit', cteateAdSubmit);
  
