@@ -3,6 +3,10 @@ const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
 const editAdRef = document.querySelector('[data-edit-ad-modal-open]');
 
+function editAdModalOpen(){
+
+}
+
 const editAdSubmit = event => {
   event.preventDefault();
 
@@ -33,10 +37,11 @@ const editAd = ({ ad, callId }) => {
     const headers = {
         authorization: `Bearer ${token}`
     };
-    return axios.put(`${BASE_URL}call/${callId}`, body, { headers });
+    return axios.patch(`${BASE_URL}call/${callId}`, body, { headers });
 
 }
 
-editAdRef.addEventListener('submit', editAdSubmit);
+editAdRef.addEventListener('click', editAdModalOpen);
+editAdSaveBtn.addEventListener('submit', editAdSubmit);
  
 

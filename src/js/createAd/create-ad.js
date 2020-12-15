@@ -40,9 +40,6 @@ const cteateAd = (newAd) => {
 createAdRef.addEventListener('submit', cteateAdSubmit);
  
 
-
-
-
 //   const options = {
 //       method: 'POST',
 //       headers: {

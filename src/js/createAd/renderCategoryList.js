@@ -26,7 +26,7 @@ async function fetchCategories() {
     const responseJson = await response.json();
     return responseJson
 };
-console.log(categoryListBtn);
+
 // console.log(fetchCategory().then(response => {
 //             console.log(productCategoryForModal(response))
 //         }))
