@@ -4,7 +4,7 @@ var link,
     navEl;
 
 contentEl = document.querySelector('.section');
-navEl = document.querySelector('body');//('.filter__inner');
+navEl = document.querySelector('.filter__inner');//('body');
 // console.log(navEl);
 
 links = {
