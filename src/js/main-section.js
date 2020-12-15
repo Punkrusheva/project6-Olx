@@ -1,15 +1,14 @@
 // import { template } from 'handlebars';
 import productCardTpl from '../templates/product-cards.hbs';
-// import allCategory from '../templates/all-category.hbs';
-// import oneCategory from '../templates/section-one-category.hbs';
+import productCardSaleTpl from '../templates/product-cart-sale.hbs';
 import oneSliderTpl from '../templates/one-slider.hbs';
+
+import CategoriesAPI from './categories-api';
+
+const catApi = new CategoriesApi();
 
 
 const mainСontainerRef = document.querySelector('.main-container');
-const categoriesRef = document.querySelector('.categories');
-const galleryRef = document.querySelector('.gallery');
-const markupSectionRef = document.querySelector('.markup');
-// const markOneCard = document.querySelector('.product-card-group');
 
 const translationOfWords = {
     property:'Нерухомість',
@@ -23,12 +22,9 @@ const translationOfWords = {
     sales: 'Розпродаж   різне'
 };
 
-
-
-
 /* API test  */
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
-const currentPage = 1;
+const currentPage = 2;
 
 const requestOptions = {
     method: 'GET',
@@ -38,11 +34,13 @@ const requestOptions = {
 fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
     .then(response => response.json())
     .then(result => {
+
         // console.log(`result 45`, result);
         // console.log(`Object.keys(result)`, Object.keys(result));
         const resultKey = (Object.keys(result));
         const resultKeyTransletion = translationWordsCategories(resultKey);
         // console.log(`resultKeyTransletion`, resultKeyTransletion);
+
         markupSlider(resultKeyTransletion);
         // console.log(resultKey[]); 
 
@@ -65,7 +63,7 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
         for (const values of valuesEntries) {
             // console.log(`values[0] !!!72`, values[0]);
             // console.log(`valuesEntries`, valuesEntries[key]);
-            // console.log(`values[1] 74:`, values[1]);
+            // console.log(`values[1] 68:`, values[1]);
 
             if (values[0] === 'property`') {
                 document.querySelector('[data-category="property"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
@@ -92,84 +90,114 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
                 document.querySelector('[data-category="trade"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
             }
             if (values[0] === 'sales') {
-                document.querySelector('[data-category="sales"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
+                document.querySelector('[data-category="sales"]').insertAdjacentHTML('afterbegin', productCardSaleTpl(values[1]));
             }
         }
         return response;
-    }).then(response => {
-        // console.log(`response 100:`, response);
-        const valuesEntries = (Object.entries(response));
-        console.log(`valuesEntries !!!101`, valuesEntries);
-
-
-        // console.log(sectionTextRef);
-        // document.querySelectorAll('.section-text').addEventListener('click', markCardOneCategoryTest);
-
-        const newArrFree = [];
-        for (const values of valuesEntries) {
-            // console.log(`values[0] !!!105`, values[0]);
-            // console.log(`values[1] 106:`, values[1]);
-            // console.log(`valuesArray 107:`, valuesArray);
-            const keyArray = values[0];
-            const valuesArray = values[1];
-            
-            /* newArrFree  */
-            // const newArrFree = [];
-            if (values[0] === 'free') {
-            console.log(`values[1] 120`, values[1]);
-            // const newArrFree = [];
-            newArrFree.push(valuesArray);
-            
-            console.log(`newArrFree внутри if 123`, newArrFree);
-            // sectionTextRef.addEventListener('click', markCardOneCategory(newArrFree));
-            }
-            
-            // sectionTextRef.addEventListener('click', markCardOneCategoryTest);
-            // console.log(`newArrFree  внутри if  136`, newArrFree);
-            
-        }   
-        console.log(`newArrFree внутри then 141`, newArrFree);
-
-            document.querySelector('[data-atribute="sales"]').addEventListener('click', markCardOneCategoryTest);
-
-        function markCardOneCategoryTest(e) {
-            e.preventDefault();
-            console.log(`e `, e);
-            console.log(`e.target.attributes[0] `, e.target.attributes[0]);
-            const eTargetatribute = e.target.attributes[0];
-            const currntQuery = `data-atribute="sales"`;
-            console.log(`newArrFree 138`, newArrFree);
-            console.log(`document.querySelector('.main-container')`, document.querySelector('.main-container'));
-            console.log(productCardTpl(newArrFree));
-            if (eTargetatribute === currntQuery) {
-                console.log(`newArrFree !!!!!!!!!`, newArrFree);    
-                document.querySelector('.main-container').innerHTML = productCardTpl(newArrFree);
-            } 
-
-                
-                // console.log(`values[1] `, this.values[1]);
-                }
     })
-    .catch(error => console.log('error!!!', error));
-       
-    
-    /* markCardOneCategory
-    function markCardOneCategory(e) {
-            e.preventDefault();
-            console.log(`markCardOneCategory() -  run! `);
-            console.log(`markupSectionRef 127`, markupSectionRef);
-            // markupCard(card);
-            // console.log(`values[1] `, this.values[1]);
-        }
-    */
-    
+    // .then(response => {
+    //     const valuesEntries = (Object.entries(response));
+    //     // console.log(`valuesEntries !!!101`, valuesEntries);
+
+    //     let newArrProperty = [];
+    //     let newArrTransport = [];
+    //     let newArrWork = [];
+    //     let newArrElectronics = [];
+    //     let newArrBusinessAndServices = [];
+    //     let newArrRecreationAndSport = [];
+    //     let newArrFree = [];
+    //     let newArrTrade = [];
+    //     let newArrSales = [];
+
+    //     for (const values of valuesEntries) {
+    //         // console.log(`values[0] !!!105`, values[0]);
+    //         // console.log(`values[1] 106:`, values[1]);
+    //         // console.log(`valuesArray 107:`, valuesEntries);
+                        
+    //         if (values[0] === 'property') {
+    //             // console.log(`values[1] 120`, values[1]);
+    //             newArrProperty.push(values[1]);
+    //         }
+    //         if (values[0] === 'transport') {
+    //             newArrTransport.push(values[1]);
+    //         }
+    //         if (values[0] === 'work') {
+    //             newArrWork.push(values[1]);
+    //         }
+    //         if (values[0] === 'electronics') {
+    //             newArrElectronics.push(values[1]);
+    //         }
+    //         if (values[0] === 'businessAndServices') {
+    //             newArrBusinessAndServices.push(values[1]);
+    //         }
+    //         if (values[0] === 'recreationAndSport') {
+    //             newArrRecreationAndSport.push(values[1]);
+    //         }
+    //         if (values[0] === 'free') {
+    //             newArrFree.push(values[1]);
+    //         }
+    //         if (values[0] === 'trade') {
+    //             newArrTrade.push(values[1]);
+    //         }
+    //         if (values[0] === 'sales') {
+    //             newArrSales.push(values[1]);
+    //         }
             
+    //     }
+
+    //     document.querySelector('[data-atribute="property"]').addEventListener('click', markAllCardOneCategory);
+    //     document.querySelector('[data-atribute="transport"]').addEventListener('click', markAllCardOneCategory);
+    //     document.querySelector('[data-atribute="work"]').addEventListener('click', markAllCardOneCategory);
+    //     document.querySelector('[data-atribute="electronics"]').addEventListener('click', markAllCardOneCategory);
+    //     document.querySelector('[data-atribute="businessAndServices"]').addEventListener('click', markAllCardOneCategory);
+    //     document.querySelector('[data-atribute="recreationAndSport"]').addEventListener('click', markAllCardOneCategory);
+    //     document.querySelector('[data-atribute="free"]').addEventListener('click', markAllCardOneCategory);
+    //     document.querySelector('[data-atribute="trade"]').addEventListener('click', markAllCardOneCategory);
+    //     document.querySelector('[data-atribute="sales"]').addEventListener('click', markAllCardOneCategory);
+
+        
+
+    //     function markAllCardOneCategory(e) {
+    //         e.preventDefault();
+    //         // console.log(`e `, e);
+    //         // console.log(`e.target.attributes[0].value `, e.target.attributes[0].value);
+    //         // console.log(`recreationAndSport !!!!!!!!!`, newArrFree[0]);
+            
+    //         if (e.target.attributes[0].value === 'property') {
+    //             document.querySelector('.main-container').innerHTML = productCardTpl(newArrProperty[0]);
+    //         }
+    //         if (e.target.attributes[0].value === 'transport') {
+    //             document.querySelector('.main-container').innerHTML = productCardTpl(newArrTransport[0]);
+    //         }
+    //         if (e.target.attributes[0].value === 'work') {
+    //             document.querySelector('.main-container').innerHTML = productCardTpl(newArrWork[0]);
+    //         }
+    //         if (e.target.attributes[0].value === 'electronics') {
+    //             document.querySelector('.main-container').innerHTML = productCardTpl(newArrElectronics[0]);
+    //         }
+    //         if (e.target.attributes[0].value === 'businessAndServices') {
+    //             document.querySelector('.main-container').innerHTML = productCardTpl(newArrBusinessAndServices[0]);
+    //         }
+    //         if (e.target.attributes[0].value === 'recreationAndSport') {
+    //             document.querySelector('.main-container').innerHTML = productCardTpl(newArrRecreationAndSport[0]);
+    //         }
+    //         if (e.target.attributes[0].value === 'free') {
+    //             document.querySelector('.main-container').innerHTML = productCardTpl(newArrFree[0]);
+    //         }
+    //         if (e.target.attributes[0].value === 'trade') {
+    //             document.querySelector('.main-container').innerHTML = productCardTpl(newArrTrade[0]);
+    //         }
+    //         if (e.target.attributes[0].value === 'sales') {
+    //             document.querySelector('.main-container').innerHTML = productCardTpl(newArrSales[0]);
+    //         }
+    //     }
+    // })
+    .catch(error => console.log(`error!!!`, error));
+       
+    // console.log(`newArrsales`, newArrSales);
+      
     function markupSlider(title) {
         mainСontainerRef.insertAdjacentHTML('beforeend', oneSliderTpl(title));
-    }
-
-    function markupCard(card) {
-            markupSectionRef.innerHTML = productCardTpl(card);
     }
 
     function translationWordsCategories (arr) {
@@ -184,84 +212,102 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
 
 
 
-// export default SearchProducts()
 
-// function SearchProducts() {
-//     const BASE_URL = 'https://callboard-backend.herokuapp.com';
+fetch(`${BASE_URL}call/specific/transport`)
+    .then(response => response.json())
+    .then(response => {
+        console.log(`response`, response);
 
-//     class FindProduct {
-//      constructor() {
-//         // this.currentPage = 1;
-//         // this.searchQuery = '';
-//     }
+        const valuesEntries = (Object.values(response));
+        console.log(`valuesEntries[0].category 218`, valuesEntries[0].category);
 
-//    async fetchProducts() {
-//        const url = `${BASE_URL}/call?page=1`;
+        document.querySelector('[data-atribute="transport"]').addEventListener('click', markAllCardOneCategory);
 
-//        const fetches = await fetch(url);
-//        const json = await fetches.json();
-//        зен  fetches.json();
-//        через обжект кейс 
-//        второй чистые данные(разметка слайдера)
-//        в третем (по ключу )
-
-//        дата атрибут и дата категории
-
-//         //    if (json.length === 0) {
-//         //      throw 'Ничего не найдено'
-//         //    }
-//         return json;
-//     }
-//     }
-
-//     const products = new FindProduct()
-
-//     // function onSearch(e) {
-//     //     e.preventDefault();
-//     //     products.query = e.currentTarget.elements.query.value.trim()
-
-//     //     if (products.query === '') {
-//     //         return alert({
-//     //             text: "Введите что-нибуть!",
-//     //             type: 'info'
-//     //         })
         
-//     //     }
+        function markAllCardOneCategory(e) {
+            e.preventDefault();
+            console.log(e);
+            console.log(`valuesEntries[0].category`, valuesEntries[0].category);
+            console.log(`e.target.attributes[0].value`, e.target.attributes[0].value);
+        }
+        
+    })
+    .catch(error => {
+        console.log(error)
+    });
 
-//     //     fetchProductCard()
-//     //     modalSearch.classList.add("is-hidden")
-//     // }
-    
-//     function appendCardMarkup(card) {
-//         mainContainerRef.innerHTML = allCategory(card);
-//         // mainContainerRef.insertAdjacentHTML('beforeend', productCardTpl(card))
-//     }
 
-//     async function fetchProductCard() {
-//         try {
-//             const product = await products.fetchProducts();
-//             console.dir(product);
-//             appendCardMarkup(product.recreationAndSport);
-//         } catch {
-//             errors(er)
+
+// .then(response => {
+//         const valuesEntries = (Object.entries(response));
+
+//         const newArrRecreationAndSport = [];
+//         const newArrFree = [];
+//         const newArrSales = [];
+
+//         for (const values of valuesEntries) {
+//             if (values[0] === 'recreationAndSport') {
+//                 newArrRecreationAndSport.push(values[1]);
+//             }
+//             if (values[0] === 'free') {
+//                 newArrFree.push(values[1]);
+//             }
+//             if (values[0] === 'sales') {
+//                 newArrSales.push(values[1]);
+//             }
 //         }
-//     }
-    
-    
-//     console.log(names); // ["Mango", "Poly", "Ajax"]
-//     fetchProductCard();
-//     // function errors(er) {
-//     //     if (er === 'Ничего не найдено') {
-//     //         return  alert({
-//     //             text: 'К сожалению по этому запросу ничего не найдено',
-//     //             type: 'info'
-//     //         })
-//     //     }
 
-//     //     return error({
-//     //             text: "Ошибка! Не удалось загрузить изображения.",
-//     //             type: 'info' 
-//     //         })
-//     //     }
-// }
+//         document.querySelector('[data-atribute="recreationAndSport"]').addEventListener('click', markAllCardOneCategory);
+//         document.querySelector('[data-atribute="free"]').addEventListener('click', markAllCardOneCategory);
+//         document.querySelector('[data-atribute="sales"]').addEventListener('click', markAllCardOneCategory);
 
+//         function markAllCardOneCategory(e) {
+//             e.preventDefault();
+            
+//             if (e.target.attributes[0].value === 'recreationAndSport') {
+//                 document.querySelector('.main-container').innerHTML = productCardTpl(newArrRecreationAndSport[0]);
+//             }
+//             if (e.target.attributes[0].value === 'free') {
+//                 document.querySelector('.main-container').innerHTML = productCardTpl(newArrFree[0]);
+//             }
+//             if (e.target.attributes[0].value === 'sales') {
+//                 document.querySelector('.main-container').innerHTML = productCardTpl(newArrsales[0]);
+//             }
+//         }
+//     })
+
+
+cat.addEventListener('click', clickFilter)
+function clickFilter(e) {
+    e.preventDefault();
+    if (e.target.tagName !== "A")
+        return;
+    
+    if(e.target.getAttribute('href') === '/property'){
+     catApi.onProperty().then(result =>render(result))};
+
+    if(e.target.getAttribute('href') === '/electronics'){
+    catApi.onElectronics().then(result =>render(result))};
+
+    if(e.target.getAttribute('href') === '/free'){
+    catApi.onFree().then(result =>render(result))};
+
+    if(e.target.getAttribute('href') === '/recreationAndSport'){
+    catApi.onRecreationAndSport().then(result =>render(result))};
+
+    if(e.target.getAttribute('href') === '/sales'){
+    catApi.onSales().then(result =>render(result))};
+
+    if(e.target.getAttribute('href') === '/trade'){
+    catApi.onTrade().then(result =>render(result))};
+
+    if(e.target.getAttribute('href') === '/transport'){
+    catApi.onTransport().then(result =>render(result))};
+                            
+    if(e.target.getAttribute('href') === '/work'){
+    catApi.onWork().then(result =>render(result))};
+
+    if(e.target.getAttribute('href') === '/businessAndServices'){
+    catApi.onbusinessAndServices().then(result =>render(result))};
+                                    
+}

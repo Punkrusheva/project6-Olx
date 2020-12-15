@@ -39,3 +39,4 @@ export async function fetchAuthorisLogin(BASE_URL, dataRegistry) {
   const responseJson = await response.json();
   return localStorage.setItem('key', `${responseJson.accessToken}`);
 }
+
