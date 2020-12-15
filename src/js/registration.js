@@ -1,6 +1,4 @@
-
-
-import registerUser from './apiService';
+import {registerUser} from './apiService';
 
 const registerFormRef = document.querySelector('.auth-form'); 
 const handleRegisterSubmit = event => {
