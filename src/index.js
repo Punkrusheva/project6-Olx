@@ -17,10 +17,10 @@ import './js/create-ad';
 
 import './js/router';
 
-// import './js/favorite';
+import './js/favorite';
 import './js/search';
 
-// import './js/test'; 
+import './js/test'; 
 import './js/bad-url'; 
 import './js/modal-one-card';
 
