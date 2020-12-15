@@ -8,6 +8,7 @@ import oneSliderTpl from '../templates/one-slider.hbs';
 const mainСontainerRef = document.querySelector('.main-container');
 const categoriesRef = document.querySelector('.categories');
 const galleryRef = document.querySelector('.gallery');
+const markupSectionRef = document.querySelector('.markup');
 // const markOneCard = document.querySelector('.product-card-group');
 
 const translationOfWords = {
@@ -62,7 +63,6 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
         const valuesEntries = (Object.entries(response));
         // console.log(`valuesEntries !!!63`, valuesEntries);
         for (const values of valuesEntries) {
-            // console.log(`values[key]`, valuesEntries[values]);
             // console.log(`values[0] !!!72`, values[0]);
             // console.log(`valuesEntries`, valuesEntries[key]);
             // console.log(`values[1] 74:`, values[1]);
@@ -97,19 +97,79 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
         }
         return response;
     }).then(response => {
-        console.log(`response 100:`, response);
+        // console.log(`response 100:`, response);
         const valuesEntries = (Object.entries(response));
         console.log(`valuesEntries !!!101`, valuesEntries);
-        const sectionTextRef = document.querySelector('.section-text');
+
+
+        // console.log(sectionTextRef);
+        // document.querySelectorAll('.section-text').addEventListener('click', markCardOneCategoryTest);
+
+        const newArrFree = [];
+        for (const values of valuesEntries) {
+            // console.log(`values[0] !!!105`, values[0]);
+            // console.log(`values[1] 106:`, values[1]);
+            // console.log(`valuesArray 107:`, valuesArray);
+            const keyArray = values[0];
+            const valuesArray = values[1];
+            
+            /* newArrFree  */
+            // const newArrFree = [];
+            if (values[0] === 'free') {
+            console.log(`values[1] 120`, values[1]);
+            // const newArrFree = [];
+            newArrFree.push(valuesArray);
+            
+            console.log(`newArrFree внутри if 124`, newArrFree);
+            // sectionTextRef.addEventListener('click', markCardOneCategory(newArrFree));
+            }
+            
+            // sectionTextRef.addEventListener('click', markCardOneCategoryTest);
+            // console.log(`newArrFree  внутри if  136`, newArrFree);
+            
+        }   
+        console.log(`newArrFree внутри then 141`, newArrFree);
+
+            document.querySelector('[data-atribute="sales"]').addEventListener('click', markCardOneCategoryTest);
+
+        function markCardOneCategoryTest(e) {
+            e.preventDefault();
+            console.log(`e `, e);
+            console.log(`e.target.attributes[0] `, e.target.attributes[0]);
+
+            // const sectionTextRef = document.querySelectorAll('.section-text');
+            // console.log(document.querySelectorAll('.section-text'));
+                // console.log(`attributes 138`, e.attributes.name);
+            // console.log(`attributes 138`, newArrFree);
+            console.log(markupSectionRef);
+            if (e.target.attributes[0] === 'data-atribute="sales"') {
+                productCardTpl(newArrFree);
+            } 
+
+                
+                // console.log(`values[1] `, this.values[1]);
+                }
     })
     .catch(error => console.log('error!!!', error));
-                
+       
+    
+    /* markCardOneCategory
+    function markCardOneCategory(e) {
+            e.preventDefault();
+            console.log(`markCardOneCategory() -  run! `);
+            console.log(`markupSectionRef 127`, markupSectionRef);
+            // markupCard(card);
+            // console.log(`values[1] `, this.values[1]);
+        }
+    */
+    
+            
     function markupSlider(title) {
         mainСontainerRef.insertAdjacentHTML('beforeend', oneSliderTpl(title));
     }
 
     function markupCard(card) {
-            galleryRef.insertAdjacentHTML('afterend', productCardTpl(card));
+            markupSectionRef.innerHTML = productCardTpl(card);
     }
 
     function translationWordsCategories (arr) {
