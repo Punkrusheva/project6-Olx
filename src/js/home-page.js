@@ -1,4 +1,4 @@
-import createCategoryMarkup from '../templates/all-category.hbs'
+/*import createCategoryMarkup from '../templates/all-category.hbs'
 
 const main = document.querySelector('.section')
 
@@ -10,4 +10,4 @@ export default function renderCategory(page) {
     }
         
     
-};
+};*/

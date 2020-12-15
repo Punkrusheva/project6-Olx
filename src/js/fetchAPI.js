@@ -1,35 +1,3 @@
-/*const requestsOptions = ({
-  method,
-  email,
-  password,
-  token,
-  refreshToken,
-  sid,
-  product,
-}) => {
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  if (token) headers.append('Authorization', `Bearer ${token}`);
-  if (refreshToken) headers.append('Authorization', `Bearer ${refreshToken}`);
-  if (email || password || sid || product) {
-    let body = {};
-    if (email) body.email = email;
-    if (password) body.password = password;
-    if (sid) body.sid = sid;
-    if (product) body = product;
-    return {
-      method,
-      headers,
-      body: JSON.stringify(body),
-      redirect: 'follow',
-    };
-  }
-  return {
-    method,
-    headers,
-    redirect: 'follow',
-  };
-};
 export const requestUserRegistration = async ({ email, password }) => {
   const response = await fetch(
     'https://callboard-backend.herokuapp.com/auth/register',
@@ -148,4 +116,4 @@ export const requestCategories = async () => {
     requestsOptions({ method: 'GET' }),
   );
   return response.json();
-};*/
+};
