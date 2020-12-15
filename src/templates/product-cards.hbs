@@ -5,6 +5,7 @@
             {{#each imageUrls }}
             <img class="product-img__my" src="{{ this }}" alt="{{title}}" />
             {{/each }}
+
             <div class="product-overlay">
                 <button class="product-card-icon product-card-icon-favorite">
                     <svg class="icon" width="16" height="16">
@@ -21,6 +22,7 @@
         <div class="product-content">
             <h3 class="product-name">{{title}}</h3>
             <p class="product-price">{{price}} грн</p>
+
         </div>
     </li>
     {{/each}}

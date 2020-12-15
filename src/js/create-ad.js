@@ -1,36 +1,71 @@
-import createAdMarkupTpl from '../templates/modal-create-ad.hbs'
-const openModalCreateAdBtn = document.querySelector('[data-create-ad-modal-open]');
-const closeModalCreateADBtn = document.querySelector('[data-create-ad-modal-close]');
-const createAdModalRef = document.querySelector('[data-create-ad-modal]');
-console.log(openModalCreateAdBtn)
+import axios from 'axios';
+const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
+const createAdRef = document.querySelector('.create-ad-form');
 
+const cteateAdSubmit = event => {
+  event.preventDefault();
 
-openModalCreateAdBtn.addEventListener('click', openModalCreateAd);
-closeModalCreateADBtn.addEventListener('click', closeModalCreateAd)
-
-function openModalCreateAd() {
+  const { currentTarget: form } = event;
+  const formData = new FormData(form);
     
-    window.addEventListener("keydown", onKeyDown);
-    createAdModalRef.addEventListener("click", onOverlayClick);
-    createAdModalRef.classList.remove("is-hidden");
+    
+  const body = {};
+
+  formData.forEach((value, key) => {
+    body[key] = value;
+  });
+   
+  cteateAd(body)
+    .then(({ data }) => console.log(data))
+        // .catch(error => {
+        // alert({
+        //     text: error.response.data.message,
+        
+        // });
 }
 
-function closeModalCreateAd() {
-    window.removeEventListener("keydown", onKeyDown);
-    createAdModalRef.removeEventListener("click", onOverlayClick);
-    createAdModalRef.classList.add("is-hidden");
-}
+const cteateAd = (newAd) => {
+    const token = localStorage.getItem('key');
 
-function onOverlayClick(event) {
-    if (event.currentTarget === event.target) {
-      closeModalCreateAd()
-    }
-}
+    const { title, description, category, price, phone, file } = newAd;
+    
+    return axios.post(`${BASE_URL}/call`, {
+        headers: {
+            authorization: `Bearer ${token}`,
+        },
+        body: { title, description, category, price, phone, file },
+    });
+
   
-function onKeyDown(event) {
-    if (event.code === "Escape") {
-      closeModalCreateAd()
-    }
 }
 
+createAdRef.addEventListener('submit', cteateAdSubmit);
+ 
+
+
+
+
+//   const options = {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//         },
+//       authorization: `${key}`,
+//       body: JSON.stringify(formData),
+// }
+
+//     fetch(`${BASE_URL}call`, options).then(response => response.text())
+//         .then(result => console.log(result))
+//   .catch(error => console.log('error', error));
+
+// cteateAd({
+//     'title': 'baby doll',
+//     'description': 'very cute',
+//     'category': 'rest and sport',
+//     'price': 5,
+//     'phone': 380970001122,
+//     'file': []
+// }).then(ad => console.log(ad))
+
+// let raw = "{'title': ${title}, 'description': ${description}, 'category': ${category}, 'price': ${price}, 'phone': ${phone},'file':[]";

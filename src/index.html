@@ -10,7 +10,7 @@
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap"
     rel="stylesheet" />
 
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
 </head>
 
@@ -35,6 +35,26 @@
         </button>
 
         <div class="user__button-container">
+
+
+
+
+          <button class="user__button cabinet" open-modal-cabinet>
+            <svg class="icon" width="20" height="20">
+              <use class="" href="./images/sprite.svg#icon-user-profile"></use>
+            </svg>
+            <span class="button__text">Мій кабінет</span>
+          </button>
+
+          <!-- кабинет -->
+
+          <div class="dropdox">
+            <div class="dropdox-cabinet ">
+              <a href="" class="link_call">Мої оголошення</a>
+              <a href="" class="link_call">Обране</a>
+            </div>
+          </div>
+
           <!-- <div>
               <button type="button"></button>
               <button type="button"></button>
@@ -45,7 +65,8 @@
               <use class="" href="./images/sprite.svg#icon-user-profile"></use>
             </svg>
           </button>
-          <button data-create-ad-modal-open type="button" class="user__button advertisement">Створити оголошення!</button>
+          <button data-create-ad-modal-open type="button" class="user__button advertisement">Створити
+            оголошення!</button>
         </div>
       </div>
 
@@ -71,11 +92,11 @@
               </li>
 
               <li class="filter__item">
-                <button class="filter__button">Транспорт</button>
+                <button class="filter__button transport">Транспорт</button>
               </li>
 
               <li class="filter__item">
-                <button class="filter__button">Робота</button>
+                <button class="filter__button work">Робота</button>
               </li>
 
               <li class="filter__item">
@@ -124,6 +145,7 @@
       <div class="main-container">
         <!-- !!! вставляем сюда, динамически свой код  -->
       
+
     </section>
 
   </main>
@@ -145,79 +167,81 @@
     <p>by <u>GoIT Students</u></p>
 
   </footer>
-<!-- Модалка cоздания объявления -->
-<div data-create-ad-modal class="backdrop-modal-create-ad is-hidden">
-  <div class="create-ad">
-    <span data-create-ad-modal-close class="close-form"><svg class="close-form-icon" width="14" height="14">
-        <use href="./images/sprite.svg#icon-close_icon"></use>
-      </svg></span>
-    <p class="create-ad-slogan">
-      Додати оголошення
-    </p>
-    <form class="create-ad-form">
-      <ul class="create-ad-form-list">
-        <li class="create-ad-form-item">
-          <label class="create-ad-form-label" for="name">Назва товару</label>
-          <input class="create-ad-form-input" type="text" name="name" id="name" placeholder=" " />
-        </li>
-        <li class="create-ad-form-item">
-          <label class="create-ad-form-label" for="photo">Фото</label>
-          <ul class="create-ad-photo-list">
-            <li class="create-ad-photo">
-              <a class="plus-photo">+</a>
-            </li>
-            <li class="create-ad-photo">
-              <a class="plus-photo">+</a>
-            </li>
-            <li class="create-ad-photo">
-              <a class="plus-photo">+</a>
-            </li>
-            <li class="create-ad-photo">
-              <a class="plus-photo">+</a>
-            </li>
-            <li class="create-ad-photo">
-              <a class="plus-photo">+</a>
-            </li>
-            <li class="create-ad-photo">
-              <a class="plus-photo">+</a>
-            </li>
-          </ul>
-        </li>
-        <li class="create-ad-form-item">
-          <label class="create-ad-form-label" for="description">Опис товару</label>
-          <textarea class="create-ad-form-input" name="description" id="description" cols="10" rows="3"
-            placeholder=" "></textarea>
-        </li>
-        <li class="create-ad-form-item">
-          <label class="create-ad-form-label" for="category">Категория товару</label>
-          <select class="create-ad-form-input">
-            <option></option>
-            <option>Нерухомість</option>
-            <option>Транспорт</option>
-            <option>Робота</option>
-            <option>Електроніка</option>
-            <option>Бізнес та послуги</option>
-            <option>Відпочинок та спорт</option>
-            <option>Віддам безкоштовно</option>
-            <option>Обмін</option>
-          </select>
-        </li>
-        <li class="create-ad-form-item">
-          <label class="create-ad-form-label" for="price">Ціна</label>
-          <input class="create-ad-form-input" type="text" name="price" id="price" placeholder="0.00 грн" />
-        </li>
-        <li class="create-ad-form-item">
-          <label class="create-ad-form-label" for="phone">Телефон</label>
-          <input class="create-ad-form-input" type="text" name="phone" id="phone" placeholder="+38 (0--) --- -- --" />
-        </li>
-      </ul>
+  <!-- Модалка cоздания объявления -->
+  <div data-create-ad-modal class="backdrop-modal-create-ad is-hidden">
+    <div class="create-ad">
+      <form class="create-ad-form">
+        <span data-create-ad-modal-close class="close-form"><svg class="close-form-icon" width="14" height="14">
+            <use href="./images/sprite.svg#icon-close_icon"></use>
+          </svg></span>
 
-      <button type="submit" class="create-ad-submit">
-        Додати
-      </button>
-    </form>
+        <p class="create-ad-slogan">
+          Додати оголошення
+        </p>
+
+        <ul class="create-ad-form-list">
+          <li class="create-ad-form-item">
+            <label class="create-ad-form-label" for="name">Назва товару</label>
+            <input class="create-ad-form-input" type="text" name="name" id="name" placeholder=" " />
+          </li>
+          <li class="create-ad-form-item">
+            <label class="create-ad-form-label" for="photo">Фото</label>
+            <ul class="create-ad-photo-list">
+              <li class="create-ad-photo">
+                <a class="plus-photo">+</a>
+              </li>
+              <li class="create-ad-photo">
+                <a class="plus-photo">+</a>
+              </li>
+              <li class="create-ad-photo">
+                <a class="plus-photo">+</a>
+              </li>
+              <li class="create-ad-photo">
+                <a class="plus-photo">+</a>
+              </li>
+              <li class="create-ad-photo">
+                <a class="plus-photo">+</a>
+              </li>
+              <li class="create-ad-photo">
+                <a class="plus-photo">+</a>
+              </li>
+            </ul>
+          </li>
+          <li class="create-ad-form-item">
+            <label class="create-ad-form-label" for="description">Опис товару</label>
+            <textarea class="create-ad-form-input" type='text' name="description" id="description" cols="10" rows="3"
+              placeholder=" "></textarea>
+          </li>
+          <li class="create-ad-form-item">
+            <label class="create-ad-form-label" for="category">Категория товару</label>
+            <select class="create-ad-form-input">
+              <option></option>
+              <option>Нерухомість</option>
+              <option>Транспорт</option>
+              <option>Робота</option>
+              <option>Електроніка</option>
+              <option>Бізнес та послуги</option>
+              <option>Відпочинок та спорт</option>
+              <option>Віддам безкоштовно</option>
+              <option>Обмін</option>
+            </select>
+          </li>
+          <li class="create-ad-form-item">
+            <label class="create-ad-form-label" for="price">Ціна</label>
+            <input class="create-ad-form-input" type="text" name="price" id="price" placeholder="0.00 грн" />
+          </li>
+          <li class="create-ad-form-item">
+            <label class="create-ad-form-label" for="phone">Телефон</label>
+            <input class="create-ad-form-input" type="text" name="phone" id="phone" placeholder="+38 (0--) --- -- --" />
+          </li>
+        </ul>
+
+        <button class="create-ad-submit">
+          Додати
+        </button>
+      </form>
+    </div>
   </div>
-</div>
   <!-- Модалка поиска -->
   <div data-search-modal class="search__backdrop is-hidden">
     <div class="search__modal">
@@ -226,7 +250,7 @@
           <use class="icon-cross" href="./images/sprite.svg#icon-close_icon"></use>
         </svg>
       </button>
-      <form class="search-form" id="search-form">
+      <form class="search-form" id="search-form" data-search-form>
         <input class="search__input" type="text" name="query" autocomplete="off" placeholder="ПОШУК" />
         <button class="search__submit" type="submit">
           <svg class="icon" width="25" height="25">
@@ -253,7 +277,7 @@
         <p class="google-auth-title">Google</p>
       </button>
       <p class="auth-modal-title">Або зайти за допомогою імейлу і пароля, попередньо зареєструвавшись:</p>
-      <form method="post" class="auth-form">
+      <form class="auth-form" id="auth-form">
         <input type="email" name="email" class="auth-input email" id="userEmail" placeholder="E-mail">
         <input type="password" name="password" class="auth-input password" id="userPassword" placeholder="Password">
         <div class="auth-buttons">
@@ -261,8 +285,12 @@
           <button type="submit" class="button-gray">Зареєструватись</button>
         </div>
 
+        <!-- модалка товара -->
+        <div data-modal class="container open-card">
+
+        </div>
+
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
-  </body>
- </html>
-
+</body>
+</html>

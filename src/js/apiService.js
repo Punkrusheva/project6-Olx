@@ -1,3 +1,5 @@
+//import axios from 'axios';
+
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
 const user = {
@@ -8,7 +10,8 @@ console.log(user);
 
 //регистрация
 
-export default async function addregisterUser() {
+export default async function registerUser() {
+
     const options = {
       method: 'POST',
       headers: {
@@ -23,17 +26,16 @@ export default async function addregisterUser() {
   }
  
   //авторизация
-  export  async function fetchAuthorisLogin(BASE_URL, dataRegistry) {
-    const options = {
-  method: 'POST',
-  body: JSON.stringify(dataRegistry),
-  headers: {
-    'Content-Type': 'application/json',
-    'accept': 'application/json',
-  },
+export async function fetchAuthorisLogin(BASE_URL, dataRegistry) {
+  const options = {
+    method: 'POST',
+    body: JSON.stringify(dataRegistry),
+    headers: {
+      'Content-Type': 'application/json',
+      'accept': 'application/json',
+    },
+  }
+  const response = await fetch(`${BASE_URL}auth/login`, options);
+  const responseJson = await response.json();
+  return localStorage.setItem('key', `${responseJson.accessToken}`);
 }
-    const response = await fetch(`${BASE_URL}auth/login`,options);
-    const responseJson = await response.json();
-    return  localStorage.setItem('key', `${responseJson.accessToken}`);
-
-}; 

@@ -1,5 +1,5 @@
 // import { template } from 'handlebars';
-import productCardTpl from '../templates/product-cards.hbs'
+import productCardTpl from '../templates/product-cards.hbs';
 import allCategory from '../templates/all-category.hbs';
 import oneCategory from '../templates/section-one-category.hbs';
 import oneSliderTpl from '../templates/one-slider.hbs';
@@ -265,3 +265,4 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
 //     //         })
 //     //     }
 // }
+
