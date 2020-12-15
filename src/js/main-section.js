@@ -6,10 +6,9 @@ import oneSliderTpl from '../templates/one-slider.hbs';
 
 
 const categoriesRef = document.querySelector('.categories');
-
+const galleryRef = document.querySelector('.gallery');
 // const markOneCard = document.querySelector('.product-card-group');
-// const markOneCardTwo = document.querySelector('.gallery');
-// console.log(markOneCardTwo);
+
 const translationOfWords = {
     property:'Нерухомість',
     transport:'Транспорт',
@@ -68,42 +67,42 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
             // console.log(`values[1] 74:`, values[1]);
 
             if (values[0] === 'property') {
-                document.querySelector('[data-category="property"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+                document.querySelector('[data-category="property"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
             }
             if (values[0] === 'transport') {
-                document.querySelector('[data-category="transport"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+                document.querySelector('[data-category="transport"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
             }
             if (values[0] === 'work') {
-                document.querySelector('[data-category="work"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+                document.querySelector('[data-category="work"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
             }
             if (values[0] === 'electronics') {
-                document.querySelector('[data-category="electronics"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+                document.querySelector('[data-category="electronics"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
             }
             if (values[0] === 'businessAndServices') {
-                document.querySelector('[data-category="businessAndServices"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+                document.querySelector('[data-category="businessAndServices"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
             }
             if (values[0] === 'recreationAndSport') {
-                document.querySelector('[data-category="recreationAndSport"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+                document.querySelector('[data-category="recreationAndSport"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
             }
             if (values[0] === 'free') {
-                document.querySelector('[data-category="free"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+                document.querySelector('[data-category="free"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
             }
             if (values[0] === 'trade') {
-                document.querySelector('[data-category="trade"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+                document.querySelector('[data-category="trade"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
             }
             if (values[0] === 'sales') {
-                document.querySelector('[data-category="sales"]').insertAdjacentHTML('afterend', productCardTpl(values[1]));
+                document.querySelector('[data-category="sales"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
             }
         }
     })
     .catch(error => console.log('error!!!', error));
                 
     function markupSlider(title) {
-        categoriesRef.insertAdjacentHTML('afterbegin', oneSliderTpl(title));
+        galleryRef.insertAdjacentHTML('afterbegin', oneSliderTpl(title));
     }
 
     function markupCard(card) {
-            categoriesRef.insertAdjacentHTML('afterend', productCardTpl(card));
+            galleryRef.insertAdjacentHTML('afterend', productCardTpl(card));
     }
 
 function translationWordsCategories (arr) {

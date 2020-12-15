@@ -1,8 +1,6 @@
-{{!-- <div class="categories-group"> --}}
-
-    <!-- моя категория -->
-    {{!-- <div class="categories"> --}}
-        {{#each this}}
+{{!-- <div data-action="mark-card" class="gallery"> --}}
+    {{#each this}}
+    <div class="one-categories">
         <div class="categories-title">
             <a data-action="prev-card" class="icon-left arrow prev">
                 <svg class="icon-left-svg" width="30" height="30">
@@ -15,16 +13,10 @@
                     <use href="./images/sprite.svg#icon-elem-right"></use>
                 </svg></a>
         </div>
-        <div data-action="mark-card" class="gallery">
-            <ul data-category="{{category}}" class="product-card-group images">
-            </ul>
-        </div>
-        {{/each}}
-        {{!--
-    </div> --}}
-
-    {{!-- 0: {category: "sales", tran: "Розпродаж різне"}
-    1: {category: "recreationAndSport", tran: "Відпочинок і спорт"}
-    2: {category: "free", tran: "Віддам безкоштовно"}
-    3: {category: "businessAndServices", tran: "Бізнес та послуги"}
-    length: 4 --}}
+        <ul data-category="{{category}}" class="product-card-group images">
+            <!-- вставляем карточки товара -->
+        </ul>
+    </div>
+    {{/each}}
+    {{!--
+</div> --}}

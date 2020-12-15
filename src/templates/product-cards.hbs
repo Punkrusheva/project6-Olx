@@ -1,19 +1,19 @@
 {{!-- <ul class="product-card-group images"> --}}
     {{#each this}}
     <li class="product-card__my">
-        <div class="product-image">
+        <div class="product-image__my">
             {{#each imageUrls }}
-            <img class="product-img" src="{{ this }}" alt="{{title}}" />
+            <img class="product-img__my" src="{{ this }}" alt="{{title}}" />
             {{/each }}
             <div class="product-overlay">
                 <button class="product-card-icon product-card-icon-favorite">
                     <svg class="icon" width="16" height="16">
-                        <use href="{./images/sprite.svg#icon-favorite-icon}"></use>
+                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
                     </svg>
                 </button>
                 <button class="product-card-icon product-card-icon-fullscreen">
-                    <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-fullscreen-icon"></use>
+                    <svg class="icon" width="12" height="12">
+                        <use href="./images/sprite.svg#icon-full-screen"></use>
                     </svg>
                 </button>
             </div>
