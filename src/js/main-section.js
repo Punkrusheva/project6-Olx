@@ -67,7 +67,7 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
             // console.log(`valuesEntries`, valuesEntries[key]);
             // console.log(`values[1] 74:`, values[1]);
 
-            if (values[0] === 'property') {
+            if (values[0] === 'property`') {
                 document.querySelector('[data-category="property"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
             }
             if (values[0] === 'transport') {
@@ -120,7 +120,7 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
             // const newArrFree = [];
             newArrFree.push(valuesArray);
             
-            console.log(`newArrFree внутри if 124`, newArrFree);
+            console.log(`newArrFree внутри if 123`, newArrFree);
             // sectionTextRef.addEventListener('click', markCardOneCategory(newArrFree));
             }
             
@@ -144,7 +144,7 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
             console.log(markupSectionRef);
             console.log(productCardTpl(newArrFree));
             if (e.target.attributes[0] === 'data-atribute="sales"') {
-               markupSectionRef.innerHTML = productCardTpl(newArrFree);
+                document.querySelector('.main-container').innerHTML = productCardTpl(newArrFree);
             } 
 
                 
