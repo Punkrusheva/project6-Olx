@@ -142,8 +142,9 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
                 // console.log(`attributes 138`, e.attributes.name);
             // console.log(`attributes 138`, newArrFree);
             console.log(markupSectionRef);
+            console.log(productCardTpl(newArrFree));
             if (e.target.attributes[0] === 'data-atribute="sales"') {
-                productCardTpl(newArrFree);
+               markupSectionRef.innerHTML = productCardTpl(newArrFree);
             } 
 
                 
