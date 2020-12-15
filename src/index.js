@@ -1,11 +1,11 @@
 import './sass/main.scss';
 import './js/menu'
 import './js/search-modal'
-import mainSection from './js/main-section';
-// import './js/main-section';
+
+import './js/main-section';
+// import './js/carousel';
 
 //import './js/modal';
-// console.log(mainSection);
 
 import './js/create-ad-open-close';
 import './js/create-ad';
