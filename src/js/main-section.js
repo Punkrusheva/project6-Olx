@@ -63,11 +63,12 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
         const valuesEntries = (Object.entries(response));
         // console.log(`valuesEntries !!!63`, valuesEntries);
         for (const values of valuesEntries) {
-            // console.log(`values[0] !!!72`, values[0]);
+            // console.log(`${values[0]} !!!72`, values[0]);
             // console.log(`valuesEntries`, valuesEntries[key]);
             // console.log(`values[1] 74:`, values[1]);
-
-            if (values[0] === 'property`') {
+        document.querySelector(`[data-category=${values[0]}]`).insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
+        }           
+            /*if (values[0] === 'property`') {
                 document.querySelector('[data-category="property"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
             }
             if (values[0] === 'transport') {
@@ -93,8 +94,8 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
             }
             if (values[0] === 'sales') {
                 document.querySelector('[data-category="sales"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
-            }
-        }
+            }*/
+        
         return response;
     }).then(response => {
         // console.log(`response 100:`, response);
