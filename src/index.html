@@ -45,13 +45,13 @@
           </button>
 
           <!-- кабинет -->
-<!-- 
+
           <div class="dropdox">
             <div class="dropdox-cabinet ">
               <a href="" class="link_call">Мої оголошення</a>
               <a href="" class="link_call">Обране</a>
             </div>
-          </div> -->
+          </div>
 
           <!-- <div>
               <button type="button"></button>
@@ -90,11 +90,11 @@
               </li>
 
               <li class="filter__item">
-                <button class="filter__button">Транспорт</button>
+                <button class="filter__button transport">Транспорт</button>
               </li>
 
               <li class="filter__item">
-                <button class="filter__button">Робота</button>
+                <button class="filter__button work">Робота</button>
               </li>
 
               <li class="filter__item">
@@ -128,11 +128,14 @@
       </div>
 
     </div>
-
+    <div data-create-ad-modal-open class="icon-add-position">
+      <button class="icon-add">
+        <a><svg class="icon-add-svg" width="14" height="14">
+            <use href="./images/sprite.svg#icon-add-img"></use>
+          </svg></a>
+      </button>
+    </div>
   </header>
-
-  <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
-  <!--<include src="./partials/header.html"></include>-->
 
   <main>
 
@@ -237,6 +240,12 @@
       </form>
     </div>
   </div>
+
+  <!-- модалка товара -->
+  <div data-modal-one class="container open-card">
+  
+  </div>
+
   <!-- Модалка поиска -->
   <div data-search-modal class="search__backdrop is-hidden">
     <div class="search__modal">
@@ -278,11 +287,6 @@
         <div class="auth-buttons">
           <button type="submit" class="button-orange">Увійти</button>
           <button type="submit" class="button-gray">Зареєструватись</button>
-        </div>
-
-        <!-- модалка товара -->
-        <div data-modal class="container open-card">
-
         </div>
 
 </body>
