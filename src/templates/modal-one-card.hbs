@@ -1,63 +1,71 @@
 <!-- Модалка одной карточки -->
-{{!--
-    <div data-modal class="backdrop-modal-product">
 
-      <div class="open-card__cont">
-        <span class="close-form"><svg class="close-form-icon" width="14" height="14">
-          <use href="../images/sprite.svg#icon-close_icon"></use>
-      </svg></span>
-        <div class="flex-container--desktop">
-        <ul class="desktop-gallery-cont">
-
-          <li class="destop-gallery--portrait"><img class="gallery--item-portret" src="https://via.placeholder.com/253x253.jpg" alt=""></li>
-          <div class="flex-container--desktop">
-            <li class="destop-gallery--item"><img class="gallery--item-img" src="https://via.placeholder.com/253x253.jpg" alt=""></li>
-            <li class="destop-gallery--item"><img class="gallery--item-img" src="https://via.placeholder.com/253x253.jpg" alt=""></li>
-            <li class="destop-gallery--item"><img class="gallery--item-img" src="https://via.placeholder.com/253x253.jpg" alt=""></li>
-            <li class="destop-gallery--item"><img class="gallery--item-img" src="https://via.placeholder.com/253x253.jpg" alt=""></li>
-            <li class="destop-gallery--item"><img class="gallery--item-img" src="https://via.placeholder.com/253x253.jpg" alt=""></li>
-
-          </div>
-        </ul>
-
-          <div>
-            <h3 class="open-card__title">Найменування</h3>
-            <div class="open-card__text--cont">
-              <span class="open-card__text">Код товару |</span>
-              <span class="open-card__text data-code">105-С</span>
+<div class="backdrop" data-close>
+    <div class="modal-product">
+        <button class="button-close">
+            <span class="material-icons" data-close>clear</span>
+        </button>
+        <div class="modal-content-inner"></div>
+        <div class="modal-content-box">
+            <h4 class="modal-content-box_title">{{title}}</h4>
+            <p class="modal-content-box_code">Код товару | {{__v}}</p>
+        </div>
+        <div class="modal-product-photo-box">
+            <div class="modal-product_photo">
+                <img class="main-modal-product-photo" src="{{#each imageUrls}}{{#if @first}}{{this}}{{/if}}{{/each}}"
+                    alt="product photo" />
             </div>
-            <div class="carousel">
-
-                <img class="carousel-cell-image" src="https://via.placeholder.com/253x253.jpg" alt="">
-                <img class="carousel-cell-image" src="https://via.placeholder.com/253x253.jpg" alt="">
-                <img class="carousel-cell-image" src="https://via.placeholder.com/253x253.jpg" alt="">
-                <img class="carousel-cell-image" src="https://via.placeholder.com/253x253.jpg" alt="">
-                <img class="carousel-cell-image" src="https://via.placeholder.com/253x253.jpg" alt="">
-
-
+            <div class="product-photo-wrapper">
+                <ul class="product-photo-list">
+                    {{#each imageUrls}}
+                    <li class="product-photo-list_item">
+                        <img class="product-photo-list-item-img" src="{{this}}" alt="product photo" />
+                    </li>
+                    {{/each}}
+                </ul>
             </div>
-            <div>
-              <h3 class="open-card__price">200.00 грн</h3>
-              <button class="open-card__seller--cont">
-                <span class="open-card__seller ">інформація про продавця</span>
+        </div>
 
-              </button>
-              <div class="flex-container">
-                <P class="cart-text flex-container">
-                  <span>В обране</span>
-                  <span class="material-icons cardset-icon"><span class="">favorite_border</span cl></span>
-                </P>
-                <P class="cart-text flex-container">
-                  <span>Поділитися</span>
-                  <span class="material-icons cardset-icon">share</span>
-                </P>
-              </div>
-              <P class="cart-text --up-margin">Опис:</P>
-              <p class="open-card__description">Describtion</p>
+        <div class="modal-content-wrapper">
+            <div class="modal-content-box-down">
+                <h4 class="modal-content-box_title">{{title}}</h4>
+                <p class="modal-content-box_code">Код товару | {{__v}}</p>
             </div>
-          </div>
-     </div>
-
-      </div>
-
-    </div> --}}
+            <p class="modal-content-wrapper_price">{{price}}.00 грн</p>
+            <div class="modal-button-box-position">
+                <div class="modal-button-box-info">
+                    <p class="button-info_text">
+                        <span class="button-info_accent">Ольга</span><span> - на OLX с нояб. 2018</span>
+                    </p>
+                    <a class="button-info_text-number" href="tel:{{phone}}">{{phone}}</a>
+                    </p>
+                </div>
+                <div class="modal-button-box">
+                    Информация о <br />
+                    продавце
+                </div>
+            </div>
+            <div class="modal-actions">
+                <ul class="actions-list">
+                    <li class="actions-item">
+                        <button class="actions-item_button {{out}}">
+                            <p class="actions-item_title" data-id="{{_id}}">В обране</p>
+                            <span class="material-icons md-16 product-favorite-icon {{liked}}" data-id="{{_id}}"
+                                data-ids>favorite_border</span>
+                        </button>
+                    </li>
+                    <li class="actions-item">
+                        <button class="actions-item_button">
+                            <p class="actions-item_title">Поділитися</p>
+                            <span class="material-icons md-16" width="10px">share</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <p class="modal-text-title">Опис:</p>
+            <p class="modal-text">
+                {{description}}
+            </p>
+        </div>
+    </div>
+</div>
