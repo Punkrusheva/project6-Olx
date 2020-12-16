@@ -18,7 +18,7 @@ import './js/create-ad';
 import './js/router';
 import './js/bad-url'; 
 
-import './js/favorite';
+import './js/favorites/favorite';
 import './js/search';
 
 import './js/test'; 

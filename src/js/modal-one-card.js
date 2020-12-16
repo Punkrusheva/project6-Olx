@@ -10,10 +10,11 @@ const refs = {
 
   };
 
-refs.openModalBtn.forEach(icon =>
-  icon.addEventListener("click", onClickOpenModal)
-);
-
+async function startListening() {
+  refs.openModalBtn.forEach( icon =>
+    icon.addEventListener("click", onClickOpenModal)
+  );
+}
 
 function onClickOpenModal(ev) {
 
