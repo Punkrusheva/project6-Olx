@@ -15,15 +15,14 @@ const BASE_URL = 'https://callboard-backend.herokuapp.com'
     }
 
    async fetchProducts() {
-        const url = `${BASE_URL}/call/find?&search=${this.searchQuery}`
-
+       const url = `${BASE_URL}/call/find?&search=${this.searchQuery}`
        const fetches = await fetch(url)
        const json = await fetches.json()  
-   
+       if (json.length === 0) {
+         throw 'Ничего не найдено'
+       }
        return json;
-    
     }
-
 
     get query() {
         return this.searchQuery;
@@ -49,14 +48,12 @@ function onSearch(e) {
               text: "Введите что-нибуть!",
               type: 'info'
         })
-       
+    }
+    
+    fetchProductCard()
+
     }
 
-    fetchProductCard()
-    
-    
-    }
-    
     function appendCardMarkup(card) {
         searchContainer.innerHTML = `${productCardTpl(card)}`
 }
@@ -70,17 +67,19 @@ function onSearch(e) {
         } catch {
          errors(error)
         }
-   
     }
     
     function errors(error) {
-
-
-    return error({
-             text: "К сожалению по этому запросу ничего не найдено",
+         if (error === 'Ничего не найдено') {
+      return  alert({
+            text: 'К сожалению по этому запросу ничего не найдено',
+            type: 'info'
+        })
+    }
+      return error({
+             text: "Ошибка! Не удалось загрузить изображения.",
              type: 'info' 
           })
 }
-
 }
 
