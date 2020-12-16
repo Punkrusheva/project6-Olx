@@ -1,7 +1,7 @@
 import openCard from '../templates/modal-one-card.hbs';
 console.log(openCard);
 
-document.body.addEventListener('click', openInfoAboutSeller, )
+document.body.addEventListener('click', openInfoAboutSeller);
 
 const aboutSellerContOpened = document.querySelector(
     '.modal-button-box-info');
