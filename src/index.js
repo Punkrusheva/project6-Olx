@@ -1,6 +1,7 @@
 import './sass/main.scss';
-import './js/menu'
+
 import './js/search-modal'
+import './js/menu'
 
 import './js/main-section';
 // import './js/carousel';

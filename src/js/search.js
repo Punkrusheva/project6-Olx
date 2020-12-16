@@ -1,4 +1,8 @@
 import productCardTpl from '../templates/product-cards.hbs'
+const { error, alert } = require('@pnotify/core')
+import '@pnotify/core/dist/PNotify.css'
+import '@pnotify/core/dist/BrightTheme.css';
+import 'basiclightbox/dist/basicLightbox.min.css'
 
 export default SearchProducts()
 
@@ -15,23 +19,11 @@ const BASE_URL = 'https://callboard-backend.herokuapp.com'
 
        const fetches = await fetch(url)
        const json = await fetches.json()  
-       if (json.length === 0) {
-         throw 'Ничего не найдено'
-       }
+   
        return json;
-       
-        // return fetch(url)
-        // .then(response => response.json())
-        //     .then(data => {
-        //         this.page += 1;
-        //         return data.hits;
-        // })
+    
     }
 
-
-    resetPage() {
-        this.page = 1;
-    }
 
     get query() {
         return this.searchQuery;
@@ -41,13 +33,12 @@ const BASE_URL = 'https://callboard-backend.herokuapp.com'
     }
 }
 
-    const searchForm = document.querySelector('[data-search-form]')
-    const searchContainer = document.querySelector('.main-container')
+const searchForm = document.querySelector('[data-search-form]')
+const searchContainer = document.querySelector('.main-container')
 const modalSearch = document.querySelector('[data-search-modal]')
 const products = new FindProduct()
 
 searchForm.addEventListener('submit', onSearch);
-products.query = "Red Shirt"
 
 function onSearch(e) {
     e.preventDefault();
@@ -62,37 +53,33 @@ function onSearch(e) {
     }
 
     fetchProductCard()
-    modalSearch.classList.add("is-hidden")
+    
     
     }
     
-     function appendCardMarkup(card) {
-    searchContainer.insertAdjacentHTML('beforeend', productCardTpl(card))
+    function appendCardMarkup(card) {
+        searchContainer.innerHTML = `${productCardTpl(card)}`
 }
 
     async function fetchProductCard() {
         try {
             const product = await products.fetchProducts()
+            console.log(product)
             appendCardMarkup(product)
+            modalSearch.classList.add("is-hidden")
         } catch {
-         errors(er)
+         errors(error)
         }
    
     }
     
-    function errors(er) {
-    if (er === 'Ничего не найдено') {
-      return  alert({
-            text: 'К сожалению по этому запросу ничего не найдено',
-            type: 'info'
-        })
-    }
+    function errors(error) {
+
 
     return error({
-             text: "Ошибка! Не удалось загрузить изображения.",
+             text: "К сожалению по этому запросу ничего не найдено",
              type: 'info' 
           })
 }
 
 }
-
