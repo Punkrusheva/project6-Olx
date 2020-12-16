@@ -1,5 +1,5 @@
 import openCard from '../templates/modal-one-card.hbs';
-console.log(openCard);
+
 
 const refs = {
     openModalBtn: document.querySelectorAll('.product-card-icon-fullscreen'),
@@ -10,11 +10,10 @@ const refs = {
 
   };
 
-async function startListening() {
-  refs.openModalBtn.forEach( icon =>
-    icon.addEventListener("click", onClickOpenModal)
-  );
-}
+refs.openModalBtn.forEach(icon =>
+  icon.addEventListener("click", onClickOpenModal)
+);
+
 
 function onClickOpenModal(ev) {
 

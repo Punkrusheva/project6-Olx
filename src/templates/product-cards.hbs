@@ -1,9 +1,10 @@
-{{!-- <ul class="product-card-group images"> --}}
+<ul class="product-card-group">
     {{#each this}}
     <li class="product-card">
+
         <div class="product-image">
             {{#each imageUrls }}
-            <img class="product-img" src="{{ this }}" alt="{{title}}" />
+            <img class="product-img" src="{{this}}" alt="" />
             {{/each }}
 
             <div class="product-overlay">
@@ -21,11 +22,8 @@
         </div>
         <div class="product-content">
             <h3 class="product-name">{{title}}</h3>
-            <p class="product-price">{{price}} грн</p>
-
+            <p class="product-price">{{price}}</p>
         </div>
     </li>
     {{/each}}
-
-    {{!--
-</ul> --}}
+</ul>

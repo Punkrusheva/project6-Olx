@@ -1,6 +1,6 @@
 <ul class="product-card-group">
     {{#each this}}
-    <li class="product-card" data-id={{_id}}>
+    <li class="product-card">
         <div class="product-image">
             <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
             <div>
@@ -12,17 +12,8 @@
             </div>
         </div>
         <div class="product-content">
-            <!--Наименование карточки-->
-            <h3 class="product-name">{{title}}</h3>
-            <!--Цена-->
-            {{#if isOnSale}}
-            <p class="product-price-initial decorative-line">{{oldPrice}}Цена</p>
-            <p class="product-price-sale">{{price}}Цена грн</p>
-            {{/if}}
-
-            {{#unless isOnSale}}
-            <p class="product-price">{{price}} грн</p>
-            {{/unless}}
+            <h3 class="product-name">Наименование карточки</h3>
+            <p class="product-price">Цена грн</p>
         </div>
     </li>
     {{/each}}
