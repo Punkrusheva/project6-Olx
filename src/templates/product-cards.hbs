@@ -8,14 +8,12 @@
 
             <div class="product-overlay">
                 <button class="product-card-icon product-card-icon-favorite">
-                    <svg class="icon" width="16" height="16">
-                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
-                    </svg>
+                    <span data-like data-id="{{_id}}" data-idl data-title="{{title}}"
+                    class=" material-icons cardset__icons unauthorized {{liked}}">favorite_border</span>
                 </button>
                 <button class="product-card-icon product-card-icon-fullscreen">
-                    <svg class="icon" width="12" height="12">
-                        <use href="./images/sprite.svg#icon-full-screen"></use>
-                    </svg>
+                   <span data-modal="true" data-hbs="6" data-open data-callid="{{_id}}" data-title="{{title}}"
+                    class="material-icons cardset__icons">fullscreen</span>
                 </button>
             </div>
         </div>
