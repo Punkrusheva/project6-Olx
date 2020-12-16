@@ -2,47 +2,44 @@ import axios from 'axios';
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
 const createAdRef = document.querySelector('.create-ad-form');
+const submit = document.querySelector('.create-ad-submit');
 
 const cteateAdSubmit = event => {
   event.preventDefault();
 
-  const { currentTarget: form } = event;
-  const formData = new FormData(form);
+ 
+  const data = new FormData(createAdRef);
 
-  const photoElem = document.querySelector('#photoElem');
+  // const photoElem = document.querySelector('#photoElem');
     
-  photoElem.addEventListener('input', function () {
-    formData.append('file', photoElem.files[0]);
-  });
-    
-  const body = {};
-
-  formData.forEach((value, key) => {
-    body[key] = value;
-  });
-   
-  cteateAd(body).then(data => console.log(data))
-  // .then(data => console.log(data)).catch(error => {
-  //   alert({
-  //     text: error.response.data.message,
-  //   })
+  // photoElem.addEventListener('input', function () {
+  //   formData.append('file', photoElem.files[0]);
   // });
-};
-
-
-const cteateAd = (newAd) => {
   const token = localStorage.getItem('key');
-    
-  const { title, description, category, price, phone, file } = newAd;
-  const body = { title, description, category, price, phone, file };
-  const headers = {
-    authorization: `Bearer ${token}`
-  };
-  return axios.post(`${BASE_URL}call`, body, { headers });
 
-};
+ 
+  let config = {
+        method: 'post',
+        url: 'https://callboard-backend.herokuapp.com/call',
+        headers: { 
+          'accept': 'application/json', 
+          'Content-Type': 'multipart/form-data', 
+          'Authorization': `Bearer ${token}`,
+        },
+        data: data
+      };
+      
+      axios(config)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+}
 
-createAdRef.addEventListener('submit', cteateAdSubmit);
+submit.addEventListener('submit', cteateAdSubmit);
+ 
  
 
 //   const options = {
