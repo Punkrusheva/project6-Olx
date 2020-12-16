@@ -26,6 +26,14 @@ import './js/search';
 // import './js/test'; 
 // import './js/bad-url'; 
 // import './js/modal-one-card';
+import './js/router';
+import './js/bad-url'; 
+
+import './js/favorites/favorite';
+import './js/search';
+
+import './js/test'; 
+import './js/modal-one-card';
 
 import './js/auth-modal/authApi';
 // import './js/auth-modal/authLogin';
