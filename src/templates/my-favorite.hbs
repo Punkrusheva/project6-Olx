@@ -1,0 +1,24 @@
+{{#each this}}
+<li class="cabinetli">
+    <div class="cabinetli__description">
+        <a class="icon-left">
+            <svg class="icon-left-svg" width="30" height="30">
+                <use href="./images/sprite.svg#icon-elem-left"></use>
+            </svg></a>
+        <h3 class="cabinetli__title">{{this}}</h3>
+        <a class="cabinetli__icon-right">
+            <svg class="icon-right-svg" width="30" height="30">
+                <use href="./images/sprite.svg#icon-elem-right"></use>
+            </svg></a>
+    </div>
+    {{>./cabinet}}
+</li>
+{{/each}}
+
+
+
+
+
+
+
+{{!-- const source = document.querySelector('#menu-template').innerHTML.trim(); --}}

@@ -11,12 +11,9 @@ import { updatePage } from './router';
   categoryRequestHandler,
   isInCategories,
 } from './helpers';
-
 import { callSearchModal } from './search-modal';
-
 import { appendCards, cardListener, onAddToFavorites } from './card/card';
 import { renderMyAccPage } from './account/account';
-
 import renderCategory from './category/category';
 import {
   renderPageButton,
