@@ -1,30 +1,35 @@
-import favoriteCardTpl from'../templates/favorite-cards.hbs';
+import { addToFavorites, getAllFavorites } from "./favoriteApi";
+import favoriteCardTpl from '../../templates/favorite-cards.hbs';
 
 const refs = {
     addFavoriteBtn: document.querySelector('.product-card-icon-favorite'),
     removeFavoriteBtn: document.querySelector('.product-card-icon-favorite-user')
 }
-
+//console.log(refs.addFavoriteBtn);
+//console.log(refs.removeFavoriteBtn);
 refs.addFavoriteBtn.addEventListener('click', addFavoriteCard);
 //refs.removeFavoriteBtn.addEventListener('click', removeFavoriteCard);
 
-const newFavorites = {
-      "title": "Tesla Model X",
-      "imageUrls": [
-        "string"
-      ],
-      "description": "New tesla",
-      "category": "Transport",
-      "price": 1500000,
-      "oldPrice": 1750000,
-      "isOnSale": true,
-      "discountPercents": 14.28571428571429,
-      "phone": "+380000000000",
-      "_id": "507f1f77bcf86cd799439013",
-      "__v": 0
-    }
+function addFavoriteCard() { 
+    renderAddFavoriteCard()
+}
 
-  //Добавление в избранное
+function renderAddFavoriteCard() {
+    addToFavorites()
+        .then(response => {
+            console.log(response.data);
+        })
+     //refs.ELEMENT.insertAdjacentHTML('beforeend', favoriteCardTpl(id))
+    //refs.ELEMENT.innerHTML = файл hbs
+}
+
+function renderAllFavoriteCards() { 
+    getAllFavorites.then(response => {
+        console.log(response.data);
+    })
+}
+/*
+  
 function addFavoriteCard(e) { 
    
     const options = {
@@ -44,7 +49,6 @@ function renderAddFavoriteCard(id){
      //refs.ELEMENT.insertAdjacentHTML('beforeend', favoriteCardTpl(id))
 }
 
-//Удаление из избранного
 function removeFavoriteCard(e) { 
     const options = {
         method:'DELETE'  
@@ -69,4 +73,4 @@ function getFavoriteCard(){
 
 function renderFavoriteCard(favorite){
 //refs.ELEMENT.insertAdjacentHTML('beforeend', favoriteCardTpl(id))
-}
+}*/

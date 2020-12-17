@@ -61,11 +61,15 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
         const valuesEntries = (Object.entries(response));
         // console.log(`valuesEntries !!!63`, valuesEntries);
         for (const values of valuesEntries) {
-            // console.log(`values[0] !!!72`, values[0]);
+            // console.log(`${values[0]} !!!72`, values[0]);
             // console.log(`valuesEntries`, valuesEntries[key]);
             // console.log(`values[1] 68:`, values[1]);
 
             if (values[0] === 'property`') {
+                document.querySelector(`[data-category=${values[0]}]`).insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
+            }           
+            if (values[0] === 'property`') {
+
                 document.querySelector('[data-category="property"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
             }
             if (values[0] === 'transport') {
@@ -93,6 +97,7 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
                 document.querySelector('[data-category="sales"]').insertAdjacentHTML('afterbegin', productCardSaleTpl(values[1]));
             }
         }
+        
         return response;
     })
     // .then(response => {
@@ -237,47 +242,9 @@ fetch(`${BASE_URL}call/specific/transport`)
     });
 
 
-
-// .then(response => {
-//         const valuesEntries = (Object.entries(response));
-
-//         const newArrRecreationAndSport = [];
-//         const newArrFree = [];
-//         const newArrSales = [];
-
-//         for (const values of valuesEntries) {
-//             if (values[0] === 'recreationAndSport') {
-//                 newArrRecreationAndSport.push(values[1]);
-//             }
-//             if (values[0] === 'free') {
-//                 newArrFree.push(values[1]);
-//             }
-//             if (values[0] === 'sales') {
-//                 newArrSales.push(values[1]);
-//             }
-//         }
-
-//         document.querySelector('[data-atribute="recreationAndSport"]').addEventListener('click', markAllCardOneCategory);
-//         document.querySelector('[data-atribute="free"]').addEventListener('click', markAllCardOneCategory);
-//         document.querySelector('[data-atribute="sales"]').addEventListener('click', markAllCardOneCategory);
-
-//         function markAllCardOneCategory(e) {
-//             e.preventDefault();
-            
-//             if (e.target.attributes[0].value === 'recreationAndSport') {
-//                 document.querySelector('.main-container').innerHTML = productCardTpl(newArrRecreationAndSport[0]);
-//             }
-//             if (e.target.attributes[0].value === 'free') {
-//                 document.querySelector('.main-container').innerHTML = productCardTpl(newArrFree[0]);
-//             }
-//             if (e.target.attributes[0].value === 'sales') {
-//                 document.querySelector('.main-container').innerHTML = productCardTpl(newArrsales[0]);
-//             }
-//         }
-//     })
+cat.addEventListener('click', clickFilter);
 
 
-cat.addEventListener('click', clickFilter)
 function clickFilter(e) {
     e.preventDefault();
     if (e.target.tagName !== "A")
@@ -311,3 +278,20 @@ function clickFilter(e) {
     catApi.onbusinessAndServices().then(result =>render(result))};
                                     
 }
+
+//     console.log(names); // ["Mango", "Poly", "Ajax"]
+//     fetchProductCard();
+//     // function errors(er) {
+//     //     if (er === 'Ничего не найдено') {
+//     //         return  alert({
+//     //             text: 'К сожалению по этому запросу ничего не найдено',
+//     //             type: 'info'
+//     //         })
+//     //     }
+
+//     //     return error({
+//     //             text: "Ошибка! Не удалось загрузить изображения.",
+//     //             type: 'info' 
+//     //         })
+//     //     }
+// }

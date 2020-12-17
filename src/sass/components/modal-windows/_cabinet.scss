@@ -1,0 +1,76 @@
+.cabinetli {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  &:not(:last-child) {
+    border-bottom: 2px solid $container-edge-color;
+  }
+  &__icon-right {
+    
+      margin-left: auto;
+    }
+  @media screen and (max-width: 479px) {
+    &:first-child {
+      padding-top: 25px;
+      padding-bottom: 35px;
+    }
+  }
+
+  @media screen and (min-width: $mobile) {
+    padding-top: 15px;
+    padding-bottom: 55px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-top: 10px;
+    padding-bottom: 50px;
+    &:first-child {
+      padding-bottom: 65px;
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 30px;
+    font-family: 'Montserrat', sans-serif;
+    color: $primary-color;
+
+    @media screen and (min-width: $mobile) {
+      padding-bottom: 15px;
+    }
+  }
+
+  
+
+  &__title {
+    margin-right: 20px;
+    font-size: 12px;
+    line-height: 1.25;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+
+    &.other {
+      margin-right: 10px;
+      & .border {
+        width: 0;
+        height: 20px;
+        border-right: 1px solid #e2e3e5;
+
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &__link {
+    font-size: 12px;
+    line-height: 1.25;
+    letter-spacing: 0.06em;
+    color: $accent-orange;
+    text-decoration: underline;
+  }
+}
