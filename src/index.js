@@ -40,4 +40,4 @@ import './js/auth-modal/authApi';
 import './js/auth-modal/authRegistr';
 import './js/auth-modal/pnotify';
 
-import './js/cabinet';
+// import './js/cabinet';

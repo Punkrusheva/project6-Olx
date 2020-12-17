@@ -2,7 +2,6 @@ import onClickOpenModal from '../modal.js';
 const openModalCreateAdBtn = document.querySelector('[data-create-ad-modal-open]');
 const closeModalCreateADBtn = document.querySelector('[data-create-ad-modal-close]');
 const createAdModalRef = document.querySelector('[data-create-ad-modal]');
-const registerUserModalRef = document.querySelector('[data-modal]');
 
 openModalCreateAdBtn.addEventListener('click', openModalCreateAd);
 closeModalCreateADBtn.addEventListener('click', closeModalCreateAd)
@@ -23,7 +22,7 @@ function openModalCreateAd() {
   }
 }
 
-function closeModalCreateAd() {
+export function closeModalCreateAd() {
     window.removeEventListener("keydown", onKeyDown);
     createAdModalRef.removeEventListener("click", onOverlayClick);
     createAdModalRef.classList.add("is-hidden");
