@@ -19,15 +19,15 @@ import './js/create-ad';
 import './js/router';
 import './js/bad-url'; 
 
-import './js/favorites/favorite';
+// import './js/favorites/favorite';
 import './js/search';
 
 import './js/test'; 
 import './js/modal-one-card';
 
 import './js/auth-modal/authApi';
-// import './js/auth-modal/authLogin';
+import './js/auth-modal/authLogin';
 import './js/auth-modal/authRegistr';
 import './js/auth-modal/pnotify';
-
+import './js/auth-modal/auth';
 import './js/cabinet';
