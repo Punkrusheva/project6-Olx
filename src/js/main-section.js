@@ -2,163 +2,262 @@
 import productCardTpl from '../templates/product-cards.hbs';
 import productCardSaleTpl from '../templates/product-cart-sale.hbs';
 import oneSliderTpl from '../templates/one-slider.hbs';
+// import { requestAdsPagination  } from './fetchAPI';
 
-import CategoriesAPI from './categories-api';
+// requestAdsPagination(1);
+// console.log(requestAdsPagination(1));
 
-const catApi = new CategoriesApi();
+// import CategoriesAPI from './categories-api';
+// const catApi = new CategoriesApi();
+
+function allCategory() {
+    const BASE_URL = 'https://callboard-backend.herokuapp.com';
+
+    class AllCategory {
+        constructor() {
+            this.page = 1;
+            this.category = 'work';
+        }
+    
+        async fetchAllCategory() {
+            const url = `${BASE_URL}/call?page=${this.page}`
+            const fetches = await fetch(url)
+            const json = await fetches.json()
+            return json
+        }
+
+        async onWork() {
+            const url = `${BASE_URL}/call/specific/${this.category}`
+            const fetches = await fetch(url)
+            const json = await fetches.json()
+            return json
+        }
+        
+        // async fetchOneCategory() {
+        //     const url = `${BASE_URL}/call/specific/${this.category}`;
+        //     const fetches = await fetch(url)
+        //     const json = await fetches.json()
+        //     return json;
+        // }
+
+
+        onePage() {
+            this.page = 1;
+        }
+        twoPage() {
+            this.page = 2;
+        }
+        threePage() {
+            this.page = 3;
+        }
+    }
+
+    const category = new AllCategory();
+
+    category.fetchAllCategory().then(result => {
+        const resultKey = (Object.keys(result));
+        const resultKeyTransletion = translationWordsCategories(resultKey);
+        markupSlider(resultKeyTransletion);
+        return result;
+    })
+    .then(response => {
+        const valuesEntries = (Object.entries(response));
+        for (const values of valuesEntries) {
+            document.querySelector(`[data-category=${values[0]}]`).insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
+        }
+    })
+    .then(() => {
+        document.querySelector(`[data-atribute="one-page"]`).addEventListener('click', markOnePage);
+        document.querySelector(`[data-atribute="two-page"]`).addEventListener('click', markTwoPage);
+        document.querySelector(`[data-atribute="three-page"]`).addEventListener('click', markThreePage);
+
+
+        // document.querySelector(`[data-atribute="work"]`).addEventListener('click', markAllCardWorkCategory);
+    });
+
+    function markOnePage(e) {
+         e.preventDefault();
+
+        
+    }
+
+    function markTwoPage(e) {
+        e.preventDefault();
+
+        category.page = 2;
+
+        category.fetchAllCategory().then(result => {
+            window.scrollTo({
+                top: document.body.clientHeight - 2500,
+                behavior: 'smooth',
+            });
+            renderSlaider(result);
+            
+            return result;
+        })
+        .then(response => {
+            renderCard(response);
+        });
+
+        document.querySelector(`[data-atribute="two-page"]`).removeEventListener('click', markTwoPage);
+    }
+
+    function renderSlaider(result) {
+        const resultKey = (Object.keys(result));
+            const resultKeyTransletion = translationWordsCategories(resultKey);
+            markupSliderinerHtml(resultKeyTransletion);
+    }
+
+    function renderCard(response) {
+        const valuesEntries = (Object.entries(response));
+            for (const values of valuesEntries) {
+                document.querySelector(`[data-category=${values[0]}]`).insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
+            }
+    }
+
+    function markThreePage(e) {
+        e.preventDefault();
+
+        category.page = 3;
+
+        category.fetchAllCategory().then(result => {
+            window.scrollTo({
+                top: document.body.clientHeight - 2500,
+                behavior: 'smooth',
+            });
+
+            renderSlaider(result);
+
+            return result;
+        })
+        .then(response => {
+            renderCard(response);
+        });
+    }
+
+    function markupSlider(title) {
+        mainСontainerRef.insertAdjacentHTML('beforeend', oneSliderTpl(title));
+    }
+
+    function markupSliderinerHtml(title) {
+        mainСontainerRef.innerHTML = oneSliderTpl(title);
+    }
+
+    const translationOfWords = {
+        property: 'Нерухомість',
+        transport: 'Транспорт',
+        work: 'Работа',
+        electronics: 'Електроніка',
+        businessAndServices: 'Бізнес та послуги',
+        recreationAndSport: 'Відпочинок і спорт',
+        free: 'Віддам безкоштовно',
+        trade: 'торговля',
+        sales: 'Розпродаж   різне'
+    }
+
+    function translationWordsCategories(arr) {
+        let newArr = arr.map(category => {
+            return {
+                category: category,
+                tran: translationOfWords[category],
+            }
+        })
+        return newArr;
+    }
+} 
+    
+allCategory();
+
 
 
 const mainСontainerRef = document.querySelector('.main-container');
 
-const translationOfWords = {
-    property:'Нерухомість',
-    transport:'Транспорт',
-    work:'Работа',
-    electronics:'Електроніка',
-    businessAndServices:'Бізнес та послуги',
-    recreationAndSport:'Відпочинок і спорт',
-    free:'Віддам безкоштовно',
-    trade: 'торговля',
-    sales: 'Розпродаж   різне'
-};
 
 /* API test  */
-const BASE_URL = 'https://callboard-backend.herokuapp.com/';
-const currentPage = 2;
+// const BASE_URL = 'https://callboard-backend.herokuapp.com/';
+// const currentPage = 1;
 
-const requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-    };
+// const requestOptions = {
+//     method: 'GET',
+//     redirect: 'follow'
+//     };
 
-fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
-    .then(response => response.json())
-    .then(result => {
-
-        // console.log(`result 45`, result);
-        // console.log(`Object.keys(result)`, Object.keys(result));
-        const resultKey = (Object.keys(result));
-        const resultKeyTransletion = translationWordsCategories(resultKey);
-        // console.log(`resultKeyTransletion`, resultKeyTransletion);
-
-        markupSlider(resultKeyTransletion);
-        // console.log(resultKey[]); 
-
-        // const free = [];
-        // for (const values of resultValue) {
-        //     console.log(values[1]);
-        //     if (values[0].category === 'free') {
-        //         free.push(values[0]);
-        //         markupCard(values);
-        //     }
-        // }
-        return result;
-    })
-    .then(response => {
-        // console.log(`response 78:`, response);
-        // console.log(`Object.entries(result) 60`, Object.entries(response));
-
-        const valuesEntries = (Object.entries(response));
-        // console.log(`valuesEntries !!!63`, valuesEntries);
-        for (const values of valuesEntries) {
-            // console.log(`${values[0]} !!!72`, values[0]);
-            // console.log(`valuesEntries`, valuesEntries[key]);
-            // console.log(`values[1] 68:`, values[1]);
-
-            if (values[0] === 'property`') {
-                document.querySelector(`[data-category=${values[0]}]`).insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
-            }           
-            if (values[0] === 'property`') {
-
-                document.querySelector('[data-category="property"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
-            }
-            if (values[0] === 'transport') {
-                document.querySelector('[data-category="transport"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
-            }
-            if (values[0] === 'work') {
-                document.querySelector('[data-category="work"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
-            }
-            if (values[0] === 'electronics') {
-                document.querySelector('[data-category="electronics"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
-            }
-            if (values[0] === 'businessAndServices') {
-                document.querySelector('[data-category="businessAndServices"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
-            }
-            if (values[0] === 'recreationAndSport') {
-                document.querySelector('[data-category="recreationAndSport"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
-            }
-            if (values[0] === 'free') {
-                document.querySelector('[data-category="free"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
-            }
-            if (values[0] === 'trade') {
-                document.querySelector('[data-category="trade"]').insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
-            }
-            if (values[0] === 'sales') {
-                document.querySelector('[data-category="sales"]').insertAdjacentHTML('afterbegin', productCardSaleTpl(values[1]));
-            }
-        }
-        
-        return response;
-    })
+// fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
+//     .then(response => response.json())
+    // .then(result => {
+    //     const resultKey = (Object.keys(result));
+    //     const resultKeyTransletion = translationWordsCategories(resultKey);
+    //     markupSlider(resultKeyTransletion);
+    //     return result;
+    // })
     // .then(response => {
     //     const valuesEntries = (Object.entries(response));
-    //     // console.log(`valuesEntries !!!101`, valuesEntries);
-
-    //     let newArrProperty = [];
-    //     let newArrTransport = [];
-    //     let newArrWork = [];
-    //     let newArrElectronics = [];
-    //     let newArrBusinessAndServices = [];
-    //     let newArrRecreationAndSport = [];
-    //     let newArrFree = [];
-    //     let newArrTrade = [];
-    //     let newArrSales = [];
 
     //     for (const values of valuesEntries) {
-    //         // console.log(`values[0] !!!105`, values[0]);
-    //         // console.log(`values[1] 106:`, values[1]);
-    //         // console.log(`valuesArray 107:`, valuesEntries);
-                        
-    //         if (values[0] === 'property') {
-    //             // console.log(`values[1] 120`, values[1]);
-    //             newArrProperty.push(values[1]);
-    //         }
-    //         if (values[0] === 'transport') {
-    //             newArrTransport.push(values[1]);
-    //         }
-    //         if (values[0] === 'work') {
-    //             newArrWork.push(values[1]);
-    //         }
-    //         if (values[0] === 'electronics') {
-    //             newArrElectronics.push(values[1]);
-    //         }
-    //         if (values[0] === 'businessAndServices') {
-    //             newArrBusinessAndServices.push(values[1]);
-    //         }
-    //         if (values[0] === 'recreationAndSport') {
-    //             newArrRecreationAndSport.push(values[1]);
-    //         }
-    //         if (values[0] === 'free') {
-    //             newArrFree.push(values[1]);
-    //         }
-    //         if (values[0] === 'trade') {
-    //             newArrTrade.push(values[1]);
-    //         }
-    //         if (values[0] === 'sales') {
-    //             newArrSales.push(values[1]);
-    //         }
-            
-    //     }
+    //             document.querySelector(`[data-category=${values[0]}]`).insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
+    //         }  
 
-    //     document.querySelector('[data-atribute="property"]').addEventListener('click', markAllCardOneCategory);
-    //     document.querySelector('[data-atribute="transport"]').addEventListener('click', markAllCardOneCategory);
-    //     document.querySelector('[data-atribute="work"]').addEventListener('click', markAllCardOneCategory);
-    //     document.querySelector('[data-atribute="electronics"]').addEventListener('click', markAllCardOneCategory);
-    //     document.querySelector('[data-atribute="businessAndServices"]').addEventListener('click', markAllCardOneCategory);
-    //     document.querySelector('[data-atribute="recreationAndSport"]').addEventListener('click', markAllCardOneCategory);
-    //     document.querySelector('[data-atribute="free"]').addEventListener('click', markAllCardOneCategory);
-    //     document.querySelector('[data-atribute="trade"]').addEventListener('click', markAllCardOneCategory);
-    //     document.querySelector('[data-atribute="sales"]').addEventListener('click', markAllCardOneCategory);
+    //     return response;
+    // })
+// .then(response => {
+//     const valuesEntries = (Object.entries(response));
+//     // console.log(`valuesEntries !!!101`, valuesEntries);
+
+//     let newArrProperty = [];
+//     let newArrTransport = [];
+//     let newArrWork = [];
+//     let newArrElectronics = [];
+//     let newArrBusinessAndServices = [];
+//     let newArrRecreationAndSport = [];
+//     let newArrFree = [];
+//     let newArrTrade = [];
+//     let newArrSales = [];
+
+//     for (const values of valuesEntries) {
+//         // console.log(`values[0] !!!105`, values[0]);
+//         // console.log(`values[1] 106:`, values[1]);
+//         // console.log(`valuesArray 107:`, valuesEntries);
+                    
+//         if (values[0] === 'property') {
+//             // console.log(`values[1] 120`, values[1]);
+//             newArrProperty.push(values[1]);
+//         }
+//         if (values[0] === 'transport') {
+//             newArrTransport.push(values[1]);
+//         }
+//         if (values[0] === 'work') {
+//             newArrWork.push(values[1]);
+//         }
+//         if (values[0] === 'electronics') {
+//             newArrElectronics.push(values[1]);
+//         }
+//         if (values[0] === 'businessAndServices') {
+//             newArrBusinessAndServices.push(values[1]);
+//         }
+//         if (values[0] === 'recreationAndSport') {
+//             newArrRecreationAndSport.push(values[1]);
+//         }
+//         if (values[0] === 'free') {
+//             newArrFree.push(values[1]);
+//         }
+//         if (values[0] === 'trade') {
+//             newArrTrade.push(values[1]);
+//         }
+//         if (values[0] === 'sales') {
+//             newArrSales.push(values[1]);
+//         }
+        
+//     }
+
+//     document.querySelector('[data-atribute="property"]').addEventListener('click', markAllCardOneCategory);
+//     document.querySelector('[data-atribute="transport"]').addEventListener('click', markAllCardOneCategory);
+//     document.querySelector('[data-atribute="work"]').addEventListener('click', markAllCardOneCategory);
+//     document.querySelector('[data-atribute="electronics"]').addEventListener('click', markAllCardOneCategory);
+//     document.querySelector('[data-atribute="businessAndServices"]').addEventListener('click', markAllCardOneCategory);
+//     document.querySelector('[data-atribute="recreationAndSport"]').addEventListener('click', markAllCardOneCategory);
+//     document.querySelector('[data-atribute="free"]').addEventListener('click', markAllCardOneCategory);
+//     document.querySelector('[data-atribute="trade"]').addEventListener('click', markAllCardOneCategory);
+//     document.querySelector('[data-atribute="sales"]').addEventListener('click', markAllCardOneCategory);
 
         
 
@@ -197,87 +296,69 @@ fetch(`${BASE_URL}call?page=${currentPage}`, requestOptions)
     //         }
     //     }
     // })
-    .catch(error => console.log(`error!!!`, error));
+    // .catch(error => console.log(`error!!!`, error));
        
-    // console.log(`newArrsales`, newArrSales);
-      
-    function markupSlider(title) {
-        mainСontainerRef.insertAdjacentHTML('beforeend', oneSliderTpl(title));
-    }
 
-    function translationWordsCategories (arr) {
-    let newArr = arr.map( category => {
-        return {
-        category: category,
-        tran: translationOfWords[category], 
-        }
-    })
-        return newArr;
-    }
+// fetch(`${BASE_URL}call/specific/transport`)
+//     .then(response => response.json())
+//     .then(response => {
+//         console.log(`response`, response);
 
+//         const valuesEntries = (Object.values(response));
+//         console.log(`valuesEntries[0].category 218`, valuesEntries[0].category);
 
-
-
-fetch(`${BASE_URL}call/specific/transport`)
-    .then(response => response.json())
-    .then(response => {
-        console.log(`response`, response);
-
-        const valuesEntries = (Object.values(response));
-        console.log(`valuesEntries[0].category 218`, valuesEntries[0].category);
-
-        document.querySelector('[data-atribute="transport"]').addEventListener('click', markAllCardOneCategory);
+//         document.querySelector('[data-atribute="transport"]').addEventListener('click', markAllCardOneCategory);
 
         
-        function markAllCardOneCategory(e) {
-            e.preventDefault();
-            console.log(e);
-            console.log(`valuesEntries[0].category`, valuesEntries[0].category);
-            console.log(`e.target.attributes[0].value`, e.target.attributes[0].value);
-        }
+//         function markAllCardOneCategory(e) {
+//             e.preventDefault();
+//             console.log(e);
+//             console.log(`valuesEntries[0].category`, valuesEntries[0].category);
+//             console.log(`e.target.attributes[0].value`, e.target.attributes[0].value);
+//         }
         
-    })
-    .catch(error => {
-        console.log(error)
-    });
+//     })
+//     .catch(error => {
+//         console.log(error)
+//     });
 
 
-cat.addEventListener('click', clickFilter);
+// cat.addEventListener('click', clickFilter);
 
 
-function clickFilter(e) {
-    e.preventDefault();
-    if (e.target.tagName !== "A")
-        return;
+// function clickFilter(e) {
+//     e.preventDefault();
+//     if (e.target.tagName !== "A")
+//         return;
     
-    if(e.target.getAttribute('href') === '/property'){
-     catApi.onProperty().then(result =>render(result))};
+//     if(e.target.getAttribute('href') === '/property'){
+//      catApi.onProperty().then(result =>render(result))};
 
-    if(e.target.getAttribute('href') === '/electronics'){
-    catApi.onElectronics().then(result =>render(result))};
+//     if(e.target.getAttribute('href') === '/electronics'){
+//     catApi.onElectronics().then(result =>render(result))};
 
-    if(e.target.getAttribute('href') === '/free'){
-    catApi.onFree().then(result =>render(result))};
+//     if(e.target.getAttribute('href') === '/free'){
+//     catApi.onFree().then(result =>render(result))};
 
-    if(e.target.getAttribute('href') === '/recreationAndSport'){
-    catApi.onRecreationAndSport().then(result =>render(result))};
+//     if(e.target.getAttribute('href') === '/recreationAndSport'){
+//     catApi.onRecreationAndSport().then(result =>render(result))};
 
-    if(e.target.getAttribute('href') === '/sales'){
-    catApi.onSales().then(result =>render(result))};
+//     if(e.target.getAttribute('href') === '/sales'){
+//     catApi.onSales().then(result =>render(result))};
 
-    if(e.target.getAttribute('href') === '/trade'){
-    catApi.onTrade().then(result =>render(result))};
+//     if(e.target.getAttribute('href') === '/trade'){
+//     catApi.onTrade().then(result =>render(result))};
 
-    if(e.target.getAttribute('href') === '/transport'){
-    catApi.onTransport().then(result =>render(result))};
+//     if(e.target.getAttribute('href') === '/transport'){
+//     catApi.onTransport().then(result =>render(result))};
                             
-    if(e.target.getAttribute('href') === '/work'){
-    catApi.onWork().then(result =>render(result))};
+//     if(e.target.getAttribute('href') === '/work'){
+//     catApi.onWork().then(result =>render(result))};
 
-    if(e.target.getAttribute('href') === '/businessAndServices'){
-    catApi.onbusinessAndServices().then(result =>render(result))};
+//     if(e.target.getAttribute('href') === '/businessAndServices'){
+//     catApi.onbusinessAndServices().then(result =>render(result))};
                                     
-}
+// }
 
 //     console.log(names); // ["Mango", "Poly", "Ajax"]
 //     fetchProductCard();

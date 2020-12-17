@@ -6,7 +6,7 @@ const user = {
   email: '{}',
   password: '{}', 
 };
-console.log(user);
+// console.log(user);
 
 //регистрация
 
