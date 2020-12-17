@@ -1,6 +1,7 @@
 import './sass/main.scss';
 //import './js/cabinet';
 import './js/search-modal'
+import './js/search';
 import './js/menu'
 import './js/user-button'
 
@@ -21,7 +22,6 @@ import './js/router';
 import './js/bad-url'; 
 
 import './js/favorites/favorite';
-import './js/search';
 
 // import './js/test'; 
 import './js/modal-one-card';
