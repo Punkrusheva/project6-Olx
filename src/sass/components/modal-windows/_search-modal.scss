@@ -111,6 +111,26 @@
   }
 }
 
+.error-text {
+  position: absolute;
+  bottom: -24px;
+  left: 15px;
+  color: rgba(221, 218, 10, 0.959);
+}
+
+.error-text::before {
+  content: '*';
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  color: rgba(221, 218, 10, 0.959);
+  opacity: 1;
+
+  &.is-hidden {
+    opacity: 0;
+  }
+}
+
 //   .modal-text {
 //     margin-bottom: 30px;
 //     font-weight: bold;
