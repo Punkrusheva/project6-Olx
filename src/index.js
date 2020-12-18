@@ -10,29 +10,19 @@ import './js/main-section';
 
 import './js/modal';
 
-// import './js/create-ad-open-close';
-// import './js/create-ad';
+import './js/createAD/createAdOpenClose';
+import './js/createAD/createAd';
+import './js/createAD/auth-check';
 
 // import './js/apiService';
-
 // import './js/registration';
 
-// import './js/auth-check';
-
-import './js/router';
-
-// import './js/favorite';
-import './js/search';
-
-
-// import './js/bad-url'; 
 // import './js/modal-one-card';
 import './js/router';
 import './js/bad-url'; 
 
 // import './js/favorites/favorite';
 
-// import './js/test'; 
 // import './js/modal-one-card';
 
 // import './js/auth-modal/authApi';
@@ -40,5 +30,6 @@ import './js/bad-url';
 // import './js/auth-modal/authRegistr';
 // import './js/auth-modal/pnotify';
 // import './js/auth-modal/auth';
+// import './js/test'; 
 
 
