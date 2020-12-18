@@ -74,11 +74,6 @@ document.querySelector(`[data-atribute="three-page"]`).addEventListener('click',
 function markTwoPage(event) {
     event.preventDefault();
 
-    // console.log(event.target);
-    // console.log(event.currentTarget);
-    // var a = document.querySelector('ul > li:nth-child(3)'); // берем 3 элемент li в списке ul. 
-    // a.classList.add('active');
-
     category.twoPage();
 
     category.fetchAllCategory().then(result => {
