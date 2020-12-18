@@ -67,18 +67,25 @@ function allCategory() {
         }
     })
     .then(() => {
-        document.querySelector(`[data-atribute="one-page"]`).addEventListener('click', markOnePage);
-        document.querySelector(`[data-atribute="two-page"]`).addEventListener('click', markTwoPage);
-        document.querySelector(`[data-atribute="three-page"]`).addEventListener('click', markThreePage);
 
+        const paginationRef = document.querySelector('.pagination-div');
+            
+        paginationRef.addEventListener('click', markOnePage);
+        paginationRef.addEventListener('click', markTwoPage);
+        paginationRef.addEventListener('click', markThreePage);
 
+        const oneCategoriesRef = document.querySelector('.categories-title');
+        oneCategoriesRef.addEventListener('click', markAllCardWorkCategory);
         // document.querySelector(`[data-atribute="work"]`).addEventListener('click', markAllCardWorkCategory);
     });
 
-    function markOnePage(e) {
-         e.preventDefault();
+    function markAllCardWorkCategory(event) {
+        console.log(`start`);
+        console.log(event.target);
+    }
 
-        
+    function markOnePage() {
+        console.log(`reset page`);
     }
 
     function markTwoPage(e) {
@@ -133,6 +140,8 @@ function allCategory() {
         .then(response => {
             renderCard(response);
         });
+
+        document.querySelector(`[data-atribute="three-page"]`).removeEventListener('click', markThreePage);
     }
 
     function markupSlider(title) {

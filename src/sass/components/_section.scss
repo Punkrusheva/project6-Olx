@@ -197,12 +197,17 @@
     margin-top: 60px;
     margin-bottom: 60px;
   }
-}
 
-.button-next-pages:hover,
-.button-next-pages:focus {
-  background-color: #000;
-  color: #fff;
+  &.is-active {
+    background-color: #000;
+    color: #fff;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: #000;
+    color: #fff;
+  }
 }
 
 .icon-add-position {
