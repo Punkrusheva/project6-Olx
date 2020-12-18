@@ -38,7 +38,7 @@ export default async function addregisterUser() {
 
 }; 
 
-// // addregisterUser()
+// addregisterUser()
 fetchAuthorisLogin()
 
 

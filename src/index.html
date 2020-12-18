@@ -165,30 +165,39 @@
     <p>by <u>GoIT Students</u></p>
 
   </footer>
-<!-- Модалка cоздания объявления -->
 
+<!-- Модалка cоздания объявления -->
 <div data-create-ad-modal class="backdrop-modal-create-ad is-hidden">
   <div class="create-ad">
     <form class="create-ad-form">
-    <span data-create-ad-modal-close class="close-form"><svg class="close-form-icon" width="14" height="14">
-        <use href="./images/sprite.svg#icon-close_icon"></use>
-      </svg></span>
-      
-    <p class="create-ad-slogan">
-      Додати оголошення
-    </p>
-    
+      <span data-create-ad-modal-close class="close-form"><svg class="close-form-icon" width="14" height="14">
+          <use href="./images/sprite.svg#icon-close_icon"></use>
+        </svg></span>
+
+      <p class="create-ad-slogan">
+        Додати оголошення
+      </p>
+
       <ul class="create-ad-form-list">
         <li class="create-ad-form-item">
           <label class="create-ad-form-label" for="title">Назва товару</label>
-          <input class="create-ad-form-input" value="title" type="text" name="title" id="title" placeholder=" " />
+          <input class="create-ad-form-input" type="text" name="title" id="title" placeholder=" " />
         </li>
         <li class="create-ad-form-item">
-          <label class="create-ad-form-label" for="photo">Фото</label>
           <ul class="create-ad-photo-list">
+          <label class="create-ad-form-label" for="photo">Фото</label>
+              <li class="create-ad-photo">
+              <input id="photoElem" class="photo-input" type="file" name="file" multiple accept="image/*"
+                required />
+              <label for="photoElem" class="photo-label"><span class="material-icons">+</span></label>
+              <img id="output_image" />
+            </li>
             <li class="create-ad-photo">
-              <label for="file" class="photo-label"><span class="material-icons">+</span></label>
-              <input id="file" class="photo-input" value='' type="file" name="file" multiple accept="image/*" required />
+              <label for="photoElem" class="photo-label"><span class="material-icons">+</span></label>
+              <img id="output_image" />
+            </li>
+            <li class="create-ad-photo">
+              <label for="photoElem" class="photo-label"><span class="material-icons">+</span></label>
               <img id="output_image" />
             </li>
             <li class="create-ad-photo">
@@ -199,34 +208,25 @@
               <label for="photoElem" class="photo-label"><span class="material-icons">+</span></label>
               <img id="output_image" />
             </li>
-            <li class="create-ad-photo">             
-              <label for="photoElem" class="photo-label"><span class="material-icons">+</span></label>
-              <img id="output_image" />
-            </li>
-            <li class="create-ad-photo">
-              <label for="photoElem" class="photo-label"><span class="material-icons">+</span></label>
-              <img id="output_image" />
-            </li> 
           </ul>
         </li>
         <li class="create-ad-form-item">
           <label class="create-ad-form-label" for="description">Опис товару</label>
-          <textarea class="create-ad-form-input" value='' type='text' name="description" id="description" cols="10" rows="3"
+          <textarea class="create-ad-form-input" value='description' type='text' name="description" id="description" cols="10" rows="3"
             placeholder=" "></textarea>
         </li>
         <li class="create-ad-form-item" class="category-list">
           <label class="create-ad-form-label" for="category">Категория товару</label>
-        <select class="create-ad-form-input"  name="category" id="category">
-          <option></option>
-          <option value="property">Нерухомість</option>
-          <option value="transport">Транспорт</option>
-          <option value="work">Робота</option>
-          <option value="electronics">Електроніка</option>
-          <option value="business and services">Бізнес та послуги</option>
-          <option value="recreation and sport">Відпочинок та спорт</option>
-          <option value="free">Віддам безкоштовно</option>
-          <option value="trade">Обмін</option>
-        </select>
+          <select class="create-ad-form-input" value='select' name="category" id="category">
+            <option value="property">Нерухомість</option>
+            <option value="transport">Транспорт</option>
+            <option value="work">Робота</option>
+            <option value="electronics">Електроніка</option>
+            <option value="business and services">Бізнес та послуги</option>
+            <option value="recreation and sport">Відпочинок та спорт</option>
+            <option value="free">Віддам безкоштовно</option>
+            <option value="trade">Обмін</option>
+          </select>
         </li>
         <li class="create-ad-form-item">
           <label class="create-ad-form-label" for="price">Ціна</label>
@@ -238,16 +238,12 @@
         </li>
       </ul>
 
-      <button type="button" class="create-ad-submit">
+      <button class="create-ad-submit">
         Додати
       </button>
     </form>
   </div>
-
-  <!-- модалка товара -->
-  <div data-modal-one class="container open-card">
-  
-  </div>
+</div>
 
   <!-- Модалка поиска -->
   <div data-search-modal class="search__backdrop is-hidden">

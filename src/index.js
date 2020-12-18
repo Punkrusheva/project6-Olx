@@ -14,7 +14,7 @@ import './js/createAd/createAd';
 // import './js/createAd/renderCategoryList';
 // import './js/apiService';
 
-// import './js/registration';
+
 import './js/createAd/auth-check';
 //import './js/registration';
 

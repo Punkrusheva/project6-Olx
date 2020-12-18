@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { closeModalCreateAd } from './createAdOpenClose'
+// import { closeModalCreateAd } from './createAdOpenClose';
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
 const createAdRef = document.querySelector('.create-ad-form');
@@ -29,7 +29,7 @@ const cteateAdSubmit = event => {
       .catch(function (error) {
         console.log(error);
       });
-  closeModalCreateAd()
+  
 }
 
 submit.addEventListener('click', cteateAdSubmit);
@@ -43,7 +43,6 @@ submit.addEventListener('click', cteateAdSubmit);
   // { заполните все поля
   // }
 // }
-
 
 
 // {title: "шарики", description: "красивые", category: "recreation and sport", price: 100,…}
