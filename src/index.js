@@ -18,6 +18,14 @@ import './js/apiService';
 import './js/registration';
 import './js/auth-check';
 
+// import './js/router';
+
+// import './js/favorite';
+import './js/search';
+
+
+// import './js/bad-url'; 
+// import './js/modal-one-card';
 import './js/router';
 import './js/bad-url'; 
 
