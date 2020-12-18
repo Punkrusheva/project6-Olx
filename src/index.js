@@ -17,7 +17,7 @@ import './js/modal';
 
 // import './js/registration';
 
-import './js/auth-check';
+// import './js/auth-check';
 
 import './js/router';
 

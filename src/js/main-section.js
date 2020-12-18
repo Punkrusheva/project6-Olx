@@ -1,7 +1,7 @@
 // import { template } from 'handlebars';
 import productCardTpl from '../templates/product-cards.hbs';
-import productCardSaleTpl from '../templates/product-cart-sale.hbs';
 import oneSliderTpl from '../templates/one-slider.hbs';
+import allCardsOneCategory from '../templates/all-cards-one-category.hbs';
 
 
 // import CategoriesApi from './categories-api';
@@ -14,7 +14,7 @@ const paginationGroup = document.querySelector('.pagination-div');
 class AllCategory {
     constructor() {
         this.page = 1;
-        this.category = 'work';
+        this.category = '';
     }
 
     async fetchAllCategory() {
@@ -45,8 +45,6 @@ class AllCategory {
 const category = new AllCategory();
 
 function markOnePage() {
-    // console.log(document.querySelector('.button-next-pages').textContent === event.path[0].innerText);
-    // event.preventDefault();
     category.onePage();
 
     category.fetchAllCategory().then(result => {
@@ -62,7 +60,6 @@ function markOnePage() {
         renderCard(response);
     });
 
-    document.querySelector(`[data-atribute="one-page"]`).removeEventListener('click', markThreePage);
 } 
 
 markOnePage();
@@ -89,7 +86,6 @@ function markTwoPage(event) {
         renderCard(response);
     });
 
-    document.querySelector(`[data-atribute="two-page"]`).removeEventListener('click', markTwoPage);
 }
 
 function markThreePage(event) {
@@ -110,7 +106,6 @@ function markThreePage(event) {
         renderCard(response);
     });
 
-    document.querySelector(`[data-atribute="three-page"]`).removeEventListener('click', markThreePage);
 }
 
 function renderSlaider(result) {
@@ -155,41 +150,18 @@ function translationWordsCategories(arr) {
 mainСontainerRef.addEventListener('click', markOnlyOneCategory);
 
 function markOnlyOneCategory(e) {
-    console.log(`run markOnlyOneCategory `, e.srcElement.dataset.atributeBtn);
+    const curentBtn = e.path[2].ownerDocument.activeElement.attributes[0].value;
+    const curentBtnClick = e.srcElement.dataset.atributeBtn;
 
-    // if (e.srcElement.dataset.atributeBtn === 'sales') {
-    //     category.onWork().then(res => {
-    //         mainСontainerRef.innerHTML = productCardTpl(res);
-    //         console.log(res);
-    //     })
-    //     return;
-    // }
-    if (e.srcElement.dataset.atributeBtn === 'sales') {
+    if (curentBtnClick === curentBtn) {
         category.category = `${e.srcElement.dataset.atributeBtn}`;
         category.onWork().then(res => {
-            mainСontainerRef.innerHTML = productCardSaleTpl(res);
-            console.log(res);
+            mainСontainerRef.innerHTML = allCardsOneCategory(res);
         })
         return;
     }
-    if (e.srcElement.dataset.atributeBtn === 'recreationAndSport') {
-
-        category.category = `${e.srcElement.dataset.atributeBtn}`;
-        category.onWork().then(res => {
-            mainСontainerRef.innerHTML = productCardTpl(res);
-            console.log(res);
-        })
-        return;
-    }
-    if (e.srcElement.dataset.atributeBtn === 'free') {
-        category.category = `${e.srcElement.dataset.atributeBtn}`;
-        category.onWork().then(res => {
-            mainСontainerRef.innerHTML = productCardTpl(res);
-            console.log(res);
-        })
-        return;
-    }
-
+    return
 }
+
 
        
