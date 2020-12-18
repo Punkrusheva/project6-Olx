@@ -48,11 +48,11 @@
 .one-categories {
   @media screen and (max-width: $before-tablet) {
     overflow: hidden;
-    // height: 1780px;
+    height: 830px; //1780px;
   }
   @media screen and (min-width: $tablet) {
     overflow: hidden;
-    height: 410px;
+    height: 463px; //410px
   }
   @media screen and (min-width: $desktop) {
     overflow: hidden;
