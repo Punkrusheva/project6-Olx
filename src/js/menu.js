@@ -5,6 +5,7 @@ function openAndCloseMenu() {
     openModalBtn: document.querySelector('[data-menu-open]'),
     closeModalBtn: document.querySelector('[data-menu-close]'),
     modal: document.querySelector('[data-backdrop]'),
+    userCabinetDropbox: document.querySelector('[data-dropdox-mobile]')
   };
 
   refs.openModalBtn.addEventListener('click', onClickOpenModal);
@@ -20,6 +21,7 @@ function openAndCloseMenu() {
     window.removeEventListener("keydown", onKeyDown);
     refs.modal.removeEventListener("click", onOverlayClick);
     refs.modal.classList.remove("is-open");
+    refs.userCabinetDropbox.classList.remove("is-open")
   }
 
   function onOverlayClick(event) {

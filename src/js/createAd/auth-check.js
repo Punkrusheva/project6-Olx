@@ -1,10 +1,10 @@
 // import 
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
-//const user = {
-//  email: 'cat@gmail.com',
-//  password: '12345', 
-//};
+const user = {
+ email: 'cat@gmail.com',
+ password: '12345', 
+};
 
 
 //регистрация
@@ -37,6 +37,9 @@ export default async function addregisterUser() {
     return  localStorage.setItem('key', `${responseJson.accessToken}`);
 
 }; 
+
+// addregisterUser()
+fetchAuthorisLogin()
 
 
 

@@ -159,8 +159,11 @@
     }
   }
   &.cabinet {
-    width: 100%;
     background-color: #f5f6fb;
+  }
+
+  &.cabinet.mobile {
+    width: 100%;
   }
 
   &.cabinet::after {
