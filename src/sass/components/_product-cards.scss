@@ -84,10 +84,12 @@ ul {
   flex-wrap: wrap;
 }
 .product-img {
-  width: 100%;
+  max-width: 100%;
+  max-height: 275px;
 }
 
 .product-card {
+  height: 350px;
   margin-bottom: 20px;
   background: #ffffff;
   filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
@@ -116,6 +118,7 @@ ul {
 }
 
 .product-content {
+  height: 75px;
   margin: 20px 0px 20px 20px;
 }
 .product-image {
