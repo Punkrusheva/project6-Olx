@@ -10,9 +10,9 @@ import './js/main-section';
 
 import './js/modal';
 
-// import './js/create-ad-open-close';
-import './js/createAd/createAd';
-import './js/createAd/auth-check';
+import './js/createAD/createAdOpenClose';
+import './js/createAD/createAd';
+import './js/createAD/auth-check';
 
 // import './js/apiService';
 // import './js/registration';
