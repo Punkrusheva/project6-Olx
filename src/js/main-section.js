@@ -69,27 +69,43 @@ function allCategory() {
     .then(() => {
 
         const paginationRef = document.querySelector('.pagination-div');
-            
+
         paginationRef.addEventListener('click', markOnePage);
         paginationRef.addEventListener('click', markTwoPage);
         paginationRef.addEventListener('click', markThreePage);
 
-        const oneCategoriesRef = document.querySelector('.categories-title');
-        oneCategoriesRef.addEventListener('click', markAllCardWorkCategory);
+        // const oneCategoriesRef = document.querySelector('.categories-title');
+        // oneCategoriesRef.addEventListener('click', markAllCardWorkCategory);
         // document.querySelector(`[data-atribute="work"]`).addEventListener('click', markAllCardWorkCategory);
     });
 
     function markAllCardWorkCategory(event) {
-        console.log(`start`);
-        console.log(event.target);
+        
     }
 
-    function markOnePage() {
-        console.log(`reset page`);
-    }
+    function markOnePage(event) {
+event.preventDefault();
+            console.log(`event`, event);
+            console.log(`event.target`, event.target);
+            console.log(`event.currentTarget`, event.currentTarget);
+        if (event.target === event.currentTarget) {
+            console.log(`one`);
+            console.log(`event`, event);
+            console.log(`event.target`, event.target);
+            console.log(`event.currentTarget`, event.currentTarget);
 
-    function markTwoPage(e) {
-        e.preventDefault();
+            console.log(`event.path[0]`, event.path[0]);
+            console.log(event.target === event.currentTarget);
+        }
+        return    }
+
+    function markTwoPage(event) {
+        event.preventDefault();
+        if (event.target === event.path[0]) {
+            console.log(`two`);
+        }
+        return
+        
 
         category.page = 2;
 
@@ -108,22 +124,14 @@ function allCategory() {
 
         document.querySelector(`[data-atribute="two-page"]`).removeEventListener('click', markTwoPage);
     }
+    function markThreePage(event) {
+        event.preventDefault();
+         if (event.target === event.path[0]) {
+            console.log(`three`);
+        }
+        return
+        
 
-    function renderSlaider(result) {
-        const resultKey = (Object.keys(result));
-            const resultKeyTransletion = translationWordsCategories(resultKey);
-            markupSliderinerHtml(resultKeyTransletion);
-    }
-
-    function renderCard(response) {
-        const valuesEntries = (Object.entries(response));
-            for (const values of valuesEntries) {
-                document.querySelector(`[data-category=${values[0]}]`).insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
-            }
-    }
-
-    function markThreePage(e) {
-        e.preventDefault();
 
         category.page = 3;
 
@@ -143,6 +151,20 @@ function allCategory() {
 
         document.querySelector(`[data-atribute="three-page"]`).removeEventListener('click', markThreePage);
     }
+    function renderSlaider(result) {
+        const resultKey = (Object.keys(result));
+            const resultKeyTransletion = translationWordsCategories(resultKey);
+            markupSliderinerHtml(resultKeyTransletion);
+    }
+
+    function renderCard(response) {
+        const valuesEntries = (Object.entries(response));
+            for (const values of valuesEntries) {
+                document.querySelector(`[data-category=${values[0]}]`).insertAdjacentHTML('afterbegin', productCardTpl(values[1]));
+            }
+    }
+
+    
 
     function markupSlider(title) {
         mainСontainerRef.insertAdjacentHTML('beforeend', oneSliderTpl(title));
