@@ -1,8 +1,5 @@
 import productCardTpl from '../templates/product-cards.hbs'
-const { error, alert } = require('@pnotify/core')
-import '@pnotify/core/dist/PNotify.css'
-import '@pnotify/core/dist/BrightTheme.css';
-import 'basiclightbox/dist/basicLightbox.min.css'
+
 
 export default SearchProducts()
 
@@ -34,28 +31,34 @@ const BASE_URL = 'https://callboard-backend.herokuapp.com'
 
 const searchForm = document.querySelector('[data-search-form]')
 const searchContainer = document.querySelector('.main-container')
-const modalSearch = document.querySelector('[data-search-modal]')
+    const modalSearch = document.querySelector('[data-search-modal]')
+    const input = document.querySelector('.search__input')
+    const error1 = document.querySelector('.error-text')
+    
 const products = new FindProduct()
 
-searchForm.addEventListener('submit', onSearch);
+    searchForm.addEventListener('submit', onSearch);
+    input.addEventListener('focus', onFocusInput);
+    
+    function onFocusInput() {
+        error1.textContent = '';
+        error1.classList.add('is-hidden')
+    }
+    
 
 function onSearch(e) {
     e.preventDefault();
     products.query = e.currentTarget.elements.query.value.trim()
 
     if (products.query === '') {
-        return alert({
-              text: "Введите что-нибуть!",
-              type: 'info'
-        })
+        error1.textContent = 'Введите что-нибуть!'
+        error1.classList.remove('is-hidden')
     }
-    
     fetchProductCard()
+}
 
-    }
-
-    function appendCardMarkup(card) {
-        searchContainer.innerHTML = `${productCardTpl(card)}`
+function appendCardMarkup(card) {
+    searchContainer.innerHTML = `${productCardTpl(card)}`
 }
 
     async function fetchProductCard() {
@@ -70,16 +73,13 @@ function onSearch(e) {
     }
     
     function errors(error) {
-         if (error === 'Ничего не найдено') {
-      return  alert({
-            text: 'К сожалению по этому запросу ничего не найдено',
-            type: 'info'
-        })
-    }
-      return error({
-             text: "Ошибка! Не удалось загрузить изображения.",
-             type: 'info' 
-          })
+        if (error === 'Ничего не найдено') {
+            error1.textContent = 'По этому запросу ничего не найдено.'
+             error1.classList.remove('is-hidden')
+        } else
+            error1.textContent = 'По этому запросу ничего не найдено.'
+         error1.classList.remove('is-hidden')
 }
 }
+
 
