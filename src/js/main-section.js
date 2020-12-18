@@ -9,7 +9,7 @@ import oneSliderTpl from '../templates/one-slider.hbs';
 
 const mainСontainerRef = document.querySelector('.main-container');
 const BASE_URL = 'https://callboard-backend.herokuapp.com';
-// const paginationGroup = document.querySelector('.pagination-div');
+const paginationGroup = document.querySelector('.pagination-div');
 
 class AllCategory {
     constructor() {
@@ -162,14 +162,24 @@ mainСontainerRef.addEventListener('click', markOnlyOneCategory);
 function markOnlyOneCategory(e) {
     console.log(`run markOnlyOneCategory `, e.srcElement.dataset.atributeBtn);
 
+    // if (e.srcElement.dataset.atributeBtn === 'sales') {
+    //     category.onWork().then(res => {
+    //         mainСontainerRef.innerHTML = productCardTpl(res);
+    //         console.log(res);
+    //     })
+    //     return;
+    // }
     if (e.srcElement.dataset.atributeBtn === 'sales') {
+        category.category = `${e.srcElement.dataset.atributeBtn}`;
         category.onWork().then(res => {
-            mainСontainerRef.innerHTML = productCardTpl(res);
+            mainСontainerRef.innerHTML = productCardSaleTpl(res);
             console.log(res);
         })
         return;
     }
     if (e.srcElement.dataset.atributeBtn === 'recreationAndSport') {
+
+        category.category = `${e.srcElement.dataset.atributeBtn}`;
         category.onWork().then(res => {
             mainСontainerRef.innerHTML = productCardTpl(res);
             console.log(res);
@@ -177,6 +187,7 @@ function markOnlyOneCategory(e) {
         return;
     }
     if (e.srcElement.dataset.atributeBtn === 'free') {
+        category.category = `${e.srcElement.dataset.atributeBtn}`;
         category.onWork().then(res => {
             mainСontainerRef.innerHTML = productCardTpl(res);
             console.log(res);
@@ -186,59 +197,4 @@ function markOnlyOneCategory(e) {
 
 }
 
-// function !! (title) {
-//     mainСontainerRef.insertAdjacentHTML('beforeend', oneSliderTpl(title));
-// }
-    
-
-/* API test  */
-// const BASE_URL = 'https://callboard-backend.herokuapp.com/';
-// const currentPage = 1;
-
-// const requestOptions = {
-//     method: 'GET',
-//     redirect: 'follow'
-//     };
-
-// fetch()
-// .then()
-// .then(response => {
-//     const valuesEntries = (Object.entries(response));
-//     // console.log(`valuesEntries !!!101`, valuesEntries);
-
-//     let newArrTrade = [];
-//     let newArrSales = [];
-
-//     for (const values of valuesEntries) {
-//         // console.log(`values[0] !!!105`, values[0]);
-//         // console.log(`values[1] 106:`, values[1]);
-//         // console.log(`valuesArray 107:`, valuesEntries);
-                    
-//         if (values[0] === 'property') {
-//             // console.log(`values[1] 120`, values[1]);
-//             newArrProperty.push(values[1]);
-//         }
-//         if (values[0] === 'transport') {
-//             newArrTransport.push(values[1]);
-//         }
-//     }
-
-//     document.querySelector('[data-atribute="property"]').addEventListener('click', markAllCardOneCategory);
-//     document.querySelector('[data-atribute="transport"]').addEventListener('click', markAllCardOneCategory);
-
-    //     function markAllCardOneCategory(e) {
-    //         e.preventDefault();
-    //         // console.log(`e `, e);
-    //         // console.log(`e.target.attributes[0].value `, e.target.attributes[0].value);
-    //         // console.log(`recreationAndSport !!!!!!!!!`, newArrFree[0]);
-            
-    //         if (e.target.attributes[0].value === 'property') {
-    //             document.querySelector('.main-container').innerHTML = productCardTpl(newArrProperty[0]);
-    //         }
-    //         if (e.target.attributes[0].value === 'transport') {
-    //             document.querySelector('.main-container').innerHTML = productCardTpl(newArrTransport[0]);
-    //         }
-    //     }
-    // })
-    // .catch(error => console.log(`error!!!`, error));
        
