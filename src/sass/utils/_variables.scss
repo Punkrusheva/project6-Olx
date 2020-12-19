@@ -6,6 +6,7 @@ $modal-text: #bbbbbb;
 $accent-orange: #ff6b09;
 $accent-grey: #f5f6fb;
 $container-edge-color: #e2e3e5; /*линия на пересечении границ контейнеров*/
+$overlay: rgba(0, 0, 0, 0.7);
 $timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 $mobile-modal-container-width: 290px; /*контейнер модалки*/
@@ -19,3 +20,9 @@ $transition: 500ms cubic-bezier(0.4, 0, 0.2, 1); /*анимация*/
 
 $font-family: 'Montserrat', sans-serif;
 $font-family: 'Roboto', sans-serif;
+
+//Font size
+
+$medium: 500;
+$light: 300;
+$normal: 400;
