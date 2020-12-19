@@ -6,15 +6,10 @@ export const routers = [
         component: fun1,
         meta: { auth: false}
     },
-      {        path:'/category',
-        component: fun7,
-        meta: { auth: false}
-    },
-
     {
         path:'/page1',
         component: fun2,
-        meta: { auth: true}
+        meta: { auth: false}
     },
     {
         path:'/page2',
@@ -29,6 +24,11 @@ export const routers = [
     {
         path:'/search',
         component: fun6,
+        meta: { auth: false}
+    },
+    {
+        path: '/category',
+        component: fun7,
         meta: { auth: false}
     },
     

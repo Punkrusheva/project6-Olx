@@ -1,6 +1,6 @@
-import { getDataSearch, getDataCategory } from '../servis/call'
+import { getDataSearch, getDataCategory } from './call'
 
-let title = document.querySelector('.title');
+let title = document.querySelector('.main-container');
 
 export function fun1 () {
     title.innerHTML = 'Home';

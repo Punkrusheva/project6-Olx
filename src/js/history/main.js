@@ -5,7 +5,7 @@ import { routers } from './router';
 let auth = true;
 let startState = true;
 
-let navbarNav = document.querySelector('.navbar-nav');
+let navbarNav = document.querySelector('.header__inner');
 
 
 function updatePage (e) {
