@@ -33,22 +33,22 @@
 .categories {
   @media screen and (max-width: $before-tablet) {
     overflow: hidden;
-    height: 1670px;
+    height: auto;
   }
   @media screen and (min-width: $tablet) {
     overflow: hidden;
-    height: 1805px;
+    //height: 1805px;
   }
   @media screen and (min-width: $desktop) {
     overflow: hidden;
-    height: 1748px;
+    //height: 1748px;
   }
 }
 
 .one-categories {
   @media screen and (max-width: $before-tablet) {
     overflow: hidden;
-    height: 830px; //1780px;
+    height: 800px; //1780px;
   }
   @media screen and (min-width: $tablet) {
     overflow: hidden;
@@ -87,6 +87,7 @@
   font-style: bold;
   line-height: 1.21;
   margin: 0px;
+  padding-top: 7px;
   min-width: 160px;
   // border: solid 1px rebeccapurple;
 }
@@ -100,9 +101,9 @@
   // margin-top: 10px;
   margin-left: 15px;
   color: $accent-orange;
-
+  background: #e5e5e5;
   min-width: 100px;
-  // border: solid 1px rebeccapurple;
+  border: unset;
 }
 
 .product-card-group {
@@ -199,11 +200,12 @@
   text-align: center;
   letter-spacing: 0.02em;
 
-  padding: 20px;
+  //padding: 20px;
 
   margin-top: 30px;
   margin-bottom: 30px;
   margin-right: 1px;
+  border: unset;
   @media screen and (min-width: $tablet) {
     width: 50px;
     height: 50px;
