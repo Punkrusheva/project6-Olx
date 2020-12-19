@@ -53,11 +53,17 @@ function markOnePage() {
             behavior: 'smooth',
         });
         renderSlaider(result);
-        
+
         return result;
     })
-    .then(response => {
+        .then(response => {
+
+        // var el = document.querySelector('.mark-card');
+        // const matches = document.querySelectorAll('button[data-atribute-btn]');
+        // console.log(matches);
+
         renderCard(response);
+
     });
 
 } 
@@ -99,6 +105,7 @@ function markThreePage(event) {
             behavior: 'smooth',
         });
         renderSlaider(result);
+
 
         return result;
     })
@@ -146,12 +153,18 @@ function translationWordsCategories(arr) {
     })
     return newArr;
 }
+// const sectionTextRef = document.querySelector('.section-text');
+matches.addEventListener('click', markOnlyOneCategory);
+console.log(matches);
+// mainСontainerRef.addEventListener('click', markOnlyOneCategory);
 
-mainСontainerRef.addEventListener('click', markOnlyOneCategory);
 
 function markOnlyOneCategory(e) {
+    console.log(`run!`);
     const curentBtn = e.path[2].ownerDocument.activeElement.attributes[0].value;
     const curentBtnClick = e.srcElement.dataset.atributeBtn;
+    console.log(e);
+
 
     if (curentBtnClick === curentBtn) {
         category.category = `${e.srcElement.dataset.atributeBtn}`;
@@ -160,7 +173,7 @@ function markOnlyOneCategory(e) {
         })
         return;
     }
-    return
+    return;
 }
 
 

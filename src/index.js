@@ -7,7 +7,7 @@ import './js/menu';
 import './js/user-button';
 
 import './js/main-section';
-
+import './js/swiper';
 
 //import './js/carousel';
 
@@ -16,8 +16,8 @@ import './js/modal';
 import './js/createAD/createAdOpenClose';
 import './js/createAD/createAd';
 import './js/createAD/auth-check';
-import './js/editAd';
-import './js/deleteAd';
+// import './js/editAd';            // времено закомитил
+// import './js/deleteAd';          // времено закомитил
 // import './js/apiService';
 // import './js/registration';
 

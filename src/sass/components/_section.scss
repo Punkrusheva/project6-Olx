@@ -52,21 +52,23 @@
   }
   @media screen and (min-width: $tablet) {
     overflow: hidden;
-    height: 450px; //410px
+    height: 410px; //410px
+    margin-bottom: 50px;
   }
   @media screen and (min-width: $desktop) {
     overflow: hidden;
     height: 390px;
+    margin-bottom: 50px;
   }
 }
 
 .categories-title {
   display: flex;
 
-  margin-top: 25px;
-  margin-bottom: 25px;
-  padding-top: 3px;
-  padding-bottom: 2px;
+  // margin-top: 25px;
+  // margin-bottom: 25px;
+  // padding-top: 3px;
+  // padding-bottom: 2px;
   @media screen and (max-width: $before-tablet) {
     min-width: 285px;
   }
