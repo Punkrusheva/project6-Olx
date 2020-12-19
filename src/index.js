@@ -35,6 +35,7 @@ import './js/bad-url';
 // import './js/auth-modal/pnotify';
 // import './js/auth-modal/auth';
 // import './js/test'; 
+import './js/my-favoite';
 
 
 
