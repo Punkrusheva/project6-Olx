@@ -1,9 +1,10 @@
 import axios from 'axios';
+import { editAdModalClose } from './editAd.js';
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
-const deleteAdRef = document.querySelector('[data-modal-delete]');
+const deleteAdBtn = document.querySelector('[data-modal-delete]');
 
-const deleteAd = (callId) => {
+const fetchDeleteAd = (callId) => {
     const token = localStorage.getItem('key');
     
     const headers = {
@@ -13,6 +14,10 @@ const deleteAd = (callId) => {
 
 }
 
-deleteAdRef.addEventListener('submit', deleteAd);
+function deleteAd() {
+    fetchDeleteAd().then(editAdModalClose())
+}
+
+deleteAdBtn.addEventListener('submit', deleteAd);
  
 

@@ -13,7 +13,8 @@ import './js/modal';
 import './js/createAD/createAdOpenClose';
 import './js/createAD/createAd';
 import './js/createAD/auth-check';
-
+import './js/editAd';
+import './js/deleteAd';
 // import './js/apiService';
 // import './js/registration';
 
@@ -31,5 +32,7 @@ import './js/bad-url';
 // import './js/auth-modal/pnotify';
 // import './js/auth-modal/auth';
 // import './js/test'; 
+
+
 
 
