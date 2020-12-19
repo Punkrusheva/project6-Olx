@@ -8,7 +8,7 @@ import './js/user-button';
 
 import './js/main-section';
 import './js/createAd/auth-check'
-// import './js/localStorage';
+
 //import './js/carousel';
 
 import './js/modal';
