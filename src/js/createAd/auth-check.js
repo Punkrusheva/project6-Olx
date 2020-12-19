@@ -2,7 +2,7 @@
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 
 const user = {
- email: 'cat@gmail.com',
+ email: 'kat@gmail.com',
  password: '12345', 
 };
 
@@ -21,8 +21,9 @@ export default async function addregisterUser() {
   const responseJson = await response.json();
   return responseJson
 }
+console.log(user);
 
-  //авторизация
+  // авторизация
   export  async function fetchAuthorisLogin() {
     const options = {
   method: 'POST',
