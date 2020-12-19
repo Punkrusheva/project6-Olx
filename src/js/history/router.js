@@ -9,7 +9,7 @@ export const routers = [
     {
         path:'/page1',
         component: fun2,
-        meta: { auth: true}
+        meta: { auth: false}
     },
     {
         path:'/page2',

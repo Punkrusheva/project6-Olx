@@ -17,3 +17,4 @@ export const getDataSearch = async (query) => {
         console.log(e)
     }
 }
+
