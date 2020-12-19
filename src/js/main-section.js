@@ -45,6 +45,9 @@ class AllCategory {
 const category = new AllCategory();
 
 function markOnePage() {
+   document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="one-page"]`).classList.add('is-active');
     // console.log(document.querySelector('.button-next-pages').textContent === event.path[0].innerText);
     // event.preventDefault();
     category.onePage();
@@ -62,7 +65,7 @@ function markOnePage() {
         renderCard(response);
     });
 
-    document.querySelector(`[data-atribute="one-page"]`).removeEventListener('click', markThreePage);
+    //document.querySelector(`[data-atribute="one-page"]`).removeEventListener('click', markThreePage);
 } 
 
 markOnePage();
@@ -73,7 +76,9 @@ document.querySelector(`[data-atribute="three-page"]`).addEventListener('click',
 
 function markTwoPage(event) {
     event.preventDefault();
-
+    document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="two-page"]`).classList.add('is-active');
     category.twoPage();
 
     category.fetchAllCategory().then(result => {
@@ -89,12 +94,14 @@ function markTwoPage(event) {
         renderCard(response);
     });
 
-    document.querySelector(`[data-atribute="two-page"]`).removeEventListener('click', markTwoPage);
+    //document.querySelector(`[data-atribute="two-page"]`).removeEventListener('click', markTwoPage);
 }
 
 function markThreePage(event) {
     event.preventDefault();
-    
+    document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="three-page"]`).classList.add('is-active');
     category.threePage();
 
     category.fetchAllCategory().then(result => {
@@ -110,7 +117,7 @@ function markThreePage(event) {
         renderCard(response);
     });
 
-    document.querySelector(`[data-atribute="three-page"]`).removeEventListener('click', markThreePage);
+    //document.querySelector(`[data-atribute="three-page"]`).removeEventListener('click', markThreePage);
 }
 
 function renderSlaider(result) {
