@@ -22,7 +22,7 @@ function editAdModalOpen(event) {
   bodyRef.insertAdjacentHTML("afterbegin", editAdModal(id));
 }
 
-function editAdModalClose() {
+ export function editAdModalClose() {
   bodyRef.innerHTML = "";
   //или рендер страницы мой кабинет, нужно импортировать из файла Иры
   
