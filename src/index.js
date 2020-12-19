@@ -24,10 +24,20 @@ import './sass/main.scss';
 // import './js/modal-one-card';
 // import './js/router';
 // import './js/bad-url'; 
+import './js/modal';
+
+import './js/createAD/createAdOpenClose';
+import './js/createAD/createAd';
+import './js/createAD/auth-check';
+import './js/editAd';
+import './js/deleteAd';
+
+//import './js/history/router-my';
+import './js/history/bad-url'; 
 
 // import './js/favorites/addAndRemoveFavorite';
 
-// import './js/modal-one-card';
+//import './js/modal-one-card';
 
 // import './js/auth-modal/authApi';
 // import './js/auth-modal/authLogin';
@@ -46,3 +56,9 @@ import './js/history/category'
 import './js/history/clear'
 import './js/history/product'
 import './js/history/call'
+import './js/auth-modal/authApi';
+import './js/auth-modal/authLogin';
+import './js/auth-modal/authRegistr';
+import './js/auth-modal/pnotify';
+import './js/auth-modal/auth';
+import './js/my-favorite';
