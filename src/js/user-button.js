@@ -7,16 +7,14 @@ export default  openUserButton()
 
   userBtnRef.addEventListener('click', () => {
       const expanded = userBtnRef.getAttribute('aria-expanded') === 'true' || false;
-      const expandedMobile = userMobileBtnRef.getAttribute('aria-expanded') === 'true' || false;
+      
 
 
     userBtnRef.classList.toggle('is-active');
       userBtnRef.setAttribute('aria-expanded', !expanded);
-      userMobileBtnRef.classList.toggle('is-active');
-    userMobileBtnRef.setAttribute('aria-expanded', !expandedMobile);
+     
 
       dropdoxRef.classList.toggle('is-open');
-      dropdoxMobileRef.classList.toggle('is-open');
   });
       
         userMobileBtnRef.addEventListener('click', () => {

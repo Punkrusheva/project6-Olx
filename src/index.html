@@ -9,7 +9,12 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap"
     rel="stylesheet" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <script>
+    new WOW().init();
+  </script>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -77,7 +82,7 @@
               </li>
               <li>
                 <div class="dropdox mobile">
-                  <div class="dropbox-flex-container"><button class="user__button cabinet mobile" open-mobile-cabinet>
+                  <div class="dropbox-flex-container"><button class="user__button cabinet mobile arrow" open-mobile-cabinet>
                     <svg class="icon" width="20" height="20">
                       <use class="" href="./images/sprite.svg#icon-user-profile"></use>
                     </svg>
@@ -157,6 +162,11 @@
         <!-- !!! вставляем сюда, динамически свой код  -->
       </div>
 
+      <div class="pagination-div">
+        <button data-atribute="one-page" class="button-next-pages is-active button-is-hiden">1</button>
+        <button data-atribute="two-page" class="button-next-pages button-is-hiden">2</button>
+        <button data-atribute="three-page" class="button-next-pages button-is-hiden">3</button>
+      </div>
     </section>
 
   </main>
@@ -194,7 +204,7 @@
       <ul class="create-ad-form-list">
         <li class="create-ad-form-item">
           <label class="create-ad-form-label" for="title">Назва товару</label>
-          <input class="create-ad-form-input" type="text" name="title" id="title" placeholder=" " />
+          <input class="create-ad-form-input" type="text" name="title" id="title" />
         </li>
         <li class="create-ad-form-item">
           <ul class="create-ad-photo-list">
@@ -226,7 +236,7 @@
         <li class="create-ad-form-item">
           <label class="create-ad-form-label" for="description">Опис товару</label>
           <textarea class="create-ad-form-input" value='description' type='text' name="description" id="description" cols="10" rows="3"
-            placeholder=" "></textarea>
+            ></textarea>
         </li>
         <li class="create-ad-form-item" class="category-list">
           <label class="create-ad-form-label" for="category">Категория товару</label>
@@ -273,6 +283,8 @@
             <use href="./images/sprite.svg#icon-search_icon"></use>
           </svg>
         </button>
+        <p class="error-text is-hidden wow fadeInDown"></p>
+        
       </form>
     </div>
   </div>
