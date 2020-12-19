@@ -7,8 +7,8 @@ const editAdSaveBtn = document.querySelector('[data-edit-ad-modal-save]');
 const editAdCancelBtn = document.querySelector('[data-edit-ad-modal-close]');
 const bodyRef = document.querySelector('.main-container');
 
-// const testBtn = document.querySelector('.cabinet-exit')
-// testBtn.addEventListener('click', editAdModalOpen)
+const testBtn = document.querySelector('.cabinet-exit')
+testBtn.addEventListener('click', editAdModalOpen)
 
 editAdRef.addEventListener('click', editAdModalOpen);
 editAdSaveBtn.addEventListener('submit', editAdSubmit);
@@ -22,7 +22,7 @@ function editAdModalOpen(event) {
   bodyRef.insertAdjacentHTML("afterbegin", editAdModal(id));
 }
 
-function editAdModalClose() {
+export function editAdModalClose() {
   bodyRef.innerHTML = "";
   //или рендер страницы мой кабинет, нужно импортировать из файла Иры
   
