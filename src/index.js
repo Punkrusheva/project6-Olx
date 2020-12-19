@@ -32,4 +32,11 @@ import './js/bad-url';
 // import './js/auth-modal/auth';
 // import './js/test'; 
 
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './js/history/router'
+import './js/history/main'
+import './js/history/update-page'
+import './js/history/search'
+import './js/history/categoty'
+import './js/history/clear'
+import './js/history/product'

@@ -1,40 +1,40 @@
-var links,
-    updateState,
-    contentEl,
-    navEl;
+// var links,
+//     updateState,
+//     contentEl,
+//     navEl;
 
-contentEl = document.querySelector('.section');
-navEl = document.querySelector('.filter__inner');//('body');
-// console.log(navEl);
+// contentEl = document.querySelector('.section');
+// navEl = document.querySelector('.filter__inner');//('body');
+// // console.log(navEl);
 
-links = {
-  transport: "Развернутый раздел <p> HI!</p> транспорта",
-  work: "Развернутый раздел работа",
-  //filter__button-clear: "Стартовая страница",
-};
-updateState = function (state) {
-  if (!state) return;
-  contentEl.innerHTML = links[state.page];
-};
+// links = {
+//   transport: "Развернутый раздел <p> HI!</p> транспорта",
+//   work: "Развернутый раздел работа",
+//   //filter__button-clear: "Стартовая страница",
+// };
+// updateState = function (state) {
+//   if (!state) return;
+//   contentEl.innerHTML = links[state.page];
+// };
 
-window.addEventListener('popstate', function (e) {
-  updateState(e.state);
-});
+// window.addEventListener('popstate', function (e) {
+//   updateState(e.state);
+// });
 
-navEl.addEventListener('click', function (e) {
-  var state;
-  if (e.target.tagName != 'BUTTON') return;
-  state = { page: e.target.getAttribute('class') };
-  console.log(e.target.getAttribute('class'));
-  history.pushState(state, '', state.page);
-  updateState(state);
-  e.preventDefault();
-});
+// navEl.addEventListener('click', function (e) {
+//   var state;
+//   if (e.target.tagName != 'BUTTON') return;
+//   state = { page: e.target.getAttribute('class') };
+//   console.log(e.target.getAttribute('class'));
+//   history.pushState(state, '', state.page);
+//   updateState(state);
+//   e.preventDefault();
+// });
   
-import {
-  badUrlPage,
+// import {
+//   badUrlPage,
   //homePage
-} from './pages.js';
+// } from './pages.js';
 /*import {
   accountPage,
   badUrlPage,
@@ -105,14 +105,14 @@ export const updatedContent = () => {
   }
   startState = false;
 };*/
-export const updatePage = (query, searchQuery) => {
-  updateHistory(query);
-  if (searchQuery === undefined) {
-    updatedContent();
-    return;
-  }
-  location.hash = searchQuery;
-};
+// export const updatePage = (query, searchQuery) => {
+//   updateHistory(query);
+//   if (searchQuery === undefined) {
+//     updatedContent();
+//     return;
+//   }
+//   location.hash = searchQuery;
+// };
 /*const routers = [
     {
         path:'/',
@@ -152,21 +152,21 @@ function updateHistory(e) {
     if (!router) return
     if (!router.meta.auth || !auth) history.pushState(query, null, query)
 }*/
-function updatedContent() {
-    let router = routers.find( item => item.path === history.state || item.path === location.pathname)
-    if (!router) {
-        fun5();
-        return
-    }
-    if (!router.meta.auth || !auth) {
-        router.component(); 
-    }
-    else if (router.meta.auth && auth && startState) {
-        routers[0].component();
-        history.pushState(routers[0].path, null, routers[0].path) 
-    } 
-    startState = false;
-}
+// function updatedContent() {
+//     let router = routers.find( item => item.path === history.state || item.path === location.pathname)
+//     if (!router) {
+//         fun5();
+//         return
+//     }
+//     if (!router.meta.auth || !auth) {
+//         router.component(); 
+//     }
+//     else if (router.meta.auth && auth && startState) {
+//         routers[0].component();
+//         history.pushState(routers[0].path, null, routers[0].path) 
+//     } 
+//     startState = false;
+// }
 /*window.onpopstate = function(event) {
     updatedContent();
 };
@@ -184,7 +184,7 @@ function fun3 () {
 function fun4 () {
     title.innerHTML = 'Page 3';
 }*/
-function fun5 () {
-  title.innerHTML = 'Not found';
-  badUrlPage();
-}
+// function fun5 () {
+//   title.innerHTML = 'Not found';
+//   badUrlPage();
+// }
