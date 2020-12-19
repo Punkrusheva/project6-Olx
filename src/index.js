@@ -25,7 +25,7 @@ import './js/deleteAd';
 import './js/router';
 import './js/bad-url'; 
 
-// import './js/favorites/favorite';
+import './js/favorites/addAndRemoveFavorite';
 
 // import './js/modal-one-card';
 
