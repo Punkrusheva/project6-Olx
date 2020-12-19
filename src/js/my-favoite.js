@@ -1,6 +1,9 @@
+
 import myFavoriteTpt from '../templates/my-favorite.hbs';
 
+
 const URL = 'https://callboard-backend.herokuapp.com';
+
 async function fetchGetFavorites(){
 const key = localStorage.getItem('key');
 const options = {
