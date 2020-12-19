@@ -24,16 +24,16 @@ import './sass/main.scss';
 // import './js/modal-one-card';
 // import './js/router';
 // import './js/bad-url'; 
-import './js/modal';
+// import './js/modal';
 
-import './js/createAD/createAdOpenClose';
-import './js/createAD/createAd';
-import './js/createAD/auth-check';
-import './js/editAd';
-import './js/deleteAd';
+// import './js/createAD/createAdOpenClose';
+// import './js/createAD/createAd';
+// import './js/createAD/auth-check';
+// import './js/editAd';
+// import './js/deleteAd';
 
 //import './js/history/router-my';
-import './js/history/bad-url'; 
+// import './js/history/bad-url'; 
 
 // import './js/favorites/addAndRemoveFavorite';
 
@@ -51,14 +51,14 @@ import './js/history/bad-url';
 import './js/history/router'
 import './js/history/main'
 import './js/history/update-page'
-import './js/history/search'
+import './js/history/search-product'
 import './js/history/category'
 import './js/history/clear'
 import './js/history/product'
 import './js/history/call'
-import './js/auth-modal/authApi';
-import './js/auth-modal/authLogin';
-import './js/auth-modal/authRegistr';
-import './js/auth-modal/pnotify';
-import './js/auth-modal/auth';
-import './js/my-favorite';
+// import './js/auth-modal/authApi';
+// import './js/auth-modal/authLogin';
+// import './js/auth-modal/authRegistr';
+// import './js/auth-modal/pnotify';
+// import './js/auth-modal/auth';
+// import './js/my-favorite';
