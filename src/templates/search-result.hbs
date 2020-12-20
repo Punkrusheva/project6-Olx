@@ -1,10 +1,12 @@
-{{!-- <ul class="product-card-group"> --}}
+<h2>Результати пошуку:</h2>
+<ul class="product-card-group images">
     {{#each this}}
-    <li class="product-card" data-id={{_id}}>
-        <div class="product-image ex">
+    <li class="product-card">
+        <div class="product-image">
             {{#each imageUrls }}
-            <img class="product-img" src="{{this}}" alt="{{title}}" />
+            <img class="product-img" src="{{ imageUrls }}" alt="{{title}}" data-image=[{{this}}] />
             {{/each }}
+
             <div class="product-overlay">
                 <button class="product-card-icon product-card-icon-favorite">
                     <svg class="icon" width="16" height="16">
@@ -17,20 +19,12 @@
                     </svg>
                 </button>
             </div>
-
         </div>
         <div class="product-content">
             <h3 class="product-name">{{title}}</h3>
-            {{#if isOnSale}}
-            <p class="product-price-initial decorative-line">{{oldPrice}} грн</p>
-            <p class="product-price-sale">{{price}} грн</p>
-            {{/if}}
-
-            {{#unless isOnSale}}
             <p class="product-price">{{price}} грн</p>
-            {{/unless}}
+
         </div>
     </li>
     {{/each}}
-    {{!--
-</ul> --}}
+</ul>

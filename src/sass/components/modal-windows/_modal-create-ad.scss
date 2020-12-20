@@ -174,7 +174,7 @@
   .create-ad-submit {
     height: 50px;
     width: 250px;
-    margin: 0 0 60px;
+    margin: 0 0 0px;
   }
   .close-form {
     position: absolute;
@@ -188,7 +188,7 @@
   .create-ad-submit {
     height: 60px;
     width: 266px;
-    margin: 21px 0 60px 148px;
+    margin: 21px 0 0px 148px;
   }
   .close-form {
     position: absolute;
@@ -202,7 +202,7 @@
   .create-ad-submit {
     height: 60px;
     width: 210px;
-    margin: 21px 0 60px 210px;
+    margin: 21px 0 0px 210px;
   }
   .close-form {
     position: absolute;
@@ -213,6 +213,10 @@
   }
 }
 
+.close-form-icon {
+  height: 24px;
+  width: 24px;
+}
 // #output_image {
 //   max-width: 76px;
 //   max-height: 46px;
