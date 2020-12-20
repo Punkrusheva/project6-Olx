@@ -2,12 +2,9 @@
   background-color: #e5e5e5;
   padding-top: 30px;
   padding-bottom: 30px;
-  // border: solid 1px red;
 }
 
 .main-container {
-  // border: solid 1px blue;
-
   margin-left: auto;
   margin-right: auto;
   max-width: $mobile;
@@ -15,7 +12,6 @@
   padding-top: 0px;
   padding-left: 15px;
   padding-right: 15px;
-  // padding-bottom: 80px;
 
   @media screen and (min-width: $tablet) {
     max-width: $tablet;
@@ -34,26 +30,27 @@
   @media screen and (max-width: $before-tablet) {
     overflow: hidden;
     height: auto;
+    margin-bottom: -30px;
   }
   @media screen and (min-width: $tablet) {
     overflow: hidden;
-    //height: 1805px;
+    margin-bottom: -50px;
   }
   @media screen and (min-width: $desktop) {
     overflow: hidden;
-    //height: 1748px;
   }
 }
 
 .one-categories {
   @media screen and (max-width: $before-tablet) {
     overflow: hidden;
-    height: 800px; //1780px;
+    height: 800px;
+    margin-bottom: 30px;
   }
   @media screen and (min-width: $tablet) {
     overflow: hidden;
-    height: 410px; //410px
-    margin-bottom: 50px;
+    height: 420px;
+    margin-bottom: 54px;
   }
   @media screen and (min-width: $desktop) {
     overflow: hidden;
@@ -65,10 +62,11 @@
 .categories-title {
   display: flex;
 
-  // margin-top: 25px;
-  // margin-bottom: 25px;
-  // padding-top: 3px;
-  // padding-bottom: 2px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-top: 3px;
+  padding-bottom: 2px;
+
   @media screen and (max-width: $before-tablet) {
     min-width: 285px;
   }
@@ -80,8 +78,6 @@
     margin-top: 5px;
     margin-bottom: 5px;
   }
-
-  // border: rebeccapurple 1px solid;
 }
 
 .section-title {
@@ -92,7 +88,6 @@
   margin: 0px;
   padding-top: 7px;
   min-width: 160px;
-  // border: solid 1px rebeccapurple;
 }
 
 .section-text {
@@ -101,7 +96,6 @@
   line-height: 1.21;
 
   margin: 0px;
-  // margin-top: 10px;
   margin-left: 15px;
   color: $accent-orange;
   background: #e5e5e5;
@@ -114,6 +108,7 @@
   .product-card {
     list-style: none;
     width: 290px;
+    margin-bottom: 30px;
   }
 
   padding: 0px;
@@ -155,8 +150,6 @@
   text-align: center;
   letter-spacing: 0.02em;
 
-  //padding: 20px;
-
   margin-top: 30px;
   margin-bottom: 30px;
   margin-right: 1px;
@@ -186,8 +179,8 @@
 
 .icon-add {
   position: fixed;
-  left: 78%;
-  bottom: 30px;
+  right: 17px;
+  bottom: 17px;
   z-index: 1;
   border: none;
 
@@ -275,4 +268,53 @@
 
 // .gallery li {
 //   display: inline-block;
+// }
+
+// .product-card__my {
+//   list-style: none;
+
+//   margin: 15px;
+//   background: #ffffff;
+//   filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
+
+//   // width: 290px;
+//   // height: 350px;
+
+//   @media screen and (min-width: $tablet) {
+//     // width: 346px;
+//     // height: 350px;
+//     width: calc((100% - 4 * 15px) / 2);
+//     margin: 15px;
+//   }
+
+//   @media screen and (min-width: $desktop) {
+//     // width: 346px;
+//     // height: 350px;
+//     width: calc((100% - 8 * 15px) / 4);
+//   }
+// }
+// .product-card__my:hover,
+// .product-card__my:focus {
+//   background-color: rgba(0, 0, 0, 0.5);
+// }
+
+// .product-image__my {
+//   position: relative;
+//   display: block;
+//   pointer-events: auto;
+//   width: 290px;
+//   height: 275px;
+//   // width: 100%;
+//   object-position: center center;
+//   // object-fit: none;
+
+//   @media screen and (min-width: $tablet) {
+//     width: 346px;
+//     height: 275px;
+//   }
+
+//   @media screen and (min-width: $desktop) {
+//     width: 295px;
+//     height: 275px;
+//   }
 // }
