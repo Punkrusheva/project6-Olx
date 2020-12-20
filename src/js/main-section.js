@@ -1,11 +1,23 @@
 // import { template } from 'handlebars';
 import productCardTpl from '../templates/product-cards.hbs';
-import productCardSaleTpl from '../templates/product-cart-sale.hbs';
 import oneSliderTpl from '../templates/one-slider.hbs';
+import allCardsOneCategory from '../templates/all-cards-one-category.hbs';
+//import Swiper from 'swiper/bundle';
+//import onSlider from './swiper';
+
+// // import { onSlider } from '../js/swiper.js';
+// import slider from '../js/swiper';
+
+const mySwiper = new Swiper('.swiper-container', {
+    speed: 400,
+    spaceBetween: 100,
+});
+
+// console.dir(mySwiper);
+
+// mySwiper.slideNext();
 
 
-// import CategoriesApi from './categories-api';
-// const catApi = new CategoriesApi();
 
 const mainСontainerRef = document.querySelector('.main-container');
 const BASE_URL = 'https://callboard-backend.herokuapp.com';
@@ -14,7 +26,7 @@ const paginationGroup = document.querySelector('.pagination-div');
 class AllCategory {
     constructor() {
         this.page = 1;
-        this.category = 'work';
+        this.category = '';
     }
 
     async fetchAllCategory() {
@@ -48,8 +60,7 @@ function markOnePage() {
    document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="one-page"]`).classList.add('is-active');
-    // console.log(document.querySelector('.button-next-pages').textContent === event.path[0].innerText);
-    // event.preventDefault();
+
     category.onePage();
 
     category.fetchAllCategory().then(result => {
@@ -58,20 +69,21 @@ function markOnePage() {
             behavior: 'smooth',
         });
         renderSlaider(result);
-        
-        return result;
-    })
-    .then(response => {
-        renderCard(response);
+        renderCard(result);
     });
 
-    //document.querySelector(`[data-atribute="one-page"]`).removeEventListener('click', markThreePage);
+    // onSwiper();
+   document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="one-page"]`).classList.add('is-active');
+
 } 
 
 markOnePage();
 document.querySelector(`[data-atribute="one-page"]`).addEventListener('click', markOnePage);
 document.querySelector(`[data-atribute="two-page"]`).addEventListener('click', markTwoPage);
 document.querySelector(`[data-atribute="three-page"]`).addEventListener('click', markThreePage);
+
 
 
 function markTwoPage(event) {
@@ -87,14 +99,13 @@ function markTwoPage(event) {
             behavior: 'smooth',
         });
         renderSlaider(result);
-        
-        return result;
-    })
-    .then(response => {
-        renderCard(response);
+        renderCard(result);
     });
 
-    //document.querySelector(`[data-atribute="two-page"]`).removeEventListener('click', markTwoPage);
+    document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="two-page"]`).classList.add('is-active');
+
 }
 
 function markThreePage(event) {
@@ -110,14 +121,13 @@ function markThreePage(event) {
             behavior: 'smooth',
         });
         renderSlaider(result);
-
-        return result;
-    })
-    .then(response => {
-        renderCard(response);
+        renderCard(result);
     });
 
-    //document.querySelector(`[data-atribute="three-page"]`).removeEventListener('click', markThreePage);
+    document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="three-page"]`).classList.add('is-active'); 
+
 }
 
 function renderSlaider(result) {
@@ -162,41 +172,57 @@ function translationWordsCategories(arr) {
 mainСontainerRef.addEventListener('click', markOnlyOneCategory);
 
 function markOnlyOneCategory(e) {
-    console.log(`run markOnlyOneCategory `, e.srcElement.dataset.atributeBtn);
 
-    // if (e.srcElement.dataset.atributeBtn === 'sales') {
-    //     category.onWork().then(res => {
-    //         mainСontainerRef.innerHTML = productCardTpl(res);
-    //         console.log(res);
-    //     })
-    //     return;
-    // }
-    if (e.srcElement.dataset.atributeBtn === 'sales') {
-        category.category = `${e.srcElement.dataset.atributeBtn}`;
-        category.onWork().then(res => {
-            mainСontainerRef.innerHTML = productCardSaleTpl(res);
-            console.log(res);
-        })
-        return;
-    }
-    if (e.srcElement.dataset.atributeBtn === 'recreationAndSport') {
+    paginationGroup.classList.add('display-none');
+
+    const curentBtn = e.srcElement.attributes[0].nodeValue;        
+    if (curentBtn === 'watch-all') {
 
         category.category = `${e.srcElement.dataset.atributeBtn}`;
         category.onWork().then(res => {
-            mainСontainerRef.innerHTML = productCardTpl(res);
-            console.log(res);
-        })
-        return;
-    }
-    if (e.srcElement.dataset.atributeBtn === 'free') {
-        category.category = `${e.srcElement.dataset.atributeBtn}`;
-        category.onWork().then(res => {
-            mainСontainerRef.innerHTML = productCardTpl(res);
-            console.log(res);
-        })
-        return;
-    }
+            // console.log(res);
 
+            // for (const key in res) {
+            //     if (Object.hasOwnProperty.call(res, key)) {
+            //         const element = object[key];
+            //         console.log(element);
+            //     }
+            // }
+            mainСontainerRef.innerHTML = allCardsOneCategory(res);
+            if (res.length > 16) {
+                document.querySelector('.pagination-div-one-category').classList.remove('display-none');
+                // console.dir(res.length);
+            }
+            
+        })
+    } else {
+        return;
+    }
 }
 
-       
+// mainСontainerRef.addEventListener('click', nextSwiperPage);
+
+// function nextSwiperPage(e) {
+
+//     const curentBtn = e.srcElement.attributes[0].nodeValue;        
+
+//     if (curentBtn === './images/sprite.svg#icon-elem-right') {
+//         console.log(`curentBtn run!`);
+//         // slider.onSlider();
+//         onSwiper();
+//     } else {
+//         return;
+//     }
+// }
+
+// const mySwiper = new Swiper('.swiper-container', {
+//       navigation: {
+//         nextEl: '.swiper-button-next',
+//         prevEl: '.swiper-button-prev',
+//       },
+// });
+
+// const mySwiper = document.querySelector('.swiper-container').swiper;
+
+// // Now you can use all slider methods like
+// mySwiper.slideNext();

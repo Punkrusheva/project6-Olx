@@ -1,5 +1,5 @@
 
-import myFavoriteTpt from '../templates/my-favorite.hbs';
+import myAdsOwn from '../templates/cabinet.hbs';
 
 
 const URL = 'https://callboard-backend.herokuapp.com';
@@ -13,7 +13,7 @@ const options = {
     Authorization: `Bearer ${key}`,
   }, 
 };
-const response = await fetch(`${URL}/call/favourites`,options);
+const response = await fetch(`${URL}/call/own`,options);
     const responseJson = await response.json();
     return responseJson;
 }

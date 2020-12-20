@@ -113,9 +113,16 @@
 
 .error-text {
   position: absolute;
+  opacity: 1;
   bottom: -24px;
   left: 15px;
   color: rgba(221, 218, 10, 0.959);
+  transition: bottom 100ms linear;
+
+  &.is-hidden {
+    opacity: 0;
+    bottom: -10px;
+  }
 }
 
 .error-text::before {
@@ -124,11 +131,6 @@
   height: 10px;
   margin-right: 5px;
   color: rgba(221, 218, 10, 0.959);
-  opacity: 1;
-
-  &.is-hidden {
-    opacity: 0;
-  }
 }
 
 //   .modal-text {
