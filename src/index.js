@@ -1,9 +1,10 @@
 import './sass/main.scss';
 //import './js/cabinet';
+
 import './js/search-modal'
 import './js/search';
-import './js/menu'
-import './js/user-button'
+import './js/menu';
+import './js/user-button';
 
 import './js/auth-modal/authApi';
 import './js/auth-modal/authLogin';
@@ -13,31 +14,19 @@ import './js/auth-modal/auth';
 
 
 import './js/main-section';
-//import './js/carousel';
 
 import './js/modal';
 
-// import './js/create-ad-open-close';
-// import './js/create-ad';
+import './js/createAD/createAdOpenClose';
+import './js/createAD/createAd';
+import './js/createAD/auth-check';
+// import './js/editAd';
+// import './js/deleteAd';
 
-// import './js/apiService';
+//import './js/history/router-my';
+import './js/history/bad-url'; 
 
-// import './js/registration';
-// import './js/auth-check';
+import './js/favorites/addAndRemoveFavorite';
 
-import './js/router';
-
-// import './js/favorite';
-import './js/search';
-
-
-// import './js/bad-url'; 
-// import './js/modal-one-card';
-import './js/router';
-import './js/bad-url'; 
-
-import './js/favorites/favorite';
-
-// import './js/test'; 
-import './js/modal-one-card';
+//import './js/modal-one-card';
 

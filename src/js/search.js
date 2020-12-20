@@ -1,62 +1,67 @@
-import productCardTpl from '../templates/product-cards.hbs'
-const { error, alert } = require('@pnotify/core')
-import '@pnotify/core/dist/PNotify.css'
-import '@pnotify/core/dist/BrightTheme.css';
-import 'basiclightbox/dist/basicLightbox.min.css'
+//import productCardTpl from '../templates/product-cards.hbs'
+import productCardTpl from '../templates/search-result.hbs'
 
 export default SearchProducts()
 
 function SearchProducts() {
-const BASE_URL = 'https://callboard-backend.herokuapp.com'
+    const BASE_URL = 'https://callboard-backend.herokuapp.com'
 
- class FindProduct {
-    constructor() {
-        this.searchQuery = '';
+    class FindProduct {
+        constructor() {
+            this.searchQuery = '';
+        }
+
+        async fetchProducts() {
+            const url = `${BASE_URL}/call/find?&search=${this.searchQuery}`
+            const fetches = await fetch(url)
+            const json = await fetches.json()
+
+            if (json.length === 0) {
+                throw 'Ничего не найдено'
+            }
+            return json;
+        }
+
+        get query() {
+            return this.searchQuery;
+        }
+        set query(newSearchQuery) {
+            this.searchQuery = newSearchQuery
+        }
     }
 
-   async fetchProducts() {
-       const url = `${BASE_URL}/call/find?&search=${this.searchQuery}`
-       const fetches = await fetch(url)
-       const json = await fetches.json()  
-       if (json.length === 0) {
-         throw 'Ничего не найдено'
-       }
-       return json;
-    }
+    const searchForm = document.querySelector('[data-search-form]')
+    const searchContainer = document.querySelector('.main-container')
+    const modalSearch = document.querySelector('[data-search-modal]')
+    const input = document.querySelector('.search__input')
+    const error1 = document.querySelector('.error-text')
+    
+    const products = new FindProduct()
 
-    get query() {
-        return this.searchQuery;
-    }
-    set query(newSearchQuery) {
-        this.searchQuery = newSearchQuery
-    }
-}
-
-const searchForm = document.querySelector('[data-search-form]')
-const searchContainer = document.querySelector('.main-container')
-const modalSearch = document.querySelector('[data-search-modal]')
-const products = new FindProduct()
-
-searchForm.addEventListener('submit', onSearch);
-
-function onSearch(e) {
-    e.preventDefault();
-    products.query = e.currentTarget.elements.query.value.trim()
-
-    if (products.query === '') {
-        return alert({
-              text: "Введите что-нибуть!",
-              type: 'info'
-        })
+    searchForm.addEventListener('submit', onSearch);
+    input.addEventListener('focus', onFocusInput);
+    
+    function onFocusInput() {
+        error1.textContent = '';
+        error1.classList.add('is-hidden')
     }
     
-    fetchProductCard()
 
+    function onSearch(e) {
+        e.preventDefault();
+        products.query = e.currentTarget.elements.query.value.trim()
+
+        if (products.query === '') {
+            error1.textContent = 'Введите что-нибуть!'
+            error1.classList.remove('is-hidden')
+            return
+        }
+        fetchProductCard()
     }
 
     function appendCardMarkup(card) {
         searchContainer.innerHTML = `${productCardTpl(card)}`
-}
+    }
 
     async function fetchProductCard() {
         try {
@@ -64,22 +69,20 @@ function onSearch(e) {
             console.log(product)
             appendCardMarkup(product)
             modalSearch.classList.add("is-hidden")
-        } catch {
-         errors(error)
+        } catch (error) {
+            errors(error)
         }
     }
     
     function errors(error) {
-         if (error === 'Ничего не найдено') {
-      return  alert({
-            text: 'К сожалению по этому запросу ничего не найдено',
-            type: 'info'
-        })
+        if (error === 'Ничего не найдено') {
+            error1.textContent = 'По этому запросу ничего не найдено.'
+            error1.classList.remove('is-hidden')
+        } else {
+            error1.textContent = 'Не удалось загрузить товар'
+            error1.classList.remove('is-hidden')
+        }
     }
-      return error({
-             text: "Ошибка! Не удалось загрузить изображения.",
-             type: 'info' 
-          })
 }
-}
+
 
