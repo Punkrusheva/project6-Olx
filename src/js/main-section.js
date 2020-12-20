@@ -2,8 +2,9 @@
 import productCardTpl from '../templates/product-cards.hbs';
 import oneSliderTpl from '../templates/one-slider.hbs';
 import allCardsOneCategory from '../templates/all-cards-one-category.hbs';
-import Swiper from 'swiper/bundle';
-import onSlider from './swiper';
+//import Swiper from 'swiper/bundle';
+//import onSlider from './swiper';
+
 // // import { onSlider } from '../js/swiper.js';
 // import slider from '../js/swiper';
 
