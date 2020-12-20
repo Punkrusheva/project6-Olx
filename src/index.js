@@ -21,7 +21,7 @@ import './js/createAD/auth-check';
 
 // import './js/favorites/addAndRemoveFavorite';
 
-//import './js/modal-one-card';
+import './js/modal-one-card';
 
 import './js/auth-modal/authApi';
 import './js/auth-modal/authLogin';
