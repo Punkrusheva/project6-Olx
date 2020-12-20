@@ -1,41 +1,32 @@
-//import favoriteCardTpl from '../../templates/favorite-cards.hbs';
+import favoriteCardTpl from '../../templates/favorite-cards.hbs';
 import axios from 'axios';
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 const refs = {
     addFavoriteBtn: document.querySelector('.product-card-icon-favorite'),
     removeFavoriteBtn: document.querySelector('.product-card-icon-favorite-user')
 }
-refs.addFavoriteBtn.addEventListener('click', addFavoriteCard);
-refs.removeFavoriteBtn.addEventListener('click', removeFavoriteCard);
 
+//Добавление в избранное POST/call/favourite/{callId}
+function onAddToFavoriteListener(){
+    refs.addFavoriteBtn.addEventListener('click', addFavoriteCard);
+}
 
-function removeFavoriteCard(e) { 
+function addFavoriteCard(e) { 
     e.preventDefault();
-    removeFromFavorites()
-    .then(renderRemoveFavoriteCard())
+    const body = {};
+    addToFavorites(body)
+    .then(renderAddFavoriteCard())
     .catch(error => console.log('error', error));
 }
-//Добавление в избранное POST/call/favourite/{callId}
+
 const addToFavorites = (newFavorite) => { 
     const token = localStorage.getItem('key');
     const { title, imageUrls, description, category, price, oldPrice, isOnSale, userId, _id } = newFavorite;
-    return axios.post(`${BASE_URL}/call/favourite/{callId}`, {
-        headers: {
-            authorization: `Bearer ${token}`,
-        },
-        body: {title, imageUrls, description, category, price, oldPrice, isOnSale, userId, _id},
-    });
-}
-//Удаление из избранного DELETE/call/favourite/{callId}
-const removeFromFavorites = (Favorite) => {
-    const token = localStorage.getItem('key');
-    const { title, imageUrls, description, category, price, oldPrice, isOnSale, userId, _id } = Favorite;
-    return axios.delete(`${BASE_URL}call/favourite/{callId}`, {
-        headers: {
-            authorization: `Bearer ${token}`,
-        },
-        body: {title, imageUrls, description, category, price, oldPrice, isOnSale, userId, _id},
-    });
+    const body = { title, imageUrls, description, category, price, oldPrice, isOnSale, userId, _id };
+    const headers = {
+         authorization: `Bearer ${token}`
+    }
+    return axios.post(`${BASE_URL}/call/favourite/${_id}`, body, { headers });
 }
 
 function renderAddFavoriteCard(){
@@ -43,15 +34,28 @@ function renderAddFavoriteCard(){
     //refs.ELEMENT.innerHTML = файл hbs
 }
 
+//Удаление из избранного DELETE/call/favourite/{callId}
+function onRemoveFromFavoriteListener(){
+refs.removeFavoriteBtn.addEventListener('click', removeFavoriteCard);
+}
 
+function removeFavoriteCard(e) { 
+    e.preventDefault();
+    removeFromFavorites()
+    .then(renderRemoveFavoriteCard())
+    .catch(error => console.log('error', error));
+}
+
+const removeFromFavorites = (Favorite) => {
+    const token = localStorage.getItem('key');
+    const { title, imageUrls, description, category, price, oldPrice, isOnSale, userId, _id } = Favorite;
+    const body = { title, imageUrls, description, category, price, oldPrice, isOnSale, userId, _id };
+    const headers = {
+         authorization: `Bearer ${token}`
+    }
+    return axios.delete(`${BASE_URL}call/favourite/${_id}`, body, {headers});
+}
 
 function renderRemoveFavoriteCard(){
  //refs.ELEMENT.remove()
-}
-function addFavoriteCard(e) { 
-    e.preventDefault();
-    const body = {};
-    addToFavorites(body)
-    .then(renderAddFavoriteCard())
-    .catch(error => console.log('error', error));
 }
