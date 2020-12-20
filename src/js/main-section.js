@@ -4,7 +4,6 @@ import oneSliderTpl from '../templates/one-slider.hbs';
 import allCardsOneCategory from '../templates/all-cards-one-category.hbs';
 //import Swiper from 'swiper/bundle';
 //import onSlider from './swiper';
-
 // // import { onSlider } from '../js/swiper.js';
 // import slider from '../js/swiper';
 
@@ -16,6 +15,11 @@ const mySwiper = new Swiper('.swiper-container', {
 // console.dir(mySwiper);
 
 // mySwiper.slideNext();
+export const renderHomePage = function () {
+    markOnePage();
+    //markTwoPage();
+    //markThreePage();
+};
 
 
 
@@ -87,7 +91,7 @@ document.querySelector(`[data-atribute="three-page"]`).addEventListener('click',
 
 
 function markTwoPage(event) {
-    event.preventDefault();
+    //event.preventDefault();
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="two-page"]`).classList.add('is-active');
@@ -109,7 +113,7 @@ function markTwoPage(event) {
 }
 
 function markThreePage(event) {
-    event.preventDefault();
+    //event.preventDefault();
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="three-page"]`).classList.add('is-active');
