@@ -2,20 +2,6 @@
 import productCardTpl from '../templates/product-cards.hbs';
 import oneSliderTpl from '../templates/one-slider.hbs';
 import allCardsOneCategory from '../templates/all-cards-one-category.hbs';
-import Swiper from 'swiper/bundle';
-import onSlider from './swiper';
-// // import { onSlider } from '../js/swiper.js';
-// import slider from '../js/swiper';
-
-const mySwiper = new Swiper('.swiper-container', {
-    speed: 400,
-    spaceBetween: 100,
-});
-
-// console.dir(mySwiper);
-
-// mySwiper.slideNext();
-
 
 
 const mainСontainerRef = document.querySelector('.main-container');
@@ -174,24 +160,44 @@ function markOnlyOneCategory(e) {
 
     paginationGroup.classList.add('display-none');
 
-    const curentBtn = e.srcElement.attributes[0].nodeValue;        
+    const curentBtn = e.srcElement.attributes[0].nodeValue;
+    console.log(curentBtn);
     if (curentBtn === 'watch-all') {
 
         category.category = `${e.srcElement.dataset.atributeBtn}`;
         category.onWork().then(res => {
-            // console.log(res);
+            console.log(res);
+            mainСontainerRef.innerHTML = allCardsOneCategory(res);
+            // console.log(e);
+
+            if (res.length > 16) {
+                document.querySelector('.pagination-div-one-category').classList.remove('display-none');
+            }
 
             // for (const key in res) {
-            //     if (Object.hasOwnProperty.call(res, key)) {
+            //     console.log('key', key);
+            //     console.log('res[key]', res[key]);
+            //     const arrPageOne = [];
+            //     if (key) {
             //         const element = object[key];
             //         console.log(element);
             //     }
+            //     if (key < 16) {
+            //         arrPageOne.push(res[key])
+                    
+            //     } else {
+            //        return 
+            //     }
+            //     console.log(arrPageOne);
             // }
-            mainСontainerRef.innerHTML = allCardsOneCategory(res);
-            if (res.length > 16) {
-                document.querySelector('.pagination-div-one-category').classList.remove('display-none');
-                // console.dir(res.length);
-            }
+
+            // for (const iterator of res) {
+            //     // if (condition) {
+            //     // }
+            //     console.log(`iterator`, iterator);
+            // }
+
+           
             
         })
     } else {
@@ -199,29 +205,3 @@ function markOnlyOneCategory(e) {
     }
 }
 
-// mainСontainerRef.addEventListener('click', nextSwiperPage);
-
-// function nextSwiperPage(e) {
-
-//     const curentBtn = e.srcElement.attributes[0].nodeValue;        
-
-//     if (curentBtn === './images/sprite.svg#icon-elem-right') {
-//         console.log(`curentBtn run!`);
-//         // slider.onSlider();
-//         onSwiper();
-//     } else {
-//         return;
-//     }
-// }
-
-// const mySwiper = new Swiper('.swiper-container', {
-//       navigation: {
-//         nextEl: '.swiper-button-next',
-//         prevEl: '.swiper-button-prev',
-//       },
-// });
-
-// const mySwiper = document.querySelector('.swiper-container').swiper;
-
-// // Now you can use all slider methods like
-// mySwiper.slideNext();
