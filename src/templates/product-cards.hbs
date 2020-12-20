@@ -1,7 +1,9 @@
 {{!-- <ul class="product-card-group"> --}}
     {{#each this}}
-    <li class="product-card" data-id={{_id}}>
-        <div class="product-image ex">
+    <li class="product-card" data-id={{_id}} data-category=“{{category}}” data-description=“{{description}}”
+        data-phone=“{{phone}}” data-userID=“{{userId}}” data-title=“{{title}}” data-images=“{{imageUrls}}”
+        data-price=“{{price}}”>
+        <div class="product-image">
             {{#each imageUrls }}
             <img class="product-img" src="{{this}}" alt="{{title}}" />
             {{/each }}
@@ -17,7 +19,6 @@
                     </svg>
                 </button>
             </div>
-
         </div>
         <div class="product-content">
             <h3 class="product-name">{{title}}</h3>

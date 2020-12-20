@@ -1,12 +1,13 @@
-import { fun1, fun2, fun3, fun4, fun6, fun7, fun8 } from './update-page' 
-
+import { homePage, fun2, fun3, fun4, fun6, fun7, fun8 } from './update-page' 
+//console.log('Router', homePage);
 export const routers = [
     {
         path:'/',
-        component: fun1,
+        component: homePage,
         meta: { auth: false}
     },
-      {        path:'/category',
+    {
+        path: '/category',
         component: fun7,
         meta: { auth: false}
     },
@@ -37,4 +38,4 @@ export const routers = [
         component: fun8,
         meta: { auth: false}
     }
-     ];
+];

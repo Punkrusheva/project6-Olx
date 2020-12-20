@@ -1,11 +1,11 @@
-
-import { fun5 } from './update-page' 
+import { badURL } from './update-page' 
 import { routers } from './router';
+//console.log('Main', badURL);
 
 let auth = true;
 let startState = true;
 
-let navbarNav = document.querySelector('.navbar-nav');
+let filter = document.querySelector('.filter__inner');
 
 
 function updatePage (e) {
@@ -34,7 +34,7 @@ let state = null;
 export const updatedContent = () => {
     let router = routers.find( item => item.path === history.state || item.path === location.pathname)
     if (!router) {
-        fun5();
+        badURL();
         return
     }
     if (!router.meta.auth || !auth) {
@@ -51,5 +51,5 @@ export const updateState = (payload) => {
     history.pushState(payload, null, payload) 
 } 
 
-navbarNav.addEventListener('click', updatePage);
+filter.addEventListener('click', updatePage);
 window.addEventListener('load', updatedContent());
