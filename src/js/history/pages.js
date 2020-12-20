@@ -1,5 +1,5 @@
 import { renderBadUrl } from './bad-url';
-import { updatePage } from './router';
+import { updatePage } from '../router-my';
 /*import {
   ads,
   categories,

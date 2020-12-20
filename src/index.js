@@ -7,9 +7,9 @@ import './js/menu';
 import './js/user-button';
 
 import './js/main-section';
-
-
+// import './js/swiper';
 //import './js/carousel';
+
 
 import './js/modal';
 
@@ -18,25 +18,17 @@ import './js/createAD/createAd';
 import './js/createAD/auth-check';
 // import './js/editAd';
 // import './js/deleteAd';
-// import './js/apiService';
-// import './js/registration';
 
-// import './js/modal-one-card';
-import './js/router';
-import './js/bad-url'; 
+//import './js/history/router-my';
+import './js/history/bad-url'; 
 
-// import './js/favorites/favorite';
+// import './js/favorites/addAndRemoveFavorite';
 
-// import './js/modal-one-card';
+//import './js/modal-one-card';
 
 import './js/auth-modal/authApi';
 import './js/auth-modal/authLogin';
 import './js/auth-modal/authRegistr';
 import './js/auth-modal/pnotify';
 import './js/auth-modal/auth';
-import './js/test'; 
-import './js/my-favoite';
-
-
-
-
+// import './js/my-favorite';
