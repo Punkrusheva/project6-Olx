@@ -7,7 +7,7 @@ const editAdSaveBtn = document.querySelector('[data-edit-ad-modal-save]');
 const editAdCancelBtn = document.querySelector('[data-edit-ad-modal-close]');
 const bodyRef = document.querySelector('.main-container');
 
-const testBtn = document.querySelector('.cabinet-exit')
+const testBtn = document.querySelector('.')
 testBtn.addEventListener('click', editAdModalOpen)
 
 editAdRef.addEventListener('click', editAdModalOpen);
