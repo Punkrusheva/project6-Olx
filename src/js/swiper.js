@@ -34,4 +34,33 @@ export default function onSlider() {
   });
 }
 
+
+{/* <script>
+  const swiper = new Swiper('.swiper-container', {
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    slidesPerView: 2,
+    direction: 'vertical',
+    spaceBetween: 20,
+    simulateTouch: false,
+    touchRatio: 0,
+    breakpoints: {
+      // when window width is >= 740px
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+        direction: 'horizontal',
+      },
+      1280: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        direction: 'horizontal',
+      },
+    },
+
+  });
+</script> */}
+
 // onSlider();

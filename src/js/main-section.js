@@ -68,47 +68,7 @@ function markOnePage() {
             behavior: 'smooth',
         });
         renderSlaider(result);
-
-        return result;
-    })
-    .then(response => {
-        renderCard(response);
-        // console.log(new Swiper);
-        
-        function onSwiper() { 
-    const swiperContainerRef = document.querySelectorAll('.swiper-container');
-
-    swiperContainerRef.forEach((elem) => {
-        // console.dir(elem);
-        new Swiper(elem, {
-            navigation: {
-                nextEl: elem.previousSibling.nextElementSibling.lastElementChild,
-                prevEl: elem.previousSibling.nextElementSibling.firstElementChild,
-            },
-            slidesPerView: 2,
-            direction: 'vertical',
-            spaceBetween: 20,
-            simulateTouch: false,
-            touchRatio: 0,
-
-            breakpoints: {
-                // when window width is >= 740px
-                768: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-                direction: 'horizontal',
-                },
-                1280: {
-                slidesPerView: 4,
-                spaceBetween: 20,
-                direction: 'horizontal',
-                },
-            },
-        });
-    })
-        }
-         onSwiper()
-        
+        renderCard(result);
     });
 
     // onSwiper();
@@ -138,11 +98,7 @@ function markTwoPage(event) {
             behavior: 'smooth',
         });
         renderSlaider(result);
-        
-        return result;
-    })
-    .then(response => {
-        renderCard(response);
+        renderCard(result);
     });
 
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
@@ -164,13 +120,9 @@ function markThreePage(event) {
             behavior: 'smooth',
         });
         renderSlaider(result);
-
-
-        return result;
-    })
-    .then(response => {
-        renderCard(response);
+        renderCard(result);
     });
+
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="three-page"]`).classList.add('is-active'); 
@@ -220,12 +172,27 @@ mainСontainerRef.addEventListener('click', markOnlyOneCategory);
 
 function markOnlyOneCategory(e) {
 
+    paginationGroup.classList.add('display-none');
+
     const curentBtn = e.srcElement.attributes[0].nodeValue;        
     if (curentBtn === 'watch-all') {
 
         category.category = `${e.srcElement.dataset.atributeBtn}`;
         category.onWork().then(res => {
+            console.log(res);
+
+            for (const key in res) {
+                if (Object.hasOwnProperty.call(res, key)) {
+                    const element = object[key];
+                    console.log(element);
+                }
+            }
             mainСontainerRef.innerHTML = allCardsOneCategory(res);
+            if (res.length > 16) {
+                document.querySelector('.pagination-div-one-category').classList.remove('display-none');
+                console.dir(res.length);
+            }
+            
         })
     } else {
         return;
