@@ -20,6 +20,7 @@ ul {
   fill: Solid #000000;
 }
 .product-name {
+  width: 100%;
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
@@ -27,8 +28,10 @@ ul {
   line-height: 14px;
   letter-spacing: 0.07em;
   color: #000000;
+  margin: 0;
 }
 .product-price-sale {
+  width: auto;
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -36,11 +39,12 @@ ul {
   line-height: 16px;
   letter-spacing: 0.04em;
   color: #ff6b09;
+  margin: 0;
 }
 .product-price-initial {
   padding-left: 4px;
   padding-right: 4px;
-
+  width: auto;
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -49,6 +53,7 @@ ul {
   letter-spacing: 0.04em;
 
   color: #bbbbbb;
+  margin: 0;
 }
 .product-content-price {
   display: flex;
@@ -119,7 +124,8 @@ ul {
 }
 
 .product-content {
-  height: 75px;
+  display: flex;
+  flex-wrap: wrap;
   margin: 20px 0px 20px 20px;
 }
 .product-image {

@@ -24,7 +24,6 @@ export function fun4 () {
 
 export function badURL () {
     renderBadUrl();
-    //console.log("Update-page", renderBadUrl());
 }
 
 export async function  fun6 () {

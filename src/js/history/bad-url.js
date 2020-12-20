@@ -12,4 +12,3 @@ export const renderBadUrl = function () {
   document.querySelector('.section').innerHTML = '';
   return document.querySelector('.section').append(wrapper);
 };
-//console.log(renderBadUrl);
