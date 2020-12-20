@@ -1,5 +1,5 @@
-import productCardTpl from '../templates/product-cards.hbs'
-
+//import productCardTpl from '../templates/product-cards.hbs'
+import productCardTpl from '../templates/search-result.hbs'
 
 export default SearchProducts()
 

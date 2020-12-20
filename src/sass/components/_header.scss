@@ -253,7 +253,9 @@
     pointer-events: auto;
   }
 }
-
+.icon-add-svg {
+  fill: #fff;
+}
 .mobile__menu-container {
   @media screen and (max-width: 1279px) {
     position: absolute;
