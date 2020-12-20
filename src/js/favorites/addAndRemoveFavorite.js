@@ -1,4 +1,4 @@
-//import favoriteCardTpl from '../../templates/favorite-cards.hbs';
+import favoriteCardTpl from '../../templates/favorite-cards.hbs';
 import axios from 'axios';
 const BASE_URL = 'https://callboard-backend.herokuapp.com/';
 const refs = {
