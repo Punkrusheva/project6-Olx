@@ -8,8 +8,9 @@ let startState = true;
 let filter = document.querySelector('.filter__inner');
 
 
-function updatePage (e) {
-    if (e.target.tagName !== "A") return
+function updatePage(e) {
+    console.log('клик!',e.target.tagName);
+    if (e.target.tagName !== "BUTTON") return
     e.preventDefault();
     refreshHistoryOnClick(e);
     updatedContent();
@@ -17,12 +18,12 @@ function updatePage (e) {
 
 function refreshHistoryOnClick(e) {
     const query = e.target.getAttribute('href');
+    console.log(query);
     updateHistory(query) 
 }
 
 const updateHistory = (query) => {
     let router = routers.find( item => item.path === query);
-    console.log(router);
     if (!router) return
     if (!router.meta.auth || !auth) updateState(query)
 }
@@ -48,7 +49,7 @@ export const updatedContent = () => {
 }
 
 export const updateState = (payload) => {
-    history.pushState(payload, null, payload) 
+    history.pushState(payload, null, payload);
 } 
 
 filter.addEventListener('click', updatePage);
