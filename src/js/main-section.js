@@ -179,18 +179,18 @@ function markOnlyOneCategory(e) {
 
         category.category = `${e.srcElement.dataset.atributeBtn}`;
         category.onWork().then(res => {
-            console.log(res);
+            // console.log(res);
 
-            for (const key in res) {
-                if (Object.hasOwnProperty.call(res, key)) {
-                    const element = object[key];
-                    console.log(element);
-                }
-            }
+            // for (const key in res) {
+            //     if (Object.hasOwnProperty.call(res, key)) {
+            //         const element = object[key];
+            //         console.log(element);
+            //     }
+            // }
             mainСontainerRef.innerHTML = allCardsOneCategory(res);
             if (res.length > 16) {
                 document.querySelector('.pagination-div-one-category').classList.remove('display-none');
-                console.dir(res.length);
+                // console.dir(res.length);
             }
             
         })
