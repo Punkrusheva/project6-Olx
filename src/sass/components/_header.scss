@@ -147,6 +147,11 @@
 
   &.authorization {
     background-color: #f5f6fb;
+
+    &.is-hiddden {
+      display: none;
+    }
+
     & .button__text {
       @media screen and (max-width: 1279px) {
         display: none;
@@ -207,6 +212,10 @@
     border-top: 1px solid $background-color;
     border-bottom: 1px solid $background-color;
     background-color: #f5f6fb;
+
+    &.is-hiddden {
+      display: none;
+    }
   }
 
   &.authorization:hover,
@@ -419,6 +428,10 @@
     @media screen and (min-width: 1280px) {
       display: none;
     }
+  }
+
+  &.is-hiddden {
+    display: none;
   }
 }
 
