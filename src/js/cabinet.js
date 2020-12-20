@@ -3,6 +3,8 @@ import openCabinet from '../templates/cabinet.hbs';
 import axios from 'axios';
 
 // фэч
+
+
 const URL = 'https://callboard-backend.herokuapp.com';
 async function fetchmyOffice(){
   const key = localStorage.getItem('key');
@@ -15,7 +17,7 @@ async function fetchmyOffice(){
   };
   const response = await fetch(`${URL}/user`,options);
       const responseJson = await response.json();
-console.log(responseJson);
+console.log();
       return responseJson;
   }
   fetchmyOffice()
@@ -23,7 +25,7 @@ console.log(responseJson);
   cabinetRef.addEventListener('click', openCabinetRef);
 
   function openCabinetRef(){
-    fetchmyOffice(URL).then(render => document.querySelector('.main-container').innerHTML = openCabinet(render.favourites))
+    fetchmyOffice(URL).then(render => document.querySelector('.main-container').innerHTML = openCabinet(render.user))
    
   }
   
