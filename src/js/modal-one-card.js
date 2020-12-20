@@ -1,11 +1,41 @@
 import openCard from '../templates/modal-one-card.hbs';
-console.log(openCard);
+// import { category, renderCard  } from './main-section';
 
-document.body.addEventListener('click', modalOperations, )
+// console.log(openCard);
+
+try {
+  window.addEventListener('load', () => {
+    const lists = document.querySelectorAll('.fullscreen');
+    lists.forEach(list => {
+      list.addEventListener('click', modalOperations);
+    });
+  });
+} catch (error) {
+  // console.log("Проблема з додаванням слухача на <body>: ", error);
+}
+
+// document.body.addEventListener('click', modalOperations, )
 
 
 
 async function modalOperations(evt) {
+  // console.log(evt.srcElement.attributes[1].nodeValue);
+
+  // if (evt.srcElement.attributes[1].nodeValue !== '12') {
+  //   return;
+  // }
+
+  const {
+    category,
+    description,
+    title,
+    price,
+    phone,
+    id,
+    images,
+  } = evt.target.dataset;
+
+  // console.log(category, description, title, price, phone, id, images);
 
     const aboutSellerContOpened = document.querySelector(
         '.modal-button-box-info');
@@ -14,8 +44,14 @@ async function modalOperations(evt) {
 
     const mainModalPhoto = document.querySelector('.main-modal-product-photo');
 
-    if (evt.target.classList.contains('product-card-icon-fullscreen')) {
-        refs.backdrop.classList.remove('is-hidden');
+  if (evt.srcElement.attributes[1].nodeValue !== '12') {
+
+    // fetch(renderCard(response)).then(response => {
+    //   console.log('response=', response);
+    //   document.body.insertAdjacentHTML("afterbegin", openCard(response))
+    // }).then(refs.backdrop.classList.remove('is-hidden')).catch(console.log(error));
+
+
     }
 
     if (evt.target.classList.contains('product-photo-list-item-img'))
@@ -52,7 +88,7 @@ const refs = {
     // parentCloseModalBtn: document.querySelector('.open-card'),
     сloseModalBtn: document.querySelector('[data-close]'),
     modal: document.querySelector('[data-modal-one]'),
-    cont: document.getElementsByTagName('.open-card'),
+    // cont: document.getElementsByTagName('.open-card'),
     backdrop: document.querySelector('.backdrop-modal-product'),
 
   };
@@ -81,9 +117,7 @@ function onClickOpenModal(ev) {
 
 }
 
-console.log('refs.cont=', refs.cont);
-
-refs.cont.addEventListener('click', onClickCloseModal);
+// refs.cont.addEventListener('click', onClickCloseModal);
 
 function onClickCloseModal(e) {
   e.preventDefault();
@@ -113,3 +147,5 @@ function onClickCloseModal(e) {
       onClickCloseModal()
     }
 }
+
+// export  { category, renderCard };

@@ -21,11 +21,11 @@ import './js/createAD/auth-check';
 
 
 //import './js/history/router-my';
-import './js/history/bad-url'; 
+import './js/history/bad-url';
 
 // import './js/favorites/addAndRemoveFavorite';
 
-//import './js/modal-one-card';
+import './js/modal-one-card';
 
 import './js/auth-modal/authApi';
 import './js/auth-modal/authLogin';
