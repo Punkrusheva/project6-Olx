@@ -56,6 +56,10 @@ class AllCategory {
 const category = new AllCategory();
 
 function markOnePage() {
+   document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="one-page"]`).classList.add('is-active');
+
     category.onePage();
 
     category.fetchAllCategory().then(result => {
@@ -106,10 +110,12 @@ function markOnePage() {
          onSwiper()
         
     });
+
     // onSwiper();
    document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="one-page"]`).classList.add('is-active');
+
 } 
 
 markOnePage();
@@ -121,7 +127,9 @@ document.querySelector(`[data-atribute="three-page"]`).addEventListener('click',
 
 function markTwoPage(event) {
     event.preventDefault();
-
+    document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="two-page"]`).classList.add('is-active');
     category.twoPage();
 
     category.fetchAllCategory().then(result => {
@@ -136,14 +144,18 @@ function markTwoPage(event) {
     .then(response => {
         renderCard(response);
     });
+
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="two-page"]`).classList.add('is-active');
+
 }
 
 function markThreePage(event) {
     event.preventDefault();
-    
+    document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="three-page"]`).classList.add('is-active');
     category.threePage();
 
     category.fetchAllCategory().then(result => {
@@ -162,6 +174,7 @@ function markThreePage(event) {
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="three-page"]`).classList.add('is-active'); 
+
 }
 
 function renderSlaider(result) {
