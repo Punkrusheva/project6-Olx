@@ -1,4 +1,3 @@
-//import productCardTpl from '../templates/product-cards.hbs'
 import productCardTpl from '../templates/search-result.hbs'
 
 export default SearchProducts()
@@ -35,7 +34,8 @@ function SearchProducts() {
     const modalSearch = document.querySelector('[data-search-modal]')
     const input = document.querySelector('.search__input')
     const error1 = document.querySelector('.error-text')
-    
+    const pagination = document.querySelector('.pagination-div');
+
     const products = new FindProduct()
 
     searchForm.addEventListener('submit', onSearch);
@@ -61,6 +61,7 @@ function SearchProducts() {
 
     function appendCardMarkup(card) {
         searchContainer.innerHTML = `${productCardTpl(card)}`
+        pagination.innerHTML =''
     }
 
     async function fetchProductCard() {
