@@ -13,8 +13,8 @@ import './js/modal';
 import './js/createAD/createAdOpenClose';
 import './js/createAD/createAd';
 import './js/createAD/auth-check';
-import './js/editAd';
-import './js/deleteAd';
+// import './js/editAd';
+// import './js/deleteAd';
 
 //import './js/history/router-my';
 import './js/history/bad-url'; 
