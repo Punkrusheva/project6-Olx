@@ -15,40 +15,21 @@ async function fetchmyOffice(){
   };
   const response = await fetch(`${URL}/user`,options);
       const responseJson = await response.json();
+console.log(responseJson);
       return responseJson;
   }
-  const cabinetRef = document.querySelector('.favor');
+  fetchmyOffice()
+  const cabinetRef = document.querySelector('.advert');
   cabinetRef.addEventListener('click', openCabinetRef);
 
-  fetchmyOffice()
   function openCabinetRef(){
-    fetchmyOffice(URL).then(render => document.querySelector('.main-container').innerHTML = openCabinet(render))
+    fetchmyOffice(URL).then(render => document.querySelector('.main-container').innerHTML = openCabinet(render.favourites))
+   
   }
   
   
 
 
-// export const fetchmyOffice = () => {
-//   return axios(`${BASE_URL}user`);
-// }
-// рендер
-// const renderCabinetList = async () => {
-//   try {
-//     const response = await fetchmyOffice();
-//     const { data } = response;
-
-//     cabinetRef.innerHTML = openCabinet(data);
-//   } catch (error) {
-//     pushError(
-//       'Помилка!',
-//     );
-//   }
-// };
 
 
 
-// if(token) {
-//   renderCabinetList()
-// } else {
-//   console.log('Шалишь!')
-// }
