@@ -6,7 +6,7 @@ export const renderBadUrl = function () {
   title.textContent = '404 Not found. ';
   const description = document.createElement('h2');
   description.classList.add('bad-url__description');
-  description.textContent = 'Сторiнка не знайдена, спробуй ще!'
+  description.textContent = 'Сторiнка не знайдена!'
   wrapper.append(title, description);
 
   document.querySelector('.section').innerHTML = '';
