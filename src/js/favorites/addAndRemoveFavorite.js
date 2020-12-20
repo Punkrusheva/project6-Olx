@@ -7,6 +7,7 @@ const refs = {
 }
 
 //Добавление в избранное POST/call/favourite/{callId}
+
 function onAddToFavoriteListener(){
     refs.addFavoriteBtn.addEventListener('click', addFavoriteCard);
 }
