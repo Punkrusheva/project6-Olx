@@ -7,7 +7,7 @@ import './js/menu';
 import './js/user-button';
 
 import './js/main-section';
-import './js/swiper';
+// import './js/swiper';
 
 //import './js/carousel';
 

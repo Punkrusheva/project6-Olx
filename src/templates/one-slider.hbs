@@ -3,14 +3,15 @@
         <div class="categories">
             <div data-action="mark-card" class="gallery">
                 {{#each this}}
-                <div class="one-categories swiper-container">
-                    <div class="categories-title">
+                <div class="one-categories">
+                    <div class="categories-title swiper-container">
                         <a data-action="prev-card" class="icon-left arrow prev swiper-button-prev">
                             <svg class="icon-left-svg" width="30" height="30">
                                 <use href="./images/sprite.svg#icon-elem-left"></use>
                             </svg></a>
                         <h2 class="section-title">{{tran}}</h2>
-                        <button data-atribute-btn="{{category}}" class="section-text">Дивитися всі</button>
+                        <button name="watch-all" data-atribute-btn="{{category}}" class="section-text">Дивитися
+                            всі</button>
                         {{!-- <a class="section-text" href="">Дивитися всі</a> --}}
                         <a data-action="next-card" class="icon-right arrow next swiper-button-next">
                             <svg class="icon-right-svg" width="30" height="30">
