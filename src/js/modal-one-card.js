@@ -1,9 +1,10 @@
 import openCard from '../templates/modal-one-card.hbs';
 // import { Find  } from './main-section';
-import  { AllCategory, mainСontainerRef, BASE_URL, category } from './main-section';
-
-console.log(AllCategory);
-
+import  AllCategory from './main-section';
+let category = new AllCategory;
+console.log(category.onWork());
+const BASE_URL = 'https://callboard-backend.herokuapp.com';
+const mainСontainerRef = document.querySelector('.main-container');
 mainСontainerRef.addEventListener('click', modalOperations);
 // console.log(openCard);
 

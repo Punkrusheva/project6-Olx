@@ -14,7 +14,7 @@ export const renderHomePage = function () {
     markOnlyOneCategory();
 };*/
 
-class AllCategory {
+export default class AllCategory {
     constructor() {
         this.page = 1;
         this.category = '';

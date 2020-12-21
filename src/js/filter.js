@@ -1,13 +1,11 @@
+import  AllCategory from './main-section';
+let category = new AllCategory;
+console.log(category.onWork());
 const BASE_URL = 'https://callboard-backend.herokuapp.com';
+mainСontainerRef.addEventListener('click', modalOperations);
 const main = document.querySelector('.main-container');
 
-async function onWork () {
-    const url = `${BASE_URL}/call/specific/${category}`;
-        const fetches = await fetch(url)
-        const json = await fetches.json()
-        return json
-}
-console.log(onWork());
+console.log(category.onWork());
 export default
     function markOneCategory(e) {
 
