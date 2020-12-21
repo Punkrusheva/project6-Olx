@@ -12,25 +12,24 @@
                     </svg>
                 </button>
                 <button class="product-card-icon product-card-icon-fullscreen">
-                    <svg class="icon" width="12" height="12">
+                    <svg class="icon fullscreen" width="12" height="12" data-title=“{{title}}” data-id=“{{_id}}” data-categories={{category}} data-description=“{{description}}” data-phone=“{{phone}}” data-images=“{{imageUrls}}” data-price=“{{price}}” >
                         <use href="./images/sprite.svg#icon-full-screen"></use>
                     </svg>
                 </button>
             </div>
 
         </div>
-        <div class="product-content">
-            <h3 class="product-name">{{title}}</h3>
-            {{#if isOnSale}}
-            <p class="product-price-initial decorative-line">{{oldPrice}} грн</p>
-            <p class="product-price-sale">{{price}} грн</p>
-            {{/if}}
+    </div>
+    <div class="product-content">
+        <h3 class="product-name">{{title}}</h3>
+        {{#if isOnSale}}
+        <p class="product-price-initial decorative-line">{{oldPrice}} грн</p>
+        <p class="product-price-sale">{{price}} грн</p>
+        {{/if}}
 
-            {{#unless isOnSale}}
-            <p class="product-price">{{price}} грн</p>
-            {{/unless}}
-        </div>
-    </li>
-    {{/each}}
-    {{!--
-</ul> --}}
+        {{#unless isOnSale}}
+        <p class="product-price">{{price}} грн</p>
+        {{/unless}}
+    </div>
+</li>
+{{/each}}

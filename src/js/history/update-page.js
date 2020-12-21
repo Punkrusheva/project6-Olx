@@ -1,40 +1,49 @@
-import { getDataSearch, getDataCategory } from '../servis/call'
+import { renderHomePage } from '../main-section'
+import { renderBadUrl } from './bad-url';
+//import {searchProducts} from '../search'
 
-let title = document.querySelector('.title');
+let main = document.querySelector('.main-container');
 
-export function fun1 () {
-    title.innerHTML = 'Home';
+export function homePage() {
+    renderHomePage();
 }
 
 export function fun2 () {
-    title.innerHTML = 'Page 1';
+    main.innerHTML = 'Page 1';
 }
 
 export function fun3 () {
-    title.innerHTML = 'Page 2';
+    main.innerHTML = 'Page 2';
 }
 
 export function fun4 () {
-    title.innerHTML = 'Page 3';
+    main.innerHTML = 'Page 3';
 }
 
-export function fun5 () {
-    title.innerHTML = 'Not found';
+export function badURL () {
+    renderBadUrl();
 }
 
-export async function  fun6 () {
-    let url = new URL(location.href).search;
-    let data = await getDataSearch(url.split('=')[1]);
-    title.innerHTML = JSON.stringify(data);
-}
+/*export async function  searchResults () {
+    searchProducts;
+console.log(searchProducts);
+}*/
 
-export async function  fun7 () {
+export async function  oneCategory () {
     const url = new URL(location.href).search;
+    console.log(location.href);
     const data = await getDataCategory(url.split('=')[1]);
-    title.innerHTML = JSON.stringify(data);
+    //const searchContainer = document.querySelector('.main-container')
+    main.innerHTML = JSON.stringify(data);
+    //console.log(JSON.stringify(data));
+    /*function appendCardMarkup(card) {
+        searchContainer.innerHTML = `${productCardTpl(card)}`
+        pagination.innerHTML =''
+    };
+    appendCardMarkup(product);*/
 }
 
 export async function  fun8 () {
     const search = new URL(location.href).search;
-    title.innerHTML = `Продукт № ${search.split('=')[1]}`;
+    main.innerHTML = `Продукт № ${search.split('=')[1]}`;
 }

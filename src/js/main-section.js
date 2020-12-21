@@ -1,22 +1,7 @@
-// import { template } from 'handlebars';
 import productCardTpl from '../templates/product-cards.hbs';
 import oneSliderTpl from '../templates/one-slider.hbs';
 import allCardsOneCategory from '../templates/all-cards-one-category.hbs';
-//import Swiper from 'swiper/bundle';
-//import onSlider from './swiper';
-
-// // import { onSlider } from '../js/swiper.js';
-// import slider from '../js/swiper';
-
-const mySwiper = new Swiper('.swiper-container', {
-    speed: 400,
-    spaceBetween: 100,
-});
-
-// console.dir(mySwiper);
-
-// mySwiper.slideNext();
-
+import Swiper from 'swiper/bundle';
 
 
 const mainСontainerRef = document.querySelector('.main-container');
@@ -42,7 +27,7 @@ class AllCategory {
         const json = await fetches.json()
         return json
     }
-    
+
     onePage() {
         this.page = 1;
     }
@@ -53,6 +38,8 @@ class AllCategory {
         this.page = 3;
     }
 }
+
+
 
 const category = new AllCategory();
 
@@ -70,14 +57,14 @@ function markOnePage() {
         });
         renderSlaider(result);
         renderCard(result);
+        onSwiper();
     });
 
-    // onSwiper();
    document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="one-page"]`).classList.add('is-active');
 
-} 
+}
 
 markOnePage();
 document.querySelector(`[data-atribute="one-page"]`).addEventListener('click', markOnePage);
@@ -87,7 +74,7 @@ document.querySelector(`[data-atribute="three-page"]`).addEventListener('click',
 
 
 function markTwoPage(event) {
-    event.preventDefault();
+    //event.preventDefault();
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="two-page"]`).classList.add('is-active');
@@ -100,6 +87,7 @@ function markTwoPage(event) {
         });
         renderSlaider(result);
         renderCard(result);
+        onSwiper();
     });
 
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
@@ -109,7 +97,7 @@ function markTwoPage(event) {
 }
 
 function markThreePage(event) {
-    event.preventDefault();
+    //event.preventDefault();
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="three-page"]`).classList.add('is-active');
@@ -122,11 +110,12 @@ function markThreePage(event) {
         });
         renderSlaider(result);
         renderCard(result);
+        onSwiper();
     });
 
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
-    document.querySelector(`[data-atribute="three-page"]`).classList.add('is-active'); 
+    document.querySelector(`[data-atribute="three-page"]`).classList.add('is-active');
 
 }
 
@@ -173,56 +162,75 @@ mainСontainerRef.addEventListener('click', markOnlyOneCategory);
 
 function markOnlyOneCategory(e) {
 
-    paginationGroup.classList.add('display-none');
+    const curentBtn = e.srcElement.attributes[0].nodeValue;
 
-    const curentBtn = e.srcElement.attributes[0].nodeValue;        
     if (curentBtn === 'watch-all') {
+
+        paginationGroup.classList.add('display-none');
 
         category.category = `${e.srcElement.dataset.atributeBtn}`;
         category.onWork().then(res => {
-            // console.log(res);
-
-            // for (const key in res) {
-            //     if (Object.hasOwnProperty.call(res, key)) {
-            //         const element = object[key];
-            //         console.log(element);
-            //     }
-            // }
             mainСontainerRef.innerHTML = allCardsOneCategory(res);
+
+
+
             if (res.length > 16) {
                 document.querySelector('.pagination-div-one-category').classList.remove('display-none');
-                // console.dir(res.length);
             }
-            
+            // for (const key in res) {
+            //     const arrPageOne = [];
+            //     if (key) {
+            //         const element = object[key];
+            //     }
+            //     if (key < 16) {
+            //         arrPageOne.push(res[key])
+            //     } else {
+            //        return
+            //     }
+            // }
+            // }
+
+
+
         })
     } else {
         return;
     }
 }
 
-// mainСontainerRef.addEventListener('click', nextSwiperPage);
 
-// function nextSwiperPage(e) {
+function onSwiper() {
+    document.querySelectorAll('.swiper-container').forEach(function (elem) {
+    // console.dir(elem);
+    new Swiper(elem, {
+    navigation: {
+        nextEl: elem.previousElementSibling.lastElementChild,
+        prevEl: elem.previousElementSibling.firstElementChild,
+    },
+    // slidesPerView: 1,
+    watchSlidesVisibility: true,
+    direction: 'horizontal',
+    spaceBetween: 20,
+    // simulateTouch: true,
+        touchRatio: 1,
+        loadOnTransitionStart: true,
 
-//     const curentBtn = e.srcElement.attributes[0].nodeValue;        
 
-//     if (curentBtn === './images/sprite.svg#icon-elem-right') {
-//         console.log(`curentBtn run!`);
-//         // slider.onSlider();
-//         onSwiper();
-//     } else {
-//         return;
-//     }
-// }
+    breakpoints: {
+        // when window width is >= 740px
+        768: {
+        slidesPerView: 2.2,
+        // spaceBetween: 20,
+        // direction: 'horizontal',
+        addSlidesBefore: 2,
 
-// const mySwiper = new Swiper('.swiper-container', {
-//       navigation: {
-//         nextEl: '.swiper-button-next',
-//         prevEl: '.swiper-button-prev',
-//       },
-// });
-
-// const mySwiper = document.querySelector('.swiper-container').swiper;
-
-// // Now you can use all slider methods like
-// mySwiper.slideNext();
+        },
+        1280: {
+        slidesPerView: 4.3,
+        // spaceBetween: 20,
+        // direction: 'horizontal',
+        },
+    },
+    });
+});
+}

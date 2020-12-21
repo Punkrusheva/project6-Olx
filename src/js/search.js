@@ -1,8 +1,7 @@
 import productCardTpl from '../templates/search-result.hbs'
 
-export default SearchProducts()
 
-function SearchProducts() {
+//export default function searchProducts() {
     const BASE_URL = 'https://callboard-backend.herokuapp.com'
 
     class FindProduct {
@@ -84,6 +83,4 @@ function SearchProducts() {
             error1.classList.remove('is-hidden')
         }
     }
-}
-
-
+//}
