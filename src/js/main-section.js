@@ -42,7 +42,7 @@ class AllCategory {
         const json = await fetches.json()
         return json
     }
-    
+
     onePage() {
         this.page = 1;
     }
@@ -77,7 +77,7 @@ function markOnePage() {
     document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="one-page"]`).classList.add('is-active');
 
-} 
+}
 
 markOnePage();
 document.querySelector(`[data-atribute="one-page"]`).addEventListener('click', markOnePage);
@@ -126,7 +126,7 @@ function markThreePage(event) {
 
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
-    document.querySelector(`[data-atribute="three-page"]`).classList.add('is-active'); 
+    document.querySelector(`[data-atribute="three-page"]`).classList.add('is-active');
 
 }
 
@@ -175,7 +175,7 @@ function markOnlyOneCategory(e) {
 
     paginationGroup.classList.add('display-none');
 
-    const curentBtn = e.srcElement.attributes[0].nodeValue;        
+    const curentBtn = e.srcElement.attributes[0].nodeValue;
     if (curentBtn === 'watch-all') {
 
         category.category = `${e.srcElement.dataset.atributeBtn}`;
@@ -193,7 +193,7 @@ function markOnlyOneCategory(e) {
                 document.querySelector('.pagination-div-one-category').classList.remove('display-none');
                 // console.dir(res.length);
             }
-            
+
         })
     } else {
         return;
@@ -204,7 +204,7 @@ function markOnlyOneCategory(e) {
 
 // function nextSwiperPage(e) {
 
-//     const curentBtn = e.srcElement.attributes[0].nodeValue;        
+//     const curentBtn = e.srcElement.attributes[0].nodeValue;
 
 //     if (curentBtn === './images/sprite.svg#icon-elem-right') {
 //         console.log(`curentBtn run!`);
@@ -226,3 +226,5 @@ function markOnlyOneCategory(e) {
 
 // // Now you can use all slider methods like
 // mySwiper.slideNext();
+
+export  { AllCategory, mainСontainerRef, BASE_URL, category };
