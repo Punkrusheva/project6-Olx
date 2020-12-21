@@ -1,8 +1,10 @@
 import { renderHomePage } from '../main-section'
 import { renderBadUrl } from './bad-url';
 //import {searchProducts} from '../search'
+//import {markOneCategory} from '../main-section'
 
-let main = document.querySelector('.main-container');
+const main = document.querySelector('.main-container');
+const BASE_URL = 'https://callboard-backend.herokuapp.com';
 
 export function homePage() {
     renderHomePage();
@@ -29,19 +31,32 @@ export function badURL () {
 console.log(searchProducts);
 }*/
 
-export async function  oneCategory () {
+export async function oneCategory() {
+    
     const url = new URL(location.href).search;
-    console.log(location.href);
-    const data = await getDataCategory(url.split('=')[1]);
-    //const searchContainer = document.querySelector('.main-container')
-    main.innerHTML = JSON.stringify(data);
-    //console.log(JSON.stringify(data));
-    /*function appendCardMarkup(card) {
-        searchContainer.innerHTML = `${productCardTpl(card)}`
-        pagination.innerHTML =''
-    };
-    appendCardMarkup(product);*/
+    main.innerHTML = `${url.substring(3)}`;
+    const data = url.substring(3);
+    console.log('категория!', url.substring(3));
+
+    async function onWork() {
+        const url = `${BASE_URL}/call/specific/${data}`
+        const fetches = await fetch(url)
+        const json = await fetches.json()
+        return json
+    }
+    console.log(onWork())
+    main.innerHTML = onWork().stringify(data);
 }
+    /*onWork().then(res => {
+        main.innerHTML = allCardsOneCategory(res);
+    console.log(res);}
+        
+    main.innerHTML = onWork().stringify(data);
+    //console.log(JSON.stringify(data));
+    //console.log(renderOneCategory(location.href));
+    //main.innerHTML = renderOneCategory(data);
+    };
+    //appendCardMarkup(product);*/
 
 export async function  fun8 () {
     const search = new URL(location.href).search;

@@ -28,3 +28,10 @@ import './js/createAD/createAd';
 import './js/favorites/newFavorite';
 
 import './js/modal-one-card';
+
+//import './js/history/router';
+//import './js/history/update-page';
+//import './js/history/bad-url'; 
+//import './js/history/main'; 
+//import './js/history/clear';
+//import './js/filter';
