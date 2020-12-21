@@ -88,6 +88,8 @@ ul {
 .product-card-group {
   display: flex;
   flex-wrap: wrap;
+  // flex-direction: row; // что бы выстроить картинки в ряд
+  justify-content: flex-start;
 }
 
 .product-card {
