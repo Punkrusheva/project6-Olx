@@ -2,7 +2,8 @@ import openCard from '../templates/modal-one-card.hbs';
 // import { Find  } from './main-section';
 import { AllCategory, mainСontainerRef, BASE_URL } from './main-section';
 
-// let category = new AllCategory;
+
+let category = new AllCategory;
 
 // console.log(category.onWork());
 
@@ -11,18 +12,6 @@ import { AllCategory, mainСontainerRef, BASE_URL } from './main-section';
 mainСontainerRef.addEventListener('click', modalOperations);
 // console.log(openCard);
 
-// try {
-//   window.addEventListener('load', () => {
-//     const lists = document.querySelectorAll('.fullscreen');
-//     lists.forEach(list => {
-//       list.addEventListener('click', modalOperations);
-//     });
-//   });
-// } catch (error) {
-//   // console.log("Проблема з додаванням слухача на <body>: ", error);
-// }
-
-// document.body.addEventListener('click', modalOperations, )
 
 
 async function modalOperations(evt) {
@@ -33,66 +22,69 @@ async function modalOperations(evt) {
   // const cardData = Object.values(evt.target.dataset);
 
 
-  if (!evt.target.classList.contains('fullscreen')) {
-    return;
+  if (evt.target.classList.contains('fullscreen')) {
+
+
+    console.log(evt.target.dataset);
+
+    const {
+      category,
+      description,
+      id,
+      imgUrls,
+      phone,
+      price,
+      title,
+    } = (evt.target.dataset);
+
+    console.log(title,
+      id,
+      category,
+      description,
+      phone,
+      imgUrls,
+      price);
+
+    appendCardMarkup();
+
+
+
+    //   async function fetchOneCard(id, title) {
+    //     let title = Object.values(evt.target.dataset)[0];
+    //     console.log(title);
+
+    //     const url = `${BASE_URL}/call/find?&search=${title}`
+    //     const fetches = await fetch(url)
+    //     const response = await fetches.json()
+    //     console.log(response);
+
+    //     if (response.length === 0) {
+    //       throw 'Ничего не найдено'
+    //     }
+    //     return response.find(el => {
+    //       if (el._id === id) {
+    //         console.log(response);
+    //         return true;
+    //       }
+    //     });
+    //   }
+
+    //   async function fetchProductCard() {
+    //     try {
+    //         const product = await fetchOneCard(id, title)
+    //         console.log(product)
+    //         appendCardMarkup(product)
+    //         backdrop.classList.remove("is-hidden")
+    //     } catch (error) {
+    //         errors(error)
+    //     }
+    //   }
+
+    function appendCardMarkup() {
+      mainСontainerRef.insertAdjacentHTML('afterbegin', `${openCard(data)}`);
+    }
+
   }
-
-  console.log(evt.target.dataset);
-
-  const {
-    title,
-    id,
-    category,
-    description,
-    phone,
-    imgUrls,
-    price
-  } = (evt.target.dataset);
-
-  console.log(title,
-    id,
-    category,
-    description,
-    phone,
-    imgUrls,
-    price);
-
-
-
-//   async function fetchOneCard(id, title) {
-//     let title = Object.values(evt.target.dataset)[0];
-//     console.log(title);
-
-//     const url = `${BASE_URL}/call/find?&search=${title}`
-//     const fetches = await fetch(url)
-//     const response = await fetches.json()
-//     console.log(response);
-
-//     if (response.length === 0) {
-//       throw 'Ничего не найдено'
-//     }
-//     return response.find(el => {
-//       if (el._id === id) {
-//         console.log(response);
-//         return true;
-//       }
-//     });
-//   }
-
-//   async function fetchProductCard() {
-//     try {
-//         const product = await fetchOneCard(id, title)
-//         console.log(product)
-//         appendCardMarkup(product)
-//         backdrop.classList.remove("is-hidden")
-//     } catch (error) {
-//         errors(error)
-//     }
-//   }
-
-//   function appendCardMarkup(card) {
-//     mainСontainerRef.insertAdjacentHTML('afterbegin', `${openCard(card)}`);
-// }
 
     const aboutSellerContOpened = document.querySelector(
         '.modal-button-box-info');
@@ -120,8 +112,8 @@ async function modalOperations(evt) {
 
 
 
-    if (evt.target.classList.contains("button-close")) {
-        console.log('what');
+    if (evt.target.classList.contains("icon-cross")) {
+        console.log(evt.target);
         refs.backdrop.classList.add("is-hidden");
         }
 }
@@ -144,6 +136,25 @@ const refs = {
   title: document.querySelector('.modal-content-box_title'),
 
   };
+
+const data =
+  [
+    {"imageUrls": [
+        "https://storage.googleapis.com/kidslikev2_bucket/61a7760a-8bdf-40c4-bff3-2e433c37d961.jpg"
+    ],
+    "_id": "5fd27c020031930017e917a0",
+    "title": "HTML developer",
+    "description": "html developer work for eat",
+    "category": "work",
+    "price": 0,
+    "phone": "+380930000000",
+    "isOnSale": false,
+    "userId": "5fd27aeb0031930017e91795",
+    "__v": 0
+}
+
+  ]
+
 
 // async function startListening() {
 //   refs.openModalBtn.forEach( icon =>
