@@ -6,7 +6,7 @@ import favoriteOne from '../templates/favorite-cards.hbs';
 const URL = 'https://callboard-backend.herokuapp.com';
 
 async function fetchGetFavorites(){
-const key = localStorage.getItem('key');
+const key = SessionStorage.getItem('key');
 const options = {
     method: 'GET',
   headers: {
