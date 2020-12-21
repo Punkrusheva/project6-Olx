@@ -7,19 +7,44 @@ const editAdSaveBtn = document.querySelector('[data-edit-ad-modal-save]');
 const editAdCancelBtn = document.querySelector('[data-edit-ad-modal-close]');
 const bodyRef = document.querySelector('.main-container');
 
-// const testBtn = document.querySelector('.cabinet-exit')
-// testBtn.addEventListener('click', editAdModalOpen)
+// editAdRef.addEventListener('click', editAdModalOpen);
+// // editAdSaveBtn.addEventListener('submit', editAdSubmit);
+// // editAdCancelBtn.addEventListener('reset', editAdModalClose);
 
-editAdRef.addEventListener('click', editAdModalOpen);
-editAdSaveBtn.addEventListener('submit', editAdSubmit);
-editAdCancelBtn.addEventListener('reset', editAdModalClose);
+const testBtn = document.querySelector('.product-overlay');
+testBtn.addEventListener('click', editAdModalOpen);
 
 function editAdModalOpen(event) {
   event.preventDefault();
 
-  const id = "5fda618af548230017d87c35";
+  const {
+    category,
+    description,
+    title,
+    price,
+    phone,
+    id,
+    images,
+  } = event.target.dataset;
+  console.log({
+    category,
+    description,
+    title,
+    price,
+    phone,
+    id,
+    images,
+  })
 
-  bodyRef.insertAdjacentHTML("afterbegin", editAdModal(id));
+  bodyRef.insertAdjacentHTML("afterbegin", editAdModal({
+    category,
+    description,
+    title,
+    price,
+    phone,
+    id,
+    images,
+  } ));
 }
 
 export function editAdModalClose() {

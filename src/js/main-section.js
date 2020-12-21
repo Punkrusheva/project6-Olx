@@ -3,10 +3,16 @@ import oneSliderTpl from '../templates/one-slider.hbs';
 import allCardsOneCategory from '../templates/all-cards-one-category.hbs';
 import Swiper from 'swiper/bundle';
 
-
-const mainСontainerRef = document.querySelector('.main-container');
 const BASE_URL = 'https://callboard-backend.herokuapp.com';
+const mainСontainerRef = document.querySelector('.main-container');
 const paginationGroup = document.querySelector('.pagination-div');
+
+export const renderHomePage = function () {
+    markOnePage();
+};
+/*export const markOneCategory = function () {
+    markOnlyOneCategory();
+};*/
 
 class AllCategory {
     constructor() {
@@ -38,8 +44,6 @@ class AllCategory {
         this.page = 3;
     }
 }
-
-
 
 const category = new AllCategory();
 
@@ -162,17 +166,18 @@ mainСontainerRef.addEventListener('click', markOnlyOneCategory);
 
 function markOnlyOneCategory(e) {
 
-    const curentBtn = e.srcElement.attributes[0].nodeValue;
-
+    const curentBtn = e.target.attributes[0].nodeValue;
+    
     if (curentBtn === 'watch-all') {
 
         paginationGroup.classList.add('display-none');
 
-        category.category = `${e.srcElement.dataset.atributeBtn}`;
+        category.category = `${e.target.dataset.atributeBtn}`;
+        
         category.onWork().then(res => {
             mainСontainerRef.innerHTML = allCardsOneCategory(res);
-
-
+console.log(res);
+            
 
             if (res.length > 16) {
                 document.querySelector('.pagination-div-one-category').classList.remove('display-none');
