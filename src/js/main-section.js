@@ -234,3 +234,5 @@ function onSwiper() {
     });
 });
 }
+
+export {AllCategory, BASE_URL, mainСontainerRef}
