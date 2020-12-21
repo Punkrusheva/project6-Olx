@@ -10,9 +10,6 @@ const paginationGroup = document.querySelector('.pagination-div');
 export const renderHomePage = function () {
     markOnePage();
 };
-/*export const markOneCategory = function () {
-    markOnlyOneCategory();
-};*/
 
 export default class AllCategory {
     constructor() {

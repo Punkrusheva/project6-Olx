@@ -2,6 +2,7 @@ import { renderHomePage } from '../main-section'
 import { renderBadUrl } from './bad-url';
 //import {searchProducts} from '../search'
 //import {markOneCategory} from '../main-section'
+import allCardsOneCategory from '../../templates/all-cards-one-category.hbs';
 
 const main = document.querySelector('.main-container');
 const BASE_URL = 'https://callboard-backend.herokuapp.com';
@@ -45,7 +46,11 @@ export async function oneCategory() {
         return json
     }
     console.log(onWork())
-    main.innerHTML = onWork().stringify(data);
+    main.innerHTML = allCardsOneCategory(res);
+    onWork(data).then( response => response.json())
+            .then( response => {
+        main.innerHTML = allCardsOneCategory(res);
+    })
 }
     /*onWork().then(res => {
         main.innerHTML = allCardsOneCategory(res);
