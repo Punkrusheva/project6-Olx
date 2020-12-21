@@ -20,6 +20,7 @@ ul {
   fill: Solid #000000;
 }
 .product-name {
+  width: 100%;
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
@@ -27,8 +28,10 @@ ul {
   line-height: 14px;
   letter-spacing: 0.07em;
   color: #000000;
+  margin: 0;
 }
 .product-price-sale {
+  width: auto;
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -36,11 +39,12 @@ ul {
   line-height: 16px;
   letter-spacing: 0.04em;
   color: #ff6b09;
+  margin: 0;
 }
 .product-price-initial {
   padding-left: 4px;
   padding-right: 4px;
-
+  width: auto;
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -49,6 +53,7 @@ ul {
   letter-spacing: 0.04em;
 
   color: #bbbbbb;
+  margin: 0;
 }
 .product-content-price {
   display: flex;
@@ -83,6 +88,8 @@ ul {
 .product-card-group {
   display: flex;
   flex-wrap: wrap;
+  // flex-direction: row; // что бы выстроить картинки в ряд
+  justify-content: flex-start;
 }
 
 .product-card {
@@ -94,28 +101,33 @@ ul {
     margin-bottom: 0;
   }*/
   @media screen and (min-width: 768px) and (max-width: 1280px) {
-    width: calc((100% - 20px) / 2); //352px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    &:nth-child(2n) {
-      margin-right: 0;
-    }
-    &:nth-last-child(-n + 2) {
-      margin-bottom: 0;
-    }
+    // width: calc((100% - 20px) / 2); //352px;
+    // margin-right: 20px;
+    // margin-bottom: 20px;
+    // &:nth-child(2n) {
+    //   margin-right: 0;
+    // }
+    // &:nth-last-child(-n + 2) {
+    //   margin-bottom: 0;
+    // }
+    width: calc((100% - 4 * 10px) / 2);
+    margin: 10px;
   }
   @media screen and (min-width: 1281px) {
-    width: calc((100% - 20px * 3) / 4); //295px;
-    margin-right: 20px;
-    margin-bottom: 0;
-    &:last-child {
-      margin-right: 0;
-    }
+    // width: calc((100% - 20px * 3) / 4); //295px;
+    // margin-right: 20px;
+    // margin-bottom: 0;
+    // &:last-child {
+    //   margin-right: 0;
+    // }
+    width: calc((100% - 8 * 10px) / 4);
+    margin: 10px;
   }
 }
 
 .product-content {
-  height: 75px;
+  display: flex;
+  flex-wrap: wrap;
   margin: 20px 0px 20px 20px;
 }
 .product-image {
@@ -148,6 +160,11 @@ ul {
 }
 .product-image:hover .product-overlay,
 .product-image:focus .product-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+.product-image:hover,
+.product-image:focus {
   opacity: 1;
   visibility: visible;
 }

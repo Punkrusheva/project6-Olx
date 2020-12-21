@@ -1,11 +1,8 @@
-// import { template } from 'handlebars';
 import productCardTpl from '../templates/product-cards.hbs';
-import productCardSaleTpl from '../templates/product-cart-sale.hbs';
 import oneSliderTpl from '../templates/one-slider.hbs';
+import allCardsOneCategory from '../templates/all-cards-one-category.hbs';
+import Swiper from 'swiper/bundle';
 
-
-// import CategoriesApi from './categories-api';
-// const catApi = new CategoriesApi();
 
 const mainСontainerRef = document.querySelector('.main-container');
 const BASE_URL = 'https://callboard-backend.herokuapp.com';
@@ -14,7 +11,7 @@ const paginationGroup = document.querySelector('.pagination-div');
 class AllCategory {
     constructor() {
         this.page = 1;
-        this.category = 'work';
+        this.category = '';
     }
 
     async fetchAllCategory() {
@@ -42,14 +39,15 @@ class AllCategory {
     }
 }
 
+
+
 const category = new AllCategory();
 
 function markOnePage() {
    document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="one-page"]`).classList.add('is-active');
-    // console.log(document.querySelector('.button-next-pages').textContent === event.path[0].innerText);
-    // event.preventDefault();
+
     category.onePage();
 
     category.fetchAllCategory().then(result => {
@@ -58,14 +56,14 @@ function markOnePage() {
             behavior: 'smooth',
         });
         renderSlaider(result);
-        
-        return result;
-    })
-    .then(response => {
-        renderCard(response);
+        renderCard(result);
+        onSwiper();
     });
+    
+   document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="one-page"]`).classList.add('is-active');
 
-    //document.querySelector(`[data-atribute="one-page"]`).removeEventListener('click', markThreePage);
 } 
 
 markOnePage();
@@ -74,8 +72,9 @@ document.querySelector(`[data-atribute="two-page"]`).addEventListener('click', m
 document.querySelector(`[data-atribute="three-page"]`).addEventListener('click', markThreePage);
 
 
+
 function markTwoPage(event) {
-    event.preventDefault();
+    //event.preventDefault();
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="two-page"]`).classList.add('is-active');
@@ -87,18 +86,18 @@ function markTwoPage(event) {
             behavior: 'smooth',
         });
         renderSlaider(result);
-        
-        return result;
-    })
-    .then(response => {
-        renderCard(response);
+        renderCard(result);
+        onSwiper();
     });
 
-    //document.querySelector(`[data-atribute="two-page"]`).removeEventListener('click', markTwoPage);
+    document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="two-page"]`).classList.add('is-active');
+
 }
 
 function markThreePage(event) {
-    event.preventDefault();
+    //event.preventDefault();
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="three-page"]`).classList.add('is-active');
@@ -110,14 +109,14 @@ function markThreePage(event) {
             behavior: 'smooth',
         });
         renderSlaider(result);
-
-        return result;
-    })
-    .then(response => {
-        renderCard(response);
+        renderCard(result);
+        onSwiper();
     });
 
-    //document.querySelector(`[data-atribute="three-page"]`).removeEventListener('click', markThreePage);
+    document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
+    document.querySelector(`[data-atribute="three-page"]`).classList.add('is-active'); 
+
 }
 
 function renderSlaider(result) {
@@ -162,41 +161,76 @@ function translationWordsCategories(arr) {
 mainСontainerRef.addEventListener('click', markOnlyOneCategory);
 
 function markOnlyOneCategory(e) {
-    console.log(`run markOnlyOneCategory `, e.srcElement.dataset.atributeBtn);
 
-    // if (e.srcElement.dataset.atributeBtn === 'sales') {
-    //     category.onWork().then(res => {
-    //         mainСontainerRef.innerHTML = productCardTpl(res);
-    //         console.log(res);
-    //     })
-    //     return;
-    // }
-    if (e.srcElement.dataset.atributeBtn === 'sales') {
-        category.category = `${e.srcElement.dataset.atributeBtn}`;
-        category.onWork().then(res => {
-            mainСontainerRef.innerHTML = productCardSaleTpl(res);
-            console.log(res);
-        })
-        return;
-    }
-    if (e.srcElement.dataset.atributeBtn === 'recreationAndSport') {
+    const curentBtn = e.srcElement.attributes[0].nodeValue;
+    
+    if (curentBtn === 'watch-all') {
+
+        paginationGroup.classList.add('display-none');
 
         category.category = `${e.srcElement.dataset.atributeBtn}`;
         category.onWork().then(res => {
-            mainСontainerRef.innerHTML = productCardTpl(res);
-            console.log(res);
-        })
-        return;
-    }
-    if (e.srcElement.dataset.atributeBtn === 'free') {
-        category.category = `${e.srcElement.dataset.atributeBtn}`;
-        category.onWork().then(res => {
-            mainСontainerRef.innerHTML = productCardTpl(res);
-            console.log(res);
-        })
-        return;
-    }
+            mainСontainerRef.innerHTML = allCardsOneCategory(res);
 
+            
+
+            if (res.length > 16) {
+                document.querySelector('.pagination-div-one-category').classList.remove('display-none');
+            }
+            // for (const key in res) {
+            //     const arrPageOne = [];
+            //     if (key) {
+            //         const element = object[key];
+            //     }
+            //     if (key < 16) {
+            //         arrPageOne.push(res[key])
+            //     } else {
+            //        return 
+            //     }
+            // }
+            // }
+
+           
+            
+        })
+    } else {
+        return;
+    }
 }
 
-       
+
+function onSwiper() {
+    document.querySelectorAll('.swiper-container').forEach(function (elem) {
+    // console.dir(elem);
+    new Swiper(elem, {
+    navigation: {
+        nextEl: elem.previousElementSibling.lastElementChild,
+        prevEl: elem.previousElementSibling.firstElementChild,
+    },
+    // slidesPerView: 1,
+    watchSlidesVisibility: true,
+    direction: 'horizontal',
+    spaceBetween: 20,
+    // simulateTouch: true,
+        touchRatio: 1,
+        loadOnTransitionStart: true,
+
+
+    breakpoints: {
+        // when window width is >= 740px
+        768: {
+        slidesPerView: 2.2,
+        // spaceBetween: 20,
+        // direction: 'horizontal',
+        addSlidesBefore: 2,
+           
+        },
+        1280: {
+        slidesPerView: 4.3,
+        // spaceBetween: 20,
+        // direction: 'horizontal',
+        },
+    },
+    });
+});
+}

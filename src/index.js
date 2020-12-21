@@ -1,5 +1,5 @@
 import './sass/main.scss';
-//import './js/cabinet';
+// import './js/cabinet';
 
 import './js/search-modal'
 import './js/search';
@@ -24,10 +24,7 @@ import './js/createAD/createAd';
 // import './js/editAd';
 // import './js/deleteAd';
 
-//import './js/history/router-my';
-import './js/history/bad-url'; 
+//import './js/favorites/addAndRemoveFavorite';
+import './js/favorites/newFavorite';
 
-import './js/favorites/addAndRemoveFavorite';
-
-//import './js/modal-one-card';
-
+import './js/modal-one-card';
