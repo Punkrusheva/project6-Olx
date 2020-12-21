@@ -1,15 +1,16 @@
-
-import { fun5 } from './update-page' 
+import { badURL } from './update-page' 
 import { routers } from './router';
+//console.log('Main', badURL);
 
 let auth = true;
 let startState = true;
 
-let navbarNav = document.querySelector('.navbar-nav');
+let filter = document.querySelector('.filter__inner');
 
 
-function updatePage (e) {
-    if (e.target.tagName !== "A") return
+function updatePage(e) {
+    console.log('клик!',e.target.tagName);
+    if (e.target.tagName !== "BUTTON") return
     e.preventDefault();
     refreshHistoryOnClick(e);
     updatedContent();
@@ -17,12 +18,12 @@ function updatePage (e) {
 
 function refreshHistoryOnClick(e) {
     const query = e.target.getAttribute('href');
+    console.log(query);
     updateHistory(query) 
 }
 
 const updateHistory = (query) => {
     let router = routers.find( item => item.path === query);
-    console.log(router);
     if (!router) return
     if (!router.meta.auth || !auth) updateState(query)
 }
@@ -34,7 +35,7 @@ let state = null;
 export const updatedContent = () => {
     let router = routers.find( item => item.path === history.state || item.path === location.pathname)
     if (!router) {
-        fun5();
+        badURL();
         return
     }
     if (!router.meta.auth || !auth) {
@@ -48,8 +49,8 @@ export const updatedContent = () => {
 }
 
 export const updateState = (payload) => {
-    history.pushState(payload, null, payload) 
+    history.pushState(payload, null, payload);
 } 
 
-navbarNav.addEventListener('click', updatePage);
+filter.addEventListener('click', updatePage);
 window.addEventListener('load', updatedContent());

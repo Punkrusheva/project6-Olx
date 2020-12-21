@@ -19,18 +19,17 @@
             </div>
 
         </div>
-        <div class="product-content">
-            <h3 class="product-name">{{title}}</h3>
-            {{#if isOnSale}}
-            <p class="product-price-initial decorative-line">{{oldPrice}} грн</p>
-            <p class="product-price-sale">{{price}} грн</p>
-            {{/if}}
+    </div>
+    <div class="product-content">
+        <h3 class="product-name">{{title}}</h3>
+        {{#if isOnSale}}
+        <p class="product-price-initial decorative-line">{{oldPrice}} грн</p>
+        <p class="product-price-sale">{{price}} грн</p>
+        {{/if}}
 
-            {{#unless isOnSale}}
-            <p class="product-price">{{price}} грн</p>
-            {{/unless}}
-        </div>
-    </li>
-    {{/each}}
-    {{!--
-</ul> --}}
+        {{#unless isOnSale}}
+        <p class="product-price">{{price}} грн</p>
+        {{/unless}}
+    </div>
+</li>
+{{/each}}

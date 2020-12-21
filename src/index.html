@@ -22,7 +22,7 @@
             <use href="./images/sprite.svg#icon-search_icon"></use>
           </svg>
         </button>
-        <a href="" class="logo">LOGO</a>
+        <a href="/" class="logo"><h1>LOGO</h1></a> <!--href="/project6-Olx/-->
         <button type="button" class="menu-button open" aria-label="Переключатель мобильного меню" aria-expanded="false"
           data-menu-open>
           <svg class="icon" width="24" height="24">
@@ -102,42 +102,42 @@
               </li>
 
               <li class="filter__item">
-                <button class="filter__button">Нерухомість</button>
+                <button href="trade" class="filter__button">Нерухомість</button>
               </li>
 
               <li class="filter__item">
-                <button class="filter__button transport">Транспорт</button>
+                <button href="transport" class="filter__button transport">Транспорт</button>
               </li>
 
               <li class="filter__item">
-                <button class="filter__button work">Робота</button>
+                <button href="work" class="filter__button work">Робота</button>
               </li>
 
               <li class="filter__item">
-                <button class="filter__button">Електроніка</button>
+                <button href="electronics" class="filter__button">Електроніка</button>
               </li>
 
               <li class="filter__item">
-                <button class="filter__button">Бізнес та послуги</button>
+                <button href="business_and_services" class="filter__button">Бізнес та послуги</button>
               </li>
 
               <li class="filter__item">
-                <button class="filter__button">Відпочинок і спорт</button>
+                <button href="recreation_and_sport" class="filter__button">Відпочинок і спорт</button>
               </li>
 
               <li class="filter__item">
-                <button class="filter__button">Віддам безкоштовно</button>
+                <button href="free" class="filter__button">Віддам безкоштовно</button>
               </li>
 
               <li class="filter__item">
-                <button class="filter__button">Обмін</button>
+                <button href="exchange" class="filter__button">Обмін</button>
               </li>
             </ul>
 
           </div>
         </div>
 
-        <button class="filter__button-clear" type="reset">
+        <button href="" class="filter__button-clear" type="reset">
           Очистити фільтри
         </button>
 
@@ -298,23 +298,26 @@
       </button>
       <p class="auth-modal-title">Ви можете авторизуватися за допомогою Google Account:</p>
       <button class="google-auth">
+        <a href="https://callboard-backend.herokuapp.com/auth/google">
         <svg class="google-auth-icon" width="18px" height="18px">
           <use href="./images/sprite.svg#icon-google-icon"></use>
         </svg>
         <span class="google-auth-title">Google</span>
+        </a>
       </button>
       <p class="auth-modal-title">Або зайти за допомогою імейлу і пароля, попередньо зареєструвавшись:</p>
       <form class="auth-form" id="auth-form">
-        <input type="email" name="email" class="auth-input email" id="userEmail" placeholder="E-mail">
+        <p class="email-error"></p>
+        <input type="email" name="email" class="auth-input email" id="userEmail"  placeholder="E-mail">
+        <p class="password-error"></p>
         <input type="password" name="password" class="auth-input password" id="userPassword" placeholder="Password">
-        <div class="auth-buttons">
+          <div class="auth-buttons">
           <button type="submit" class="button-orange js-btn-login">Увійти</button>
           <button type="submit" class="button-gray js-btn-registr">Зареєструватись</button>
         </div>
       </form>
     </div>
   </div>
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 </body>
 

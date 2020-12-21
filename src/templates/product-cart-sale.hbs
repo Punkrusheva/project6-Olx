@@ -1,6 +1,9 @@
 {{#each this}}
 <ul class="product-card-group">
-    <li class="product-card">
+    {{#each this}}
+    <li class="product-card" data-id={{_id}} data-category=“{{category}}” data-description=“{{description}}”
+        data-phone=“{{phone}}” data-userID=“{{userId}}” data-title=“{{title}}” data-images=“{{imageUrls}}”
+        data-price=“{{price}}”>
         <div class="product-image">
             <img class="product-img" src="./images/rectangle-7.jpg" alt="" />
             <div class="product-overlay">

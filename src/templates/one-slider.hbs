@@ -1,32 +1,32 @@
-{{!-- <div data-action="mark-card" class="gallery"> --}}
-    <div class="categories-group">
-        <div class="categories">
-            <div data-action="mark-card" class="gallery">
-                {{#each this}}
-                <div class="one-categories">
-                    <div class="categories-title">
-                        <div data-action="prev-card" class="icon-left">
-                            <svg class="icon-left-svg" width="30" height="30">
-                                <use href="./images/sprite.svg#icon-elem-left"></use>
-                            </svg>
-                        </div>
-                        <h2 class="section-title">{{tran}}</h2>
-                        <button name="watch-all" data-atribute-btn="{{category}}" class="section-text">Дивитися
-                            всі</button>
-
-                        {{!-- <a class="section-text" href="">Дивитися всі</a> --}}
-                        <div data-action="next-card" class="icon-right">
-                            <svg class="icon-right-svg" width="30" height="30">
-                                <use href="./images/sprite.svg#icon-elem-right"></use>
-                            </svg>
-                        </div>
+<div class="categories-group">
+    <div class="categories">
+        <div data-action="mark-card" class="gallery">
+            {{#each this}}
+            <div class="one-categories">
+                <div class="categories-title">
+                    <div data-action="prev-card" class="icon-left swiper-button-prev">
+                        <svg class="icon-left-svg" width="30" height="30">
+                            <use href="./images/sprite.svg#icon-elem-left"></use>
+                        </svg>
                     </div>
-                    <ul data-category="{{category}}" class="product-card-group images">
+                    <h2 class="section-title">{{tran}}</h2>
+                    <button name="watch-all" data-atribute-btn="{{category}}" class="section-text">Дивитися
+                        всі</button>
+
+                    <div data-action="next-card" class="icon-right swiper-button-next">
+                        <svg class="icon-right-svg" width="30" height="30">
+                            <use href="./images/sprite.svg#icon-elem-right"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="swiper-container">
+                    <ul data-category="{{category}}" class="product-card-group images swiper-wrapper">
                         <!-- вставляем карточки товара -->
                     </ul>
                 </div>
-                {{/each}}
             </div>
+            {{/each}}
         </div>
-
     </div>
+
+</div>
