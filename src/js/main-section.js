@@ -1,8 +1,7 @@
-// import { template } from 'handlebars';
 import productCardTpl from '../templates/product-cards.hbs';
 import oneSliderTpl from '../templates/one-slider.hbs';
 import allCardsOneCategory from '../templates/all-cards-one-category.hbs';
-
+import Swiper from 'swiper/bundle';
 
 const mainСontainerRef = document.querySelector('.main-container');
 const BASE_URL = 'https://callboard-backend.herokuapp.com';
@@ -39,6 +38,8 @@ class AllCategory {
     }
 }
 
+
+
 const category = new AllCategory();
 
 function markOnePage() {
@@ -55,9 +56,9 @@ function markOnePage() {
         });
         renderSlaider(result);
         renderCard(result);
+        onSwiper();
     });
-
-    // onSwiper();
+    
    document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="one-page"]`).classList.add('is-active');
@@ -85,6 +86,7 @@ function markTwoPage(event) {
         });
         renderSlaider(result);
         renderCard(result);
+        onSwiper();
     });
 
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
@@ -107,6 +109,7 @@ function markThreePage(event) {
         });
         renderSlaider(result);
         renderCard(result);
+        onSwiper();
     });
 
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
@@ -158,43 +161,32 @@ mainСontainerRef.addEventListener('click', markOnlyOneCategory);
 
 function markOnlyOneCategory(e) {
 
-    paginationGroup.classList.add('display-none');
-
     const curentBtn = e.srcElement.attributes[0].nodeValue;
-    console.log(curentBtn);
+    
     if (curentBtn === 'watch-all') {
+
+        paginationGroup.classList.add('display-none');
 
         category.category = `${e.srcElement.dataset.atributeBtn}`;
         category.onWork().then(res => {
-            console.log(res);
             mainСontainerRef.innerHTML = allCardsOneCategory(res);
-            // console.log(e);
+
+            
 
             if (res.length > 16) {
                 document.querySelector('.pagination-div-one-category').classList.remove('display-none');
             }
-
             // for (const key in res) {
-            //     console.log('key', key);
-            //     console.log('res[key]', res[key]);
             //     const arrPageOne = [];
             //     if (key) {
             //         const element = object[key];
-            //         console.log(element);
             //     }
             //     if (key < 16) {
             //         arrPageOne.push(res[key])
-                    
             //     } else {
             //        return 
             //     }
-            //     console.log(arrPageOne);
             // }
-
-            // for (const iterator of res) {
-            //     // if (condition) {
-            //     // }
-            //     console.log(`iterator`, iterator);
             // }
 
            
@@ -205,3 +197,39 @@ function markOnlyOneCategory(e) {
     }
 }
 
+
+function onSwiper() {
+    document.querySelectorAll('.swiper-container').forEach(function (elem) {
+    // console.dir(elem);
+    new Swiper(elem, {
+    navigation: {
+        nextEl: elem.previousElementSibling.lastElementChild,
+        prevEl: elem.previousElementSibling.firstElementChild,
+    },
+    // slidesPerView: 1,
+    watchSlidesVisibility: true,
+    direction: 'horizontal',
+    spaceBetween: 20,
+    // simulateTouch: true,
+        touchRatio: 1,
+        loadOnTransitionStart: true,
+
+
+    breakpoints: {
+        // when window width is >= 740px
+        768: {
+        slidesPerView: 2.2,
+        // spaceBetween: 20,
+        // direction: 'horizontal',
+        addSlidesBefore: 2,
+           
+        },
+        1280: {
+        slidesPerView: 4.3,
+        // spaceBetween: 20,
+        // direction: 'horizontal',
+        },
+    },
+    });
+});
+}
