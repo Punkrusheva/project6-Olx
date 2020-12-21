@@ -298,16 +298,20 @@
       </button>
       <p class="auth-modal-title">Ви можете авторизуватися за допомогою Google Account:</p>
       <button class="google-auth">
+        <a href="https://callboard-backend.herokuapp.com/auth/google">
         <svg class="google-auth-icon" width="18px" height="18px">
           <use href="./images/sprite.svg#icon-google-icon"></use>
         </svg>
         <span class="google-auth-title">Google</span>
+        </a>
       </button>
       <p class="auth-modal-title">Або зайти за допомогою імейлу і пароля, попередньо зареєструвавшись:</p>
       <form class="auth-form" id="auth-form">
-        <input type="email" name="email" class="auth-input email" id="userEmail" placeholder="E-mail">
+        <p class="email-error"></p>
+        <input type="email" name="email" class="auth-input email" id="userEmail"  placeholder="E-mail">
+        <p class="password-error"></p>
         <input type="password" name="password" class="auth-input password" id="userPassword" placeholder="Password">
-        <div class="auth-buttons">
+          <div class="auth-buttons">
           <button type="submit" class="button-orange js-btn-login">Увійти</button>
           <button type="submit" class="button-gray js-btn-registr">Зареєструватись</button>
         </div>
