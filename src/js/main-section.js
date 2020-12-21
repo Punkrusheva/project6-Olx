@@ -3,6 +3,7 @@ import oneSliderTpl from '../templates/one-slider.hbs';
 import allCardsOneCategory from '../templates/all-cards-one-category.hbs';
 import Swiper from 'swiper/bundle';
 
+
 const mainСontainerRef = document.querySelector('.main-container');
 const BASE_URL = 'https://callboard-backend.herokuapp.com';
 const paginationGroup = document.querySelector('.pagination-div');
@@ -73,7 +74,7 @@ document.querySelector(`[data-atribute="three-page"]`).addEventListener('click',
 
 
 function markTwoPage(event) {
-    event.preventDefault();
+    //event.preventDefault();
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="two-page"]`).classList.add('is-active');
@@ -96,7 +97,7 @@ function markTwoPage(event) {
 }
 
 function markThreePage(event) {
-    event.preventDefault();
+    //event.preventDefault();
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="three-page"]`).classList.add('is-active');

@@ -1,5 +1,5 @@
 import './sass/main.scss';
-//import './js/cabinet';
+// import './js/cabinet';
 
 import './js/search-modal'
 import './js/search';
@@ -16,11 +16,8 @@ import './js/createAD/auth-check';
 // import './js/editAd';
 // import './js/deleteAd';
 
-
-//import './js/history/router-my';
-import './js/history/bad-url'; 
-
-// import './js/favorites/addAndRemoveFavorite';
+//import './js/favorites/addAndRemoveFavorite';
+import './js/favorites/newFavorite';
 
 import './js/modal-one-card';
 
@@ -29,4 +26,12 @@ import './js/auth-modal/authLogin';
 import './js/auth-modal/authRegistr';
 import './js/auth-modal/pnotify';
 import './js/auth-modal/auth';
-// import './js/my-favorite';
+
+import './js/my-favorite';
+
+//import './js/history/router';
+//import './js/history/update-page';
+//import './js/history/bad-url'; 
+//import './js/history/main'; 
+//import './js/history/clear';
+

@@ -1,12 +1,13 @@
 <h2>Результати пошуку:</h2>
 <ul class="product-card-group images">
     {{#each this}}
-    <li class="product-card">
+    <li class="product-card" data-id={{_id}} data-category=“{{category}}” data-description=“{{description}}”
+        data-phone=“{{phone}}” data-userID=“{{userId}}” data-title=“{{title}}” data-images=“{{imageUrls}}”
+        data-price=“{{price}}”>
         <div class="product-image">
-            {{#each imageUrls }}
-            <img class="product-img" src="{{ this }}" alt="{{title}}" />
-            {{/each }}
-
+            {{#each imageUrls}}
+            <img class="product-img" src="{{this}}" alt="{{title}}" />
+            {{/each}}
             <div class="product-overlay">
                 <button class="product-card-icon product-card-icon-favorite">
                     <svg class="icon" width="16" height="16">

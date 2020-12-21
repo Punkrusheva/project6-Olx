@@ -1,61 +1,37 @@
 
 import openCabinet from '../templates/cabinet.hbs';
-
-// const main = document.querySelector('.section')
-// const refs = {
-//     openCabinetBtn: document.querySelector('[open-modal-cabinet]'),
-//     myList:document.querySelector(my-cabinet)
-//     // сloseModalBtn: document.querySelector('.close-form'),
-//     // modal: document.querySelector('[data-modal]'),
-//     // cont: document.getElementsByTagName('.open-card'),
-
-//   };
-
-// refs.openCabinetBtn.addEventListener("click", onClickOpenModal);
-
-// refs.myList.insertAdjacentHTML("afterbegin", openCabinet());
-// function onClickOpenModal(ev) {
-
-//   ev.preventDefault();
-
-//     try {
-//         refs.cont.insertAdjacentHTML("afterbegin", openCabinet());
-//     // window.addEventListener("keydown", onKeyDown);
-//     // refs.modal.addEventListener("click", onOverlayClick);
-//     //   refs.modal.classList.remove("is-hidden");
-
-//     }
-
-//     catch (error) {
-//         console.log(error);
-//     }
-
-// }
-const cabinetRef = document.querySelector('.main-container');
+import axios from 'axios';
 
 // фэч
-export const fetchmyOffice = () => {
-  return axios(`${BASE_URL}user`);
-}
-// рендер
-const renderCabinetList = async () => {
-  try {
-    const response = await fetchmyOffice();
-    const { data } = response;
 
-    cabinetRef.innerHTML = openCabinet(data);
-  } catch (error) {
-    pushError(
-      'Помилка!',
-    );
+
+const URL = 'https://callboard-backend.herokuapp.com';
+async function fetchmyOffice(){
+  const key = localStorage.getItem('key');
+  const options = {
+      method: 'GET',
+    headers: {
+        
+      Authorization: `Bearer ${key}`,
+    }, 
+  };
+  const response = await fetch(`${URL}/user`,options);
+      const responseJson = await response.json();
+console.log();
+      return responseJson;
   }
-};
+  fetchmyOffice()
+  const cabinetRef = document.querySelector('.advert');
+  cabinetRef.addEventListener('click', openCabinetRef);
+
+  function openCabinetRef(){
+    fetchmyOffice(URL).then(render => document.querySelector('.main-container').innerHTML = openCabinet(render.user))
+   
+  }
+  
+  
 
 
-const token = localStorage.getItem('token');
 
-if(token) {
-  renderCabinetList()
-} else {
-  window.location.href = '/registration.html'
-}
+
+

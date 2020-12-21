@@ -1,13 +1,19 @@
-import { fun1, fun2, fun3, fun4, fun6, fun7, fun8 } from './update-page' 
-
+import { homePage, searchResults, fun2, fun3, fun4, oneCategory, fun8 } from './update-page' 
+//console.log('Router', searchResults);
 export const routers = [
     {
         path:'/',
-        component: fun1,
+        component: homePage,
         meta: { auth: false}
     },
-      {        path:'/category',
-        component: fun7,
+   /* {
+        path:'/search',
+        component: searchResults,
+        meta: { auth: false}
+    },*/
+    {
+        path: '/category',
+        component: oneCategory,
         meta: { auth: false}
     },
 
@@ -27,14 +33,8 @@ export const routers = [
         meta: { auth: false}
     }, 
     {
-        path:'/search',
-        component: fun6,
-        meta: { auth: false}
-    },
-    
-    {
         path:'/goods',
         component: fun8,
         meta: { auth: false}
     }
-     ];
+];
