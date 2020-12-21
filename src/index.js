@@ -23,7 +23,7 @@ import './js/createAd/createAd';
 // import './js/editAd';
 // import './js/deleteAd';
 
-//import './js/favorites/addAndRemoveFavorite';
+import './js/favorites/addAndRemoveFavorite';
 import './js/favorites/newFavorite';
 
 //import './js/modal-one-card';
