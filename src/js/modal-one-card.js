@@ -1,8 +1,12 @@
 import openCard from '../templates/modal-one-card.hbs';
 // import { Find  } from './main-section';
-import  { AllCategory, mainСontainerRef, BASE_URL, category } from './main-section';
+import { AllCategory, mainСontainerRef, BASE_URL } from './main-section';
 
-console.log(AllCategory);
+// let category = new AllCategory;
+
+// console.log(category.onWork());
+
+// console.log(AllCategory);
 
 mainСontainerRef.addEventListener('click', modalOperations);
 // console.log(openCard);
@@ -22,58 +26,73 @@ mainСontainerRef.addEventListener('click', modalOperations);
 
 
 async function modalOperations(evt) {
-  // console.log(evt.target.getAttribute('data-hbs') == '12');
-  // console.log(evt);
+
   // console.log(evt.target.classList.contains('fullscreen'));
   evt.preventDefault();
 
-  const cardData = Object.values(evt.target.dataset);
-  console.log(cardData);
+  // const cardData = Object.values(evt.target.dataset);
 
 
   if (!evt.target.classList.contains('fullscreen')) {
     return;
   }
-  const title = cardData[0];
-  const id = cardData[1];
-  const category = cardData[2];
-  const description = cardData[3];
-  const phone = cardData[4];
-  const imgUrls = cardData[5];
-  const price = cardData[6];
 
-  async function fetchOneCard(id, title) {
-    const title = Object.values(evt.target.dataset)[0];
+  console.log(evt.target.dataset);
 
-    const url = `${BASE_URL}/call/find?&search=${title}`
-    const fetches = await fetch(url)
-    const response = await fetches.json()
-    console.log(json);
+  const {
+    title,
+    id,
+    category,
+    description,
+    phone,
+    imgUrls,
+    price
+  } = (evt.target.dataset);
 
-    if (json.length === 0) {
-      throw 'Ничего не найдено'
-    }
-    return response.find(el => {
-      if (el._id === id) {
-        return true;
-      }
-    });
-  }
+  console.log(title,
+    id,
+    category,
+    description,
+    phone,
+    imgUrls,
+    price);
 
-  async function fetchProductCard() {
-    try {
-        const product = await fetchOneCard(id, title)
-        console.log(product)
-        appendCardMarkup(product)
-        backdrop.classList.remove("is-hidden")
-    } catch (error) {
-        errors(error)
-    }
-  }
 
-  function appendCardMarkup(card) {
-    mainСontainerRef.insertAdjacentHTML('afterbegin', `${openCard(card)}`);
-}
+
+//   async function fetchOneCard(id, title) {
+//     let title = Object.values(evt.target.dataset)[0];
+//     console.log(title);
+
+//     const url = `${BASE_URL}/call/find?&search=${title}`
+//     const fetches = await fetch(url)
+//     const response = await fetches.json()
+//     console.log(response);
+
+//     if (response.length === 0) {
+//       throw 'Ничего не найдено'
+//     }
+//     return response.find(el => {
+//       if (el._id === id) {
+//         console.log(response);
+//         return true;
+//       }
+//     });
+//   }
+
+//   async function fetchProductCard() {
+//     try {
+//         const product = await fetchOneCard(id, title)
+//         console.log(product)
+//         appendCardMarkup(product)
+//         backdrop.classList.remove("is-hidden")
+//     } catch (error) {
+//         errors(error)
+//     }
+//   }
+
+//   function appendCardMarkup(card) {
+//     mainСontainerRef.insertAdjacentHTML('afterbegin', `${openCard(card)}`);
+// }
 
     const aboutSellerContOpened = document.querySelector(
         '.modal-button-box-info');
@@ -119,12 +138,10 @@ function changePhoto(evt) {
 
 const refs = {
     openModalBtn: document.querySelectorAll('.product-card-icon-fullscreen'),
-    // parentCloseModalBtn: document.querySelector('.open-card'),
     сloseModalBtn: document.querySelector('[data-close]'),
     modal: document.querySelector('[data-modal-one]'),
-    // cont: document.getElementsByTagName('.open-card'),
   backdrop: document.querySelector('.backdrop-modal-product'),
-    // container: document.querySelector('.main-container'),
+  title: document.querySelector('.modal-content-box_title'),
 
   };
 
@@ -211,5 +228,14 @@ const refs = {
 
   // console.log(category, description, title, price, phone, id, images);
 
+  // try {
+  //   refs.title.textContent = title;
+  //   refs.phone.textContent = phone;
+  //   refs.infoButton.textContent = `- на OLX з 12 груд. 2020р.`; //${порахована дата від реєстрації}
+  //   refs.description.textContent = description;
+  //   refs.price.textContent = `${price} грн`;
+  // } catch (error) {
+  //   // console.log("Проблема з вставкою",error)
+  // }
 
 
