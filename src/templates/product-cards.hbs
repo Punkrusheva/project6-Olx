@@ -1,20 +1,23 @@
-{{#each this}}
-<li class="product-card swiper-slide" data-id={{_id}}>
-    <div class="product-image ex">
-        {{#each imageUrls }}
-        <img class="product-img" src="{{this}}" alt="{{title}}" />
-        {{/each }}
-        <div class="product-overlay">
-            <button data-btn-id={{_id}} class="product-card-icon product-card-icon-favorite">
-                <svg class="icon" width="16" height="16">
-                    <use href="./images/sprite.svg#icon-favorite-icon"></use>
-                </svg>
-            </button>
-            <button data-btn-id={{_id}} class="product-card-icon product-card-icon-fullscreen">
-                <svg class="icon" width="12" height="12">
-                    <use href="./images/sprite.svg#icon-full-screen"></use>
-                </svg>
-            </button>
+{{!-- <ul class="product-card-group"> --}}
+    {{#each this}}
+    <li class="product-card" data-id={{_id}}>
+        <div class="product-image ex">
+            {{#each imageUrls }}
+            <img class="product-img" src="{{this}}" alt="{{title}}" />
+            {{/each }}
+            <div class="product-overlay">
+                <button class="product-card-icon product-card-icon-favorite">
+                    <svg class="icon" width="16" height="16">
+                        <use href="./images/sprite.svg#icon-favorite-icon"></use>
+                    </svg>
+                </button>
+                <button class="product-card-icon product-card-icon-fullscreen">
+                    <svg class="icon fullscreen" width="12" height="12" data-title=“{{title}}” data-id=“{{_id}}” data-categories={{category}} data-description=“{{description}}” data-phone=“{{phone}}” data-images=“{{imageUrls}}” data-price=“{{price}}” >
+                        <use href="./images/sprite.svg#icon-full-screen"></use>
+                    </svg>
+                </button>
+            </div>
+
         </div>
     </div>
     <div class="product-content">
