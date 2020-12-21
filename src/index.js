@@ -11,6 +11,7 @@ import './js/auth-modal/authLogin';
 import './js/auth-modal/authRegistr';
 import './js/auth-modal/pnotify';
 import './js/auth-modal/auth';
+import './js/auth-modal/authValidate';
 
 
 import './js/main-section';
@@ -19,7 +20,7 @@ import './js/modal';
 
 import './js/createAD/createAdOpenClose';
 import './js/createAD/createAd';
-import './js/createAD/auth-check';
+// import './js/createAD/auth-check';
 // import './js/editAd';
 // import './js/deleteAd';
 

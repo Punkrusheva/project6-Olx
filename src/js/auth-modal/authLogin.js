@@ -33,7 +33,7 @@ export default async function loginSubmit(log) {
           sessionStorage.setItem('token', result.accessToken);
           sessionStorage.setItem('sid', result.sid);
           sessionStorage.setItem('refresh', result.refreshToken);
-          // document.getElementById('auth-form').reset();
+          console.log(result.user);
           return result.user;
         }
       })
@@ -42,35 +42,3 @@ export default async function loginSubmit(log) {
     console.log('error', error);
   }
 }
-
-// // import { loginUser } from './authApi';
-//  import { pushError } from './pnotify';
-
-// export default async function loginSubmit(event) {
-//   // event.preventDefault();
-
-//   // const { currentTarget: form } = event;
-//   // const formData = new FormData(form);
-//   const body = {};
-
-//   formData.forEach((value, key) => {
-//     body[key] = value;
-//   });
-
-//   // console.log(body);
-  
-//   try {
-//     const { response } = await loginUser(body);
-
-//     console.log(response, 'response');
-//     sessionStorage.setItem('accessToken', response.accessToken);
-//     sessionStorage.setItem('refreshToken', response.refreshToken);
-//     sessionStorage.setItem('sid', response.sid);
-//   }
-//   catch (error) {
-//     pushError(
-//       'Помилка!',
-//     );
-//   }
-//   }
-
