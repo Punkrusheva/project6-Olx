@@ -8,9 +8,13 @@ closeModalCreateADBtn.addEventListener('click', closeModalCreateAd)
 
 
 
-function openModalCreateAd() {
+function openModalCreateAd(event) {
 
-  const key = localStorage.getItem('key');
+  //  if (!event.target.classList.contains('[data-create-ad-modal-open]')) {
+  //   return;
+  // }
+
+  const key = sessionStorage.getItem('token');
   
   if (key) {
 

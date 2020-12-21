@@ -18,9 +18,8 @@ import './js/main-section';
 
 import './js/modal';
 
-import './js/createAD/createAdOpenClose';
-import './js/createAD/createAd';
-// import './js/createAD/auth-check';
+import './js/createAd/createAdOpenClose';
+import './js/createAd/createAd';
 // import './js/editAd';
 // import './js/deleteAd';
 

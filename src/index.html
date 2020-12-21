@@ -144,8 +144,8 @@
       </div>
 
     </div>
-    <div data-create-ad-modal-open class="icon-add-position">
-      <button type="button" class="icon-add user__button advertisement" data-create-ad-modal-open>
+    <div class="icon-add-position">
+      <button type="button" data-create-ad-modal-open class="icon-add user__button advertisement">
         <svg class="icon-add-svg" width="14" height="14">
           <use href="./images/sprite.svg#icon-add-img"></use>
         </svg>
@@ -206,11 +206,12 @@
           <input class="create-ad-form-input" type="text" name="title" id="title" />
         </li>
         <li class="create-ad-form-item">
-          <ul class="create-ad-photo-list">
+        
           <label class="create-ad-form-label" for="photo">Фото</label>
+          <input id="photoElem" class="photo-input" type="file" name="file" multiple accept="image/*" required />
+            <ul class="create-ad-photo-list">
               <li class="create-ad-photo">
-              <input id="photoElem" class="photo-input" type="file" name="file" multiple accept="image/*"
-                required />
+              
               <label for="photoElem" class="photo-label"><span class="material-icons">+</span></label>
               <img id="output_image" />
             </li>
