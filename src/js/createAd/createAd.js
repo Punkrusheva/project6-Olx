@@ -9,7 +9,7 @@ const cteateAdSubmit = event => {
   event.preventDefault();
  
   const data = new FormData(createAdRef);
-  const token = localStorage.getItem('key');
+  const token = sessionStorage.getItem('token');
  
   let config = {
         method: 'post',
