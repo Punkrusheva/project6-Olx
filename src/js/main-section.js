@@ -33,7 +33,7 @@ class AllCategory {
         const json = await fetches.json()
         return json
     }
-    
+
     onePage() {
         this.page = 1;
     }
@@ -63,12 +63,12 @@ function markOnePage() {
         renderCard(result);
         onSwiper();
     });
-    
+
    document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="three-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="one-page"]`).classList.add('is-active');
 
-} 
+}
 
 markOnePage();
 document.querySelector(`[data-atribute="one-page"]`).addEventListener('click', markOnePage);
@@ -119,7 +119,7 @@ function markThreePage(event) {
 
     document.querySelector(`[data-atribute="one-page"]`).classList.remove('is-active');
     document.querySelector(`[data-atribute="two-page"]`).classList.remove('is-active');
-    document.querySelector(`[data-atribute="three-page"]`).classList.add('is-active'); 
+    document.querySelector(`[data-atribute="three-page"]`).classList.add('is-active');
 
 }
 
@@ -190,13 +190,13 @@ console.log(res);
             //     if (key < 16) {
             //         arrPageOne.push(res[key])
             //     } else {
-            //        return 
+            //        return
             //     }
             // }
             // }
 
-           
-            
+
+
         })
     } else {
         return;
@@ -228,7 +228,7 @@ function onSwiper() {
         // spaceBetween: 20,
         // direction: 'horizontal',
         addSlidesBefore: 2,
-           
+
         },
         1280: {
         slidesPerView: 4.3,
