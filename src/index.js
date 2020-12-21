@@ -26,7 +26,7 @@ import './js/createAd/createAd';
 //import './js/favorites/addAndRemoveFavorite';
 import './js/favorites/newFavorite';
 
-import './js/modal-one-card';
+//import './js/modal-one-card';
 
 import './js/history/router';
 import './js/history/update-page';
