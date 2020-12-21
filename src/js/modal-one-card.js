@@ -42,12 +42,12 @@ async function modalOperations(evt) {
   const imgUrls = cardData[5];
   const price = cardData[6];
 
-  async function fetchOneCard() {
+  async function fetchOneCard(id, title) {
     const title = Object.values(evt.target.dataset)[0];
 
     const url = `${BASE_URL}/call/find?&search=${title}`
     const fetches = await fetch(url)
-    const json = await fetches.json()
+    const response = await fetches.json()
     console.log(json);
 
     if (json.length === 0) {
@@ -62,7 +62,7 @@ async function modalOperations(evt) {
 
   async function fetchProductCard() {
     try {
-        const product = await fetchOneCard()
+        const product = await fetchOneCard(id, title)
         console.log(product)
         appendCardMarkup(product)
         backdrop.classList.remove("is-hidden")
